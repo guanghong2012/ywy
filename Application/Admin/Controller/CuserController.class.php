@@ -9,6 +9,7 @@
 
 namespace Admin\Controller;
 use User\Api\CuserApi;
+use User\Api\UserlogApi;
 
 
 /**
@@ -25,7 +26,7 @@ class CuserController extends AdminController {
         $username       =   I('username');
         $map['status']  =   array('egt',0);
         if(is_numeric($username)){
-            $map['uid|username']=   array(intval($username),array('like','%'.$username.'%'),'_multi'=>true);
+            $map['id|username']=   array(intval($username),array('like','%'.$username.'%'),'_multi'=>true);
         }else{
             $map['username']    =   array('like', '%'.(string)$username.'%');
         }
@@ -247,6 +248,101 @@ class CuserController extends AdminController {
             default:  $error = '未知错误';
         }
         return $error;
+    }
+
+    /*
+     * 会员信息编辑
+     *
+     */
+    public function edit($id)
+    {
+        /* 调用注册接口编辑用户 */
+        $User = new CuserApi();
+        if(IS_POST){
+            $id = I('post.id');
+            $password = I('post.password');
+            $repassword = I('post.repassword');
+            if(!empty($password)){
+                if($repassword != $password){
+                    $this->error('两次输入密码不一致！');
+                }
+            }
+            $data = I('post.');
+            unset($data['password']);
+            unset($data['repassword']);
+            if($data){
+                $res = $User->updateInfo($id,$password,$data);
+                if($res['status']){
+                    $this->success("修改成功！");
+                }
+            }
+        }else{
+            !$id && $this->error('请选择要编辑的用户！');
+
+            $info = $User->info($id);
+            if(!$info){
+                $this->error('用户不存在！');
+            }
+            $this->assign('info',$info);
+            $this->meta_title = '编辑用户';
+            $this->display();
+        }
+    }
+
+    /*
+     * 用户资金调节
+     */
+    public function changeAccount()
+    {
+        if(IS_POST){
+            $money = I('post.money');
+            $type = I('post.type');
+            $uid = I('post.uid');
+            $desc = I('post.desc');
+            if(!is_numeric($money)){
+                $this->error("请输入数字！");
+            }
+            $UserAccountLog = new UserlogApi();
+            switch($type){
+                case 1:
+                    //增加用户金额
+                    $res = $UserAccountLog->addMoney($uid,$money,$desc,$admin_id=$_SESSION['onethink_admin']['user_auth']['uid']);
+                    break;
+                case 2:
+                    //减少用户金额
+                    $res = $UserAccountLog->reduceMoney($uid,$money,$desc,$admin_id=$_SESSION['onethink_admin']['user_auth']['uid']);
+                    break;
+            }
+            if($res){
+                $this->success('用户资金调节成功！');
+            }else{
+                $this->error("用户资金调节失败！");
+            }
+
+        }else{
+            $uid = I('uid');
+            $User = new CuserApi();
+            $info = $User->info($uid);
+            $this->assign('info',$info);
+            $this->meta_title = '调节用户资金';
+            $this->display();
+        }
+    }
+
+    /*
+     * 用户资金记录
+     */
+    public function accountLog($uid)
+    {
+        $User = new CuserApi();
+        $info = $User->info($uid);
+        $map = array('uid'=>$uid);
+        $list   = $this->lists('user_account_log', $map);
+        int_to_string($list);
+        $this->assign('_list', $list);
+        $this->assign('info',$info);
+        $this->meta_title = '用户资金变动列表';
+        $this->display();
     }
 
 }

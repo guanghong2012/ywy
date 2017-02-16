@@ -111,10 +111,10 @@
     <thead>
         <tr>
 		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
-		<th class="">UID</th>
+		<th class="">ID</th>
 		<th class="">姓名</th>
-		<th class="">积分</th>
-		<th class="">登录次数</th>
+		<th class="">账户余额</th>
+
 		<th class="">最后登录时间</th>
 		<th class="">最后登录IP</th>
 		<th class="">状态</th>
@@ -125,16 +125,21 @@
 		<?php if(!empty($_list)): if(is_array($_list)): $i = 0; $__LIST__ = $_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
             <td><input class="ids" type="checkbox" name="id[]" value="<?php echo ($vo["id"]); ?>" /></td>
 			<td><?php echo ($vo["id"]); ?> </td>
-			<td><?php echo ($vo["username"]); ?></td>
-			<td><?php echo ($vo["score"]); ?></td>
-			<td><?php echo ($vo["login"]); ?></td>
+			<td><a href="<?php echo U('Cuser/edit',array('id'=>$vo['id']));?>"><?php echo ($vo["username"]); ?></a></td>
+			<td><?php echo ($vo["account"]); ?></td>
+
 			<td><span><?php echo (time_format($vo["last_login_time"])); ?></span></td>
 			<td><span><?php echo long2ip($vo['last_login_ip']);?></span></td>
 			<td><?php echo ($vo["status_text"]); ?></td>
-			<td><?php if(($vo["status"]) == "1"): ?><a href="<?php echo U('Cuser/changeStatus?method=forbidUser&id='.$vo['id']);?>" class="ajax-get">禁用</a>
+			<td>
+				<a href="<?php echo U('Cuser/edit',array('id'=>$vo['id']));?>" >查看</a>
+				<a href="<?php echo U('Cuser/changeAccount',array('uid'=>$vo['id']));?>" >调节资金</a>
+				<a href="<?php echo U('Cuser/accountLog',array('uid'=>$vo['id']));?>" >资金记录</a>
+
+				<?php if(($vo["status"]) == "1"): ?><a href="<?php echo U('Cuser/changeStatus?method=forbidUser&id='.$vo['id']);?>" class="ajax-get">禁用</a>
 				<?php else: ?>
 				<a href="<?php echo U('Cuser/changeStatus?method=resumeUser&id='.$vo['id']);?>" class="ajax-get">启用</a><?php endif; ?>
-				<a href="<?php echo U('AuthManager/group?uid='.$vo['uid']);?>" class="authorize">授权</a>
+
                 <a href="<?php echo U('Cuser/changeStatus?method=deleteUser&id='.$vo['id']);?>" class="confirm ajax-get">删除</a>
                 </td>
 		</tr><?php endforeach; endif; else: echo "" ;endif; ?>

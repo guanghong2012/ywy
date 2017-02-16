@@ -174,9 +174,10 @@ class CuserModel extends Model{
             $map['id'] = $uid;
         }
 
-        $user = $this->where($map)->field('id,username,email,mobile,status')->find();
+        $user = $this->where($map)->field(true)->find();
         if(is_array($user) && $user['status'] = 1){
-            return array($user['id'], $user['username'], $user['email'], $user['mobile']);
+            return $user;
+            //return array($user['id'], $user['username'], $user['email'], $user['mobile']);
         } else {
             return -1; //用户不存在或被禁用
         }
@@ -229,17 +230,45 @@ class CuserModel extends Model{
      * @author huajie <banhuajie@163.com>
      */
     public function updateUserFields($uid, $password, $data){
-        if(empty($uid) || empty($password) || empty($data)){
-            $this->error = '参数错误！';
+        if(empty($uid)  || empty($data)){
+            $this->error = '没有修改任何信息！';
             return false;
         }
 
+        //密码不为空 则修改密码
+        if(!empty($password)){
+            if(strlen($password)<6){
+                $this->error = '密码长度必须大于等于6！';
+                return false;
+            }
+            $data['password'] = $password;
+        }
+
         //更新前检查用户密码
+        /*
         if(!$this->verifyUser($uid, $password)){
             $this->error = '验证出错：密码不正确！';
             return false;
         }
+        */
 
+        //更新用户信息
+        $data = $this->create($data);
+        if($data){
+            return $this->where(array('id'=>$uid))->save($data);
+        }
+        return false;
+    }
+
+    /*
+     * 更新用户单个字段信息
+     */
+    public function updateUserField($uid,$data)
+    {
+        if(empty($uid)  || empty($data)){
+            $this->error = '没有修改任何信息！';
+            return false;
+        }
         //更新用户信息
         $data = $this->create($data);
         if($data){

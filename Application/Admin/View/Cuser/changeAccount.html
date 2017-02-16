@@ -1,0 +1,53 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>调节用户资金</h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">用户姓名: <span class="" style="color:#c2a0f3;">{$info.username}</span></label>
+        </div>
+        <div class="form-item">
+            <label class="item-label">账户余额: <span class="" style="color:red;">{$info.account}</span></label>
+
+        </div>
+
+        <div class="form-item">
+            <label class="item-label">变动类型</label>
+        </div>
+        <div class="controls">
+            <select name="type">
+                <option value="1">增加</option>
+                <option value="2">减少</option>
+            </select>
+        </div>
+
+        <div class="form-item">
+            <label class="item-label">变动金额<span class="check-tips">（增加请输入正整数，减少请输入负数）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="money" value="">
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="item-label">变动说明<span class="check-tips"></span></label>
+            <div class="controls">
+                <label class="textarea input-large"><textarea name="desc"></textarea></label>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <input name="uid" type="hidden" value="{$info.id}" />
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Cuser/index')}');
+    </script>
+</block>

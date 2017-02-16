@@ -27,10 +27,10 @@
     <thead>
         <tr>
 		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
-		<th class="">UID</th>
+		<th class="">ID</th>
 		<th class="">姓名</th>
-		<th class="">积分</th>
-		<th class="">登录次数</th>
+		<th class="">账户余额</th>
+
 		<th class="">最后登录时间</th>
 		<th class="">最后登录IP</th>
 		<th class="">状态</th>
@@ -43,18 +43,23 @@
 		<tr>
             <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
 			<td>{$vo.id} </td>
-			<td>{$vo.username}</td>
-			<td>{$vo.score}</td>
-			<td>{$vo.login}</td>
+			<td><a href="{:U('Cuser/edit',array('id'=>$vo['id']))}">{$vo.username}</a></td>
+			<td>{$vo.account}</td>
+
 			<td><span>{$vo.last_login_time|time_format}</span></td>
 			<td><span>{:long2ip($vo['last_login_ip'])}</span></td>
 			<td>{$vo.status_text}</td>
-			<td><eq name="vo.status" value="1">
+			<td>
+				<a href="{:U('Cuser/edit',array('id'=>$vo['id']))}" >查看</a>
+				<a href="{:U('Cuser/changeAccount',array('uid'=>$vo['id']))}" >调节资金</a>
+				<a href="{:U('Cuser/accountLog',array('uid'=>$vo['id']))}" >资金记录</a>
+
+				<eq name="vo.status" value="1">
 				<a href="{:U('Cuser/changeStatus?method=forbidUser&id='.$vo['id'])}" class="ajax-get">禁用</a>
 				<else/>
 				<a href="{:U('Cuser/changeStatus?method=resumeUser&id='.$vo['id'])}" class="ajax-get">启用</a>
 				</eq>
-				<a href="{:U('AuthManager/group?uid='.$vo['uid'])}" class="authorize">授权</a>
+
                 <a href="{:U('Cuser/changeStatus?method=deleteUser&id='.$vo['id'])}" class="confirm ajax-get">删除</a>
                 </td>
 		</tr>
