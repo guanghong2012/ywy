@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="wsg,hth">
+    <meta name="description" content="ASW">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="{$info.keywords}">
+    <Meta name="description" Content="{$info.description}">
+    <title>{$info.title}</title>
+    <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
+    <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
+    <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
+</head>
+<body>
+<!-- 头部 -->
+<include file="Public/top"/>
+<!-- /头部 -->
+<div class="bzzx_bank">
+    <div class="w1200">
+        <div class="bzzx_fl">
+            <h2>帮助中心</h2>
+            <ul>
+                <li><a href="bzzx.php" class="a1">mssql数据库</a></li>
+                <li><a href="bzzx.php">常见问题</a></li>
+                <li><a href="bzzx.php">常见操作指南</a></li>
+                <li><a href="bzzx.php">带宽/流量/速度慢等</a></li>
+                <li><a href="bzzx.php">301/404/伪静态 </a></li>
+                <li><a href="bzzx.php">集群/负载均衡</a></li>
+                <li><a href="bzzx.php">备份/恢复/镜像</a></li>
+                <li><a href="bzzx.php">建站问题</a></li>
+                <li><a href="bzzx.php">数据迁移</a></li>
+                <li><a href="bzzx.php">服务器配置</a></li>
+            </ul>
+        </div>
+        <div class="bzzx_fr">
+            <h2>{$category.title}</h2>
+            <div class="bzzx_test">
+                <div class="bzzx_bt">
+                    <h3>{$info.title}</h3>
+                    <p><span>编辑：{$info.author}</span><span>日期：{$info.create_time|date='Y-m-d',###}</span></p>
+                </div>
+                <div class="bzzx_nr">
+                    {$info.content}
+                </div>
+                <div class="bzzx_sx">
+                    <ul>
+                        <li>上一篇：<a <if condition="$pre['pre_id'] gt 0"> href="{:U('Help/detail',array('id'=>$pre['pre_id']))}"<else />href="javascript:void(0)"</if> >{$pre.pre_title}</a></li>
+                        <li>下一篇：<a <if condition="$next['next_id'] gt 0">href="{:U('Help/detail',array('id'=>$next['next_id']))}"<else />href="javascript:void(0)"</if> >{$next.next_title}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- 底部 -->
+<include file="Public/bottom"/>
+<!-- /底部 -->
+</body>
+</html>
