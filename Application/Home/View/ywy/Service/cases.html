@@ -6,9 +6,9 @@
     <meta name="description" content="ASW">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="keywords" content="亿维云网">
-    <Meta name="description" Content="亿维云网">
-    <title>亿维云网</title>
+    <meta name="keywords" content="{$info.keywords}">
+    <Meta name="description" Content="{$info.description}">
+    <title>{$info.title}-{:C('WEB_SITE_TITLE')}</title>
     <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
     <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
@@ -35,16 +35,21 @@
     <div class="blank45"></div>
     <div class="khal_div">
         <ul>
-            <li><a class="a1" href="">网站及部署</a></li>
+            <volist name="all_case_cate" id="vo" key="k">
+            <li <if condition="$k eq count($all_case_cate)">class="li_no"</if> ><a <if condition="$info['id'] eq $vo['id']">class="a1"</if> href="{:U('Service/cases',array('cate_id'=>$vo['id']))}">{$vo.title}</a></li>
+            </volist>
+
+            <!--
             <li><a href="">视频云</a></li>
             <li><a href="">数字营销云</a></li>
             <li><a href="">大数据分析</a></li>
-            <li class="li_no"><a href="">在线教育</a></li>
+            <li class="li_no"><a href="">在线教育</a></li>-->
         </ul>
         <div class="clear"></div>
     </div>
     <div class="khal_div1">
-        <img src="__YWY__/images/6.jpg" alt="">
+        <!--案例内容-->
+        {$info.content}
     </div>
 </div>
 <div class="w1200">
@@ -54,14 +59,10 @@
 </div>
 <div class="w1220 hzhb_div">
     <ul>
-        <li><a href="" target="_blank"><img src="__YWY__/images/h1.jpg" alt=""></a></li>
-        <li><a href="" target="_blank"><img src="__YWY__/images/h2.jpg" alt=""></a></li>
-        <li><a href="" target="_blank"><img src="__YWY__/images/h3.jpg" alt=""></a></li>
-        <li><a href="" target="_blank"><img src="__YWY__/images/h4.jpg" alt=""></a></li>
-        <li><a href="" target="_blank"><img src="__YWY__/images/h5.jpg" alt=""></a></li>
-        <li><a href="" target="_blank"><img src="__YWY__/images/h6.jpg" alt=""></a></li>
-        <li><a href="" target="_blank"><img src="__YWY__/images/h7.jpg" alt=""></a></li>
-        <li><a href="" target="_blank"><img src="__YWY__/images/h8.jpg" alt=""></a></li>
+        <volist name="all_cases" id="vo">
+        <li><a <empty name="vo['url']">href="javascript:"<else />href="{$vo.url}" target="_blank" </empty> ><img src="{$vo.images|get_cover=###,'path'}" alt=""></a></li>
+        </volist>
+
     </ul>
     <div class="blank45"></div>
     <div class="clear"></div>

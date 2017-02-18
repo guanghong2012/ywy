@@ -6,9 +6,9 @@
     <meta name="description" content="ASW">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="keywords" content="亿维云网">
-    <Meta name="description" Content="亿维云网">
-    <title>亿维云网</title>
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>{:C('WEB_SITE_TITLE')}</title>
     <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
     <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
@@ -36,195 +36,42 @@
         <div class="qydt_w900 fl">
             <h1>热门动态</h1>
             <ul>
+                <volist name="list" id="vo">
                 <li>
-                    <a href="">
+                    <a href="{:U('Service/news_detail',array('id'=>$vo['id']))}">
                         <div class="div1">
                             <div class="div_fl">
-                                <img src="__YWY__/images/z1.jpg" alt="">
+                                <img src="{$vo.cover_id|get_cover=###,'path'}" alt="">
                             </div>
                             <div class="div_fr">
-                                <h2>广州市公安局网警莅临新广东金万邦</h2>
-                                <p class="p1">由于国家对网络安全越来越重视，政府也在不断提升服务质量，所以广州网警对广州大型网络服务企业进行走访，而新一代就在首批到访名单之中。</p>
-                                <p class="p2">2016-07-28</p>
+                                <h2>{$vo.title}</h2>
+                                <p class="p1">{$vo.description}</p>
+                                <p class="p2">{$vo.create_time|date='Y-m-d',###}</p>
                             </div>
                             <div class="clear"></div>
                         </div>
                     </a>
                 </li>
-                <li>
-                    <a href="">
-                        <div class="div1">
-                            <div class="div_fl">
-                                <img src="__YWY__/images/z2.jpg" alt="">
-                            </div>
-                            <div class="div_fr">
-                                <h2>广州市公安局网警莅临新广东金万邦</h2>
-                                <p class="p1">由于国家对网络安全越来越重视，政府也在不断提升服务质量，所以广州网警对广州大型网络服务企业进行走访，而新一代就在首批到访名单之中。</p>
-                                <p class="p2">2016-07-28</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="div1">
-                            <div class="div_fl">
-                                <img src="__YWY__/images/z3.jpg" alt="">
-                            </div>
-                            <div class="div_fr">
-                                <h2>广州市公安局网警莅临新广东金万邦</h2>
-                                <p class="p1">由于国家对网络安全越来越重视，政府也在不断提升服务质量，所以广州网警对广州大型网络服务企业进行走访，而新一代就在首批到访名单之中。</p>
-                                <p class="p2">2016-07-28</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="div1">
-                            <div class="div_fl">
-                                <img src="__YWY__/images/z4.jpg" alt="">
-                            </div>
-                            <div class="div_fr">
-                                <h2>广州市公安局网警莅临新广东金万邦</h2>
-                                <p class="p1">由于国家对网络安全越来越重视，政府也在不断提升服务质量，所以广州网警对广州大型网络服务企业进行走访，而新一代就在首批到访名单之中。</p>
-                                <p class="p2">2016-07-28</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="div1">
-                            <div class="div_fl">
-                                <img src="__YWY__/images/z5.jpg" alt="">
-                            </div>
-                            <div class="div_fr">
-                                <h2>广州市公安局网警莅临新广东金万邦</h2>
-                                <p class="p1">由于国家对网络安全越来越重视，政府也在不断提升服务质量，所以广州网警对广州大型网络服务企业进行走访，而新一代就在首批到访名单之中。</p>
-                                <p class="p2">2016-07-28</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="div1">
-                            <div class="div_fl">
-                                <img src="__YWY__/images/z6.jpg" alt="">
-                            </div>
-                            <div class="div_fr">
-                                <h2>广州市公安局网警莅临新广东金万邦</h2>
-                                <p class="p1">由于国家对网络安全越来越重视，政府也在不断提升服务质量，所以广州网警对广州大型网络服务企业进行走访，而新一代就在首批到访名单之中。</p>
-                                <p class="p2">2016-07-28</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="div1">
-                            <div class="div_fl">
-                                <img src="__YWY__/images/z1.jpg" alt="">
-                            </div>
-                            <div class="div_fr">
-                                <h2>广州市公安局网警莅临新广东金万邦</h2>
-                                <p class="p1">由于国家对网络安全越来越重视，政府也在不断提升服务质量，所以广州网警对广州大型网络服务企业进行走访，而新一代就在首批到访名单之中。</p>
-                                <p class="p2">2016-07-28</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="div1">
-                            <div class="div_fl">
-                                <img src="__YWY__/images/z2.jpg" alt="">
-                            </div>
-                            <div class="div_fr">
-                                <h2>广州市公安局网警莅临新广东金万邦</h2>
-                                <p class="p1">由于国家对网络安全越来越重视，政府也在不断提升服务质量，所以广州网警对广州大型网络服务企业进行走访，而新一代就在首批到访名单之中。</p>
-                                <p class="p2">2016-07-28</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </a>
-                </li>
+                </volist>
+
+
             </ul>
             <!--分页开始-->
-            <div class="page_div">
-                <ul>
-                    <li><a class="al" href=""></a></li>
-                    <li><a href="">1</a></li>
-                    <li><a href="">2</a></li>
-                    <li><a href="">3</a></li>
-                    <li><a href="">4</a></li>
-                    <li><a href="">5</a></li>
-                    <li><a href="">6</a></li>
-                    <li><a href="">...</a></li>
-                    <li><a class="ar" href=""></a></li>
-                </ul>
-                <div class="clear"></div>
-            </div>
+            {$page}
             <!--分页结束-->
         </div>
         <div class="qydt_w270 fr">
             <h1>长期活动</h1>
             <ul>
+                <volist name="long_activity" id="vo">
                 <li>
-                    <a href="">
-                        <h2>百度长时间不收录上线网站，这是搞哪样？</h2>
-                        <p>2016-11-16 </p>
+                    <a href="{:U('Service/news_detail',array('id'=>$vo['id']))}">
+                        <h2>{$vo.title}</h2>
+                        <p>{$vo.create_time|date='Y-m-d',###} </p>
                     </a>
                 </li>
-                <li>
-                    <a href="">
-                        <h2>百度长时间不收录上线网站，这是搞哪样？</h2>
-                        <p>2016-11-16 </p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <h2>百度长时间不收录上线网站，这是搞哪样？</h2>
-                        <p>2016-11-16 </p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <h2>百度长时间不收录上线网站，这是搞哪样？</h2>
-                        <p>2016-11-16 </p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <h2>百度长时间不收录上线网站，这是搞哪样？</h2>
-                        <p>2016-11-16 </p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <h2>百度长时间不收录上线网站，这是搞哪样？</h2>
-                        <p>2016-11-16 </p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <h2>百度长时间不收录上线网站，这是搞哪样？</h2>
-                        <p>2016-11-16 </p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <h2>百度长时间不收录上线网站，这是搞哪样？</h2>
-                        <p>2016-11-16 </p>
-                    </a>
-                </li>
+                </volist>
+
             </ul>
         </div>
         <div class="clear"></div>

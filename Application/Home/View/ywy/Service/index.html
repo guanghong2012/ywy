@@ -6,9 +6,9 @@
     <meta name="description" content="ASW">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="keywords" content="亿维云网">
-    <Meta name="description" Content="亿维云网">
-    <title>亿维云网</title>
+    <meta name="keywords" content="{$aboutus.title}">
+    <Meta name="description" Content="{$aboutus.description}">
+    <title>{$aboutus.title}</title>
     <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
     <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
@@ -17,7 +17,11 @@
 <!-- 头部 -->
 <include file="Public/top"/>
 <!-- /头部 -->
-<div class="ban_div"><a href=""><img src="__YWY__/images/a7.jpg" width="100%" alt=""></a></div>
+<div class="ban_div">
+    <!--
+    <a href=""><img src="__YWY__/images/a7.jpg" width="100%" alt=""></a>-->
+    <a <empty name="aboutus['video']">href="javascript:"<else />href="{$aboutus.video}" target="_blank" </empty> ><img src="{$aboutus.cover_id|get_cover=###,'path'}" width="100%" alt=""></a>
+</div>
 <div class="lanm_div">
     <div class="w1200">
         <ul>
@@ -33,12 +37,15 @@
 </div>
 <div class="gsjj_div">
     <div class="w1200">
+        {$aboutus.content}
+        <!--
         <h2 class="h_tith">我们的成就</h2>
         <br>
         <p>创建于2008年，公司先后在广州、重庆、西安、贵阳先后成立分公司。为客户持续创造价值。</p>
         <p>致力为企业提供全面的网络宣传与技术应用整体策划方案，真正实现企业互联网信息智能化，提高企业在网络科技时代的市场竞争力。</p>
         <p>公司将坚持客户导向、应用为本的策略，继续专注于在信息技术领域开拓发展成为企业、政府、家庭信息化的推动者和服务者。</p>
         <p>正道将秉承"和谐、参与、激情"的文化，与客户和合作伙伴齐心协力一起成长，共同发展。</p>
+        -->
     </div>
 </div>
 <div class="gsjj_div1 w1200">
@@ -52,16 +59,11 @@
         <div class="scrollBox" style="margin:0 auto">
             <div class="ohbox">
                 <ul class="piclist">
-                    <li><a href="" target="_blank"><img src="__YWY__/images/1.jpg" /><span>广东省守合同重信用企业</span></a></li>
-                    <li><a href="" target="_blank"><img src="__YWY__/images/2.jpg" /><span>广东省守合同重信用企业</span></a></li>
-                    <li><a href="" target="_blank"><img src="__YWY__/images/3.jpg" /><span>广东省守合同重信用企业</span></a></li>
-                    <li><a href="" target="_blank"><img src="__YWY__/images/4.jpg" /><span>广东省守合同重信用企业</span></a></li>
-                    <li><a href="" target="_blank"><img src="__YWY__/images/5.jpg" /><span>广东省守合同重信用企业</span></a></li>
-                    <li><a href="" target="_blank"><img src="__YWY__/images/1.jpg" /><span>广东省守合同重信用企业</span></a></li>
-                    <li><a href="" target="_blank"><img src="__YWY__/images/2.jpg" /><span>广东省守合同重信用企业</span></a></li>
-                    <li><a href="" target="_blank"><img src="__YWY__/images/3.jpg" /><span>广东省守合同重信用企业</span></a></li>
-                    <li><a href="" target="_blank"><img src="__YWY__/images/4.jpg" /><span>广东省守合同重信用企业</span></a></li>
-                    <li><a href="" target="_blank"><img src="__YWY__/images/5.jpg" /><span>广东省守合同重信用企业</span></a></li>
+                    <volist name="honors" id="vo">
+                    <li><a href="{$vo.cover_id|get_cover=###,'path'}" target="_blank"><img src="{$vo.cover_id|get_cover=###,'path'}" /><span>{$vo.title}</span></a></li>
+                    </volist>
+
+
                 </ul>
             </div>
             <div class="pageBtn">

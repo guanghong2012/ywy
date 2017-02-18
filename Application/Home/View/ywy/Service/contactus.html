@@ -6,9 +6,9 @@
     <meta name="description" content="ASW">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="keywords" content="亿维云网">
-    <Meta name="description" Content="亿维云网">
-    <title>亿维云网</title>
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>{:C('WEB_SITE_TITLE')}</title>
     <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
     <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
@@ -17,7 +17,9 @@
 <!-- 头部 -->
 <include file="Public/top"/>
 <!-- /头部 -->
-<div class="ban_div"><a href=""><img src="__YWY__/images/a7.jpg" width="100%" alt=""></a></div>
+<div class="ban_div">
+    <a <empty name="aboutus['video']">href="javascript:"<else />href="{$aboutus.video}" target="_blank" </empty> ><img src="{$aboutus.cover_id|get_cover=###,'path'}" width="100%" alt=""></a>
+</div>
 <div class="lanm_div">
     <div class="w1200">
         <ul>
@@ -34,28 +36,27 @@
 <div class="lxwm_div w1200">
     <div class="lxwm_w400_1">
         <ul>
-            <li class="li1">0755-83586660  0755-83583158</li>
-            <li class="li2">0755-81780330</li>
-            <li class="li3">http://www.qbt8.com</li>
-            <li class="li4">info@qbt8.com</li>
-            <li class="li5">深圳市福田区国际电子商务产业园科技楼805</li>
+            <li class="li1">{$info.tel}</li>
+            <li class="li2">{$info.fax}</li>
+            <li class="li3">{$info.website}</li>
+            <li class="li4">{$info.email}</li>
+            <li class="li5">{$info.address}</li>
         </ul>
     </div>
     <div class="lxwm_w400_2">
         <h2>亿维云网在线咨询</h2>
         <div class="div1">
-            <a href="">企业QQ交谈</a>
-            <a href="">企业QQ交谈</a>
-            <a href="">企业QQ交谈</a>
-            <a href="">企业QQ交谈</a>
-            <a href="">企业QQ交谈</a>
+            <volist name="info['consults']" id="vo">
+            <a href="{$vo}" target="_blank">企业QQ交谈</a>
+            </volist>
+
             <div class="clear"></div>
         </div>
         <h2>租用托管</h2>
-        <p>0755-81780330 转 8011 | 8028 | 8041 <br> (周一到周五9:00-18:00)</p>
+        <p>{$info.rent} <br> (周一到周五9:00-18:00)</p>
     </div>
     <div class="lxwm_w400_3">
-        <img src="__YWY__/images/a9.png" alt="">
+        <img src="{$info.cover_id|get_cover=###,'path'}" alt="">
     </div>
     <div class="clear"></div>
 </div>

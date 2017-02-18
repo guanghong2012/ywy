@@ -13,6 +13,10 @@ class HelpController extends HomeController{
     {
         $cat_id = I('cat_id');
         $keywords = I('keywords');//查询关键字
+
+        //所有分类
+        $all_cate = D('category')->where('pid=39 and status=1')->order('sort asc')->field('id,title')->select();
+
         if(empty($cat_id)){
             //获取帮助中心分类下排序第一的分类id
             $cat_id = D('category')->where('pid=39 and status=1')->order('sort asc')->getField('id');
@@ -53,6 +57,7 @@ class HelpController extends HomeController{
             $this->assign('list',$list);// 赋值数据集
             $this->assign('page',$show);// 赋值分页输出
 
+
         }
 
         if(false === $list){
@@ -61,6 +66,7 @@ class HelpController extends HomeController{
 
         /* 模板赋值并渲染模板 */
         $this->assign('category', $category);
+        $this->assign('all_cate', $all_cate);
 
         $this->display();
     }
@@ -80,7 +86,8 @@ class HelpController extends HomeController{
         if(!$info){
             $this->error($Document->getError());
         }
-
+        //所有分类
+        $all_cate = D('category')->where('pid=39 and status=1')->order('sort asc')->field('id,title')->select();
         /* 分类信息 */
         $category = $this->category($info['category_id']);
         /* 更新浏览数 */
@@ -122,6 +129,7 @@ class HelpController extends HomeController{
 
 
         /* 模板赋值并渲染模板 */
+        $this->assign('all_cate', $all_cate);
         $this->assign('category', $category);
         $this->assign('info', $info);
         $this->assign('pre',$pre);//上一篇

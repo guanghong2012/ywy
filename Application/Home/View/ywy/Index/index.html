@@ -6,9 +6,9 @@
     <meta name="description" content="ASW">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="keywords" content="亿维云网">
-    <Meta name="description" Content="亿维云网">
-    <title>亿维云网</title>
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>{:C('WEB_SITE_TITLE')}</title>
     <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
     <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
@@ -660,55 +660,22 @@
             自2006年上海成立以来，相继在北京，广州，深圳，杭州，成都，香港成立服务中心，拥有专业的全国统一400呼叫中心。
         </p>
         <div class="blank30"></div>
+
+        <volist name="advantages" id="vo" key="k">
         <div class="yous_div">
-            <div class="div1"><img src="__YWY__/images/icn_1.png" alt=""></div>
+            <div class="div1"><img src="{$vo.cover_id|get_cover=###,'path'}" alt=""></div>
             <div class="div2">
-                <h2>自动开通</h2>
-                <p>我们产品实现在线付款后实时开通，无需等待人工审核。</p>
+                <h2>{$vo.title}</h2>
+                <p>{$vo.description}</p>
             </div>
             <div class="clear"></div>
         </div>
-        <div class="yous_div">
-            <div class="div1"><img src="__YWY__/images/icn_2.png" alt=""></div>
-            <div class="div2">
-                <h2>弹性升级</h2>
-                <p>根据用户使用需求可随时进行主机升级。</p>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="yous_div">
-            <div class="div1"><img src="__YWY__/images/icn_3.png" alt=""></div>
-            <div class="div2">
-                <h2>免费使用</h2>
-                <p>0元免费试用，先试用再购买，确保购买都是满意的产品。</p>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="blank65"></div>
-        <div class="yous_div">
-            <div class="div1"><img src="__YWY__/images/icn_4.png" alt=""></div>
-            <div class="div2">
-                <h2>技术响应与技术支持</h2>
-                <p>提供7*24技术支持，电话、工单支持，10分钟快速响应。</p>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="yous_div">
-            <div class="div1"><img src="__YWY__/images/icn_5.png" alt=""></div>
-            <div class="div2">
-                <h2>故障修复</h2>
-                <p>任何故障问题，都将能在5小时之内处理完毕，让您没有后顾之忧。</p>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="yous_div">
-            <div class="div1"><img src="__YWY__/images/icn_6.png" alt=""></div>
-            <div class="div2">
-                <h2>安全数据中心网络平台</h2>
-                <p>为整个数据中心业务提供计算环境安全区域边界安全、通信网络安全。</p>
-            </div>
-            <div class="clear"></div>
-        </div>
+            <eq name="k" value="3">
+                <div class="blank65"></div>
+            </eq>
+        </volist>
+
+
         <div class="clear"></div>
     </div>
 </div>
@@ -863,36 +830,33 @@
             <div class="bd">
                 <div>
                     <ul>
-                        <li><a href="">12.22 | 更智能地扩缩容更智能地扩缩容</a></li>
-                        <li><a href="">12.21 | 更智能地扩缩容更智能地扩缩容更智能地扩缩容</a></li>
-                        <li><a href="">12.20 | 更智能地扩缩容更智能地扩缩容更智能地扩缩容</a></li>
-                        <li><a href="">12.19 | 更智能地扩缩容更智能地扩缩容更智能地扩缩容</a></li>
-                        <li><a href="">12.18 | 更智能地扩缩容</a></li>
-                        <li><a href="">12.17 | 更智能地扩缩容更智能地扩缩容</a></li>
+                        <!--最新动态-->
+                        <volist name="hot_news" id="vo">
+                        <li><a href="{:U('News/detail',array('id'=>$vo['id']))}">{$vo.create_time|date='m.d',###} | {$vo.title}</a></li>
+                        </volist>
+
                     </ul>
                     <div class="clear"></div>
                     <div class="ck"><a href="">查看全部</a></div>
                 </div>
                 <div>
                     <ul>
-                        <li><a href="">12.22 | 更智能地扩缩容更智能地扩缩容</a></li>
-                        <li><a href="">12.21 | 更智能地扩缩容更智能地扩缩容更智能地扩缩容</a></li>
-                        <li><a href="">12.20 | 更智能地扩缩容更智能地扩缩容更智能地扩缩容</a></li>
-                        <li><a href="">12.19 | 更智能地扩缩容更智能地扩缩容更智能地扩缩容</a></li>
-                        <li><a href="">12.18 | 更智能地扩缩容</a></li>
-                        <li><a href="">12.17 | 更智能地扩缩容更智能地扩缩容</a></li>
+                        <!--产品动态-->
+                        <volist name="product_news" id="vo">
+                            <li><a href="{:U('News/detail',array('id'=>$vo['id']))}">{$vo.create_time|date='m.d',###} | {$vo.title}</a></li>
+                        </volist>
+
                     </ul>
                     <div class="clear"></div>
                     <div class="ck"><a href="">查看全部</a></div>
                 </div>
                 <div>
                     <ul>
-                        <li><a href="">12.22 | 更智能地扩缩容更智能地扩缩容</a></li>
-                        <li><a href="">12.21 | 更智能地扩缩容更智能地扩缩容更智能地扩缩容</a></li>
-                        <li><a href="">12.20 | 更智能地扩缩容更智能地扩缩容更智能地扩缩容</a></li>
-                        <li><a href="">12.19 | 更智能地扩缩容更智能地扩缩容更智能地扩缩容</a></li>
-                        <li><a href="">12.18 | 更智能地扩缩容</a></li>
-                        <li><a href="">12.17 | 更智能地扩缩容更智能地扩缩容</a></li>
+                        <!--媒体报告-->
+                        <volist name="media_news" id="vo">
+                            <li><a href="{:U('News/detail',array('id'=>$vo['id']))}">{$vo.create_time|date='m.d',###} | {$vo.title}</a></li>
+                        </volist>
+
                     </ul>
                     <div class="clear"></div>
                     <div class="ck"><a href="">查看全部</a></div>

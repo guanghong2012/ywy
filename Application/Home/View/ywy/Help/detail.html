@@ -22,6 +22,10 @@
         <div class="bzzx_fl">
             <h2>帮助中心</h2>
             <ul>
+                <volist name="all_cate" id="vo">
+                    <li><a href="{:U('Help/index',array('cat_id'=>$vo['id']))}" <if condition="$category['id'] eq $vo['id']">class="a1"</if> >{$vo.title}</a></li>
+                </volist>
+                <!--
                 <li><a href="bzzx.php" class="a1">mssql数据库</a></li>
                 <li><a href="bzzx.php">常见问题</a></li>
                 <li><a href="bzzx.php">常见操作指南</a></li>
@@ -31,7 +35,7 @@
                 <li><a href="bzzx.php">备份/恢复/镜像</a></li>
                 <li><a href="bzzx.php">建站问题</a></li>
                 <li><a href="bzzx.php">数据迁移</a></li>
-                <li><a href="bzzx.php">服务器配置</a></li>
+                <li><a href="bzzx.php">服务器配置</a></li>-->
             </ul>
         </div>
         <div class="bzzx_fr">

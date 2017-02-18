@@ -6,9 +6,9 @@
     <meta name="description" content="ASW">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="keywords" content="亿维云网">
-    <Meta name="description" Content="亿维云网">
-    <title>亿维云网</title>
+    <meta name="keywords" content="{$info.keywords}">
+    <Meta name="description" Content="{$info.description}">
+    <title>{$info.title}</title>
     <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
     <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
@@ -17,7 +17,9 @@
 <!-- 头部 -->
 <include file="Public/top"/>
 <!-- /头部 -->
-<div class="ban_div"><a href=""><img src="__YWY__/images/a7.jpg" width="100%" alt=""></a></div>
+<div class="ban_div">
+    <a <empty name="aboutus['video']">href="javascript:"<else />href="{$aboutus.video}" target="_blank" </empty> ><img src="{$aboutus.cover_id|get_cover=###,'path'}" width="100%" alt=""></a>
+</div>
 <div class="lanm_div">
     <div class="w1200">
         <ul>
@@ -33,11 +35,7 @@
 </div>
 <div class="w1200 bazx_div">
 
-    <img src="__YWY__/images/x1.png" alt="">
-    <br>
-    <img src="__YWY__/images/x2.png" alt="">
-    <br>
-    <img src="__YWY__/images/x3.png" alt="">
+    {$info.content}
 </div>
 <!-- 底部 -->
 <include file="Public/bottom"/>
