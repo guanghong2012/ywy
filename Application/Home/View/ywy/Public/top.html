@@ -22,15 +22,16 @@
                         </div>
                     </div>
                 </li>
-                <li class="li4" style="display:none"><!-- 未登录 -->
+                <empty name="user_login">
+                <li class="li4" ><!-- 未登录 -->
                     <div class="login">
                         <div class="login_div">
-                            <a href="sign.php">
+                            <a href="{:U('Cuser/login')}">
                                 <i></i>
                                 <em>登录</em>
                             </a>
                             <i class="i-line">|</i>
-                            <a href="register.php">
+                            <a href="{:U('Cuser/register')}">
                                 免费注册
                                 <span></span>
                             </a>
@@ -38,37 +39,40 @@
                         </div>
                     </div>
                 </li>
-                <li class="li4"><!-- 已登录 -->
-                    <div class="login">
-                        <div class="login_div">
-                            <div class="login_div_1">
-                                <i></i>
-                                <em>木子</em>
-                                <span></span>
-                                <div class="div1">
-                                    <div class="div2">
-                                        <h2>欢迎登录亿维云网</h2>
-                                        <p>余额：<em>0.00</em></p>
-                                    </div>
-                                    <div class="div3">
-                                        <ul>
-                                            <li><a class="a1" href="">域名管理</a></li>
-                                            <li><a class="a2" href="">主机管理</a></li>
-                                            <li><a class="a3" href="">我要充值</a></li>
-                                            <li><a class="a4" href="">提交工单</a></li>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <div class="div4">
-                                        <a class="afl" href="user_index.php">用户中心</a>
-                                        <a class="afr" href="">退 出</a>
-                                        <div class="clear"></div>
+                    <else />
+                    <li class="li4"><!-- 已登录 -->
+                        <div class="login">
+                            <div class="login_div">
+                                <div class="login_div_1">
+                                    <i></i>
+                                    <em>{$user_name}</em>
+                                    <span></span>
+                                    <div class="div1">
+                                        <div class="div2">
+                                            <h2>欢迎登录亿维云网</h2>
+                                                <p>余额：<em>{$user_account}</em></p>
+                                        </div>
+                                        <div class="div3">
+                                            <ul>
+                                                <li><a class="a1" href="">域名管理</a></li>
+                                                <li><a class="a2" href="">主机管理</a></li>
+                                                <li><a class="a3" href="">我要充值</a></li>
+                                                <li><a class="a4" href="">提交工单</a></li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="div4">
+                                            <a class="afl" href="{:U('Cuser/index')}">用户中心</a>
+                                            <a class="afr" href="{:U('Cuser/logout')}">退 出</a>
+                                            <div class="clear"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
+                </empty>
+
             </ul>
             <div class="clear"></div>
         </div>

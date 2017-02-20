@@ -29,6 +29,14 @@ class DomainController extends HomeController{
         $this->assign('media_news',$media_news);
         $this->display();
     }
+    
+    /*
+     * 域名查询结果
+     */
+    public function checkDomainResult()
+    {
 
-
+        $this->display();
+    }    
+    
 }

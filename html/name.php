@@ -39,7 +39,7 @@
 					<div class="name1">
 						<h2>超过<span>10,000,000</span>域名在亿维云网注册</h2>
 						<div class="div1">
-                        	<form action="" method="post">
+                        	<form action="name_xz.php" method="post">
 								<input class="input_name" type="text" placeholder="请输入您要的注册的域名">
 	                            <input class="submit_name" name="" type="submit" value="查域名">
                             </form>
@@ -230,7 +230,7 @@
 					<div class="name1">
 						<h2>超过<span>10,000,000</span>域名在亿维云网注册</h2>
 						<div class="div1">
-                        	<form action="" method="post">
+                        	<form action="name_xz.php" method="post">
 								<input class="input_name" type="text" placeholder="请输入您要的注册的域名">
 	                            <input class="submit_name" name="" type="submit" value="查域名">
                             </form>
@@ -421,7 +421,7 @@
 					<div class="name1">
 						<h2>超过<span>10,000,000</span>域名在亿维云网注册</h2>
 						<div class="div1">
-                        	<form action="" method="post">
+                        	<form action="name_xz.php" method="post">
 								<input class="input_name" type="text" placeholder="请输入您要的注册的域名">
 	                            <input class="submit_name" name="" type="submit" value="查域名">
                             </form>
@@ -612,7 +612,7 @@
 					<div class="name1">
 						<h2>超过<span>10,000,000</span>域名在亿维云网注册</h2>
 						<div class="div1">
-                        	<form action="" method="post">
+                        	<form action="name_xz.php" method="post">
 								<input class="input_name" type="text" placeholder="请输入您要的注册的域名">
 	                            <input class="submit_name" name="" type="submit" value="查域名">
                             </form>
@@ -803,7 +803,7 @@
 					<div class="name1">
 						<h2>超过<span>10,000,000</span>域名在亿维云网注册</h2>
 						<div class="div1">
-                        	<form action="" method="post">
+                        	<form action="name_xz.php" method="post">
 								<input class="input_name" type="text" placeholder="请输入您要的注册的域名">
 	                            <input class="submit_name" name="" type="submit" value="查域名">
                             </form>
@@ -994,7 +994,7 @@
 					<div class="name1">
 						<h2>超过<span>10,000,000</span>域名在亿维云网注册</h2>
 						<div class="div1">
-                        	<form action="" method="post">
+                        	<form action="name_xz.php" method="post">
 								<input class="input_name" type="text" placeholder="请输入您要的注册的域名">
 	                            <input class="submit_name" name="" type="submit" value="查域名">
                             </form>

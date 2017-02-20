@@ -222,7 +222,7 @@ class CuserModel extends Model{
     }
 
     /**
-     * 更新用户信息
+     * 前台更新用户信息
      * @param int $uid 用户id
      * @param string $password 密码，用来验证
      * @param array $data 修改的字段数组
@@ -235,22 +235,47 @@ class CuserModel extends Model{
             return false;
         }
 
-        //密码不为空 则修改密码
+        //更新前检查用户密码
+
+        if(!$this->verifyUser($uid, $password)){
+            $this->error = '验证出错：密码不正确！';
+            return false;
+        }
+
+
+        //更新用户信息
+        $data = $this->create($data);
+        if($data){
+            return $this->where(array('id'=>$uid))->save($data);
+        }
+        return false;
+    }
+
+    /**
+     * 后台更新用户信息
+     * @param int $uid 用户id
+     * @param string $password 密码，用来验证
+     * @param array $data 修改的字段数组
+     * @return true 修改成功，false 修改失败
+     * @author huajie <banhuajie@163.com>
+     */
+    public function updateUserFields1($uid, $password, $data){
+        if(empty($uid)  || empty($data)){
+            $this->error = '没有修改任何信息！';
+            return false;
+        }
+
+        /*/密码不为空 则修改密码*/
         if(!empty($password)){
             if(strlen($password)<6){
                 $this->error = '密码长度必须大于等于6！';
                 return false;
             }
             $data['password'] = $password;
+        }else{
+            unset($data['password']);
         }
 
-        //更新前检查用户密码
-        /*
-        if(!$this->verifyUser($uid, $password)){
-            $this->error = '验证出错：密码不正确！';
-            return false;
-        }
-        */
 
         //更新用户信息
         $data = $this->create($data);

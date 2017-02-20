@@ -38,7 +38,7 @@ class CuserApi extends Api{
      * @param  integer $type     用户名类型 （1-用户名，2-邮箱，3-手机，4-UID）
      * @return integer           登录成功-用户ID，登录失败-错误编号
      */
-    public function login($username, $password, $type = 1){
+    public function login($username, $password, $type = 2){
         return $this->model->login($username, $password, $type);
     }
 
@@ -80,7 +80,7 @@ class CuserApi extends Api{
     }
 
     /**
-     * 更新用户信息
+     * 前台更新用户信息
      * @param int $uid 用户id
      * @param string $password 密码，用来验证
      * @param array $data 修改的字段数组
@@ -89,6 +89,24 @@ class CuserApi extends Api{
      */
     public function updateInfo($uid, $password, $data){
         if($this->model->updateUserFields($uid, $password, $data) !== false){
+            $return['status'] = true;
+        }else{
+            $return['status'] = false;
+            $return['info'] = $this->model->getError();
+        }
+        return $return;
+    }
+
+    /**
+     * 后台更新用户信息
+     * @param int $uid 用户id
+     * @param string $password 密码，用来验证
+     * @param array $data 修改的字段数组
+     * @return true 修改成功，false 修改失败
+     * @author huajie <banhuajie@163.com>
+     */
+    public function updateInfo1($uid, $password, $data){
+        if($this->model->updateUserFields1($uid, $password, $data) !== false){
             $return['status'] = true;
         }else{
             $return['status'] = false;

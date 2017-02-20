@@ -30,7 +30,6 @@
 		</div>
 	</div>
 	<div class="w1200 bazx_div">
-
 		<img src="images/x1.png" alt="">
 		<br>
 		<img src="images/x2.png" alt="">

@@ -1,0 +1,32 @@
+﻿.nice-select{
+	width: 150px;
+	float: left;
+	padding: 0 10px;
+	height: 55px;
+	/*border: 1px solid #999;*/
+	position: relative;
+	/*box-shadow: 0 0 5px #999;*/
+	background: #dbdbdb url(../selectpick/images/a2.png) no-repeat right 26px;
+	margin-right: 20px;
+}
+.nice-select input{display: block;width: 100%; color:#555; font-size: 18px; height: 55px;line-height: 55px;border: 0;outline: 0; text-align: center; background: none;}
+.nice-select ul{
+	width: 100%;
+	display: none;
+	position: absolute;
+	left: 0px;
+	top: 55px;
+	overflow: hidden;
+	background-color: #fff;
+	max-height: 150px;
+	overflow-y: auto;
+	border: 1px solid #dbdbdb;
+	border-top: 0;
+	text-align: center;
+	/*box-shadow: 0 3px 5px #999;*/
+	z-index: 9999;
+}
+		.nice-select ul li{height: 40px;line-height: 40px;overflow: hidden;padding: 0 10px;cursor: pointer;}
+		.nice-select ul li.on{background-color: #e0e0e0;}
+
+.nice-select input[readonly]{background:none;cursor:pointer;}

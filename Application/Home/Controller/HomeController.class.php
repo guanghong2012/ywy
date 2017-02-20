@@ -26,16 +26,32 @@ class HomeController extends Controller {
         /* 读取站点配置 */
         $config = api('Config/lists');
         C($config); //添加配置
+        $user = session('user_auth');
+        if(!empty($user)){
+            $user_login = 1;
+            $user_account = $user['account'];
+            $user_name = $user['username'];
+            $this->assign('user_name',$user_name);
+            $this->assign('user_account',$user_account);
+        }else{
+            $user_login = 0;
+        }
 
+        $this->assign('user_login',$user_login);
         if(!C('WEB_SITE_CLOSE')){
             $this->error('站点已经关闭，请稍后访问~');
         }
     }
 
 	/* 用户登录检测 */
-	protected function login(){
+	protected function is_login(){
 		/* 用户登录检测 */
-		is_login() || $this->error('您还没有登录，请先登录！', U('User/login'));
+        $user = session('user_auth');
+        if(empty($user)){
+            $this->error('您还没有登录，请先登录！', U('Cuser/login'));
+        }else{
+            return $user['id'];
+        }
 	}
 
 }

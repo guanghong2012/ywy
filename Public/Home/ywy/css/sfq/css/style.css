@@ -1,0 +1,135 @@
+
+/** =======================
+ * Contenedor Principal
+ ===========================*/
+
+ .accordion {
+ 	width: 100%;
+ 	max-width: 360px;
+ 	background: #FFF;
+ }
+
+.accordion .link {
+	cursor: pointer;
+	display: block;
+	padding: 15px 15px 15px 42px;
+	color: #848ba5;
+	font-size: 16px;
+	border-bottom: 1px solid #CCC;
+	position: relative;
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	background: #333a4c;
+}
+
+.accordion li:last-child .link {
+	border-bottom: 0;
+}
+
+.accordion li i {
+	position: absolute;
+	top: 16px;
+	left: 12px;
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+
+.accordion li i.fa-chevron-down {
+	font-size: 12px;
+    left: auto;
+    margin-top: -6px;
+    right: 12px;
+    top: 50%;
+    color:#848ba5;
+}
+
+.accordion li.open .link {
+	color: #00aaef;
+}
+
+.accordion li.open i {
+	color: #00aaef;
+}
+.accordion li.open i.fa-chevron-down {
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+/**
+ * Submenu
+ -----------------------------*/
+ .submenu {
+ 	display: none;
+ 	background: #444359;
+ 	font-size: 14px;
+ }
+
+ .submenu li {
+ 	border-bottom: 1px solid #4b4a5e;
+ }
+
+ .submenu a {
+ 	display: block;
+ 	text-decoration: none;
+ 	color: #d9d9d9;
+ 	padding: 12px;
+ 	padding-left: 42px;
+ 	-webkit-transition: all 0.25s ease;
+ 	-o-transition: all 0.25s ease;
+ 	transition: all 0.25s ease;
+ }
+
+ .submenu a:hover {
+ 	background: #00aaef;
+ 	color: #FFF;
+ }
+.accordion li i.fa1{
+	height: 22px;
+	width: 22px;
+}
+.accordion li i.fa-1{
+	background: url(../../../images/user_ico_1_1.png) no-repeat center center;
+}
+.accordion li i.fa-2{
+	background: url(../../../images/user_ico_2_2.png) no-repeat center center;
+}
+.accordion li i.fa-3{
+	background: url(../../../images/user_ico_3_3.png) no-repeat center center;
+}
+.accordion li i.fa-4{
+	background: url(../../../images/user_ico_4_4.png) no-repeat center center;
+}
+.accordion li i.fa-5{
+	background: url(../../../images/user_ico_5_5.png) no-repeat center center;
+}
+.accordion li.open i.fa-1{
+	background: url(../../../images/user_ico_1.png) no-repeat center center;
+}
+.accordion li.open i.fa-2{
+	background: url(../../../images/user_ico_2.png) no-repeat center center;
+}
+.accordion li.open i.fa-3{
+	background: url(../../../images/user_ico_3.png) no-repeat center center;
+}
+.accordion li.open i.fa-4{
+	background: url(../../../images/user_ico_4.png) no-repeat center center;
+}
+.accordion li.open i.fa-5{
+	background: url(../../../images/user_ico_5.png) no-repeat center center;
+}
+
+
+
+
+
+
+
+
+
+
+
+

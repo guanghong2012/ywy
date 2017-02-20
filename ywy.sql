@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2017 �?02 �?18 �?18:00
+-- 生成日期: 2017 �?02 �?20 �?18:26
 -- 服务器版本: 5.5.40
 -- PHP 版本: 5.6.1
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `onethink_action_log` (
   KEY `action_ip_ix` (`action_ip`),
   KEY `action_id_ix` (`action_id`),
   KEY `user_id_ix` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表' AUTO_INCREMENT=165 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表' AUTO_INCREMENT=172 ;
 
 --
 -- 转存表中的数据 `onethink_action_log`
@@ -246,7 +246,14 @@ INSERT INTO `onethink_action_log` (`id`, `action_id`, `user_id`, `action_ip`, `m
 (161, 8, 1, 0, 'attribute', 82, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487407438),
 (162, 8, 1, 0, 'attribute', 83, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487407467),
 (163, 8, 1, 0, 'attribute', 83, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487407730),
-(164, 8, 1, 0, 'attribute', 82, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487407749);
+(164, 8, 1, 0, 'attribute', 82, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487407749),
+(165, 1, 1, 0, 'member', 1, 'admin在2017-02-20 09:18登录了后台', 1, 1487553483),
+(166, 8, 1, 0, 'attribute', 84, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487553512),
+(167, 1, 1, 0, 'cuser', 1, 'admin在2017-02-20 09:19登录了后台', 1, 1487553544),
+(168, 1, 3, 0, 'cuser', 3, '在2017-02-20 09:34登录了后台', 1, 1487554445),
+(169, 1, 1, 0, 'cuser', 1, 'admin在2017-02-20 10:50登录了后台', 1, 1487559029),
+(170, 1, 3, 0, 'cuser', 3, '在2017-02-20 14:14登录了后台', 1, 1487571279),
+(171, 8, 1, 0, 'attribute', 85, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487574178);
 
 -- --------------------------------------------------------
 
@@ -335,7 +342,7 @@ CREATE TABLE IF NOT EXISTS `onethink_attribute` (
   `auto_type` varchar(25) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `model_id` (`model_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='模型属性表' AUTO_INCREMENT=84 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='模型属性表' AUTO_INCREMENT=86 ;
 
 --
 -- 转存表中的数据 `onethink_attribute`
@@ -423,7 +430,9 @@ INSERT INTO `onethink_attribute` (`id`, `name`, `title`, `field`, `type`, `value
 (80, 'title', '案例名称', 'varchar(40) NOT NULL', 'string', '', '', 1, '', 14, 0, 1, 1487402943, 1487402943, '', 3, '', 'regex', '', 3, 'function'),
 (81, 'url', '案例地址', 'varchar(255) NOT NULL', 'string', '', '', 1, '', 14, 0, 1, 1487402971, 1487402971, '', 3, '', 'regex', '', 3, 'function'),
 (82, 'level', '排序', 'int(10) UNSIGNED NOT NULL', 'num', '0', '', 1, '', 13, 0, 1, 1487407749, 1487407438, '', 3, '', 'regex', '', 3, 'function'),
-(83, 'level', '排序', 'int(10) UNSIGNED NOT NULL', 'num', '0', '', 1, '', 14, 0, 1, 1487407730, 1487407467, '', 3, '', 'regex', '', 3, 'function');
+(83, 'level', '排序', 'int(10) UNSIGNED NOT NULL', 'num', '0', '', 1, '', 14, 0, 1, 1487407730, 1487407467, '', 3, '', 'regex', '', 3, 'function'),
+(84, 'login', '登录次数', 'int(10) UNSIGNED NOT NULL', 'num', '0', '', 1, '', 4, 0, 1, 1487553512, 1487553512, '', 3, '', 'regex', '', 3, 'function'),
+(85, 'type', '变动类型', 'char(1) NOT NULL', 'radio', '1', '', 1, '1:充值\r\n2:消费\r\n3:提现', 5, 0, 1, 1487574178, 1487574178, '', 3, '', 'regex', '', 3, 'function');
 
 -- --------------------------------------------------------
 
@@ -958,16 +967,19 @@ CREATE TABLE IF NOT EXISTS `onethink_cuser` (
   `last_login_time` varchar(100) NOT NULL COMMENT '最后登陆时间',
   `last_login_ip` varchar(100) NOT NULL COMMENT '最后登陆IP',
   `account` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '账户余额',
+  `login` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '登录次数',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=6 ;
 
 --
 -- 转存表中的数据 `onethink_cuser`
 --
 
-INSERT INTO `onethink_cuser` (`id`, `email`, `username`, `password`, `mobile`, `address`, `sex`, `qq`, `reg_time`, `reg_ip`, `update_time`, `status`, `last_login_time`, `last_login_ip`, `account`) VALUES
-(1, 'guanghong2012@126.com', '李志', '1625a05770c3ee32d06130866fc25d7f', '13533481813', '广州天河区科韵路255号', '0', '', '1487153808', '0', '1487153808', '1', '', '', '0.00'),
-(3, 'develop12@qbt8.com', '骚刚', '37e36e59794dd65d98006b57ef95af42', '13580128021', '科韵路255号', '1', '', '1487225024', '0', '1487225024', '1', '', '', '80.00');
+INSERT INTO `onethink_cuser` (`id`, `email`, `username`, `password`, `mobile`, `address`, `sex`, `qq`, `reg_time`, `reg_ip`, `update_time`, `status`, `last_login_time`, `last_login_ip`, `account`, `login`) VALUES
+(1, 'guanghong2012@126.com', '李志', '37e36e59794dd65d98006b57ef95af42', '13533481813', '广州天河区科韵路255号', '1', '7778858', '1487561471', '0', '1487561471', '1', '1487559029', '0', '0.00', 2),
+(3, 'develop12@qbt8.com', '骚刚', '37e36e59794dd65d98006b57ef95af42', '13580128021', '科韵路255号', '1', '', '1487572646', '0', '1487572646', '1', '1487571279', '0', '90.00', 2),
+(4, 'develop13@qbt8.com', '八嘎', '1625a05770c3ee32d06130866fc25d7f', '', '', '0', '', '1487558784', '0', '1487558784', '1', '', '', '0.00', 0),
+(5, 'develop21@qbt8.com', '曙光', '1625a05770c3ee32d06130866fc25d7f', '13570456594', '白云区', '0', '', '1487558993', '0', '1487558993', '1', '', '', '0.00', 0);
 
 -- --------------------------------------------------------
 
@@ -1332,7 +1344,7 @@ CREATE TABLE IF NOT EXISTS `onethink_member` (
 --
 
 INSERT INTO `onethink_member` (`uid`, `nickname`, `sex`, `birthday`, `qq`, `score`, `login`, `reg_ip`, `reg_time`, `last_login_ip`, `last_login_time`, `status`) VALUES
-(1, 'admin', 0, '0000-00-00', '', 20, 4, 0, 1487144121, 0, 1487380646, 1);
+(1, 'admin', 0, '0000-00-00', '', 30, 5, 0, 1487144121, 0, 1487553483, 1);
 
 -- --------------------------------------------------------
 
@@ -1646,7 +1658,7 @@ CREATE TABLE IF NOT EXISTS `onethink_ucenter_member` (
 --
 
 INSERT INTO `onethink_ucenter_member` (`id`, `username`, `password`, `email`, `mobile`, `reg_time`, `reg_ip`, `last_login_time`, `last_login_ip`, `update_time`, `status`) VALUES
-(1, 'admin', '30c3344bcff4de86bf764a4d718f9222', 'develop11@qbt8.com', '', 1487144121, 0, 1487380646, 0, 1487144121, 1);
+(1, 'admin', '30c3344bcff4de86bf764a4d718f9222', 'develop11@qbt8.com', '', 1487144121, 0, 1487553483, 0, 1487144121, 1);
 
 -- --------------------------------------------------------
 
@@ -1703,17 +1715,19 @@ CREATE TABLE IF NOT EXISTS `onethink_user_account_log` (
   `desc` varchar(50) NOT NULL COMMENT '变动说明',
   `uid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
   `admin_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '管理员id',
+  `type` char(1) NOT NULL DEFAULT '1' COMMENT '变动类型',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `onethink_user_account_log`
 --
 
-INSERT INTO `onethink_user_account_log` (`id`, `money`, `create_time`, `desc`, `uid`, `admin_id`) VALUES
-(1, '100.00', 1487224497, '测试', 3, 1),
-(2, '-10.00', 1487224886, '测试减少', 3, 1),
-(3, '-10.00', 1487225024, '减少10', 3, 1);
+INSERT INTO `onethink_user_account_log` (`id`, `money`, `create_time`, `desc`, `uid`, `admin_id`, `type`) VALUES
+(1, '100.00', 1487224497, '测试', 3, 1, '1'),
+(2, '-10.00', 1487224886, '测试减少', 3, 1, '2'),
+(3, '-10.00', 1487225024, '减少10', 3, 1, '2'),
+(4, '10.00', 1487572646, '后台调节10', 3, 1, '1');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

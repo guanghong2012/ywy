@@ -1,0 +1,49 @@
+/*
+	Screen CSS
+	Copyright (c) 2013 by SPOILED MILK
+	http://www.spoiledmilk.com
+*/
+
+/* NORMALIZE ............................................ */
+* { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+html, body { height: 100%; }
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; } 
+body, div, dl, dt, dd, pre, form, fieldset, input, table, th, td, embed, object { margin: 0; padding: 0; } 
+:focus { outline: 0 } 
+:link, :visited { text-decoration: none } 
+/* clearfix */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+
+.virgm_div{
+	position: relative;
+}
+.virgm_poa{
+	position: absolute;
+	width: 300px;
+	right: 0;
+}
+/* Navigation .......... */
+nav { background-color: #999; width: 100%; }
+nav ul { list-style: none; margin: 0 auto; max-width: 940px; overflow: hidden; padding: 0; }
+nav ul li { float: left; font-size: 15px; height: 40px; line-height: 40px; margin: 0; padding: 0 20px; width: auto; }
+nav ul li a:link, nav ul li a:visited { color: #fff; transition: color 0.15s linear; }
+nav ul li a:hover, nav ul li a:active { color: #000; }
+nav ul li.active a:link, nav ul li.active a:visited, nav ul li.active a:hover, nav ul li.active a:active { color: #000 !important; }
+nav ul li.right { float: right; }
+
+/* Main ................ */
+main { margin: 0px auto; max-width: 1200px; }
+
+/* aside */
+aside { float: right; max-width: 300px;}
+.inside { background-color: #f4f4f4; padding: 10px; }
+#sidebar.sticky { float: right; position: fixed; top: 20px; z-index: 6; left: auto; }
+
+/* main content */
+.main_content { float: left; max-width: 870px; }
+
+/* Footer .............. */
+footer { background-color: #999; height: 300px; width: 100%; }

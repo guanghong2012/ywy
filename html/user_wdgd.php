@@ -62,21 +62,21 @@
 							<td>重启一下服务器</td>
 							<td>2017-01-04</td>
 							<td>处理中</td>
-							<td><a href="">查看</a></td>
+							<td><a href="user_gdxq.php">查看</a></td>
 					  </tr>
 					  <tr>
 							<td>GD170103568</td>
 							<td>域名转入怎么做？</td>
 							<td>2017-01-04</td>
 							<td>已解决</td>
-							<td><a href="">查看</a></td>
+							<td><a href="user_gdxq.php">查看</a></td>
 					  </tr>
 					  <tr>
 							<td>GD170104458</td>
 							<td>重启一下服务器</td>
 							<td>2017-01-04</td>
 							<td>处理中</td>
-							<td><a href="">查看</a></td>
+							<td><a href="user_gdxq.php">查看</a></td>
 					  </tr>
 					</table>
 					<?php require_once('page.php'); ?>

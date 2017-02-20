@@ -8,6 +8,7 @@
 // +----------------------------------------------------------------------
 
 namespace Home\Controller;
+use Common\Api\CloundApi;
 use OT\DataDictionary;
 
 /**
@@ -29,6 +30,20 @@ class IndexController extends HomeController {
         //媒体报告6条
         $media_news = $document->where('category_id=57 and status=1')->order('level desc')->field('id,title,create_time')->select();
 
+        //解决方案及客户案例
+        $all_solution = D('cases')->field('id,title,description,images')->order('level desc')->select();
+        if(!empty($all_solution)){
+            foreach($all_solution as $key=>$value){
+                $cases = D('CasesDemo')->where('case_id='.$value['id'])->order('level desc')->limit(5)->select();
+                $all_solution[$key]['cases'] = $cases;
+            }
+        }
+
+        //$CloundApi = new CloundApi();
+        //$res = $CloundApi->checkDomain('abc123.com','.com');
+        //print_r($res);die;
+
+        $this->assign('all_solution',$all_solution);
         $this->assign('advantages',$advantages);
         $this->assign('hot_news',$hot_news);
         $this->assign('product_news',$product_news);

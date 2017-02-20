@@ -23,12 +23,14 @@
         <h1>建立网站,从域名注册开始</h1>
         <div class="div1">
             <div class="div1_1">
-                <form action="" method="post">
-                    <input type="text" class="input_1" placeholder="请输入您要的注册的域名">
+                <form action="{:U('Domain/checkDomainResult')}" method="post">
+                    <input type="text" name="domain" class="input_1" placeholder="请输入您要的注册的域名">
                     <select name="" class="inse_1">
-                        <option>.com</option>
-                        <option>.net</option>
-                        <option>.cn</option>
+                        <option value=".com">.com</option>
+                        <option value=".net">.net</option>
+                        <option value=".cn">.cn</option>
+                        <option value=".top">.top</option>
+                        <option value=".cc">.cc</option>
                     </select>
                     <input class="sub_1" name="查域名" type="submit" value="查域名">
                 </form>
@@ -688,118 +690,48 @@
         <div class="slide_box1">
             <div class="hd">
                 <ul>
-                    <li>网站及部署</li>
+                    <volist name="all_solution" id="vo">
+                    <li>{$vo.title}</li>
+                    </volist>
+
+                    <!--
                     <li>视频云</li>
                     <li>数字营销云</li>
                     <li>大数据分析</li>
-                    <li>在线教育</li>
+                    <li>在线教育</li>-->
                 </ul>
             </div>
             <div class="bd">
+                <volist name="all_solution" id="vo">
                 <div>
                     <div class="div1 fl">
-                        <h2>网站及部署</h2>
-                        <p>O2O行业客户提供灵活弹性、安全可靠、功能完备的各类云服务产品，针对行业的常用应用场景定制多种专属产品和工具，不仅能帮助客户从容应对业务高峰、安全问题，更能深入业务本身提供高效便捷的解决方案。</p>
-                        <a class="a1" href="">查看详情</a>
+                        <h2>{$vo.title}</h2>
+                        <p>{$vo.description}</p>
+                        <a class="a1" href="{:U('Service/cases',array('cate_id'=>$vo['id']))}">查看详情</a>
                     </div>
                     <div class="div2 fr">
-                        <img src="__YWY__/images/a1.jpg" alt="">
+                        <img src="{$vo.images|get_cover=###,'path'}" alt="">
                     </div>
                     <div class="clear"></div>
                     <div class="blank45"></div>
                     <div class="div3">
                         <ul>
-                            <li><a href=""><img src="__YWY__/images/q1.jpg" alt=""></a></li>
+                            <volist name="vo['cases']" id="item" key="k">
+                            <li <if condition="$k eq 5">class="lino"</if> ><a href=""><img src="{$item.images|get_cover=###,'path'}" alt=""></a></li>
+                            </volist>
+                            <!--
                             <li><a href=""><img src="__YWY__/images/q2.jpg" alt=""></a></li>
                             <li><a href=""><img src="__YWY__/images/q3.jpg" alt=""></a></li>
                             <li><a href=""><img src="__YWY__/images/q4.jpg" alt=""></a></li>
                             <li class="lino"><a href=""><img src="__YWY__/images/q5.jpg" alt=""></a></li>
+                            -->
                         </ul>
                     </div>
                 </div>
-                <div>
-                    <div class="div1 fl">
-                        <h2>网站及部署</h2>
-                        <p>O2O行业客户提供灵活弹性、安全可靠、功能完备的各类云服务产品，针对行业的常用应用场景定制多种专属产品和工具，不仅能帮助客户从容应对业务高峰、安全问题，更能深入业务本身提供高效便捷的解决方案。</p>
-                        <a class="a1" href="">查看详情</a>
-                    </div>
-                    <div class="div2 fr">
-                        <img src="__YWY__/images/a1.jpg" alt="">
-                    </div>
-                    <div class="clear"></div>
-                    <div class="blank45"></div>
-                    <div class="div3">
-                        <ul>
-                            <li><a href=""><img src="__YWY__/images/q1.jpg" alt=""></a></li>
-                            <li><a href=""><img src="__YWY__/images/q2.jpg" alt=""></a></li>
-                            <li><a href=""><img src="__YWY__/images/q3.jpg" alt=""></a></li>
-                            <li><a href=""><img src="__YWY__/images/q4.jpg" alt=""></a></li>
-                            <li class="lino"><a href=""><img src="__YWY__/images/q5.jpg" alt=""></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <div class="div1 fl">
-                        <h2>网站及部署</h2>
-                        <p>O2O行业客户提供灵活弹性、安全可靠、功能完备的各类云服务产品，针对行业的常用应用场景定制多种专属产品和工具，不仅能帮助客户从容应对业务高峰、安全问题，更能深入业务本身提供高效便捷的解决方案。</p>
-                        <a class="a1" href="">查看详情</a>
-                    </div>
-                    <div class="div2 fr">
-                        <img src="__YWY__/images/a1.jpg" alt="">
-                    </div>
-                    <div class="clear"></div>
-                    <div class="blank45"></div>
-                    <div class="div3">
-                        <ul>
-                            <li><a href=""><img src="__YWY__/images/q1.jpg" alt=""></a></li>
-                            <li><a href=""><img src="__YWY__/images/q2.jpg" alt=""></a></li>
-                            <li><a href=""><img src="__YWY__/images/q3.jpg" alt=""></a></li>
-                            <li><a href=""><img src="__YWY__/images/q4.jpg" alt=""></a></li>
-                            <li class="lino"><a href=""><img src="__YWY__/images/q5.jpg" alt=""></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <div class="div1 fl">
-                        <h2>网站及部署</h2>
-                        <p>O2O行业客户提供灵活弹性、安全可靠、功能完备的各类云服务产品，针对行业的常用应用场景定制多种专属产品和工具，不仅能帮助客户从容应对业务高峰、安全问题，更能深入业务本身提供高效便捷的解决方案。</p>
-                        <a class="a1" href="">查看详情</a>
-                    </div>
-                    <div class="div2 fr">
-                        <img src="__YWY__/images/a1.jpg" alt="">
-                    </div>
-                    <div class="clear"></div>
-                    <div class="blank45"></div>
-                    <div class="div3">
-                        <ul>
-                            <li><a href=""><img src="__YWY__/images/q1.jpg" alt=""></a></li>
-                            <li><a href=""><img src="__YWY__/images/q2.jpg" alt=""></a></li>
-                            <li><a href=""><img src="__YWY__/images/q3.jpg" alt=""></a></li>
-                            <li><a href=""><img src="__YWY__/images/q4.jpg" alt=""></a></li>
-                            <li class="lino"><a href=""><img src="__YWY__/images/q5.jpg" alt=""></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <div class="div1 fl">
-                        <h2>网站及部署</h2>
-                        <p>O2O行业客户提供灵活弹性、安全可靠、功能完备的各类云服务产品，针对行业的常用应用场景定制多种专属产品和工具，不仅能帮助客户从容应对业务高峰、安全问题，更能深入业务本身提供高效便捷的解决方案。</p>
-                        <a class="a1" href="">查看详情</a>
-                    </div>
-                    <div class="div2 fr">
-                        <img src="__YWY__/images/a1.jpg" alt="">
-                    </div>
-                    <div class="clear"></div>
-                    <div class="blank45"></div>
-                    <div class="div3">
-                        <ul>
-                            <li><a href=""><img src="__YWY__/images/q1.jpg" alt=""></a></li>
-                            <li><a href=""><img src="__YWY__/images/q2.jpg" alt=""></a></li>
-                            <li><a href=""><img src="__YWY__/images/q3.jpg" alt=""></a></li>
-                            <li><a href=""><img src="__YWY__/images/q4.jpg" alt=""></a></li>
-                            <li class="lino"><a href=""><img src="__YWY__/images/q5.jpg" alt=""></a></li>
-                        </ul>
-                    </div>
+                </volist>
+
+
+
                 </div>
             </div>
             <div class="clear"></div>
