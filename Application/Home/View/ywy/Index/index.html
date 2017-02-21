@@ -12,6 +12,13 @@
     <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
     <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
+
+    <link rel="stylesheet" href="__YWY__/ios/css/custom.css"><!--ios特效必须-->
+    <link rel="stylesheet" href="__YWY__/ios/css/iosOverlay.css"><!--ios特效必须-->
+    <script src="__YWY__/ios/js/iosOverlay.js"></script><!--ios特效必须-->
+    <script src="__YWY__/ios/js/spin.min.js"></script>
+    <script src="__YWY__/ios/js/prettify.js"></script>
+    <script src="__YWY__/ios/js/custom.js"></script><!--ios特效必须-->
 </head>
 <body>
 <!-- 头部 -->
@@ -23,16 +30,17 @@
         <h1>建立网站,从域名注册开始</h1>
         <div class="div1">
             <div class="div1_1">
+                <button id="loading" style="display: none;" class="btn">Loading Spinner</button>
                 <form action="{:U('Domain/checkDomainResult')}" method="post">
                     <input type="text" name="domain" class="input_1" placeholder="请输入您要的注册的域名">
-                    <select name="" class="inse_1">
+                    <select name="tld" class="inse_1">
                         <option value=".com">.com</option>
                         <option value=".net">.net</option>
                         <option value=".cn">.cn</option>
                         <option value=".top">.top</option>
                         <option value=".cc">.cc</option>
                     </select>
-                    <input class="sub_1" name="查域名" type="submit" value="查域名">
+                    <input class="sub_1"  type="submit"  value="查域名">
                 </form>
                 <div class="clear"></div>
             </div>
@@ -800,6 +808,40 @@
     <script type="text/javascript">jQuery(".slide_box2").slide({trigger:"click"});</script>
     <div class="blank70"></div>
 </div>
+
+<script type="text/javascript">
+
+    $(document)
+            .ajaxStart(function(){
+                document.getElementById('loading').click();
+                $("input:submit").addClass("log-in").attr("disabled", true);
+            })
+            .ajaxStop(function(){
+                $("input:submit").removeClass("log-in").attr("disabled", false);
+            });
+
+
+    $("form").submit(function(){
+        var self = $(this);
+        $.post(self.attr("action"), self.serialize(), success, "json");
+        return false;
+
+        function success(data){
+            if(data.status==1){
+                window.location.href = data.url;
+            } else {
+                iosOverlay({
+                    text: "请输入域名",
+                    duration: 2e3,
+                    icon: "__YWY__/ios/img/cross.png"
+                });
+                return false;
+            }
+        }
+    });
+
+</script>
+
 <!-- 底部 -->
 <include file="Public/bottom"/>
 <!-- /底部 -->

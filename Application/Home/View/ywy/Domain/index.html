@@ -16,6 +16,13 @@
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
     <script type="text/javascript" src="__YWY__/js/common.js"></script>
     <script type="text/javascript" src="__YWY__/js/domain2016.js"></script>
+
+    <link rel="stylesheet" href="__YWY__/ios/css/custom.css"><!--ios特效必须-->
+    <link rel="stylesheet" href="__YWY__/ios/css/iosOverlay.css"><!--ios特效必须-->
+    <script src="__YWY__/ios/js/iosOverlay.js"></script><!--ios特效必须-->
+    <script src="__YWY__/ios/js/spin.min.js"></script>
+    <script src="__YWY__/ios/js/prettify.js"></script>
+    <script src="__YWY__/ios/js/custom.js"></script><!--ios特效必须-->
 </head>
 <body>
 <!-- 头部 -->
@@ -37,14 +44,17 @@
             <div class="clear"></div>
         </div>
         <div class="bd">
+            <!--热销域名start-->
             <div>
+                <form id="hotform" action="{:U('Domain/checkDomainResult')}" method="post">
                 <div class="name1">
-                    <h2>超过<span>10,000,000</span>域名在亿维云网注册</h2>
+                    <h2>热销域名 超过<span>10,000,000</span>域名在亿维云网注册</h2>
                     <div class="div1">
-                        <form action="" method="post">
+                            <input type="hidden" name="lang" value="ENG"/>
+                            <input type="hidden" name="encoding" value="UTF-8"/>
                             <input class="input_name" name="domain" type="text" placeholder="请输入您要的注册的域名">
                             <input class="submit_name"  type="submit" value="查域名">
-                        </form>
+
                         <div class="clear"></div>
                     </div>
                     <div class="div2">
@@ -69,157 +79,157 @@
                     <div class="domext-wrapper clearfix">
 
                         <label class="checked" for="label_for_1_0">
-                            <input name="suffix" checked="checked" value=".top" common-use="1" id="label_for_1_0" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".top" common-use="1" id="label_for_1_0" type="checkbox">
                             <a href="">.top
                                 <div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                             <i class="icon promotion"></i>
                         </label>
 
                         <label class="checked" for="label_for_1_1">
-                            <input name="suffix" checked="checked" value=".club" common-use="1" id="label_for_1_1" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".club" common-use="1" id="label_for_1_1" type="checkbox">
                             <a href="">.club<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                             <i class="icon promotion"></i>
                         </label>
 
                         <label class="checked" for="label_for_1_2">
-                            <input name="suffix" checked="checked" value=".com" common-use="1" id="label_for_1_2" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".com" common-use="1" id="label_for_1_2" type="checkbox">
                             <a href="">.com<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                             <i class="icon hot"></i>
                         </label>
 
                         <label class="checked" for="label_for_1_3">
-                            <input name="suffix" checked="checked" value=".site" common-use="1" id="label_for_1_3" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".site" common-use="1" id="label_for_1_3" type="checkbox">
                             <a href="">.site<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="checked" for="label_for_1_4">
-                            <input name="suffix" checked="checked" value=".cn" common-use="1" id="label_for_1_4" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".cn" common-use="1" id="label_for_1_4" type="checkbox">
                             <a href="">.cn<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                             <i class="icon hot"></i>
                         </label>
 
                         <label class="checked" for="label_for_1_5">
-                            <input name="suffix" checked="checked" value=".tech" common-use="1" id="label_for_1_5" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".tech" common-use="1" id="label_for_1_5" type="checkbox">
                             <a href="">.tech<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="checked" for="label_for_1_6">
-                            <input name="suffix" checked="checked" value=".online" common-use="1" id="label_for_1_6" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".online" common-use="1" id="label_for_1_6" type="checkbox">
                             <a href="">.online<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="checked" for="label_for_1_7">
-                            <input name="suffix" checked="checked" value=".xyz" common-use="1" id="label_for_1_7" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".xyz" common-use="1" id="label_for_1_7" type="checkbox">
                             <a href="">.xyz<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                             <i class="icon hot"></i>
                         </label>
 
                         <label class="checked" for="label_for_1_8">
-                            <input name="suffix" checked="checked" value=".wang" common-use="1" id="label_for_1_8" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".wang" common-use="1" id="label_for_1_8" type="checkbox">
                             <a href="">.wang<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                             <i class="icon promotion"></i>
                         </label>
 
                         <label class="checked" for="label_for_1_9">
-                            <input name="suffix" checked="checked" value=".shop" common-use="1" id="label_for_1_9" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".shop" common-use="1" id="label_for_1_9" type="checkbox">
                             <a href="">.shop<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                             <i class="icon hot"></i>
                         </label>
 
                         <label class="checked" for="label_for_1_10">
-                            <input name="suffix" checked="checked" value=".win" common-use="1" id="label_for_1_10" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".win" common-use="1" id="label_for_1_10" type="checkbox">
                             <a href="">.win<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="checked" for="label_for_1_11">
-                            <input name="suffix" checked="checked" value=".net" common-use="1" id="label_for_1_11" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".net" common-use="1" id="label_for_1_11" type="checkbox">
                             <a href="">.net<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="" for="label_for_1_12">
-                            <input name="suffix" value=".hk" common-use="0" id="label_for_1_12" type="checkbox">
+                            <input name="tld[]" value=".hk" common-use="0" id="label_for_1_12" type="checkbox">
                             <a href="">.hk<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                             <i class="icon hot"></i>
                         </label>
 
                         <label class="checked" for="label_for_1_13">
-                            <input name="suffix" checked="checked" value=".cc" common-use="1" id="label_for_1_13" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".cc" common-use="1" id="label_for_1_13" type="checkbox">
                             <a href="">.cc<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="checked" for="label_for_1_14">
-                            <input name="suffix" checked="checked" value=".store" common-use="1" id="label_for_1_14" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".store" common-use="1" id="label_for_1_14" type="checkbox">
                             <a href="">.store<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="" for="label_for_1_15">
-                            <input name="suffix" value=".red" common-use="0" id="label_for_1_15" type="checkbox">
+                            <input name="tld[]" value=".red" common-use="0" id="label_for_1_15" type="checkbox">
                             <a href="">.red<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="" for="label_for_1_16">
-                            <input name="suffix" value=".me" common-use="0" id="label_for_1_16" type="checkbox">
+                            <input name="tld[]" value=".me" common-use="0" id="label_for_1_16" type="checkbox">
                             <a href="">.me<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="" for="label_for_1_17">
-                            <input name="suffix" value=".mobi" common-use="0" id="label_for_1_17" type="checkbox">
+                            <input name="tld[]" value=".mobi" common-use="0" id="label_for_1_17" type="checkbox">
                             <a href="">.mobi<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="checked" for="label_for_1_18">
-                            <input name="suffix" checked="checked" value=".com.cn" common-use="1" id="label_for_1_18" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".com.cn" common-use="1" id="label_for_1_18" type="checkbox">
                             <a href="">.com.cn<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="" for="label_for_1_19">
-                            <input name="suffix" value=".org" common-use="0" id="label_for_1_19" type="checkbox">
+                            <input name="tld[]" value=".org" common-use="0" id="label_for_1_19" type="checkbox">
                             <a href="">.org<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="" for="label_for_1_20">
-                            <input name="suffix" value=".bid" common-use="0" id="label_for_1_20" type="checkbox">
+                            <input name="tld[]" value=".bid" common-use="0" id="label_for_1_20" type="checkbox">
                             <a href="">.bid<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                             <i class="icon promotion"></i>
                         </label>
 
                         <label class="checked" for="label_for_1_21">
-                            <input name="suffix" checked="checked" value=".info" common-use="1" id="label_for_1_21" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".info" common-use="1" id="label_for_1_21" type="checkbox">
                             <a href="">.info<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="" for="label_for_1_22">
-                            <input name="suffix" value=".biz" common-use="0" id="label_for_1_22" type="checkbox">
+                            <input name="tld[]" value=".biz" common-use="0" id="label_for_1_22" type="checkbox">
                             <a href="">.biz<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="" for="label_for_1_23">
-                            <input name="suffix" value=".pro" common-use="0" id="label_for_1_23" type="checkbox">
+                            <input name="tld[]" value=".pro" common-use="0" id="label_for_1_23" type="checkbox">
                             <a href="">.pro<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="checked" for="label_for_1_24">
-                            <input name="suffix" checked="checked" value=".vip" common-use="1" id="label_for_1_24" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".vip" common-use="1" id="label_for_1_24" type="checkbox">
                             <a href="">.vip<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="" for="label_for_1_25">
-                            <input name="suffix" value=".ren" common-use="0" id="label_for_1_25" type="checkbox">
+                            <input name="tld[]" value=".ren" common-use="0" id="label_for_1_25" type="checkbox">
                             <a href="">.ren<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="" for="label_for_1_26">
-                            <input name="suffix" value=".gs" common-use="0" id="label_for_1_26" type="checkbox">
+                            <input name="tld[]" value=".gs" common-use="0" id="label_for_1_26" type="checkbox">
                             <a href="">.gs<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="" for="label_for_1_27">
-                            <input name="suffix" value=".cx" common-use="0" id="label_for_1_27" type="checkbox">
+                            <input name="tld[]" value=".cx" common-use="0" id="label_for_1_27" type="checkbox">
                             <a href="">.cx<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
                         <label class="checked" for="label_for_1_28">
-                            <input name="suffix" checked="checked" value=".xin" common-use="0" id="label_for_1_28" type="checkbox">
+                            <input name="tld[]" checked="checked" value=".xin" common-use="0" id="label_for_1_28" type="checkbox">
                             <a href="">.xin<div class="dm-price-tip-container"><span class="domain-name">shop域名</span><br>价格：<span class="domain-price">43</span>元<br><span class="domain-info">商店;&nbsp;购物。9月26日23:00开放注册</span></div></a>
                         </label>
 
@@ -227,8 +237,9 @@
                     </div>
                     <div class="clear"></div>
                 </div>
+                </form>
             </div>
-
+            <!--热销域名end-->
             <div>
                 <div class="name1">
                     <h2>超过<span>10,000,000</span>域名在亿维云网注册</h2>
@@ -1273,6 +1284,40 @@
     <script type="text/javascript">jQuery(".slide_box2").slide({trigger:"click"});</script>
     <div class="blank70"></div>
 </div>
+<script type="text/javascript">
+
+    $(document)
+            .ajaxStart(function(){
+               // document.getElementById('loading').click();
+                $("input:submit").attr("disabled", true);
+            })
+            .ajaxStop(function(){
+                $("input:submit").attr("disabled", false);
+            });
+
+
+    $("#hotform").submit(function(){
+        var self = $(this);
+        $.post(self.attr("action"), self.serialize(), success, "json");
+        return false;
+
+        function success(data){
+
+            if(data.status==1){
+
+                window.location.href = data.url;
+            } else {
+                iosOverlay({
+                    text: "请输入域名",
+                    duration: 2e3,
+                    icon: "__YWY__/ios/img/cross.png"
+                });
+                return false;
+            }
+        }
+    });
+
+</script>
 <!-- 底部 -->
 <include file="Public/bottom"/>
 <!-- /底部 -->

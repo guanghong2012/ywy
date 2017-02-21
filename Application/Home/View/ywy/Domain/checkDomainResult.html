@@ -14,6 +14,9 @@
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
     <link href="__YWY__/css/style2.css" rel="stylesheet" type="text/css" /><!-- 表单美化 -->
     <link href="__YWY__/css/selectpick/cui.css" rel="stylesheet" type="text/css"><!-- 2.2 selectpick美化下拉框插件 -->
+
+    <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
+
 </head>
 <body>
 <!-- 头部 -->
@@ -31,6 +34,7 @@
         <div class="clear"></div>
     </div>
     <div class="w1200 namexz_div">
+        <form id="form1" action="{:U('Domain/addDomainToBuy')}" method="post">
         <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#fff" class="name_ta">
             <tr>
                 <th width="350">域名</th>
@@ -39,89 +43,89 @@
             </tr>
         </table>
         <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#e5e5e5" class="name_ta1">
+
+            <volist name="list" id="vo" >
             <tr>
-                <td bgcolor="#ffffff" width="350" class="td1">baga123.top</td>
-                <td bgcolor="#ffffff" width="350" class="td2">未注册</td>
+                <td bgcolor="#ffffff" width="350" class="td1">{$vo.domain}</td>
+                <td bgcolor="#ffffff" width="350" class="td2">
+                    <if condition="$vo['result']['data']['available'] eq 1">
+                    未注册
+                    <elseif condition="$vo['result']['data']['available'] eq 0" />
+                    已注册
+                        <else />
+                        查询失败
+                    </if>
+                </td>
                 <td bgcolor="#ffffff" class="td3">
+                    <if condition="$vo['result']['data']['available'] eq 1">
                     <div class="nice-select" name="nice-select">
-                        <input type="text" value="￥5元/1年" readonly>
+                        <input type="text" class="show" name="" value="￥5元/1年" readonly>
+                        <input type="hidden" class="year" name="year[{$vo.id}][]" value="1" readonly>
                         <ul>
                             <li data-value="1">￥5元/1年</li>
-                            <li data-value="2">￥10元/3年</li>
-                            <li data-value="3">￥20元/5年</li>
-                            <li data-value="4">￥50元/12年</li>
+                            <li data-value="3">￥10元/3年</li>
+                            <li data-value="5">￥20元/5年</li>
+                            <li data-value="12">￥50元/12年</li>
                         </ul>
                     </div>
-                    <label for="" class="label_xz">
-                        <input id="checkbox-1-1" class="regular-checkbox" checked="" type="checkbox"><label class="label_1" for="checkbox-1-1"></label>
+                    <label  class="label_xz">
+                        <input id="checkbox-{$i}-1" class="regular-checkbox" checked="" name="domain[{$vo.id}][]" value="{$vo['domain']}" type="checkbox"><label class="label_1" for="checkbox-{$i}-1"></label>
                         选择此域名
                     </label>
+                        <else />
+
+                    </if>
                 </td>
             </tr>
-            <tr>
-                <td bgcolor="#ffffff" class="td1">baga123.com</td>
-                <td bgcolor="#ffffff" class="td2">未注册</td>
-                <td bgcolor="#ffffff" class="td3">
-                    <div class="nice-select" name="nice-select">
-                        <input type="text" value="￥5元/1年" readonly>
-                        <ul>
-                            <li data-value="1">￥5元/1年</li>
-                            <li data-value="2">￥10元/3年</li>
-                            <li data-value="3">￥20元/5年</li>
-                            <li data-value="4">￥50元/12年</li>
-                        </ul>
-                    </div>
-                    <label for="" class="label_xz">
-                        <input id="checkbox-2-1" class="regular-checkbox" checked="" type="checkbox"><label class="label_1" for="checkbox-2-1"></label>
-                        选择此域名
-                    </label>
-                </td>
-            </tr>
-            <tr>
-                <td bgcolor="#ffffff" class="td1">baga123.cn</td>
-                <td bgcolor="#ffffff" class="td2">未注册</td>
-                <td bgcolor="#ffffff" class="td3">
-                    <div class="nice-select" name="nice-select">
-                        <input type="text" value="￥5元/1年" readonly>
-                        <ul>
-                            <li data-value="1">￥5元/1年</li>
-                            <li data-value="2">￥10元/3年</li>
-                            <li data-value="3">￥20元/5年</li>
-                            <li data-value="4">￥50元/12年</li>
-                        </ul>
-                    </div>
-                    <label for="" class="label_xz">
-                        <input id="checkbox-3-1" class="regular-checkbox" checked="" type="checkbox"><label class="label_1" for="checkbox-3-1"></label>
-                        选择此域名
-                    </label>
-                </td>
-            </tr>
-            <tr>
-                <td bgcolor="#ffffff" class="td1">baga123.net</td>
-                <td bgcolor="#ffffff" class="td2">未注册</td>
-                <td bgcolor="#ffffff" class="td3">
-                    <div class="nice-select" name="nice-select">
-                        <input type="text" value="￥5元/1年" readonly>
-                        <ul>
-                            <li data-value="1">￥5元/1年</li>
-                            <li data-value="2">￥10元/3年</li>
-                            <li data-value="3">￥20元/5年</li>
-                            <li data-value="4">￥50元/12年</li>
-                        </ul>
-                    </div>
-                    <label for="" class="label_xz">
-                        <input id="checkbox-4-1" class="regular-checkbox" checked="" type="checkbox"><label class="label_1" for="checkbox-4-1"></label>
-                        选择此域名
-                    </label>
-                </td>
-            </tr>
+            </volist>
+
         </table>
         <div class="yxz_div">
-            <p>已选择域名：<span>【baga123.top】</span> <a href="name_tx.php">确定购买</a></p>
+            <p>已选择域名：<span>【{$list[0]['domain']}】</span> <a href="javascript:void(0)" id="confirmbuy" onclick="$('#form1').submit();" >确定购买</a></p>
         </div>
+        </form>
     </div>
 </div>
+
 <script>
+    $(document)
+            .ajaxStart(function(){
+
+                $("#confirmbuy").attr("disabled", true);
+            })
+            .ajaxStop(function(){
+                $("#confirmbuy").attr("disabled", false);
+            });
+
+    //表单验证
+    $("form").submit(function(){
+
+       // var checkbox = $("input[name='domain[]']:checked");//获取选中复选框
+        var checkbox = $(".regular-checkbox:checked");//获取选中复选框
+        var len = checkbox.length;//判断checkbox选中个数
+        if(len==0){
+            layer.alert("请选择要购买的域名",{title:"提示"});
+            //alert("请选择要购买的域名");
+            return false;
+        }
+
+        var self = $(this);
+        $.post(self.attr("action"), self.serialize(), success, "json");
+        return false;
+
+        function success(data){
+            if(data.status==1){
+                //alert("成功");
+                window.location.href = data.url;
+            } else {
+                alert("失败");
+                return false;
+            }
+        }
+    });
+
+
+
     $('[name="nice-select"]').click(function(e){
         $('[name="nice-select"]').find('ul').hide();
         $(this).find('ul').show();
@@ -133,7 +137,9 @@
     });
     $('[name="nice-select"] li').click(function(e){
         var val = $(this).text();
-        $(this).parents('[name="nice-select"]').find('input').val(val);
+        var datavalue = $(this).attr("data-value");
+        $(this).parents('[name="nice-select"]').find('.show').val(val);
+        $(this).parents('[name="nice-select"]').find('.year').val(datavalue);
         $('[name="nice-select"] ul').hide();
         e.stopPropagation();
     });
@@ -144,5 +150,11 @@
 <!-- 底部 -->
 <include file="Public/bottom"/>
 <!-- /底部 -->
+
+<script type="text/javascript" src="__YWY__/js2016/lib/wjf/js/wjf-1.0.0.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/jqurey.tools/jquery.tools.rangeinput.min.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/layer/layer.js"></script>
+
+
 </body>
 </html>

@@ -62,7 +62,8 @@ class CloundApi
             $this->data = $this->baseData;
         }
         $res = request_post($this->url,$this->data);
-        return $this->result = json_decode($res,true);
+        //return $this->result = json_decode($res,true);
+        return $res;//直接返回json格式的数据
     }
     
     /*
