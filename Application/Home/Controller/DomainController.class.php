@@ -90,6 +90,13 @@ class DomainController extends HomeController{
      */
     public function addDomainToBuy()
     {
+        /* 用户登录检测 */
+        $user = session('user_auth');
+        if(empty($user)){
+            $return = array("status"=>2,"url"=>U('Cuser/login'),"msg"=>"请登录");
+            echo json_encode($return);
+            exit();
+        }
         //print_r($_POST);
         $domains = I('post.domain');
         $years = I('post.year');
@@ -101,9 +108,10 @@ class DomainController extends HomeController{
         }else{
             foreach($domains as $key=>$val){
                 $domainToBuy[] = array(
-                    'year' => $years[$key][0],
+                    'month' => $years[$key][0]*12,//用月份保存
                     'domain' => $val[0],
                     'ltd' => $list[$key]['ltd'],
+                    'info'=> 0,
                 );
             }
             session('domainToBuy',$domainToBuy);
@@ -120,10 +128,102 @@ class DomainController extends HomeController{
      */
     public function buyDomainInfo()
     {
+        if(IS_POST){
+            $data = I('post.');
+            $k = $data['k'];
+            $islast = $data['islast'];
+            unset($data['k']);
+            unset($data['islast']);
+            $domainToBuy = session('domainToBuy');
+            $domainToBuy[$k]['info'] = $data;
+            session('domainToBuy',$domainToBuy);
+            //echo "<pre>";
+            //print_r($_POST);
+            //print_r(session('domainToBuy'));
+            if($islast!=1){
+                $return = array("status"=>1,"url"=>U('Domain/buyDomainInfo'),"msg"=>"信息填写成功！");
+                echo json_encode($return);
+                exit();
+            }else{
+                //填写完最后一个域名信息
+                $return = array("status"=>2,"url"=>U('Domain/addDomainsToCart'),"msg"=>"跳转购物车！");
+                echo json_encode($return);
+                exit();
+            }
+        }else{
+            $domainToBuy = session('domainToBuy');
+            $i = 0;
+            $islast = 0;
+            foreach($domainToBuy as $key=>$val){
+                if(empty($val['info'])){
+                    $k = $key;
+                    break;
+                }else{
+                    $i++;
+                }
+            }
+            if(count($domainToBuy)-1 == $i){
+                $islast = 1;
+            }
+            echo $k;
+            echo '#'.$islast;
 
-        //$this->assign();
-        $this->display();
+            $this->assign("islast",$islast);
+            $this->assign("k",$k);
+            $this->assign("domainToBuy",$domainToBuy);
+            $this->display();
+        }
+
     }
+    
+    /*
+     * 域名购买 加入购物车
+     */
+    public function addDomainsToCart()
+    {
+        /* 用户登录检测 */
+        $user = session('user_auth');
+
+        if(empty($user)){
+            $this->error("用户未登录",U('Cuser/login'));
+        }
+        $domainToBuy = session('domainToBuy');
+
+        if(!empty($domainToBuy)){
+            $model = D("Cart");
+            $j = 0;
+            //加入购物车
+            foreach($domainToBuy as $key=>$value){
+                $data = array();
+                $data['uid'] = $user['id'];
+                $data['name'] = $value['ltd']."域名";
+                $data['keywords'] = $value['domain'];
+                $data['number'] = 1;
+                $data['price'] = 1.00;//域名单价未知
+                $data['month'] = $value['month'];
+                $data['base_total'] = $data['number'] * $data['price'];
+                $data['added_price	'] = 0.00;
+
+                $project['name'] = $value['ltd'].'_ENG';
+
+                $data['project	'] = json_encode($project);//方案信息
+                $data['parameters	'] = '';//参数信息
+                $data['type'] = 1;//产品类型 1=域名
+                $data['domain_info'] = json_encode($value['info']);//域名注册信息
+
+                $res = $model->addCart($data);
+                $res && $j++;
+            }
+            if($j>0){
+                session('domainToBuy',null);
+                $this->redirect('Cart/index');
+            }
+
+        }
+        print_r($domainToBuy);
+    }
+
+
 
     
 }

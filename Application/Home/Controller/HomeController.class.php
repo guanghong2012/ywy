@@ -26,11 +26,11 @@ class HomeController extends Controller {
         /* 读取站点配置 */
         $config = api('Config/lists');
         C($config); //添加配置
-        $user = session('user_auth');
+        $userinfo = session('user_auth');
         if(!empty($user)){
             $user_login = 1;
-            $user_account = $user['account'];
-            $user_name = $user['username'];
+            $user_account = $userinfo['account'];
+            $user_name = $userinfo['username'];
             $this->assign('user_name',$user_name);
             $this->assign('user_account',$user_account);
         }else{

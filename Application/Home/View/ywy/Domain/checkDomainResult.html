@@ -117,8 +117,10 @@
             if(data.status==1){
                 //alert("成功");
                 window.location.href = data.url;
+            }else if(data.status == 2){
+                layer.alert(data.msg,{title:"提示"});
             } else {
-                alert("失败");
+                layer.alert("请重试",{title:"提示"});
                 return false;
             }
         }

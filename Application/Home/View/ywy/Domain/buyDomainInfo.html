@@ -14,6 +14,10 @@
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
     <link href="__YWY__/css/style2.css" rel="stylesheet" type="text/css" /><!-- 表单美化 -->
     <link href="__YWY__/css/selectpick/cui.css" rel="stylesheet" type="text/css"><!-- 2.2 selectpick美化下拉框插件 -->
+
+    <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
+
+    <script type="text/javascript" src="__YWY__/js/jQuery.Hz2Py-min.js"></script><!--汉字转拼音-->
 </head>
 <body>
 <!-- 头部 -->
@@ -22,87 +26,100 @@
 <div class="virtual_lx_div">
     <div class="w1200 mbs_div">
         <ul>
-            <li><a href="index.php">首页</a></li>
+            <li><a href="{:U('Index/index')}">首页</a></li>
             <li>></li>
-            <li><a href="name.php">域名注册</a></li>
+            <li><a href="{:U('Domain/index')}">域名注册</a></li>
             <li>></li>
-            <li><a href="name_xz.php">选择域名</a></li>
+            <li><a href="{:U('Domain/checkDomainResult')}">选择域名</a></li>
             <li>></li>
             <li class="li1">填写域名信息</li>
         </ul>
         <div class="clear"></div>
     </div>
+    <form action="{:U('Domain/buyDomainInfo')}" id="form1" method="post">
     <div class="w1200 nametx_div">
-        <h1><span>域名：<em>baga123.top</em></span><span>注册人：<em>千佰特</em></span><span class="span1"><i>*</i>为必填项</span></h1>
+        <h1><span>域名：<em>{$domainToBuy[$k][domain]}</em></span><span>注册人：<em>千佰特</em></span><span class="span1"><i>*</i>为必填项</span></h1>
         <div class="namexx_div">
             <div class="div1">
                 组织或单位（中文） <i>*</i>
             </div>
-            <input type="text" class="input_ty input_1">
+            <input type="text" id="r_organization" name="r_organization" class="input_ty input_1">
             <div class="div1">
                 组织或单位（英文） <i>*</i>
             </div>
-            <input type="text" class="input_ty input_1">
+            <input type="text" id="r_organization1" name="r_organization1" class="input_ty input_1">
             <div class="clear"></div>
         </div>
         <div class="namexx_div">
             <div class="div1">
                 姓名（中文） <i>*</i>
             </div>
-            <input type="text" class="input_ty">
+            <input type="text" id="r_name" name="r_name" class="input_ty">
             <div class="div1">
                 姓名（英文） <i>*</i>
             </div>
-            <input type="text" class="input_ty">
+            <input type="text" id="r_name1" name="r_name1" class="input_ty">
             <div class="clear"></div>
         </div>
         <div class="namexx_div">
             <div class="div1">
                 所在地 <i>*</i>
             </div>
-            <select name="" class="inse_xl">
-                <option>国家</option>
-                <option>中国</option>
-                <option>日本</option>
-                <option>美国</option>
+            <select name="r_country" class="inse_xl">
+                <option value="CN">中国</option>
             </select>
-            <select name="" class="inse_xl">
+            <!--
+            <select name="r_province" class="inse_xl">
                 <option>省份</option>
                 <option>广东省</option>
                 <option>湖南省</option>
                 <option>四川省</option>
-            </select>
-            <select name="" class="inse_xl">
+            </select>-->
+            <div class="div1">
+                省份 <i>*</i>
+            </div>
+            <input type="text" id="r_province" name="r_province" class="input_ty">
+            <input type="hidden" id="r_province1" name="r_province1" class="input_ty">
+            <!--
+            <select name="r_city" class="inse_xl">
                 <option>城市</option>
                 <option>广州市</option>
                 <option>深圳市</option>
                 <option>揭阳市</option>
-            </select>
+            </select>-->
+            <div class="div1">
+                城市 <i>*</i>
+            </div>
+            <input type="text" id="r_city" name="r_city" class="input_ty">
+            <input type="hidden" id="r_city1" name="r_city1" class="input_ty">
+            <div class="clear"></div>
+            <div class="namexx_div">
             <div class="div1">
                 邮政编码 <i>*</i>
             </div>
-            <input type="text" class="input_ty">
+            <input type="text" id="r_postcode" name="r_postcode" class="input_ty">
             <div class="clear"></div>
+            </div>
         </div>
         <div class="namexx_div">
             <div class="div1">
                 邮箱地址 <i>*</i>
             </div>
-            <input type="text" class="input_ty input_1">
+            <input type="text" id="r_email" name="r_email" class="input_ty input_1">
             <div class="clear"></div>
         </div>
         <div class="namexx_div">
             <div class="div1">
                 街道（中文） <i>*</i>
             </div>
-            <input type="text" class="input_ty input_2">
+            <input type="text" id="r_street" name="r_street" class="input_ty input_2">
             <div class="clear"></div>
         </div>
         <div class="namexx_div">
             <div class="div1">
                 街道（英文） <i>*</i>
             </div>
-            <input type="text" class="input_ty input_2">
+            <input type="text" id="r_street1" name="r_street1" class="input_ty input_2">
             <div class="clear"></div>
         </div>
         <div class="namexx_div">
@@ -110,7 +127,7 @@
                 电话/手机 <i>*</i>
             </div>
             <div class="div2">
-                <input type="text" class="input_ty input_1">
+                <input type="text" id="r_phone" name="r_phone" class="input_ty input_1" value="+86." />
                 <div class="clear"></div>
                 <p>（如: +86.13531512345或+86.020-88649000-分机号(分机号可选, 不能为0）</p>
             </div>
@@ -121,32 +138,42 @@
                 传真 <i>*</i>
             </div>
             <div class="div2">
-                <input type="text" class="input_ty input_1">
+                <input type="text" id="r_fax" name="r_fax" class="input_ty input_1" value="+86." />
                 <div class="clear"></div>
-                <p>（格式是+86.020-88881234或+86.13570476481（小数点后面的数字长度为大于等于7，小于等于12）</p>
+                <p>（格式是+86.020-88881234（小数点后面的数字长度为大于等于7，小于等于12）</p>
             </div>
             <div class="clear"></div>
         </div>
         <div class="namexx_div1">
             <ul>
                 <li>
-                    <input name="radio-1-set" id="checkbox-1-2" class="regular-checkbox" type="radio">
+                    <input name="radio-1-set" id="checkbox-1-2" class="regular-checkbox" value="1" checked type="checkbox">
                     <label class="label_1" for="checkbox-1-2"></label>
                     <span>管理联系人信息与注册联系人一致</span>
                 </li>
                 <li>
-                    <input name="radio-1-set" id="checkbox-1-3" class="regular-checkbox" type="radio">
+                    <input name="radio-2-set" id="checkbox-1-3" class="regular-checkbox" value="1" checked type="checkbox">
                     <label class="label_1" for="checkbox-1-3"></label>
                     <span>技术联系人与注册联系人一致</span>
                 </li>
                 <li>
-                    <input name="radio-1-set" id="checkbox-1-4" class="regular-checkbox" type="radio">
+                    <input name="radio-3-set" id="checkbox-1-4" class="regular-checkbox" value="1" checked type="checkbox">
                     <label class="label_1" for="checkbox-1-4"></label>
                     <span>付费联系人与注册联系人一致</span>
                 </li>
-                <li class="li1"><a href="">确定购买</a></li>
+                <li class="li1">
+                    <a href="javascript:void(0)" onclick="$('#form1').submit()" id="next" >
+                    <empty name="islast">
+                        下一步
+                        <else />
+                        加入购物车
+                    </empty>
+                    </a>
+                </li>
                 <li class="li2">
-                    <input id="checkbox-1-1" class="regular-checkbox" checked="" type="checkbox">
+                    <input  name="k" value="{$k}" type="hidden" />
+                    <input  name="islast" value="{$islast}" type="hidden" />
+                    <input id="checkbox-1-1" class="regular-checkbox"  checked="" type="checkbox">
                     <label class="label_1" for="checkbox-1-1"></label>
                     <span>购买协议</span>
                 </li>
@@ -154,9 +181,150 @@
             <div class="clear"></div>
         </div>
     </div>
+    </form>
 </div>
+<script type="text/javascript">
+    $(function (){
+        $("#r_organization").live("keyup keydown change blur",function (){
+            $("#r_organization1").val($(this).toPinyin());
+        });
+
+        $("#r_name").live("keyup keydown change blur",function (){
+            $("#r_name1").val($(this).toPinyin());
+        });
+
+        $("#r_province").live("keyup keydown change blur",function (){
+            $("#r_province1").val($(this).toPinyin());
+        });
+        $("#r_city").live("keyup keydown change blur",function (){
+            $("#r_city1").val($(this).toPinyin());
+        });
+        $("#r_street").live("keyup keydown change blur",function (){
+            $("#r_street1").val($(this).toPinyin());
+        });
+
+    });
+</script>
+<script type="text/javascript">
+    //校验邮箱
+    function isEmail(s){
+        var patrn=/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+        if (!patrn.exec(s)) {return false;}else{
+            return true;}
+    }
+    function isMobil(s){ //匹配手机号码函数
+        var patrn = /(^\+86\.{0,1}1[3|4|5|6|7|8|9][0-9]{9}$)/;
+        if (!patrn.exec(s)){
+            return false;
+        }
+        return true;
+    }
+    //校验普通电话、传真号码：可以“+”开头，除数字外，可含有“-”
+    function isTel(s)
+    {
+//var patrn=/^[+]{0,1}(\d){1,3}[ ]?([-]?(\d){1,12})+$/;
+        var patrn=/^\+86\.(\d){1,3}[ ]?([-]?((\d)|[ ]){1,12})+$/;
+        if (!patrn.exec(s)) return false
+        return true
+    }
+    //防止重复点击下一步按钮
+    $(document)
+            .ajaxStart(function(){
+
+                $("#next").attr("disabled", true);
+            })
+            .ajaxStop(function(){
+                $("#next").attr("disabled", false);
+            });
+    //表单验证
+    $("form").submit(function(){
+        //组织或单位（中文）
+        if($('#r_organization').length==0){
+            layer.alert("组织或单位（中文）不能为空",{title:"提示"});
+            return false;
+        }
+        //组织或单位（英文）
+        if($('#r_organization1').length==0){
+            layer.alert("组织或单位（英文）不能为空",{title:"提示"});
+            return false;
+        }
+        //姓名（中文）
+        if($('#r_name').length==0){
+            layer.alert("姓名（中文）不能为空",{title:"提示"});
+            return false;
+        }
+        //姓名（英文）
+        if($('#r_name1').length==0){
+            layer.alert("姓名（英文）不能为空",{title:"提示"});
+            return false;
+        }
+        //省份
+        if($('#r_province').length==0){
+            layer.alert("省份不能为空",{title:"提示"});
+            return false;
+        }
+        //城市
+        if($('#r_city').length==0){
+            layer.alert("城市不能为空",{title:"提示"});
+            return false;
+        }
+        //邮政编码
+        if($('#r_postcode').length==0){
+            layer.alert("邮政编码不能为空",{title:"提示"});
+            return false;
+        }
+        //邮箱地址
+        if(!isEmail($('#r_email').val())){
+            layer.alert("请填写正确的邮箱地址",{title:"提示"});
+            return false;
+        }
+        //街道（中文）
+        if($('#r_street').length==0){
+            layer.alert("街道（中文）不能为空",{title:"提示"});
+            return false;
+        }
+        //街道（英文）
+        if($('#r_street1').length==0){
+            layer.alert("街道（英文）不能为空",{title:"提示"});
+            return false;
+        }
+        //电话/手机
+        if(!isMobil($('#r_phone').val())){
+            layer.alert("请按指示输入电话或手机号码",{title:"提示"});
+            return false;
+        }
+        //传真
+        if(!isTel($('#r_fax').val())){
+            layer.alert("请按指示输入传真号码",{title:"提示"});
+            return false;
+        }
+
+        var self = $(this);
+        $.post(self.attr("action"), self.serialize(), success, "json");
+        return false;
+
+        function success(data){
+            if(data.status==1){
+                layer.alert(data.msg,{title:"提示"});
+                window.location.href = data.url;
+            }else if(data.status == 2){
+                layer.alert(data.msg,{title:"提示"});
+                window.location.href = data.url;
+            } else {
+                layer.alert("请重试",{title:"提示"});
+                return false;
+            }
+        }
+    });
+
+
+</script>
+
 <!-- 底部 -->
 <include file="Public/bottom"/>
 <!-- /底部 -->
+<script type="text/javascript" src="__YWY__/js2016/lib/wjf/js/wjf-1.0.0.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/jqurey.tools/jquery.tools.rangeinput.min.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/layer/layer.js"></script>
 </body>
 </html>
