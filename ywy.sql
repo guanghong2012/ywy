@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2017 �?02 �?22 �?18:12
+-- 生成日期: 2017 �?02 �?23 �?18:29
 -- 服务器版本: 5.5.40
 -- PHP 版本: 5.6.1
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `onethink_action_log` (
   KEY `action_ip_ix` (`action_ip`),
   KEY `action_id_ix` (`action_id`),
   KEY `user_id_ix` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表' AUTO_INCREMENT=190 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表' AUTO_INCREMENT=193 ;
 
 --
 -- 转存表中的数据 `onethink_action_log`
@@ -271,7 +271,10 @@ INSERT INTO `onethink_action_log` (`id`, `action_id`, `user_id`, `action_ip`, `m
 (186, 8, 1, 0, 'attribute', 97, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487746040),
 (187, 8, 1, 0, 'attribute', 92, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487748641),
 (188, 8, 1, 0, 'attribute', 98, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487750349),
-(189, 8, 1, 0, 'attribute', 99, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487750419);
+(189, 8, 1, 0, 'attribute', 99, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487750419),
+(190, 1, 1, 0, 'cuser', 1, 'admin在2017-02-23 15:35登录了后台', 1, 1487835346),
+(191, 1, 1, 0, 'member', 1, 'admin在2017-02-23 17:39登录了后台', 1, 1487842778),
+(192, 8, 1, 0, 'attribute', 100, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487842821);
 
 -- --------------------------------------------------------
 
@@ -360,7 +363,7 @@ CREATE TABLE IF NOT EXISTS `onethink_attribute` (
   `auto_type` varchar(25) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `model_id` (`model_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='模型属性表' AUTO_INCREMENT=100 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='模型属性表' AUTO_INCREMENT=101 ;
 
 --
 -- 转存表中的数据 `onethink_attribute`
@@ -464,7 +467,8 @@ INSERT INTO `onethink_attribute` (`id`, `name`, `title`, `field`, `type`, `value
 (96, 'parameters', '具体参数', 'text NOT NULL', 'textarea', '', 'json格式数据', 1, '', 15, 0, 1, 1487745978, 1487745978, '', 3, '', 'regex', '', 3, 'function'),
 (97, 'add_time', '添加时间', 'int(10) NOT NULL', 'datetime', '0', '', 1, '', 15, 0, 1, 1487746040, 1487746040, '', 3, '', 'regex', '', 3, 'function'),
 (98, 'type', '产品类型', 'char(2) NOT NULL', 'radio', '1', '', 1, '1:域名\r\n2:虚拟主机\r\n3:企业邮箱\r\n4:云服务器\r\n5:云建站', 15, 0, 1, 1487750349, 1487750349, '', 3, '', 'regex', '', 3, 'function'),
-(99, 'domain_info', '域名注册信息', 'text NOT NULL', 'textarea', '', '域名注册填写的信息', 1, '', 15, 0, 1, 1487750419, 1487750419, '', 3, '', 'regex', '', 3, 'function');
+(99, 'domain_info', '域名注册信息', 'text NOT NULL', 'textarea', '', '域名注册填写的信息', 1, '', 15, 0, 1, 1487750419, 1487750419, '', 3, '', 'regex', '', 3, 'function'),
+(100, 'subtotal', '全部总价', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '0.00', '', 1, '', 15, 0, 1, 1487842821, 1487842821, '', 3, '', 'regex', '', 3, 'function');
 
 -- --------------------------------------------------------
 
@@ -793,17 +797,18 @@ CREATE TABLE IF NOT EXISTS `onethink_cart` (
   `add_time` int(10) NOT NULL DEFAULT '0' COMMENT '添加时间',
   `type` char(2) NOT NULL DEFAULT '1' COMMENT '产品类型',
   `domain_info` text NOT NULL COMMENT '域名注册信息',
+  `subtotal` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '全部总价',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=10 ;
 
 --
 -- 转存表中的数据 `onethink_cart`
 --
 
-INSERT INTO `onethink_cart` (`id`, `uid`, `product_id`, `name`, `keywords`, `number`, `price`, `month`, `base_total`, `added_price`, `project`, `parameters`, `add_time`, `type`, `domain_info`) VALUES
-(1, 1, 0, '.top域名', 'baga168.top', 1, '1.00', 12, '1.00', '0.00', '', '', 1487750971, '1', '{"r_organization":"\\u5343\\u4f70\\u7279\\u79d1\\u6280","r_organization1":"Qian Bai Te Ke Ji ","r_name":"\\u6768\\u5149","r_name1":"Yang Guang ","r_country":"CN","r_province":"\\u5e7f\\u4e1c\\u7701","r_province1":"Guang Dong Sheng ","r_city":"\\u5e7f\\u5dde","r_city1":"Guang Zhou ","r_postcode":"510000","r_email":"develop11@qbt8.com","r_street":"\\u79d1\\u97f5\\u8def255\\u53f7","r_street1":"Ke Yun Lu 255Hao ","r_phone":"+86.13533481813","r_fax":"+86.020-82071951","radio-1-set":"1","radio-2-set":"1","radio-3-set":"1"}'),
-(2, 1, 0, '.com域名', 'baga168.com', 1, '1.00', 36, '1.00', '0.00', '', '', 1487750971, '1', '{"r_organization":"\\u66d9\\u5149\\u79d1\\u6280\\u6709\\u9650\\u516c\\u53f8","r_organization1":"Shu Guang Ke Ji You Xian Gong Si ","r_name":"\\u6768\\u5149","r_name1":"Yang Guang ","r_country":"CN","r_province":"\\u5e7f\\u4e1c\\u7701","r_province1":"Guang Dong Sheng ","r_city":"\\u5e7f\\u5dde","r_city1":"Guang Zhou ","r_postcode":"510000","r_email":"develop12@qbt8.com","r_street":"\\u79d1\\u97f5\\u8def255\\u53f7","r_street1":"Ke Yun Lu 255Hao ","r_phone":"+86.13533481813","r_fax":"+86.020-82071951","radio-1-set":"1","radio-2-set":"1","radio-3-set":"1"}'),
-(3, 1, 0, '.cn域名', 'baga168.cn', 1, '1.00', 60, '1.00', '0.00', '', '', 1487750971, '1', '{"r_organization":"\\u5b87\\u5b99\\u65e0\\u9650\\u516c\\u53f8","r_organization1":"Yu Zhou Wu Xian Gong Si ","r_name":"\\u674e\\u5927\\u7237","r_name1":"Li Da Ye ","r_country":"CN","r_province":"\\u5e7f\\u4e1c\\u7701","r_province1":"Guang Dong Sheng ","r_city":"\\u5e7f\\u5dde","r_city1":"Guang Zhou ","r_postcode":"510000","r_email":"develop13@qbt8.com","r_street":"\\u79d1\\u97f5\\u8def255\\u53f7","r_street1":"Ke Yun Lu 255Hao ","r_phone":"+86.13533481813","r_fax":"+86.020-82071951","radio-1-set":"1","radio-2-set":"1","radio-3-set":"1"}');
+INSERT INTO `onethink_cart` (`id`, `uid`, `product_id`, `name`, `keywords`, `number`, `price`, `month`, `base_total`, `added_price`, `project`, `parameters`, `add_time`, `type`, `domain_info`, `subtotal`) VALUES
+(9, 1, 0, '.cn域名', 'baga168.cn', 1, '1.00', 60, '1.00', '0.00', '{"name":".cn_ENG"}', '', 1487842271, '1', '{"r_organization":"\\u5343\\u4f70\\u7279\\u79d1\\u6280","r_organization1":"Qian Bai Te Ke Ji ","r_name":"\\u6768\\u5149","r_name1":"Yang Guang ","r_country":"CN","r_province":"\\u5e7f\\u4e1c\\u7701","r_province1":"Guang Dong Sheng ","r_city":"\\u5e7f\\u5dde","r_city1":"Guang Zhou ","r_postcode":"510000","r_email":"develop11@qbt8.com","r_street":"\\u79d1\\u97f5\\u8def255\\u53f7","r_street1":"Ke Yun Lu 255Hao ","r_phone":"+86.13533481813","r_fax":"+86.020-82071951","radio-1-set":"1","radio-2-set":"1","radio-3-set":"1"}', '1.00'),
+(8, 1, 0, '.com域名', 'baga168.com', 1, '1.00', 36, '1.00', '0.00', '{"name":".com_ENG"}', '', 1487842271, '1', '{"r_organization":"\\u66d9\\u5149\\u79d1\\u6280\\u6709\\u9650\\u516c\\u53f8","r_organization1":"Shu Guang Ke Ji You Xian Gong Si ","r_name":"\\u6768\\u5149","r_name1":"Yang Guang ","r_country":"CN","r_province":"\\u5e7f\\u4e1c\\u7701","r_province1":"Guang Dong Sheng ","r_city":"\\u5e7f\\u5dde","r_city1":"Guang Zhou ","r_postcode":"510000","r_email":"develop11@qbt8.com","r_street":"\\u79d1\\u97f5\\u8def255\\u53f7","r_street1":"Ke Yun Lu 255Hao ","r_phone":"+86.13533481813","r_fax":"+86.020-82071951","radio-1-set":"1","radio-2-set":"1","radio-3-set":"1"}', '1.00'),
+(7, 1, 0, '.top域名', 'baga168.top', 1, '1.00', 12, '1.00', '0.00', '{"name":".top_ENG"}', '', 1487842271, '1', '{"r_organization":"\\u5343\\u4f70\\u7279\\u79d1\\u6280","r_organization1":"Qian Bai Te Ke Ji ","r_name":"\\u6768\\u5149","r_name1":"Yang Guang ","r_country":"CN","r_province":"\\u5e7f\\u4e1c\\u7701","r_province1":"Guang Dong Sheng ","r_city":"\\u5e7f\\u5dde","r_city1":"Guang Zhou ","r_postcode":"510000","r_email":"develop11@qbt8.com","r_street":"\\u79d1\\u97f5\\u8def255\\u53f7","r_street1":"Ke Yun Lu 255Hao ","r_phone":"+86.13533481813","r_fax":"+86.020-82071951","radio-1-set":"1","radio-2-set":"1","radio-3-set":"1"}', '1.00');
 
 -- --------------------------------------------------------
 
@@ -1042,7 +1047,7 @@ CREATE TABLE IF NOT EXISTS `onethink_cuser` (
 --
 
 INSERT INTO `onethink_cuser` (`id`, `email`, `username`, `password`, `mobile`, `address`, `sex`, `qq`, `reg_time`, `reg_ip`, `update_time`, `status`, `last_login_time`, `last_login_ip`, `account`, `login`) VALUES
-(1, 'guanghong2012@126.com', '李志', '1625a05770c3ee32d06130866fc25d7f', '13533481813', '广州天河区科韵路255号', '1', '7778858', '1487561471', '0', '1487561471', '1', '1487726936', '0', '0.00', 3),
+(1, 'guanghong2012@126.com', '李志', '1625a05770c3ee32d06130866fc25d7f', '13533481813', '广州天河区科韵路255号', '1', '7778858', '1487561471', '0', '1487561471', '1', '1487835346', '0', '0.00', 4),
 (3, 'develop12@qbt8.com', '骚刚', '37e36e59794dd65d98006b57ef95af42', '13580128021', '科韵路255号', '1', '', '1487572646', '0', '1487572646', '1', '1487571279', '0', '90.00', 2),
 (4, 'develop13@qbt8.com', '八嘎', '1625a05770c3ee32d06130866fc25d7f', '', '', '0', '', '1487558784', '0', '1487558784', '1', '', '', '0.00', 0),
 (5, 'develop21@qbt8.com', '曙光', '1625a05770c3ee32d06130866fc25d7f', '13570456594', '白云区', '0', '', '1487558993', '0', '1487558993', '1', '', '', '0.00', 0);
@@ -1410,7 +1415,7 @@ CREATE TABLE IF NOT EXISTS `onethink_member` (
 --
 
 INSERT INTO `onethink_member` (`uid`, `nickname`, `sex`, `birthday`, `qq`, `score`, `login`, `reg_ip`, `reg_time`, `last_login_ip`, `last_login_time`, `status`) VALUES
-(1, 'admin', 0, '0000-00-00', '', 40, 6, 0, 1487144121, 0, 1487725861, 1);
+(1, 'admin', 0, '0000-00-00', '', 50, 7, 0, 1487144121, 0, 1487842778, 1);
 
 -- --------------------------------------------------------
 
@@ -1725,7 +1730,7 @@ CREATE TABLE IF NOT EXISTS `onethink_ucenter_member` (
 --
 
 INSERT INTO `onethink_ucenter_member` (`id`, `username`, `password`, `email`, `mobile`, `reg_time`, `reg_ip`, `last_login_time`, `last_login_ip`, `update_time`, `status`) VALUES
-(1, 'admin', '30c3344bcff4de86bf764a4d718f9222', 'develop11@qbt8.com', '', 1487144121, 0, 1487725861, 0, 1487144121, 1);
+(1, 'admin', '30c3344bcff4de86bf764a4d718f9222', 'develop11@qbt8.com', '', 1487144121, 0, 1487842778, 0, 1487144121, 1);
 
 -- --------------------------------------------------------
 

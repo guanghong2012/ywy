@@ -8,15 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
     <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
-    <title>购物车-{:C('WEB_SITE_TITLE')}</title>
+    <title>选择支付方式-{:C('WEB_SITE_TITLE')}</title>
     <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
     <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
     <link href="__YWY__/css/style2.css" rel="stylesheet" type="text/css" /><!-- 表单美化 -->
     <link href="__YWY__/css/selectpick/cui.css" rel="stylesheet" type="text/css"><!-- 2.2 selectpick美化下拉框插件 -->
-
-    <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
-
     <SCRIPT>
         function show(c_Str)
         {
@@ -42,17 +39,13 @@
 <!-- /头部 -->
 <div class="shopping_div">
     <div class="w1200">
-        <div class="shop_div1" style="background:url('__YWY__/images/b4.png') no-repeat right center">
-            <h2>购物车列表</h2>
+        <div class="shop_div1" style="background:url('__YWY__/images/b4_1.png') no-repeat right center">
+            <h2>收银台列表</h2>
             <a href="javascript:" onclick="showall()">展开全部详细信息</a>
             <div class="clear"></div>
         </div>
         <div class="shop_div2">
-            <div class="tdw70">
-                <input id="checkbox-1-1" class="regular-checkbox"  checked="" type="checkbox"><label class="label_1" for="checkbox-1-1"></label>
-                全选
-            </div>
-            <div class="tdw235">
+            <div class="tdw305">
                 <h3>产品名称</h3>
             </div>
             <div class="tdw100">
@@ -75,10 +68,7 @@
 
         <volist name="list" id="vo">
         <div class="shop_div3">
-            <div class="tdw70 div_ty">
-                <input id="checkbox-{$i}-2" class="regular-checkbox" name="cartid[]" value="{$vo.id}" checked="" type="checkbox"><label class="label_1" for="checkbox-{$i}-2"></label>
-            </div>
-            <div class="tdw235 div_ty">
+            <div class="tdw305 div_ty">
                 <h2>{$vo.name}</h2>
             </div>
             <div class="tdw100 div_ty">
@@ -95,19 +85,18 @@
             </div>
             <div class="tdw160 div_ty">
                 <a class="a1" onclick='show("tip{$i}")'>详情</a>
-                <a class="a2" href="javascript:void(0)" onclick="deleteOne({$vo['id']})" >删除</a>
+
             </div>
             <div class="clear"></div>
             <div id="tip{$i}" class="tip_div" style="	display:none;">
                 <div class="div1">
-
                     <div class="div1_1">
                         <h2>方案信息</h2>
                         <ul>
                             <li><span>方案名称：</span>{$vo['project']['name']}</li>
                             <empty name="vo['project']['os']">
                                 <else />
-                            <li><span>操作系统：</span>CENTOS6</li>
+                                <li><span>操作系统：</span>CENTOS6</li>
                             </empty>
                         </ul>
                         <div class="clear"></div>
@@ -142,105 +131,52 @@
                         <div class="clear"></div>
                     </div>
                     </empty>
-
                 </div>
             </div>
         </div>
         </volist>
 
-
-        <div class="shop_div4">
-            <h2>
-                <label for="">
-                    <input id="checkbox-3-1" class="regular-checkbox" checked="" type="checkbox">
-                    <label class="label_1" for="checkbox-3-1"></label> 全选</label>
-                <a class="a1" href="javascript:void(0)" onclick="deleteAll()">删除</a>
-                <empty name="carNum">
-                    <a class="a2" href="{:U('Index/index')}">去首页</a>
-                    <else />
-                <a class="a2" href="{:U('Cart/selectPayment')}">下一步</a>
-                </empty>
-                <span>总价：<em>{$total|number_format=###,2} 元</em></span>
-                <span>您已选择：<em>{$carNum}</em>件商品</span>
-            </h2>
+        <div class="shop_div5">
+            <h2>应支付金额：<span>{$total|number_format=###,2} 元</span></h2>
+            <ul>
+                <li>
+                    <label>
+                        <input id="hot_select_op_1" name="radio-1-set" class="regular-radio" checked="" type="radio">
+                        <label for="hot_select_op_1" class="label_2"></label>
+                        <img src="__YWY__/images/g1.png" alt="">
+                    </label>
+                    <div class="clear"></div>
+                </li>
+                <li>
+                    <label>
+                        <input id="hot_select_op_2" name="radio-1-set" class="regular-radio" checked="" type="radio">
+                        <label for="hot_select_op_2" class="label_2"></label>
+                        <img src="__YWY__/images/g2.png" alt="">
+                    </label>
+                    <div class="clear"></div>
+                </li>
+                <li>
+                    <label>
+                        <input id="hot_select_op_3" name="radio-1-set" class="regular-radio" checked="" type="radio">
+                        <label for="hot_select_op_3" class="label_2"></label>
+                        <img src="__YWY__/images/g3.png" alt="">
+                    </label>
+                    <span>余额：1234.00元</span><a href="">【前去充值】</a>
+                    <div class="clear"></div>
+                </li>
+                <li></li>
+            </ul>
+            <div class="clear"></div>
         </div>
-
+        <div class="shop_div6">
+            <a class="a2" href="shopping_2.php">下一步</a>
+            <a class="a1" href="{:U('Cart/index')}">上一步</a>
+        </div>
     </div>
 </div>
 <div class="blank50"></div>
 <!-- 底部 -->
 <include file="Public/bottom"/>
 <!-- /底部 -->
-<script>
-    //全选反选
-    $('#checkbox-1-1').click(function(){
-        if(this.checked){
-            $(".regular-checkbox").prop('checked', true)
-        }else{
-            $(".regular-checkbox").prop('checked', false)
-        }
-    });
-    $('#checkbox-3-1').click(function(){
-        if(this.checked){
-            $(".regular-checkbox").prop('checked', true)
-        }else{
-            $(".regular-checkbox").prop('checked', false)
-        }
-    });
-
-    function deleteAll(){
-
-        var aa = document.getElementsByName("cartid[]");
-        var ids = "";
-        if(aa.length==0){
-            layer.alert("请选择要删除的产品",{title:"提示"});
-        }else{
-
-            for (var i = 0; i < aa.length; i++) {
-                if (aa[i].checked) {
-                    ids += aa[i].value+',';
-                }
-            }
-
-            layer.confirm('<span style="font-size:14px">提示：确定要删除吗', {
-                icon: 3,
-                title: '温馨提示'
-            }, function(index) {
-                continueCallBack(ids);
-                layer.close(index);
-            });
-
-        }
-
-    }
-
-    function deleteOne(id){
-        layer.confirm('<span style="font-size:14px">提示：确定要删除吗', {
-            icon: 3,
-            title: '温馨提示'
-        }, function(index) {
-            continueCallBack(id);
-            layer.close(index);
-        });
-
-    }
-
-    function continueCallBack(id){
-        $.post('{:U("Cart/DeleteCart")}',{id:id},function(data){
-            if(data.status == 1){
-                layer.alert("删除成功",{title:"提示"});
-                window.location.href = data.url;
-            }
-            if(data.status == 0){
-                layer.alert(data.msg,{title:"提示"});
-            }
-        }, "json");
-    }
-
-</script>
-
-<script type="text/javascript" src="__YWY__/js2016/lib/wjf/js/wjf-1.0.0.js"></script>
-<script type="text/javascript" src="__YWY__/js2016/lib/jqurey.tools/jquery.tools.rangeinput.min.js"></script>
-<script type="text/javascript" src="__YWY__/js2016/lib/layer/layer.js"></script>
 </body>
 </html>

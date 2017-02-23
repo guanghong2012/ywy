@@ -63,8 +63,12 @@ class CartModel extends Model{
             $this->error = '缺少购物车id！';
             return false;
         }
-
-        $status = $this->where('id='.$cartid)->delete(); //删除购物车
+        if(is_array($cartid)){
+            $cartid = implode(',',$cartid);
+        }
+        $map = array();
+        $map['id'] = array("in",$cartid);
+        $status = $this->where($map)->delete(); //删除购物车
         if(false === $status){
             $this->error = '删除购物车出错！';
             return false;
@@ -123,6 +127,19 @@ class CartModel extends Model{
         }
 
     }
+    
+    //统计某会员购物车数量
+    public function getCartNumByUid($uid)
+    {
+        $map = array();
+        $map['uid'] = $uid;
+        if(empty($carids) && empty($uid)){
+            $this->error = '缺少用户id！';
+            return false;
+        }
+        $cartNum = $this->where($map)->count();
+        return $cartNum;
 
-
+    }
+    
 }

@@ -27,16 +27,26 @@ class HomeController extends Controller {
         $config = api('Config/lists');
         C($config); //添加配置
         $userinfo = session('user_auth');
-        if(!empty($user)){
+        if(!empty($userinfo)){
             $user_login = 1;
             $user_account = $userinfo['account'];
             $user_name = $userinfo['username'];
+
+            if(S($userinfo['id'].'_carNum')){
+                $carNum = S($userinfo['id'].'_carNum');//读取缓存数据
+            }else{
+                $carNum = D("Cart")->getCartNumByUid($userinfo['id']);
+                S($userinfo['id'].'_carNum',$carNum,30);//缓存30秒
+            }
+
             $this->assign('user_name',$user_name);
             $this->assign('user_account',$user_account);
         }else{
+            $carNum = 0;
             $user_login = 0;
-        }
 
+        }
+        $this->assign('carNum',$carNum);//购物车数量
         $this->assign('user_login',$user_login);
         if(!C('WEB_SITE_CLOSE')){
             $this->error('站点已经关闭，请稍后访问~');

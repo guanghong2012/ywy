@@ -165,8 +165,8 @@ class DomainController extends HomeController{
             if(count($domainToBuy)-1 == $i){
                 $islast = 1;
             }
-            echo $k;
-            echo '#'.$islast;
+            //echo $k;
+            //echo '#'.$islast;
 
             $this->assign("islast",$islast);
             $this->assign("k",$k);
@@ -202,14 +202,15 @@ class DomainController extends HomeController{
                 $data['price'] = 1.00;//域名单价未知
                 $data['month'] = $value['month'];
                 $data['base_total'] = $data['number'] * $data['price'];
-                $data['added_price	'] = 0.00;
+                $data['added_price'] = 0.00;
 
                 $project['name'] = $value['ltd'].'_ENG';
 
-                $data['project	'] = json_encode($project);//方案信息
-                $data['parameters	'] = '';//参数信息
+                $data['project'] = json_encode($project);//方案信息
+                $data['parameters'] = '';//参数信息
                 $data['type'] = 1;//产品类型 1=域名
                 $data['domain_info'] = json_encode($value['info']);//域名注册信息
+                $data['subtotal'] = $data['base_total'] + $data['added_price'];//全部总价
 
                 $res = $model->addCart($data);
                 $res && $j++;
