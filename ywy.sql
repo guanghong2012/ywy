@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2017 �?02 �?23 �?18:29
+-- 生成日期: 2017 �?02 �?24 �?18:14
 -- 服务器版本: 5.5.40
 -- PHP 版本: 5.6.1
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `onethink_action_log` (
   KEY `action_ip_ix` (`action_ip`),
   KEY `action_id_ix` (`action_id`),
   KEY `user_id_ix` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表' AUTO_INCREMENT=193 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表' AUTO_INCREMENT=265 ;
 
 --
 -- 转存表中的数据 `onethink_action_log`
@@ -274,7 +274,79 @@ INSERT INTO `onethink_action_log` (`id`, `action_id`, `user_id`, `action_ip`, `m
 (189, 8, 1, 0, 'attribute', 99, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487750419),
 (190, 1, 1, 0, 'cuser', 1, 'admin在2017-02-23 15:35登录了后台', 1, 1487835346),
 (191, 1, 1, 0, 'member', 1, 'admin在2017-02-23 17:39登录了后台', 1, 1487842778),
-(192, 8, 1, 0, 'attribute', 100, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487842821);
+(192, 8, 1, 0, 'attribute', 100, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487842821),
+(193, 1, 1, 0, 'member', 1, 'admin在2017-02-23 20:49登录了后台', 1, 1487854172),
+(194, 7, 1, 0, 'model', 16, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1487854845),
+(195, 8, 1, 0, 'attribute', 101, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487854930),
+(196, 8, 1, 0, 'attribute', 102, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487855087),
+(197, 8, 1, 0, 'attribute', 103, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487855124),
+(198, 8, 1, 0, 'attribute', 104, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487855204),
+(199, 7, 1, 0, 'model', 17, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1487855264),
+(200, 8, 1, 0, 'attribute', 105, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487855311),
+(201, 8, 1, 0, 'attribute', 106, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487855341),
+(202, 8, 1, 0, 'attribute', 107, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487857342),
+(203, 8, 1, 0, 'attribute', 108, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487857411),
+(204, 8, 1, 0, 'attribute', 109, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487857453),
+(205, 8, 1, 0, 'attribute', 108, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487857470),
+(206, 8, 1, 0, 'attribute', 110, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487857601),
+(207, 8, 1, 0, 'attribute', 111, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487857617),
+(208, 8, 1, 0, 'attribute', 112, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487857645),
+(209, 8, 1, 0, 'attribute', 113, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487857702),
+(210, 8, 1, 0, 'attribute', 114, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487857847),
+(211, 8, 1, 0, 'attribute', 115, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487858042),
+(212, 8, 1, 0, 'attribute', 116, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487858097),
+(213, 8, 1, 0, 'attribute', 117, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487858346),
+(214, 8, 1, 0, 'attribute', 118, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487858842),
+(215, 8, 1, 0, 'attribute', 119, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487858879),
+(216, 8, 1, 0, 'attribute', 120, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487858950),
+(217, 8, 1, 0, 'attribute', 121, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487859034),
+(218, 8, 1, 0, 'attribute', 122, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487859665),
+(219, 8, 1, 0, 'attribute', 122, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487859674),
+(220, 8, 1, 0, 'attribute', 123, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487859702),
+(221, 8, 1, 0, 'attribute', 124, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487859727),
+(222, 8, 1, 0, 'attribute', 125, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487859763),
+(223, 8, 1, 0, 'attribute', 126, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487859814),
+(224, 8, 1, 0, 'attribute', 127, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487859838),
+(225, 7, 1, 0, 'model', 18, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1487860533),
+(226, 8, 1, 0, 'attribute', 128, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487860565),
+(227, 8, 1, 0, 'attribute', 129, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487860630),
+(228, 8, 1, 0, 'attribute', 130, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487860695),
+(229, 8, 1, 0, 'attribute', 131, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487860725),
+(230, 8, 1, 0, 'attribute', 132, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487860772),
+(231, 8, 1, 0, 'attribute', 133, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487860822),
+(232, 8, 1, 0, 'attribute', 134, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487860852),
+(233, 8, 1, 0, 'attribute', 135, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487860879),
+(234, 8, 1, 0, 'attribute', 136, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487860911),
+(235, 8, 1, 0, 'attribute', 137, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487860937),
+(236, 8, 1, 0, 'attribute', 138, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487860963),
+(237, 8, 1, 0, 'attribute', 139, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487860988),
+(238, 8, 1, 0, 'attribute', 118, '操作url：/ywy/newwebadmin.php?s=/Attribute/remove/id/118.html', 1, 1487860996),
+(239, 8, 1, 0, 'attribute', 119, '操作url：/ywy/newwebadmin.php?s=/Attribute/remove/id/119.html', 1, 1487861006),
+(240, 8, 1, 0, 'attribute', 120, '操作url：/ywy/newwebadmin.php?s=/Attribute/remove/id/120.html', 1, 1487861012),
+(241, 8, 1, 0, 'attribute', 121, '操作url：/ywy/newwebadmin.php?s=/Attribute/remove/id/121.html', 1, 1487861017),
+(242, 8, 1, 0, 'attribute', 122, '操作url：/ywy/newwebadmin.php?s=/Attribute/remove/id/122.html', 1, 1487861023),
+(243, 8, 1, 0, 'attribute', 123, '操作url：/ywy/newwebadmin.php?s=/Attribute/remove/id/123.html', 1, 1487861029),
+(244, 8, 1, 0, 'attribute', 124, '操作url：/ywy/newwebadmin.php?s=/Attribute/remove/id/124.html', 1, 1487861033),
+(245, 8, 1, 0, 'attribute', 125, '操作url：/ywy/newwebadmin.php?s=/Attribute/remove/id/125.html', 1, 1487861038),
+(246, 8, 1, 0, 'attribute', 126, '操作url：/ywy/newwebadmin.php?s=/Attribute/remove/id/126.html', 1, 1487861043),
+(247, 8, 1, 0, 'attribute', 127, '操作url：/ywy/newwebadmin.php?s=/Attribute/remove/id/127.html', 1, 1487861047),
+(248, 10, 1, 0, 'Menu', 137, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1487861308),
+(249, 10, 1, 0, 'Menu', 138, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1487861374),
+(250, 10, 1, 0, 'Menu', 137, '操作url：/ywy/newwebadmin.php?s=/Menu/edit.html', 1, 1487861953),
+(251, 10, 1, 0, 'Menu', 138, '操作url：/ywy/newwebadmin.php?s=/Menu/edit.html', 1, 1487861962),
+(252, 10, 1, 0, 'Menu', 139, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1487863020),
+(253, 1, 1, 0, 'member', 1, 'admin在2017-02-24 10:37登录了后台', 1, 1487903824),
+(254, 7, 1, 0, 'model', 16, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1487904752),
+(255, 7, 1, 0, 'model', 17, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1487904897),
+(256, 10, 1, 0, 'Menu', 140, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1487906346),
+(257, 8, 1, 0, 'attribute', 140, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487907549),
+(258, 10, 1, 0, 'Menu', 141, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1487907661),
+(259, 10, 1, 0, 'Menu', 142, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1487908076),
+(260, 8, 1, 0, 'attribute', 141, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487915086),
+(261, 8, 1, 0, 'attribute', 117, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487915472),
+(262, 10, 1, 0, 'Menu', 143, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1487917344),
+(263, 8, 1, 0, 'attribute', 117, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487919707),
+(264, 8, 1, 0, 'attribute', 142, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1487929761);
 
 -- --------------------------------------------------------
 
@@ -363,7 +435,7 @@ CREATE TABLE IF NOT EXISTS `onethink_attribute` (
   `auto_type` varchar(25) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `model_id` (`model_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='模型属性表' AUTO_INCREMENT=101 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='模型属性表' AUTO_INCREMENT=143 ;
 
 --
 -- 转存表中的数据 `onethink_attribute`
@@ -468,7 +540,39 @@ INSERT INTO `onethink_attribute` (`id`, `name`, `title`, `field`, `type`, `value
 (97, 'add_time', '添加时间', 'int(10) NOT NULL', 'datetime', '0', '', 1, '', 15, 0, 1, 1487746040, 1487746040, '', 3, '', 'regex', '', 3, 'function'),
 (98, 'type', '产品类型', 'char(2) NOT NULL', 'radio', '1', '', 1, '1:域名\r\n2:虚拟主机\r\n3:企业邮箱\r\n4:云服务器\r\n5:云建站', 15, 0, 1, 1487750349, 1487750349, '', 3, '', 'regex', '', 3, 'function'),
 (99, 'domain_info', '域名注册信息', 'text NOT NULL', 'textarea', '', '域名注册填写的信息', 1, '', 15, 0, 1, 1487750419, 1487750419, '', 3, '', 'regex', '', 3, 'function'),
-(100, 'subtotal', '全部总价', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '0.00', '', 1, '', 15, 0, 1, 1487842821, 1487842821, '', 3, '', 'regex', '', 3, 'function');
+(100, 'subtotal', '全部总价', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '0.00', '', 1, '', 15, 0, 1, 1487842821, 1487842821, '', 3, '', 'regex', '', 3, 'function'),
+(101, 'name', '分类名称', 'varchar(20) NOT NULL', 'string', '', '', 1, '', 16, 0, 1, 1487854930, 1487854930, '', 3, '', 'regex', '', 3, 'function'),
+(102, 'is_present', '是否赠送一个月备案时间', 'char(1) NOT NULL', 'radio', '0', '', 1, '0:不赠送\r\n1:赠送', 16, 0, 1, 1487855087, 1487855087, '', 3, '', 'regex', '', 3, 'function'),
+(103, 'images', '分类图片', 'int(10) UNSIGNED NOT NULL', 'picture', '0', '', 1, '', 16, 0, 1, 1487855124, 1487855124, '', 3, '', 'regex', '', 3, 'function'),
+(104, 'level', '排序', 'int(10) UNSIGNED NOT NULL', 'num', '0', '', 1, '', 16, 0, 1, 1487855204, 1487855204, '', 3, '', 'regex', '', 3, 'function'),
+(105, 'type_id', '分类id', 'int(10) UNSIGNED NOT NULL', 'num', '0', '', 1, '', 17, 0, 1, 1487855311, 1487855311, '', 3, '', 'regex', '', 3, 'function'),
+(106, 'name', '产品名称', 'varchar(40) NOT NULL', 'string', '', '', 1, '', 17, 0, 1, 1487855341, 1487855341, '', 3, '', 'regex', '', 3, 'function'),
+(107, 'space', '网页空间', 'varchar(20) NOT NULL', 'string', '', '', 1, '', 17, 0, 1, 1487857342, 1487857342, '', 3, '', 'regex', '', 3, 'function'),
+(108, 'flow', '网站流量', 'varchar(20) NOT NULL', 'string', '', '', 1, '', 17, 0, 1, 1487857470, 1487857411, '', 3, '', 'regex', '', 3, 'function'),
+(109, 'online', '同时在线', 'varchar(20) NOT NULL', 'string', '', '', 1, '', 17, 0, 1, 1487857453, 1487857453, '', 3, '', 'regex', '', 3, 'function'),
+(110, 'title', '标题', 'varchar(25) NOT NULL', 'string', '', '', 1, '', 17, 0, 1, 1487857601, 1487857601, '', 3, '', 'regex', '', 3, 'function'),
+(111, 'keywords', '关键字', 'varchar(255) NOT NULL', 'string', '', '', 1, '', 17, 0, 1, 1487857617, 1487857617, '', 3, '', 'regex', '', 3, 'function'),
+(112, 'description', '描述', 'text NOT NULL', 'textarea', '', '', 1, '', 17, 0, 1, 1487857645, 1487857645, '', 3, '', 'regex', '', 3, 'function'),
+(113, 'product_id', '新一代产品id', 'int(10) UNSIGNED NOT NULL', 'num', '0', '填写新一代产品的id', 1, '', 17, 0, 1, 1487857702, 1487857702, '', 3, '', 'regex', '', 3, 'function'),
+(114, 'feature', '卖点', 'text NOT NULL', 'editor', '', '', 1, '', 17, 0, 1, 1487857847, 1487857847, '', 3, '', 'regex', '', 3, 'function'),
+(115, 'mail_num', '邮局个数', 'int(10) UNSIGNED NOT NULL', 'num', '0', '', 1, '', 17, 0, 1, 1487858042, 1487858042, '', 3, '', 'regex', '', 3, 'function'),
+(116, 'content', '详细信息', 'text NOT NULL', 'editor', '', '', 1, '', 17, 0, 1, 1487858097, 1487858097, '', 3, '', 'regex', '', 3, 'function'),
+(117, 'os_type', '主机类型', 'char(10) NOT NULL', 'checkbox', '1', '', 1, '1:PHP5主机\r\n2:ASP主机', 17, 0, 1, 1487919708, 1487858346, '', 3, '', 'regex', '', 3, 'function'),
+(128, 'product_id', '产品id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 18, 0, 1, 1487860565, 1487860565, '', 3, '', 'regex', '', 3, 'function'),
+(129, 'type_id', '线路类型', 'char(10) NOT NULL', 'radio', '1', '', 1, '1:电信\r\n2:双线\r\n3:三线', 18, 0, 1, 1487860630, 1487860630, '', 3, '', 'regex', '', 3, 'function'),
+(130, 'one_price', '1年价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '0.00', '', 1, '', 18, 0, 1, 1487860695, 1487860695, '', 3, '', 'regex', '', 3, 'function'),
+(131, 'two_price', '2年价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '0.00', '', 1, '', 18, 0, 1, 1487860725, 1487860725, '', 3, '', 'regex', '', 3, 'function'),
+(132, 'three_price', '3年价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '0.00', '', 1, '', 18, 0, 1, 1487860772, 1487860772, '', 3, '', 'regex', '', 3, 'function'),
+(133, 'four_price', '4年价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '0.00', '', 1, '', 18, 0, 1, 1487860822, 1487860822, '', 3, '', 'regex', '', 3, 'function'),
+(134, 'five_price', '5年价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '0.00', '', 1, '', 18, 0, 1, 1487860852, 1487860852, '', 3, '', 'regex', '', 3, 'function'),
+(135, 'six_price', '6年价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '0.00', '', 1, '', 18, 0, 1, 1487860880, 1487860880, '', 3, '', 'regex', '', 3, 'function'),
+(136, 'seven_price', '7年价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '0.00', '', 1, '', 18, 0, 1, 1487860911, 1487860911, '', 3, '', 'regex', '', 3, 'function'),
+(137, 'eight_price', '8年价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '0.00', '', 1, '', 18, 0, 1, 1487860937, 1487860937, '', 3, '', 'regex', '', 3, 'function'),
+(138, 'nine_price', '9年价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '0.00', '', 1, '', 18, 0, 1, 1487860963, 1487860963, '', 3, '', 'regex', '', 3, 'function'),
+(139, 'ten_price', '10年价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '0.00', '', 1, '', 18, 0, 1, 1487860988, 1487860988, '', 3, '', 'regex', '', 3, 'function'),
+(140, 'level', '排序', 'int(10) UNSIGNED NOT NULL', 'num', '0', '', 1, '', 17, 0, 1, 1487907549, 1487907549, '', 3, '', 'regex', '', 3, 'function'),
+(141, 'images', '产品图片', 'int(10) UNSIGNED NOT NULL', 'picture', '', '', 1, '', 17, 0, 1, 1487915086, 1487915086, '', 3, '', 'regex', '', 3, 'function'),
+(142, 'single_ip', '是否独立IP', 'char(10) NOT NULL', 'radio', '0', '', 1, '0:否\r\n1:是', 17, 0, 1, 1487929761, 1487929761, '', 3, '', 'regex', '', 3, 'function');
 
 -- --------------------------------------------------------
 
@@ -961,6 +1065,69 @@ INSERT INTO `onethink_channel` (`id`, `pid`, `title`, `url`, `sort`, `create_tim
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `onethink_cloud_category`
+--
+
+CREATE TABLE IF NOT EXISTS `onethink_cloud_category` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `name` varchar(20) NOT NULL COMMENT '分类名称',
+  `is_present` char(1) NOT NULL DEFAULT '0' COMMENT '是否赠送一个月备案时间',
+  `images` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '分类图片',
+  `level` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='虚拟主机分类表' AUTO_INCREMENT=9 ;
+
+--
+-- 转存表中的数据 `onethink_cloud_category`
+--
+
+INSERT INTO `onethink_cloud_category` (`id`, `name`, `is_present`, `images`, `level`) VALUES
+(1, '基础型', '1', 24, 1),
+(2, '超G型空间', '1', 25, 2),
+(3, 'JSP/.NET型', '1', 26, 3),
+(4, '香港主机', '1', 27, 4),
+(5, '美国主机', '0', 28, 5),
+(7, '新一代云加速', '0', 29, 6);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `onethink_cloud_product`
+--
+
+CREATE TABLE IF NOT EXISTS `onethink_cloud_product` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `type_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '分类id',
+  `name` varchar(40) NOT NULL COMMENT '产品名称',
+  `space` varchar(20) NOT NULL COMMENT '网页空间',
+  `flow` varchar(20) NOT NULL COMMENT '网站流量',
+  `online` varchar(20) NOT NULL COMMENT '同时在线',
+  `title` varchar(25) NOT NULL COMMENT '标题',
+  `keywords` varchar(255) NOT NULL COMMENT '关键字',
+  `description` text NOT NULL COMMENT '描述',
+  `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '新一代产品id',
+  `feature` text NOT NULL COMMENT '卖点',
+  `mail_num` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '邮局个数',
+  `content` text NOT NULL COMMENT '详细信息',
+  `os_type` char(10) NOT NULL DEFAULT '1' COMMENT '主机类型',
+  `level` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `images` int(10) unsigned NOT NULL COMMENT '产品图片',
+  `single_ip` char(10) NOT NULL DEFAULT '0' COMMENT '是否独立IP',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='虚拟机产品表' AUTO_INCREMENT=5 ;
+
+--
+-- 转存表中的数据 `onethink_cloud_product`
+--
+
+INSERT INTO `onethink_cloud_product` (`id`, `type_id`, `name`, `space`, `flow`, `online`, `title`, `keywords`, `description`, `product_id`, `feature`, `mail_num`, `content`, `os_type`, `level`, `images`, `single_ip`) VALUES
+(1, 1, '飓风2(S)', '200M', '20G', '150', '飓风2(S)', '飓风2(S)', '飓风2(S)', 488, '<ul style="color:#333333;font-family:" font-size:12px;background-color:#ffffff;"="">\r\n<li>\r\n	&gt; Windows或者Linux平台\r\n</li>\r\n<li>\r\n	&gt; 200M网页 附送邮局\r\n</li>\r\n<li>\r\n	&gt; 支持ASP(Windows)/PHP(Linux)\r\n</li>\r\n<li>\r\n	&gt; Access(Windows)/30M MySQL数据库(Linux)\r\n</li>\r\n<li>\r\n	&gt; 适合个人用户、小型企业\r\n</li>\r\n<li>\r\n	&gt; 快速低成本地创建网上家园\r\n</li>\r\n	</ul>', 0, '<p class="sub-info-title" style="font-size:28px;color:#333333;font-family:" background-color:#ffffff;"="">\r\n	Windows系统支持功能/组件详情:\r\n	</p>\r\n<ul class="list-info clearfix" style="color:#333333;font-family:" font-size:14px;background-color:#ffffff;"="">\r\n	<li style="color:#555555;">\r\n		Access数据库\r\n	</li>\r\n	<li style="color:#555555;">\r\n		Asp脚本语言\r\n	</li>\r\n	<li style="color:#555555;">\r\n		FSO组件\r\n	</li>\r\n	<li style="color:#555555;">\r\n		Jmail组件\r\n	</li>\r\n	<li style="color:#555555;">\r\n		AspUpload组件\r\n	</li>\r\n	<li style="color:#555555;">\r\n		AspJpeg组件\r\n	</li>\r\n	<li style="color:#555555;">\r\n		动易组件\r\n	</li>\r\n		</ul>\r\n<p class="sub-info-title" style="font-size:28px;color:#333333;font-family:" background-color:#ffffff;"="">\r\n	Linux系统支持功能/组件详情:\r\n			</p>\r\n<ul class="list-info clearfix" style="color:#333333;font-family:" font-size:14px;background-color:#ffffff;"="">\r\n			<li style="color:#555555;">\r\n				MySQL数据库空间: 30M\r\n			</li>\r\n			<li style="color:#555555;">\r\n				MySQL数据库个数: 1个\r\n			</li>\r\n			<li style="color:#555555;">\r\n				phpMyAdmin管理面板\r\n			</li>\r\n			<li style="color:#555555;">\r\n				PHP脚本语言\r\n			</li>\r\n			<li style="color:#555555;">\r\n				Zend加密程序\r\n			</li>\r\n			<li style="color:#555555;">\r\n				支持Sqlite数据库\r\n			</li>\r\n				</ul>\r\n<p class="sub-info-title" style="font-size:28px;color:#333333;font-family:" background-color:#ffffff;"="">\r\n	其它及注意事项:\r\n					</p>\r\n<ul class="list-info clearfix" style="color:#333333;font-family:" font-size:14px;background-color:#ffffff;"="">\r\n					<li style="color:#555555;">\r\n						月流量限制: 20000M/月\r\n					</li>\r\n					<li style="color:#555555;">\r\n						并发连接数: 150个\r\n					</li>\r\n					<li style="color:#555555;">\r\n						免费三级域名\r\n					</li>\r\n					<li style="color:#555555;">\r\n						主机控制面板\r\n					</li>\r\n					<li style="color:#555555;">\r\n						购买实时开通\r\n					</li>\r\n					<li style="color:#555555;">\r\n						数据定期备份\r\n					</li>\r\n					<li style="color:#555555;">\r\n						千兆防火墙\r\n					</li>\r\n					<li style="color:#555555;">\r\n						不间断电源: 双路市电+UPS+后备发电机\r\n					</li>\r\n					<li class="spec" style="color:#555555;">\r\n						技术支持: 7×24小时在线提问系统及客服热线:020-66849155 66849156 66849157\r\n					</li>\r\n					<li class="spec" style="color:#555555;">\r\n						<p>\r\n							<strong class="tip-error">注意事项</strong> \r\n						</p>\r\n						<p class="alert alert-error" style="background-color:#F2DEDE;color:#B94A48;">\r\n							我司各款虚拟主机均禁止六 合&nbsp;<em></em>彩、法&nbsp;<em></em>轮 功、利用网络欺诈等不法经营活动、游戏私&nbsp;<em></em>服、私&nbsp;<em></em>服相关、外挂、违法色情、版权侵犯、低俗(含打擦边球的网站)、木马、WAP、病毒、色&nbsp;<em></em>情、诈&nbsp;<em></em>骗、彩&nbsp;<em></em>票、视频聊天、成&nbsp;<em></em>人用品、电影网站、美女图片、同&nbsp;<em></em>志网站、人体艺&nbsp;<em></em>术、弓驽刀剑、游戏币交&nbsp;<em></em>易、药&nbsp;<em></em>品销售、专<em></em>科医院、赌&nbsp;<em></em>博用品、仿品站、减肥丰胸类、警用品、TXT小说、刷钻、刷信誉、钓&nbsp;<em></em>鱼机票网站、电视<em></em>棒、可&nbsp;<em></em>可网络验证系统(KSREG)&nbsp;<em></em>、侦探公司、黑客安全类、易受攻击影响网络稳定的等类型的网站。我司有严格的监控措施，一经发现，立即永久关闭，并不退款！\r\n						</p>\r\n					</li>\r\n						</ul>', '1,2', 0, 30, '0'),
+(3, 1, '飓风4(S)', '400M', '40G', '180', '飓风4(S)', '飓风4(S)', '飓风4(S)', 492, '<ul style="color:#333333;font-family:" font-size:12px;background-color:#ffffff;"="">\r\n<li>\r\n	&gt; Windows或者Linux平台\r\n</li>\r\n<li>\r\n	&gt; 400M网页、附送邮局\r\n</li>\r\n<li>\r\n	&gt; 支持ASP(Windows)/PHP(Linux)\r\n</li>\r\n<li>\r\n	&gt; Access 40M MSSQL数据库(Windows)/40M MySQL数据库(Linux)\r\n</li>\r\n<li>\r\n	&gt; 中小型企业动态商务建站首选\r\n</li>\r\n	</ul>', 5, '<p class="sub-info-title" style="font-size:28px;color:#333333;font-family:" background-color:#ffffff;"="">\r\n	Windows系统支持功能/组件详情:\r\n	</p>\r\n<ul class="list-info clearfix" style="color:#333333;font-family:" font-size:14px;background-color:#ffffff;"="">\r\n	<li style="color:#555555;">\r\n		Access数据库\r\n	</li>\r\n	<li style="color:#555555;">\r\n		MSSQL数据库空间: 40M\r\n	</li>\r\n	<li style="color:#555555;">\r\n		MSSQL数据库个数: 1个\r\n	</li>\r\n	<li style="color:#555555;">\r\n		Asp脚本语言\r\n	</li>\r\n	<li style="color:#555555;">\r\n		FSO组件\r\n	</li>\r\n	<li style="color:#555555;">\r\n		Jmail组件\r\n	</li>\r\n	<li style="color:#555555;">\r\n		AspUpload组件\r\n	</li>\r\n	<li style="color:#555555;">\r\n		AspJpeg组件\r\n	</li>\r\n	<li style="color:#555555;">\r\n		动易组件\r\n	</li>\r\n		</ul>\r\n<p class="sub-info-title" style="font-size:28px;color:#333333;font-family:" background-color:#ffffff;"="">\r\n	Linux系统支持功能/组件详情:\r\n			</p>\r\n<ul class="list-info clearfix" style="color:#333333;font-family:" font-size:14px;background-color:#ffffff;"="">\r\n			<li style="color:#555555;">\r\n				MySQL数据库空间: 40M\r\n			</li>\r\n			<li style="color:#555555;">\r\n				MySQL数据库个数: 1个\r\n			</li>\r\n			<li style="color:#555555;">\r\n				phpMyAdmin管理面板\r\n			</li>\r\n			<li style="color:#555555;">\r\n				PHP脚本语言\r\n			</li>\r\n			<li style="color:#555555;">\r\n				Zend加密程序\r\n			</li>\r\n			<li style="color:#555555;">\r\n				支持Sqlite数据库\r\n			</li>\r\n				</ul>\r\n<p class="sub-info-title" style="font-size:28px;color:#333333;font-family:" background-color:#ffffff;"="">\r\n	其它及注意事项:\r\n					</p>\r\n<ul class="list-info clearfix" style="color:#333333;font-family:" font-size:14px;background-color:#ffffff;"="">\r\n					<li style="color:#555555;">\r\n						月流量限制: 40000M/月\r\n					</li>\r\n					<li style="color:#555555;">\r\n						并发连接数: 180个\r\n					</li>\r\n					<li style="color:#555555;">\r\n						免费三级域名\r\n					</li>\r\n					<li style="color:#555555;">\r\n						主机控制面板\r\n					</li>\r\n					<li style="color:#555555;">\r\n						购买实时开通\r\n					</li>\r\n					<li style="color:#555555;">\r\n						数据定期备份\r\n					</li>\r\n					<li style="color:#555555;">\r\n						千兆防火墙\r\n					</li>\r\n					<li style="color:#555555;">\r\n						不间断电源: 双路市电+UPS+后备发电机\r\n					</li>\r\n					<li class="spec" style="color:#555555;">\r\n						技术支持: 7×24小时在线提问系统及客服热线:020-66849155 66849156 66849157\r\n					</li>\r\n					<li class="spec" style="color:#555555;">\r\n						<p>\r\n							<strong class="tip-error">注意事项</strong> \r\n						</p>\r\n						<p class="alert alert-error" style="background-color:#F2DEDE;color:#B94A48;">\r\n							我司各款虚拟主机均禁止六 合&nbsp;<em></em>彩、法&nbsp;<em></em>轮 功、利用网络欺诈等不法经营活动、游戏私&nbsp;<em></em>服、私&nbsp;<em></em>服相关、外挂、违法色情、版权侵犯、低俗(含打擦边球的网站)、木马、WAP、病毒、色&nbsp;<em></em>情、诈&nbsp;<em></em>骗、彩&nbsp;<em></em>票、视频聊天、成&nbsp;<em></em>人用品、电影网站、美女图片、同&nbsp;<em></em>志网站、人体艺&nbsp;<em></em>术、弓驽刀剑、游戏币交&nbsp;<em></em>易、药&nbsp;<em></em>品销售、专<em></em>科医院、赌&nbsp;<em></em>博用品、仿品站、减肥丰胸类、警用品、TXT小说、刷钻、刷信誉、钓&nbsp;<em></em>鱼机票网站、电视<em></em>棒、可&nbsp;<em></em>可网络验证系统(KSREG)&nbsp;<em></em>、侦探公司、黑客安全类、易受攻击影响网络稳定的等类型的网站。我司有严格的监控措施，一经发现，立即永久关闭，并不退款！\r\n						</p>\r\n					</li>\r\n						</ul>', '1,2', 2, 31, '0'),
+(4, 2, '飓风Gs型', '1000M', '60G', '200', '飓风Gs型', '飓风Gs型', '飓风Gs型', 484, '<ul style="color:#333333;font-family:" font-size:12px;background-color:#ffffff;"="">\r\n<li>\r\n	&gt; Windows或者Linux平台\r\n</li>\r\n<li>\r\n	&gt; 1000M网页 附送邮局\r\n</li>\r\n<li>\r\n	&gt; 支持ASP、ASP.NET2.0/3.5/4.0(Windows)/PHP(Linux)\r\n</li>\r\n<li>\r\n	&gt; 支持ASP.NET MVC 3 / MVC 4(Windows)\r\n</li>\r\n<li>\r\n	&gt; Access、80M MSSQL数据库(Windows)/80M MySQL数据库(Linux)\r\n</li>\r\n<li>\r\n	&gt; 适合建设中小型电子商务网站\r\n</li>\r\n	</ul>', 6, '<p class="sub-info-title" style="font-size:28px;color:#333333;font-family:" background-color:#ffffff;"="">\r\n	Windows系统支持功能/组件详情:\r\n	</p>\r\n<ul class="list-info clearfix" style="color:#333333;font-family:" font-size:14px;background-color:#ffffff;"="">\r\n	<li style="color:#555555;">\r\n		Access数据库\r\n	</li>\r\n	<li style="color:#555555;">\r\n		MSSQL数据库空间: 80M\r\n	</li>\r\n	<li style="color:#555555;">\r\n		MSSQL数据库个数: 1个\r\n	</li>\r\n	<li style="color:#555555;">\r\n		Asp脚本语言\r\n	</li>\r\n	<li style="color:#555555;">\r\n		Asp.Net脚本语言\r\n	</li>\r\n	<li style="color:#555555;">\r\n		FSO组件\r\n	</li>\r\n	<li style="color:#555555;">\r\n		Jmail组件\r\n	</li>\r\n	<li style="color:#555555;">\r\n		AspUpload组件\r\n	</li>\r\n	<li style="color:#555555;">\r\n		AspJpeg组件\r\n	</li>\r\n	<li style="color:#555555;">\r\n		动易组件\r\n	</li>\r\n		</ul>\r\n<p class="sub-info-title" style="font-size:28px;color:#333333;font-family:" background-color:#ffffff;"="">\r\n	Linux系统支持功能/组件详情:\r\n			</p>\r\n<ul class="list-info clearfix" style="color:#333333;font-family:" font-size:14px;background-color:#ffffff;"="">\r\n			<li style="color:#555555;">\r\n				MySQL数据库空间: 80M\r\n			</li>\r\n			<li style="color:#555555;">\r\n				MySQL数据库个数: 1个\r\n			</li>\r\n			<li style="color:#555555;">\r\n				phpMyAdmin管理面板\r\n			</li>\r\n			<li style="color:#555555;">\r\n				PHP脚本语言\r\n			</li>\r\n			<li style="color:#555555;">\r\n				Zend加密程序\r\n			</li>\r\n			<li style="color:#555555;">\r\n				支持Sqlite数据库\r\n			</li>\r\n				</ul>\r\n<p class="sub-info-title" style="font-size:28px;color:#333333;font-family:" background-color:#ffffff;"="">\r\n	其它及注意事项:\r\n					</p>\r\n<ul class="list-info clearfix" style="color:#333333;font-family:" font-size:14px;background-color:#ffffff;"="">\r\n					<li style="color:#555555;">\r\n						月流量限制: 60000M/月\r\n					</li>\r\n					<li style="color:#555555;">\r\n						并发连接数: 200个\r\n					</li>\r\n					<li style="color:#555555;">\r\n						免费三级域名\r\n					</li>\r\n					<li style="color:#555555;">\r\n						主机控制面板\r\n					</li>\r\n					<li style="color:#555555;">\r\n						购买实时开通\r\n					</li>\r\n					<li style="color:#555555;">\r\n						数据定期备份\r\n					</li>\r\n					<li style="color:#555555;">\r\n						千兆防火墙\r\n					</li>\r\n					<li style="color:#555555;">\r\n						不间断电源: 双路市电+UPS+后备发电机\r\n					</li>\r\n					<li class="spec" style="color:#555555;">\r\n						技术支持: 7×24小时在线提问系统及客服热线:020-66849155 66849156 66849157\r\n					</li>\r\n					<li class="spec" style="color:#555555;">\r\n						<p>\r\n							<strong class="tip-error">注意事项</strong> \r\n						</p>\r\n						<p class="alert alert-error" style="background-color:#F2DEDE;color:#B94A48;">\r\n							我司各款虚拟主机均禁止六 合&nbsp;<em></em>彩、法&nbsp;<em></em>轮 功、利用网络欺诈等不法经营活动、游戏私&nbsp;<em></em>服、私&nbsp;<em></em>服相关、外挂、违法色情、版权侵犯、低俗(含打擦边球的网站)、木马、WAP、病毒、色&nbsp;<em></em>情、诈&nbsp;<em></em>骗、彩&nbsp;<em></em>票、视频聊天、成&nbsp;<em></em>人用品、电影网站、美女图片、同&nbsp;<em></em>志网站、人体艺&nbsp;<em></em>术、弓驽刀剑、游戏币交&nbsp;<em></em>易、药&nbsp;<em></em>品销售、专<em></em>科医院、赌&nbsp;<em></em>博用品、仿品站、减肥丰胸类、警用品、TXT小说、刷钻、刷信誉、钓&nbsp;<em></em>鱼机票网站、电视<em></em>棒、可&nbsp;<em></em>可网络验证系统(KSREG)&nbsp;<em></em>、侦探公司、黑客安全类、易受攻击影响网络稳定的等类型的网站。我司有严格的监控措施，一经发现，立即永久关闭，并不退款！\r\n						</p>\r\n					</li>\r\n						</ul>', '1,2', 3, 27, '0');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `onethink_config`
 --
 
@@ -1015,6 +1182,38 @@ INSERT INTO `onethink_config` (`id`, `name`, `type`, `title`, `group`, `extra`, 
 (35, 'REPLY_LIST_ROWS', 0, '回复列表每页条数', 2, '', '', 1386645376, 1387178083, 1, '10', 0),
 (36, 'ADMIN_ALLOW_IP', 2, '后台允许访问IP', 4, '', '多个用逗号分隔，如果不配置表示不限制IP访问', 1387165454, 1387165553, 1, '', 12),
 (37, 'SHOW_PAGE_TRACE', 4, '是否显示页面Trace', 4, '0:关闭\r\n1:开启', '是否显示页面Trace信息', 1387165685, 1387165685, 1, '0', 1);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `onethink_cp_price`
+--
+
+CREATE TABLE IF NOT EXISTS `onethink_cp_price` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `product_id` int(10) unsigned NOT NULL COMMENT '产品id',
+  `type_id` char(10) NOT NULL DEFAULT '1' COMMENT '线路类型',
+  `one_price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '1年价格',
+  `two_price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '2年价格',
+  `three_price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '3年价格',
+  `four_price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '4年价格',
+  `five_price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '5年价格',
+  `six_price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '6年价格',
+  `seven_price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '7年价格',
+  `eight_price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '8年价格',
+  `nine_price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '9年价格',
+  `ten_price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '10年价格',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=4 ;
+
+--
+-- 转存表中的数据 `onethink_cp_price`
+--
+
+INSERT INTO `onethink_cp_price` (`id`, `product_id`, `type_id`, `one_price`, `two_price`, `three_price`, `four_price`, `five_price`, `six_price`, `seven_price`, `eight_price`, `nine_price`, `ten_price`) VALUES
+(1, 492, '1', '280.00', '560.00', '840.00', '1120.00', '1400.00', '1680.00', '1960.00', '2240.00', '2520.00', '2800.00'),
+(2, 488, '1', '240.00', '480.00', '720.00', '960.00', '1200.00', '1440.00', '1680.00', '1920.00', '2160.00', '2400.00'),
+(3, 484, '1', '380.00', '760.00', '1140.00', '1520.00', '1900.00', '2280.00', '2660.00', '3040.00', '3420.00', '3800.00');
 
 -- --------------------------------------------------------
 
@@ -1415,7 +1614,7 @@ CREATE TABLE IF NOT EXISTS `onethink_member` (
 --
 
 INSERT INTO `onethink_member` (`uid`, `nickname`, `sex`, `birthday`, `qq`, `score`, `login`, `reg_ip`, `reg_time`, `last_login_ip`, `last_login_time`, `status`) VALUES
-(1, 'admin', 0, '0000-00-00', '', 50, 7, 0, 1487144121, 0, 1487842778, 1);
+(1, 'admin', 0, '0000-00-00', '', 50, 9, 0, 1487144121, 0, 1487903824, 1);
 
 -- --------------------------------------------------------
 
@@ -1437,7 +1636,7 @@ CREATE TABLE IF NOT EXISTS `onethink_menu` (
   PRIMARY KEY (`id`),
   KEY `pid` (`pid`),
   KEY `status` (`status`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=137 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=144 ;
 
 --
 -- 转存表中的数据 `onethink_menu`
@@ -1567,7 +1766,14 @@ INSERT INTO `onethink_menu` (`id`, `title`, `pid`, `sort`, `url`, `hide`, `tip`,
 (133, '新增案例分类', 130, 3, 'Cases/addCate', 1, '', '案例', 0, 1),
 (134, '新增案例', 130, 5, 'Cases/addDemo', 1, '', '案例', 0, 1),
 (135, '客户案例列表', 130, 6, 'Cases/demoList', 1, '', '案例', 0, 1),
-(136, '编辑客户案例', 130, 7, 'Cases/editDemo', 1, '', '案例', 0, 1);
+(136, '编辑客户案例', 130, 7, 'Cases/editDemo', 1, '', '案例', 0, 1),
+(137, '虚拟主机', 0, 8, 'Cloud/index', 0, '', '', 0, 1),
+(138, '虚拟主机分类', 137, 1, 'Cloud/index', 0, '', '虚拟主机分类', 0, 1),
+(139, '新增虚拟机分类', 137, 2, 'Cloud/addCate', 1, '', '虚拟主机分类', 0, 1),
+(140, '编辑虚拟机分类', 137, 3, 'Cloud/editCate', 1, '', '虚拟主机分类', 0, 1),
+(141, '虚拟机列表', 137, 4, 'Cloud/cloudList', 0, '', '虚拟机', 0, 1),
+(142, '添加虚拟机', 137, 5, 'Cloud/addCloud', 1, '', '虚拟机', 0, 1),
+(143, '编辑虚拟机', 137, 6, 'Cloud/editCloud', 1, '', '虚拟机', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -1598,7 +1804,7 @@ CREATE TABLE IF NOT EXISTS `onethink_model` (
   `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
   `engine_type` varchar(25) NOT NULL DEFAULT 'MyISAM' COMMENT '数据库引擎',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='文档模型表' AUTO_INCREMENT=16 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='文档模型表' AUTO_INCREMENT=19 ;
 
 --
 -- 转存表中的数据 `onethink_model`
@@ -1619,7 +1825,10 @@ INSERT INTO `onethink_model` (`id`, `name`, `title`, `extend`, `relation`, `need
 (12, 'advantage', '亿维云优势', 1, '', 1, '{"1":["3","19","12","5"]}', '1:基础', '19,12,3,5', 'cover_id:图标（100px*100px）', '', '', '', 'id:ID\r\ntitle:标题\r\nid:操作:[EDIT]|编辑,[DELETE]|删除', 10, '', '', 1487312061, 1487312264, 1, 'MyISAM'),
 (13, 'cases', '客户案例分类', 0, '', 1, '{"1":["73","74","75","76","77"]}', '1:基础', '', '', '', '', '', 'id:ID\r\ntitle:标题\r\nkeywords:关键字', 10, '', '', 1487395939, 1487402826, 1, 'MyISAM'),
 (14, 'cases_demo', '客户案例', 0, '', 1, '', '1:基础', '', '', '', '', '', NULL, 10, '', '', 1487402802, 1487402802, 1, 'MyISAM'),
-(15, 'cart', '购物车', 0, '', 1, '', '1:基础', '', '', '', '', '', NULL, 10, '', '', 1487745283, 1487745283, 1, 'MyISAM');
+(15, 'cart', '购物车', 0, '', 1, '', '1:基础', '', '', '', '', '', NULL, 10, '', '', 1487745283, 1487745283, 1, 'MyISAM'),
+(16, 'cloud_category', '虚拟主机分类', 0, '', 1, '{"1":["104","103","102","101"]}', '1:基础', '', '', '', '', '', 'id:ID\r\nname:名称', 10, '', '', 1487854845, 1487904752, 1, 'MyISAM'),
+(17, 'cloud_product', '虚拟机产品', 0, '', 1, '{"1":["114","113","115","116","117","112","111","107","106","108","109","110","105"]}', '1:基础', '', '', '', '', '', 'id:ID\r\nname:名称', 10, '', '', 1487855264, 1487904897, 1, 'MyISAM'),
+(18, 'cp_price', '虚拟机价格', 0, '', 1, '', '1:基础', '', '', '', '', '', NULL, 10, '', '', 1487860533, 1487860533, 1, 'MyISAM');
 
 -- --------------------------------------------------------
 
@@ -1636,7 +1845,7 @@ CREATE TABLE IF NOT EXISTS `onethink_picture` (
   `status` tinyint(2) NOT NULL DEFAULT '0' COMMENT '状态',
   `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
 --
 -- 转存表中的数据 `onethink_picture`
@@ -1665,7 +1874,15 @@ INSERT INTO `onethink_picture` (`id`, `path`, `url`, `md5`, `sha1`, `status`, `c
 (20, '/Uploads/Picture/2017-02-18/58a7f61ed219d.jpg', '', '48062d4a83741a129fa8078caac22862', 'e134db6bfaec083d59b3ac66f83c59df6a4e680d', 1, 1487402526),
 (21, '/Uploads/Picture/2017-02-18/58a80585bcded.jpg', '', '2ab93fae981c68af07d5571ab9bde663', '2817f174eb8f81dd3c8a50e838e3d658a7628cfa', 1, 1487406469),
 (22, '/Uploads/Picture/2017-02-18/58a805aeb1ad6.jpg', '', 'ac3388f8b733a275fef0f827c947637d', 'ede7be6988f8d9ae045ba1ef52b7c8939f4c95e2', 1, 1487406510),
-(23, '/Uploads/Picture/2017-02-18/58a805d79b815.jpg', '', 'ea337acb8c1baea83e7c7f577ef15dc9', '4e672fae11c546183e551833963209134b6b9ed5', 1, 1487406551);
+(23, '/Uploads/Picture/2017-02-18/58a805d79b815.jpg', '', 'ea337acb8c1baea83e7c7f577ef15dc9', '4e672fae11c546183e551833963209134b6b9ed5', 1, 1487406551),
+(24, '/Uploads/Picture/2017-02-24/58afa450a47ea.png', '', '57c2ded7c2d41a93d9d9ddac9692e06d', '76dc79e9cc634a80b522aa86e0be119e16a35b07', 1, 1487905872),
+(25, '/Uploads/Picture/2017-02-24/58afa6f2c883b.png', '', '0adfdfc96b8ecbff34672f2e57f9f813', '64ea17fe409ab32b525ab014fc0b51aed1fc308d', 1, 1487906546),
+(26, '/Uploads/Picture/2017-02-24/58afa71137bc9.png', '', '318eff418ac9faea9d2dd9da9b511613', '487b88964a34d6ff4cd2d2e83dcd04d94e906d24', 1, 1487906577),
+(27, '/Uploads/Picture/2017-02-24/58afa738801c5.jpg', '', '60779cb54299b52ede4898f091df7e72', 'cc803843cb2cac5b1b6acb1a4e43a9644aed0dc0', 1, 1487906616),
+(28, '/Uploads/Picture/2017-02-24/58afa74ec1f82.jpg', '', 'aafe4939d64b2e20f66390c1e32ab71f', '73c203ab0066a221edc1c5c2f4fed4397424980e', 1, 1487906638),
+(29, '/Uploads/Picture/2017-02-24/58afa7650b967.jpg', '', '7e695e5263cc9e69e7492abdd55650c3', '0ebf111f8e0010c89160123c6c86026dfef68dc5', 1, 1487906660),
+(30, '/Uploads/Picture/2017-02-24/58afcc0f125a0.jpg', '', '1ba6d9ceabdca363b04f21b5dfd578a5', '4ba3a39c3714050172a3d178dadc647040445afd', 1, 1487916047),
+(31, '/Uploads/Picture/2017-02-24/58afde7e904d6.jpg', '', 'd6ff2317bf4395cc254df60f1dc71921', '4df77fb1609fbaae3e56b441d65cdf4af0853c84', 1, 1487920766);
 
 -- --------------------------------------------------------
 
@@ -1730,7 +1947,7 @@ CREATE TABLE IF NOT EXISTS `onethink_ucenter_member` (
 --
 
 INSERT INTO `onethink_ucenter_member` (`id`, `username`, `password`, `email`, `mobile`, `reg_time`, `reg_ip`, `last_login_time`, `last_login_ip`, `update_time`, `status`) VALUES
-(1, 'admin', '30c3344bcff4de86bf764a4d718f9222', 'develop11@qbt8.com', '', 1487144121, 0, 1487842778, 0, 1487144121, 1);
+(1, 'admin', '30c3344bcff4de86bf764a4d718f9222', 'develop11@qbt8.com', '', 1487144121, 0, 1487903824, 0, 1487144121, 1);
 
 -- --------------------------------------------------------
 

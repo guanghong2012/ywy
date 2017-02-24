@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="wsg,hth">
+    <meta name="description" content="ASW">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>{:C('WEB_SITE_TITLE')}</title>
+    <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
+    <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
+    <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
+</head>
+<body>
+<!-- 头部 -->
+<include file="Public/top"/>
+<!-- /头部 -->
+<div class="ban_div"><img src="__YWY__/images/a10.jpg" width="100%" alt=""></div>
+<div class="virtual_div">
+    <div class="w1200 virtual_div_1">
+        <h2 class="h_tith">基础接入服务</h2>
+        <p class="p_tith">让网站稳定运行</p>
+        <div class="blank40"></div>
+        <div class="div1">
+            <ul>
+                <volist name="cloud_cate" id="vo" key="k">
+                    <if condition="$k elt 3">
+                <li class="li_no">
+                    <h2>{$vo.name}</h2>
+                    <eq name="vo['is_present']" value="1">
+                    <p>赠送一个月备案时间</p>
+                    </eq>
+                    <img src="{$vo.images|get_cover=###,'path'}" alt="">
+                    <div class="blank30 blank_border"></div>
+                    <a href="{:U('Cloud/productList',array('cate_id'=>$vo['id']))}">立即购买</a>
+                </li>
+                    </if>
+                </volist>
+
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="blank30"></div>
+        <div class="div2">
+            <ul>
+                <volist name="cloud_cate" id="vo" key="k">
+                    <if condition="$k gt 3">
+                    <li <if condition="$k eq 6">class="li_no"</if> >
+                        <div class="li_div" >
+                            <div class="divimg"><img src="{$vo.images|get_cover=###,'path'}" alt=""></div>
+                            <div class="divtet">
+                                <h2>{$vo.name}</h2>
+                                <a href="{:U('Cloud/productList',array('cate_id'=>$vo['id']))}">立即购买</a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </li>
+                     </if>
+                </volist>
+
+
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<!-- 底部 -->
+<include file="Public/bottom"/>
+<!-- /底部 -->
+</body>
+</html>

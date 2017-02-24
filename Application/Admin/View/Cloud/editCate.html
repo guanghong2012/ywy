@@ -5,7 +5,7 @@
     <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
     <div class="main-title cf">
         <h2>
-            编辑 [{$info.title}]
+            编辑 [{$info.name}]
         </h2>
     </div>
     <!-- 标签页导航 -->
@@ -17,36 +17,40 @@
         </ul>
         <div class="tab-content">
             <!-- 表单 -->
-            <form id="form" action="{:U('updateDemo')}" method="post" class="form-horizontal">
+            <form id="form" action="{:U('updateCate')}" method="post" class="form-horizontal">
                 <!-- 基础文档模型 -->
 
                 <div id="tab1" class="tab-pane in tab1">
 
                     <div class="form-item cf">
-                        <label class="item-label">标题<span class="check-tips"></span></label>
+                        <label class="item-label">分类名称<span class="check-tips"></span></label>
                         <div class="controls">
-
-                            <input type="text" class="text input-large" name="title" value="{$info.title}">
+                            <input type="text" class="text input-large" name="name" value="{$info.name}">
                         </div>
                     </div>
 
                     <div class="form-item cf">
-                        <label class="item-label">案例地址<span class="check-tips"></span></label>
+                        <label class="item-label">排序<span class="check-tips">(数字越小越前)</span></label>
                         <div class="controls">
-                            <input type="text" class="text input-large" name="url" value="{$info.url}">
-                        </div>
-                    </div>
-
-                    <div class="form-item cf">
-                        <label class="item-label">排序<span class="check-tips">(排序越大越靠前)</span></label>
-                        <div class="controls">
-
                             <input type="text" class="text input-large" name="level" value="{$info.level}">
                         </div>
                     </div>
 
                     <div class="form-item cf">
-                        <label class="item-label">案例图片(283px*128px)<span class="check-tips"></span></label>
+                        <label class="item-label">是否赠送一个月备案时间<span class="check-tips"></span></label>
+                        <div class="controls">
+                            <label class="radio">
+                                <input type="radio" value="0" name="is_present" <eq name="info['is_present']" value="0">checked</eq> >否
+                            </label>
+                            <label class="radio">
+                                <input type="radio" value="1" name="is_present" <eq name="info['is_present']" value="1">checked</eq> />是
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <div class="form-item cf">
+                        <label class="item-label">类别图片(80px*90px)<span class="check-tips"></span></label>
                         <div class="controls">
                             <input type="file" id="upload_picture_images">
                             <input type="hidden" name="images" id="cover_id_images" value="{$info.images}"/>
@@ -98,13 +102,8 @@
                 <div class="form-item cf">
                     <button class="btn submit-btn ajax-post hidden" id="submit" type="submit" target-form="form-horizontal">确 定</button>
                     <a class="btn btn-return" href="{$Think.cookie.__forward__}">返 回</a>
-                    <if condition="C('OPEN_DRAFTBOX') and (ACTION_NAME eq 'add' or $data['status'] eq 3)">
-                        <button class="btn save-btn" url="{:U('article/autoSave')}" target-form="form-horizontal" id="autoSave">
-                            存草稿
-                        </button>
-                    </if>
-                    <input type="hidden" name="id" value="{$info.id}"/>
-                    <input type="hidden" name="case_id" value="{$info.case_id}"/>
+
+                    <input type="hidden" name="id" value="{$info.id|default=''}"/>
 
                 </div>
             </form>
@@ -127,80 +126,10 @@
             $('#form').submit();
         });
 
-        $(function(){
-            $('.date').datetimepicker({
-                format: 'yyyy-mm-dd',
-                language:"zh-CN",
-                minView:2,
-                autoclose:true
-            });
-            $('.time').datetimepicker({
-                format: 'yyyy-mm-dd hh:ii:ss',
-                language:"zh-CN",
-                minView:2,
-                autoclose:true
-            });
-            showTab();
-
-            <if condition="C('OPEN_DRAFTBOX') and (ACTION_NAME eq 'add' or $data['status'] eq 3)">
-            //保存草稿
-                var interval;
-            $('#autoSave').click(function(){
-                var target_form = $(this).attr('target-form');
-                var target = $(this).attr('url')
-                var form = $('.'+target_form);
-                var query = form.serialize();
-                var that = this;
-
-                $(that).addClass('disabled').attr('autocomplete','off').prop('disabled',true);
-                $.post(target,query).success(function(data){
-                    if (data.status==1) {
-                        updateAlert(data.info ,'alert-success');
-                        $('input[name=id]').val(data.data.id);
-                    }else{
-                        updateAlert(data.info);
-                    }
-                    setTimeout(function(){
-                        $('#top-alert').find('button').click();
-                        $(that).removeClass('disabled').prop('disabled',false);
-                    },1500);
-                })
-
-                //重新开始定时器
-                clearInterval(interval);
-                autoSaveDraft();
-                return false;
-            });
-
-            //Ctrl+S保存草稿
-            $('body').keydown(function(e){
-                if(e.ctrlKey && e.which == 83){
-                    $('#autoSave').click();
-                    return false;
-                }
-            });
-
-            //每隔一段时间保存草稿
-            function autoSaveDraft(){
-                interval = setInterval(function(){
-                    //只有基础信息填写了，才会触发
-                    var title = $('input[name=title]').val();
-                    var name = $('input[name=name]').val();
-                    var des = $('textarea[name=description]').val();
-                    if(title != '' || name != '' || des != ''){
-                        $('#autoSave').click();
-                    }
-                }, 1000*parseInt({:C('DRAFT_AOTOSAVE_INTERVAL')}));
-            }
-            autoSaveDraft();
-
-            </if>
-
-        });
     </script>
 
     <script type="text/javascript">
         //导航高亮
-        highlight_subnav('{:U('Cases/index')}');
+        highlight_subnav('{:U('Cloud/index')}');
     </script>
 </block>

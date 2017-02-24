@@ -1,0 +1,373 @@
+<extend name="Public/base" />
+
+
+<block name="body">
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <div class="main-title cf">
+        <h2>
+            编辑 [{$info.name}]
+        </h2>
+    </div>
+    <!-- 标签页导航 -->
+    <div class="tab-wrap">
+        <ul class="tab-nav nav">
+
+            <li data-tab="tab1" class="current"><a href="javascript:void(0);">基础</a></li>
+            <li data-tab="tab2" ><a href="javascript:void(0);">价格</a></li>
+
+        </ul>
+        <div class="tab-content">
+            <!-- 表单 -->
+            <form id="form" action="{:U('updateCloud')}" method="post" class="form-horizontal">
+                <!-- 基础文档模型 -->
+
+                <div id="tab1" class="tab-pane in tab1">
+                    <div class="form-item cf">
+                        <label class="item-label">上级分类{$info.type_id}<span class="check-tips"></span></label>
+                        <div class="controls">
+                            <select name="type_id">
+                                <volist name="all_cate" id="vo">
+                                    <option value="{$vo.id}" <if condition="$info['type_id'] eq $vo['id']">selected</if> >{$vo.name}</option>
+                                </volist>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="form-item cf">
+                        <label class="item-label">产品名称<span class="check-tips"></span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="name" value="{$info.name}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">新一代产品id<span class="check-tips"></span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="product_id" value="{$info.product_id}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">排序<span class="check-tips">数字越小排序越前</span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="level" value="{$info.level}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">标题<span class="check-tips"></span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="title" value="{$info.title}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">关键字<span class="check-tips"></span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="keywords" value="{$info.keywords}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">描述<span class="check-tips"></span></label>
+                        <label class="textarea input-large">
+                            <textarea name="description">{$info.description}</textarea>
+                        </label>
+                    </div>
+
+                    <div class="form-item cf">
+                        <label class="item-label">网页空间<span class="check-tips"></span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="space" value="{$info.space}">
+                        </div>
+                    </div>
+
+                    <div class="form-item cf">
+                        <label class="item-label">网站流量<span class="check-tips"></span></label>
+                        <div class="controls">
+
+                            <input type="text" class="text input-large" name="flow" value="{$info.flow}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">同时在线数<span class="check-tips"></span></label>
+                        <div class="controls">
+
+                            <input type="text" class="text input-large" name="online" value="{$info.online}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">邮局个数<span class="check-tips"></span></label>
+                        <div class="controls">
+
+                            <input type="text" class="text input-large" name="mail_num" value="{$info.mail_num}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">主机类型<span class="check-tips">(勾选该产品拥有的主机类型，默认是PHP5主机)</span></label>
+                        <div class="controls">
+                            <label><input type="checkbox" name="os_type[]" value="1" <?php if(in_array(1,$info['os_type'])){echo 'checked';}?> />PHP5主机</label>
+                            <label><input type="checkbox" name="os_type[]" value="2" <?php if(in_array(2,$info['os_type'])){echo 'checked';}?> />ASP主机</label>
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">是否独立IP<span class="check-tips"></span></label>
+                        <div class="controls">
+                            <label><input type="radio" name="single_ip" value="0" <eq name="info['single_ip']" value="0"> checked</eq> />否</label>
+                            <label><input type="radio" name="single_ip" value="1" <eq name="info['single_ip']" value="1"> checked</eq> />是</label>
+                        </div>
+                    </div>
+
+                    <div class="form-item cf">
+                        <label class="item-label">产品图片(300px*300px)<span class="check-tips"></span></label>
+                        <div class="controls">
+                            <input type="file" id="upload_picture_images">
+                            <input type="hidden" name="images" id="cover_id_images" value="{$info.images}"/>
+
+                                <div class="upload-img-box">
+                                    <notempty name="info['images']">
+                                        <div class="upload-pre-item"><img src="{$info.images|get_cover='path'}"/></div>
+                                    </notempty>
+                                </div>
+
+                        </div>
+                        <script type="text/javascript">
+                            //上传图片
+                            /* 初始化上传插件 */
+                            $("#upload_picture_images").uploadify({
+                                "height"          : 30,
+                                "swf"             : "__STATIC__/uploadify/uploadify.swf",
+                                "fileObjName"     : "download",
+                                "buttonText"      : "上传图片",
+                                "uploader"        : "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+                                "width"           : 120,
+                                'removeTimeout'	  : 1,
+                                'fileTypeExts'	  : '*.jpg; *.png; *.gif;',
+                                "onUploadSuccess" : uploadPictureimages,
+                                'onFallback' : function() {
+                                    alert('未检测到兼容版本的Flash.');
+                                }
+                            });
+                            function uploadPictureimages(file, data){
+                                var data = $.parseJSON(data);
+                                var src = '';
+                                if(data.status){
+                                    $("#cover_id_images").val(data.id);
+                                    src = data.url || '__ROOT__' + data.path
+                                    $("#cover_id_images").parent().find('.upload-img-box').html(
+                                            '<div class="upload-pre-item"><img src="' + src + '"/></div>'
+                                    );
+                                } else {
+                                    updateAlert(data.info);
+                                    setTimeout(function(){
+                                        $('#top-alert').find('button').click();
+                                        $(that).removeClass('disabled').prop('disabled',false);
+                                    },1500);
+                                }
+                            }
+                        </script>
+                    </div>
+
+                    <div class="form-item cf">
+                        <label class="item-label">卖点<span class="check-tips"></span></label>
+                        <div class="controls">
+
+                            <label class="textarea">
+                                <textarea name="feature">{$info.feature}</textarea>
+                                {:hook('adminArticleEdit', array('name'=>'feature','value'=>$info['feature']))}
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-item cf">
+                        <label class="item-label">详细信息<span class="check-tips"></span></label>
+                        <div class="controls">
+
+                            <label class="textarea">
+                                <textarea name="content">{$info.content}</textarea>
+                                {:hook('adminArticleEdit', array('name'=>'content','value'=>$info[content]))}
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="tab2" class="tab-pane  tab2">
+                    <div class="form-item cf">
+                        <label class="item-label">1年价格<span class="check-tips">(元)</span></label>
+                        <div class="controls">
+
+                            <input type="text" class="text input-large" name="one_price" value="{$price_info.one_price}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">2年价格<span class="check-tips">(元)</span></label>
+                        <div class="controls">
+
+                            <input type="text" class="text input-large" name="two_price" value="{$price_info.two_price}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">3年价格<span class="check-tips">(元)</span></label>
+                        <div class="controls">
+
+                            <input type="text" class="text input-large" name="three_price" value="{$price_info.three_price}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">4年价格<span class="check-tips">(元)</span></label>
+                        <div class="controls">
+
+                            <input type="text" class="text input-large" name="four_price" value="{$price_info.four_price}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">5年价格<span class="check-tips">(元)</span></label>
+                        <div class="controls">
+
+                            <input type="text" class="text input-large" name="five_price" value="{$price_info.five_price}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">6年价格<span class="check-tips">(元)</span></label>
+                        <div class="controls">
+
+                            <input type="text" class="text input-large" name="six_price" value="{$price_info.six_price}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">7年价格<span class="check-tips">(元)</span></label>
+                        <div class="controls">
+
+                            <input type="text" class="text input-large" name="seven_price" value="{$price_info.seven_price}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">8年价格<span class="check-tips">(元)</span></label>
+                        <div class="controls">
+
+                            <input type="text" class="text input-large" name="eight_price" value="{$price_info.eight_price}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">9年价格<span class="check-tips">(元)</span></label>
+                        <div class="controls">
+
+                            <input type="text" class="text input-large" name="nine_price" value="{$price_info.nine_price}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">10年价格<span class="check-tips">(元)</span></label>
+                        <div class="controls">
+
+                            <input type="text" class="text input-large" name="ten_price" value="{$price_info.ten_price}">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-item cf">
+                    <button class="btn submit-btn ajax-post hidden" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+                    <a class="btn btn-return" href="{$Think.cookie.__forward__}">返 回</a>
+                    <if condition="C('OPEN_DRAFTBOX') and (ACTION_NAME eq 'add' or $data['status'] eq 3)">
+                        <button class="btn save-btn" url="{:U('article/autoSave')}" target-form="form-horizontal" id="autoSave">
+                            存草稿
+                        </button>
+                    </if>
+                    <input type="hidden" name="id" value="{$info.id}"/>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+    <php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+    <link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+
+        Think.setValue("type", {$data.type|default='""'});
+        Think.setValue("display", {$data.display|default=0});
+
+        $('#submit').click(function(){
+            $('#form').submit();
+        });
+
+        $(function(){
+            $('.date').datetimepicker({
+                format: 'yyyy-mm-dd',
+                language:"zh-CN",
+                minView:2,
+                autoclose:true
+            });
+            $('.time').datetimepicker({
+                format: 'yyyy-mm-dd hh:ii:ss',
+                language:"zh-CN",
+                minView:2,
+                autoclose:true
+            });
+            showTab();
+
+            <if condition="C('OPEN_DRAFTBOX') and (ACTION_NAME eq 'add' or $data['status'] eq 3)">
+            //保存草稿
+                var interval;
+            $('#autoSave').click(function(){
+                var target_form = $(this).attr('target-form');
+                var target = $(this).attr('url')
+                var form = $('.'+target_form);
+                var query = form.serialize();
+                var that = this;
+
+                $(that).addClass('disabled').attr('autocomplete','off').prop('disabled',true);
+                $.post(target,query).success(function(data){
+                    if (data.status==1) {
+                        updateAlert(data.info ,'alert-success');
+                        $('input[name=id]').val(data.data.id);
+                    }else{
+                        updateAlert(data.info);
+                    }
+                    setTimeout(function(){
+                        $('#top-alert').find('button').click();
+                        $(that).removeClass('disabled').prop('disabled',false);
+                    },1500);
+                })
+
+                //重新开始定时器
+                clearInterval(interval);
+                autoSaveDraft();
+                return false;
+            });
+
+            //Ctrl+S保存草稿
+            $('body').keydown(function(e){
+                if(e.ctrlKey && e.which == 83){
+                    $('#autoSave').click();
+                    return false;
+                }
+            });
+
+            //每隔一段时间保存草稿
+            function autoSaveDraft(){
+                interval = setInterval(function(){
+                    //只有基础信息填写了，才会触发
+                    var title = $('input[name=title]').val();
+                    var name = $('input[name=name]').val();
+                    var des = $('textarea[name=description]').val();
+                    if(title != '' || name != '' || des != ''){
+                        $('#autoSave').click();
+                    }
+                }, 1000*parseInt({:C('DRAFT_AOTOSAVE_INTERVAL')}));
+            }
+            autoSaveDraft();
+
+            </if>
+
+        });
+    </script>
+
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Cloud/cloudList')}');
+    </script>
+</block>
