@@ -2,17 +2,18 @@
 /**
  * Created by PhpStorm.
  * User: 温柔一刀
- * Date: 2017/2/24
- * Time: 11:33
+ * Date: 2017/2/25
+ * Time: 15:44
  */
 namespace Admin\Model;
 use Think\Model;
-class CloudProductModel extends Model{
+
+class CpPriceModel extends Model{
 
     /* 自动验证规则 */
     protected $_validate = array(
-        array('name', 'require', '名称不能为空'),
-
+        array('product_id', 'require', '新一代产品id不能为空'),
+        array('pid', 'require', '产品id不能为空'),
     );
 
     /**
@@ -27,7 +28,7 @@ class CloudProductModel extends Model{
             $this->error = '信息已删除！';
             return false;
         }
-        //$info['os_type'] = explode(',',$info['os_type']);
+        $info['os_type'] = explode(',',$info['os_type']);
         return $info;
     }
 
@@ -40,36 +41,16 @@ class CloudProductModel extends Model{
     public function update($data = null){
 
         /* 获取数据对象 */
-        $data = $this->token(false)->create($data);
-        //$data = I('post.');
+        //$data = $this->token(false)->create($data);
+
         if(empty($data)){
             return false;
         }
         //主机类型是多选的
-        /*
         if(is_array($data['os_type'])){
             $data['os_type'] = implode(',',$data['os_type']);
         }
-        */
-
         //保存价格信息
-        /*
-        $price_data = array(
-            'product_id' => $data['product_id'],
-            'type_id' => '1',
-            'one_price' => $data['one_price'],
-            'two_price' => $data['two_price'],
-            'three_price' => $data['three_price'],
-            'four_price' => $data['four_price'],
-            'five_price' => $data['five_price'],
-            'six_price' => $data['six_price'],
-            'seven_price' => $data['seven_price'],
-            'eight_price' => $data['eight_price'],
-            'nine_price' => $data['nine_price'],
-            'ten_price' => $data['ten_price'],
-        );
-        */
-//print_r($data);die;
         /* 添加或新增基础内容 */
         if(empty($data['id'])){ //新增数据
             $id = $this->add($data); //添加基础内容
@@ -77,14 +58,6 @@ class CloudProductModel extends Model{
                 $this->error = '新增内容出错！';
                 return false;
             }
-            /*
-            $check_price = M('cp_price')->where('product_id='.$data['product_id'])->find();
-            if($check_price){
-                M('cp_price')->where('product_id='.$data['product_id'])->save($price_data);//更新价格信息
-            }else{
-                M('cp_price')->add($price_data);//新增价格信息
-            }
-            */
 
         } else { //更新数据
             $status = $this->save($data); //更新基础内容
@@ -92,14 +65,6 @@ class CloudProductModel extends Model{
                 $this->error = '更新内容出错！';
                 return false;
             }
-            /*
-            $check_price = M('cp_price')->where('product_id='.$data['product_id'])->find();
-            if($check_price){
-                M('cp_price')->where('product_id='.$data['product_id'])->save($price_data);//更新价格信息
-            }else{
-                M('cp_price')->add($price_data);//新增价格信息
-            }
-            */
 
         }
 

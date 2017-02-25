@@ -45,7 +45,28 @@ class CloudController extends HomeController{
     {
         $id = intval($id);
         !$id && $this->error("非法访问！");
+        $info = D('CloudProduct')->detail($id);
+
+        //价格信息
+        if($info){
+            $price = M('CpPrice')->where('pid='.$id)->select();
+            $type = D('CloudCategory')->detail($info['type_id']);
+        }
+        $this->assign('type',$type);
+        $this->assign('price',$price);
+        $this->assign('info',$info);
         $this->display();
+    }
+    
+    /*
+     * 虚拟机购买
+     */
+    public function productBuy($id)
+    {
+        $id = intval($id);
+        !$id && $this->error("非法访问!");
+
+
     }
     
 

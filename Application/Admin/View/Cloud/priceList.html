@@ -3,19 +3,19 @@
 <block name="body">
     <!-- 标题栏 -->
     <div class="main-title">
-        <h2>虚拟机分类列表</h2>
+        <h2>虚拟机价格列表</h2>
     </div>
     <div class="cf">
         <div class="fl">
-            <!--<a class="btn" href="{:U('addCate')}">新 增</a>
-            <button class="btn ajax-post confirm" url="{:U('removeCate')}" target-form="ids">删 除</button>-->
+            <a class="btn" href="{:U('addPrice')}">新 增</a>
+            <button class="btn ajax-post confirm" url="{:U('removeCate')}" target-form="ids">删 除</button>
         </div>
 
         <!-- 高级搜索 -->
         <div class="search-form fr cf">
             <div class="sleft">
-                <!--<input type="text" name="username" class="search-input" value="{:I('username')}" placeholder="请输入用户姓名或者ID">
-                <a class="sch-btn" href="javascript:;" id="search" url="{:U('index')}"><i class="btn-search"></i></a>-->
+                <input type="text" name="pid" class="search-input" value="{:I('pid')}" placeholder="输入商城产品id">
+                <a class="sch-btn" href="javascript:;" id="search" url="{:U('priceList')}"><i class="btn-search"></i></a>
             </div>
         </div>
     </div>
@@ -26,10 +26,9 @@
             <tr>
                 <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
                 <th class="">ID</th>
-                <th class="">分类名称</th>
-                <th class="">是否赠送备案时间</th>
-                <th class="">排序</th>
-                <th class="">分类图片</th>
+                <th class="">新一代id</th>
+                <th class="">产品名称</th>
+                <th class="">线路类型</th>
                 <th class="">操作</th>
             </tr>
             </thead>
@@ -39,20 +38,20 @@
                     <tr>
                         <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
                         <td>{$vo.id} </td>
-                        <td><a href="{:U('Cloud/editCate',array('id'=>$vo['id']))}">{$vo.name}</a></td>
+                        <td>{$vo.product_id} </td>
+                        <td><a href="{:U('Cloud/priceList',array('pid'=>$vo['pid']))}">{$vo.product_name}</a></td>
                         <td>
-                            <empty name="vo['is_present']">
-                                否
-                            <else />
-                                是
-                            </empty>
-
+                            <switch name="vo.type_id">
+                                <case value="1">国内线路</case>
+                                <case value="2">香港加速</case>
+                                <case value="3">香港优质</case>
+                                <case value="4">独立ip</case>
+                                <case value="5">美国线路</case>
+                            </switch>
                         </td>
-                        <td><span>{$vo.level}</span></td>
-                        <td><img src="{$vo.images|get_cover=###,'path'}" /></td>
                         <td>
-                            <a href="{:U('Cloud/editCate',array('id'=>$vo['id']))}" >查看</a>
-                            <!--<a href="{:U('Cloud/removeCate?id='.$vo['id'])}" class="confirm ajax-get">删除</a>-->
+                            <a href="{:U('Cloud/editPrice',array('id'=>$vo['id']))}" >查看</a>
+                            <a href="{:U('Cloud/removePrice?id='.$vo['id'])}" class="confirm ajax-get">删除</a>
                         </td>
                     </tr>
                 </volist>
@@ -92,6 +91,6 @@
             }
         });
         //导航高亮
-        highlight_subnav('{:U('Cloud/index')}');
+        highlight_subnav('{:U('Cloud/priceList')}');
     </script>
 </block>

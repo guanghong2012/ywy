@@ -142,7 +142,7 @@ class CloudController extends AdminController{
     }
 
     /*
-     * 删除案例
+     * 删除虚拟机
      */
     public function removeCloud()
     {
@@ -158,5 +158,90 @@ class CloudController extends AdminController{
             $this->success('删除成功');
         }
     }
+    
+    /*
+     * 虚拟机价格列表
+     */
+    public function priceList()
+    {
+        $pid = I('pid');
+        $map = array();
+        if(!empty($pid)){
+            $map['pid'] = $pid;
+        }
+        $list   = $this->lists('CpPrice', $map);
+        int_to_string($list);
+
+        if(!empty($list)){
+            foreach($list as $key=>$value){
+                $product_name = D('CloudProduct')->where('id='.$value['pid'])->getField('name');
+                $list[$key]['product_name'] = $product_name;
+            }
+        }
+
+        $this->assign('_list', $list);
+        $this->meta_title = '虚拟机价格列表';
+        $this->display();
+    }
+    
+    /*
+     * 虚拟机价格添加
+     */
+    public function addPrice()
+    {
+        $pid = I('pid',0);//产品id
+        $all_product = D('CloudProduct')->order('level asc')->field('id,name')->select();
+        if(intval($pid)>0){
+            $product_id = D('CloudProduct')->where('id='.$pid)->getField('product_id');
+            $this->assign('product_id', $product_id);
+        }
+        $this->meta_title = '新增虚拟机价格';
+        $this->assign('pid', $pid);
+        $this->assign('all_product', $all_product);
+        $this->display();
+    }
+    
+    /*
+     * 更新或新增虚拟机价格
+     */
+    public function updatePrice()
+    {
+        $model   =   D('CpPrice');
+        $pid = I('post.pid');
+        $type_id = I('post.type_id');
+        $id = I('post.id');
+        $data = I('post.');
+        //检测是否重复新增同一产品同一类型的价格信息
+        if(empty($id)){
+            $map['pid'] = $pid;
+            $map['type_id'] = $type_id;
+            $check_price = $model->where($map)->find();
+            if($check_price){
+                $data['id'] = $check_price['id'];//直接更新价格 防止重复
+            }
+        }
+
+        $res = $model->update($data);
+        if(!$res){
+            $this->error($model->getError());
+        }else{
+            $this->success($res['id']?'更新成功':'新增成功');
+        }
+    }
+    
+    /*
+     * 编辑价格
+     */
+    public function editPrice($id)
+    {
+        !$id && $this->error("缺少参数");
+        $all_product = D('CloudProduct')->order('level asc')->field('id,name')->select();
+        $info = D('CpPrice')->detail($id);
+        $this->meta_title = '新增虚拟机价格';
+        $this->assign('info', $info);
+        $this->assign('all_product', $all_product);
+        $this->display();
+    }
+    
 
 }
