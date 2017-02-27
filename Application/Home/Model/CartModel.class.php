@@ -141,5 +141,22 @@ class CartModel extends Model{
         return $cartNum;
 
     }
+
+    //清空用户购物车
+    public function clearCartByUid($uid)
+    {
+        if(!$uid){
+            $this->error = '缺少用户id！';
+            return false;
+        }
+        $map = array();
+        $map['uid'] = $uid;
+        $status = $this->where($map)->delete(); //删除购物车
+        if(false === $status){
+            $this->error = '删除购物车出错！';
+            return false;
+        }
+        return $status;
+    }
     
 }

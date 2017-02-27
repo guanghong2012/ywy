@@ -92,6 +92,22 @@ class CloundApi
         return $this->result;
     }
 
+    /*
+     * 查看产品详情
+     */
+    public function productDetail($product_id)
+    {
+        $product_id = intval($product_id);
+        if(!$product_id){
+            $this->result = array("code"=>100,"产品id不正确");
+            return $this->result;
+        }
+        $data['product_id'] = $product_id;
+        $this->result = $this->getResult($action='Product.Detail',$data);
+
+        return $this->result;
+    }
+
 
 
 }

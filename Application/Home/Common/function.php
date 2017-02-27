@@ -68,3 +68,46 @@ function get_nav_url($url){
     }
     return $url;
 }
+
+/*
+ * 价格地图
+ */
+function priceMap($year){
+    $year = intval($year);
+    if(!$year){
+        return false;
+    }
+    switch($year){
+        case 1:
+            $price_str = 'one_price';
+            break;
+        case 2:
+            $price_str = 'two_price';
+            break;
+        case 3:
+            $price_str = 'three_price';
+            break;
+        case 4:
+            $price_str = 'four_price';
+            break;
+        case 5:
+            $price_str = 'five_price';
+            break;
+        case 6:
+            $price_str = 'six_price';
+            break;
+        case 7:
+            $price_str = 'seven_price';
+            break;
+        case 8:
+            $price_str = 'eight_price';
+            break;
+        case 9:
+            $price_str = 'nine_price';
+            break;
+        case 10:
+            $price_str = 'ten_price';
+            break;
+    }
+    return $price_str;
+}

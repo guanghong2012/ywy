@@ -107,7 +107,7 @@
                             <li><span>方案名称：</span>{$vo['project']['name']}</li>
                             <empty name="vo['project']['os']">
                                 <else />
-                            <li><span>操作系统：</span>CENTOS6</li>
+                            <li><span>操作系统：</span>{$vo['project']['os']}</li>
                             </empty>
                         </ul>
                         <div class="clear"></div>
@@ -118,24 +118,26 @@
                         <h2>具体参数</h2>
                         <ul>
                             <li>
-                                <p><span>线路：</span>电信单线</p>
-                                <p><span>同时最大连接数：</span>150个</p>
-                                <p><span>MySQL空间限制：</span>30MB</p>
+                                <p><span>线路：</span>{$vo.lineType}</p>
+                                <p><span>同时最大连接数：</span>{$vo['parameters']['_limit_MaxConnections']}个</p>
+                                <p><span>MySQL空间限制：</span>{$vo['parameters']['_limit_MySQLQuota']}MB</p>
                             </li>
                             <li>
                                 <p><span>WWW站点：</span>支持</p>
-                                <p><span>磁盘空间限制：</span>200M</p>
+                                <p><span>磁盘空间限制：</span>{$vo['parameters']['_limit_Quota']}MB</p>
                             </li>
                             <li>
-                                <p><span>WWW站点：</span>支持</p>
-                                <p><span>磁盘空间限制：</span>200M</p>
+                                <p><span>带宽限制：</span>{$vo['parameters']['_limit_Bandwidth']}KB/秒</p>
+                                <p><span>PHP：</span>
+                                <if condition="$vo['parameters']['_limit_PHP'] eq 1">
+                                    支持
+                                    <else />
+                                    不支持
+                                </if>
+                                </p>
                             </li>
                             <li>
-                                <p><span>带宽限制：</span>250KB/秒</p>
-                                <p><span>PHP版本：</span>5.2</p>
-                            </li>
-                            <li>
-                                <p><span>流量限制：</span>20000MB/月</p>
+                                <p><span>流量限制：</span>{$vo['parameters']['_limit_Traffic']}MB/月</p>
                                 <p><span>MYSQL数据库：</span>支持</p>
                             </li>
                         </ul>

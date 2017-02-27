@@ -96,7 +96,7 @@
                             <li><span>方案名称：</span>{$vo['project']['name']}</li>
                             <empty name="vo['project']['os']">
                                 <else />
-                                <li><span>操作系统：</span>CENTOS6</li>
+                                <li><span>操作系统：</span>{$vo['project']['os']}</li>
                             </empty>
                         </ul>
                         <div class="clear"></div>
@@ -107,24 +107,27 @@
                         <h2>具体参数</h2>
                         <ul>
                             <li>
-                                <p><span>线路：</span>电信单线</p>
-                                <p><span>同时最大连接数：</span>150个</p>
-                                <p><span>MySQL空间限制：</span>30MB</p>
+                                <p><span>线路：</span>{$vo.lineType}</p>
+                                <p><span>同时最大连接数：</span>{$vo['parameters']['_limit_MaxConnections']}个</p>
+                                <p><span>MySQL空间限制：</span>{$vo['parameters']['_limit_MySQLQuota']}MB</p>
                             </li>
                             <li>
                                 <p><span>WWW站点：</span>支持</p>
-                                <p><span>磁盘空间限制：</span>200M</p>
+                                <p><span>磁盘空间限制：</span>{$vo['parameters']['_limit_Quota']}M</p>
+                            </li>
+
+                            <li>
+                                <p><span>带宽限制：</span>{$vo['parameters']['_limit_Bandwidth']}KB/秒</p>
+                                <p><span>PHP：</span>
+                                    <if condition="$vo['parameters']['_limit_PHP'] eq 1">
+                                        支持
+                                        <else />
+                                        不支持
+                                    </if>
+                                </p>
                             </li>
                             <li>
-                                <p><span>WWW站点：</span>支持</p>
-                                <p><span>磁盘空间限制：</span>200M</p>
-                            </li>
-                            <li>
-                                <p><span>带宽限制：</span>250KB/秒</p>
-                                <p><span>PHP版本：</span>5.2</p>
-                            </li>
-                            <li>
-                                <p><span>流量限制：</span>20000MB/月</p>
+                                <p><span>流量限制：</span>{$vo['parameters']['_limit_Traffic']}MB/月</p>
                                 <p><span>MYSQL数据库：</span>支持</p>
                             </li>
                         </ul>
@@ -135,13 +138,13 @@
             </div>
         </div>
         </volist>
-
+        <form id="form1" action="{:U('Cart/orderDone')}" method="post">
         <div class="shop_div5">
             <h2>应支付金额：<span>{$total|number_format=###,2} 元</span></h2>
             <ul>
                 <li>
                     <label>
-                        <input id="hot_select_op_1" name="radio-1-set" class="regular-radio" checked="" type="radio">
+                        <input id="hot_select_op_1" name="payment" value="1" class="regular-radio"  type="radio">
                         <label for="hot_select_op_1" class="label_2"></label>
                         <img src="__YWY__/images/g1.png" alt="">
                     </label>
@@ -149,7 +152,7 @@
                 </li>
                 <li>
                     <label>
-                        <input id="hot_select_op_2" name="radio-1-set" class="regular-radio" checked="" type="radio">
+                        <input id="hot_select_op_2" name="payment" value="2" class="regular-radio" type="radio">
                         <label for="hot_select_op_2" class="label_2"></label>
                         <img src="__YWY__/images/g2.png" alt="">
                     </label>
@@ -157,11 +160,11 @@
                 </li>
                 <li>
                     <label>
-                        <input id="hot_select_op_3" name="radio-1-set" class="regular-radio" checked="" type="radio">
+                        <input id="hot_select_op_3" name="payment" value="3" class="regular-radio" checked="" type="radio">
                         <label for="hot_select_op_3" class="label_2"></label>
                         <img src="__YWY__/images/g3.png" alt="">
                     </label>
-                    <span>余额：1234.00元</span><a href="">【前去充值】</a>
+                    <span>余额：{$user_account}元</span><a href="">【前去充值】</a>
                     <div class="clear"></div>
                 </li>
                 <li></li>
@@ -169,9 +172,10 @@
             <div class="clear"></div>
         </div>
         <div class="shop_div6">
-            <a class="a2" href="shopping_2.php">下一步</a>
+            <a class="a2" href="javascript:void(0)" onclick="$('#form1').submit();">下一步</a>
             <a class="a1" href="{:U('Cart/index')}">上一步</a>
         </div>
+        </form>
     </div>
 </div>
 <div class="blank50"></div>

@@ -13,6 +13,8 @@
     <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
     <link href="__YWY__/css/style2.css" rel="stylesheet" type="text/css" /><!-- 表单美化 -->
+
+    <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
 </head>
 <body>
 <!-- 头部 -->
@@ -38,7 +40,7 @@
             <ul>
                 <li class="li1">
                     <volist name="price" id="vo" key="k">
-                    <p>
+                    <p <if condition="$vo['type_id'] eq 4">class="single" style="display:none;"<else />class="show"</if> >
                         <input name="price_id" value="{$vo.id}" id="checkbox-{$k}-2" class="regular-checkbox" type="radio" <if condition="$k eq 1">checked</if> />
                         <label class="label_1" for="checkbox-{$k}-2"></label>
                         <span>
@@ -71,10 +73,10 @@
         <div class="div2">
             <p>
                 <if condition="$info['single_ip'] eq 1">
-                <input id="checkbox-1-1" class="regular-checkbox" checked="" type="checkbox">
+                <input id="checkbox-1-1" class="regular-checkbox" onclick="checkSingle(this)" type="checkbox">
                 <label class="label_1" for="checkbox-1-1"></label>增加独立IP  <span>（增加独立IP可让您的网站快速收录, 可减少IP被封机率）</span>
                 </if>
-                <a href="">立即购买</a>
+                <a href="javascript:void(0)" id="confirmbuy" onclick="buy({$info.id})">立即购买</a>
             </p>
             <div class="clear"></div>
         </div>
@@ -138,9 +140,50 @@
         -->
     </div>
 </div>
+<script>
+    $(document)
+            .ajaxStart(function(){
 
+                $("#confirmbuy").attr("disabled", true);
+            })
+            .ajaxStop(function(){
+                $("#confirmbuy").attr("disabled", false);
+            });
+
+    function buy(id){
+        var price_id = $("input[name=price_id]:checked").val();
+        if(id){
+
+            $.post("{:U('Cloud/productBuy')}", {id:id,price_id:price_id}, success, "json");
+            function success(data){
+                if(data.status==1){
+                    window.location.href = data.url;
+                } else {
+                    layer.alert(data.msg,{title:"提示"});
+                    return false;
+                }
+            }
+        }
+    }
+
+    function checkSingle(obj){
+        if($(obj).is(":checked")){
+            $('.show').hide();
+            $('.single').show();
+            $('.single').find("input").prop("checked",true);
+        }else{
+            $('.single').hide();
+            $('.show').show();
+            $('.show').find("input").first().prop("checked",true);
+        }
+    }
+</script>
 <!-- 底部 -->
 <include file="Public/bottom"/>
 <!-- /底部 -->
+
+<script type="text/javascript" src="__YWY__/js2016/lib/wjf/js/wjf-1.0.0.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/jqurey.tools/jquery.tools.rangeinput.min.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/layer/layer.js"></script>
 </body>
 </html>

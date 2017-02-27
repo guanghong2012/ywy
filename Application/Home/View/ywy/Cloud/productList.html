@@ -55,30 +55,27 @@
                         -->
                     </div>
                     <div class="div3_fr">
-                        <if condition="$vo['single_id'] eq 1">
-                        <h3><input type="checkbox" id="checkbox-1-1" class="regular-checkbox" checked/><label class="label_1" for="checkbox-1-1"></label>增加独立IP</h3>
+                        <if condition="$vo['single_ip'] eq 1">
+                        <h3><input type="checkbox" onclick="checkSingle(this)" id="checkbox-{$i}-1" class="regular-checkbox" /><label class="label_1" for="checkbox-{$i}-1"></label>增加独立IP</h3>
                         </if>
                         <ul>
+                            <volist name="vo['price_info']" id="item" key="kk">
+                            <li <if condition="$item['type_id'] eq 4">style='display:none;' class="single"<else />class="show"</if> >
+                                <input type="radio" name="price_{$vo.id}" id="checkbox-{$kk}-2" class="regular-checkbox" <eq name="kk" value="1">checked</eq> />
+                                <label class="label_1" for="checkbox-{$kk}-2"></label>
+                                <span>
+                                    <switch name="item['type_id']">
+                                        <case value="1">国内线路</case>
+                                        <case value="2">香港加速</case>
+                                        <case value="3">香港优质</case>
+                                        <case value="4">独立ip</case>
+                                        <case value="5">美国线路</case>
+                                    </switch>
+                                    <em>{$item.one_price}元/年</em>
+                                </span>
+                            </li>
+                            </volist>
 
-                            <li>
-                                <input type="radio" name="" id="checkbox-{$i}-2" class="regular-checkbox" checked /><label class="label_1" for="checkbox-{$i}-2"></label>
-                                <span>国内线路<em>240.00元/年</em></span>
-                            </li>
-
-                            <!--
-                            <li>
-                                <input type="radio" name="radio-1-set" id="checkbox-1-2" class="regular-checkbox" /><label class="label_1" for="checkbox-1-2"></label>
-                                <span>电信<em>240.00元/年</em></span>
-                            </li>
-                            <li>
-                                <input type="radio" name="radio-1-set" id="checkbox-1-3" class="regular-checkbox" /><label class="label_1" for="checkbox-1-3"></label>
-                                <span>双线<em>240.00元/年</em></span>
-                            </li>
-                            <li>
-                                <input type="radio" name="radio-1-set" id="checkbox-1-4" class="regular-checkbox" /><label class="label_1" for="checkbox-1-4"></label>
-                                <span>三线<em>240.00元/年</em></span>
-                            </li>
-                            -->
                         </ul>
                         <div class="anv">
                             <a class="fl a1" href="virtual_gm.php">立即购买</a>
@@ -95,6 +92,21 @@
 
     </div>
 </div>
+<script>
+    //选择独立ip
+    function checkSingle(obj){
+        if($(obj).is(":checked")){
+            $(obj).parent().parent().find('.show').hide();
+            $(obj).parent().parent().find('.single').show();
+            $(obj).parent().parent().find('.single').find("input").prop("checked",true);
+        }else{
+            $(obj).parent().parent().find('.single').hide();
+            $(obj).parent().parent().find('.show').show();
+            $(obj).parent().parent().find('.show').find("input").first().prop("checked",true);
+        }
+    }
+
+</script>
 
 <!-- 底部 -->
 <include file="Public/bottom"/>

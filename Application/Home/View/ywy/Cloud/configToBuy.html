@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="wsg,hth">
+    <meta name="description" content="ASW">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>{:C('WEB_SITE_TITLE')}</title>
+    <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
+    <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
+    <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
+    <link href="__YWY__/css/style2.css" rel="stylesheet" type="text/css" /><!-- 表单美化 -->
+    <link href="__YWY__/css/default/style.css" rel="stylesheet" /><!-- 右边滚动 -->
+    <link rel="stylesheet" type="text/css" href="__YWY__/css/default/default.css"><!-- 右边滚动 -->
+    <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
+    <script src="__YWY__/js/stickySidebar.js"></script>
+</head>
+<body>
+<!-- 头部 -->
+<include file="Public/top"/>
+<!-- /头部 -->
+<div class="virtual_lx_div">
+    <div class="w1200 mbs_div">
+        <ul>
+            <li><a href="{:U('Index/index')}">首页</a></li>
+            <li>></li>
+            <li><a href="{:U('Cloud/index')}">虚拟主机</a></li>
+            <li>></li>
+            <li><a href="{:U('Cloud/productList',array('cate_id'=>$info['type_id']))}">{$category.name}</a></li>
+            <li>></li>
+            <li class="li1">{$info.name}</li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <main class="clearfix">
+        <form action="" method="post">
+        <div class="w1200 virgm_div">
+            <input type="hidden" name="product_id" value="{$price.product_id}" />
+            <input type="hidden" name="year" value="1" />
+            <div class="vir_w870 fl main_content" id="content">
+                <h1><i></i>{$category.name} - {$info.name}<span><em>*</em> 为必填项</span></h1>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="vir_ta">
+                    <tr>
+                        <td class="td1" valign="top">选择购买时限：</td>
+                        <td colspan="3" class="td2">
+                            <ul>
+                                <li><a class="a1" href="javascript:void(0)" data-year="1" data-price="{$price.one_price}" >{$price.one_price}元 / 1年</a></li>
+                                <li><a href="javascript:void(0)" data-year="2" data-price="{$price.two_price}" >{$price.two_price}元 / 2年</a></li>
+                                <li><a href="javascript:void(0)" data-year="3" data-price="{$price.three_price}" >{$price.three_price}元 / 3年</a></li>
+                                <li><a href="javascript:void(0)" data-year="4" data-price="{$price.four_price}" >{$price.four_price}元 / 4年</a></li>
+                                <li><a href="javascript:void(0)" data-year="5" data-price="{$price.five_price}" >{$price.five_price}元 / 5年</a></li>
+                                <li><a href="javascript:void(0)" data-year="6" data-price="{$price.six_price}" >{$price.six_price}元 / 6年</a></li>
+                                <li><a href="javascript:void(0)" data-year="7" data-price="{$price.seven_price}" >{$price.seven_price}元 / 7年</a></li>
+                                <li><a href="javascript:void(0)" data-year="8" data-price="{$price.eight_price}" >{$price.eight_price}元 / 8年</a></li>
+                                <li><a href="javascript:void(0)" data-year="9" data-price="{$price.nine_price}" >{$price.nine_price}元 / 9年</a></li>
+                                <li><a href="javascript:void(0)" data-year="10" data-price="{$price.ten_price}" >{$price.ten_price}元 / 10年</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1" valign="top"><em>*</em> 绑定域名：</td>
+                        <td colspan="3" class="td3">
+                            <input type="text" name="domain" class="inp_1" onkeyup="document.getElementById('bindDomain').innerHTML=this.value;" />
+                            <p>请不要加'www'前缀, 我们在建站时会自动为您绑定www子域名</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1" valign="top"><em>*</em> 主机类型：</td>
+                        <td colspan="3" class="td4">
+                            <ul>
+                                <volist name="price.os_type" id="vo" key="k">
+                                <li>
+                                    <a class="bb <?php if($k ==1){?>a1<?php }?>" href="javascript:" onclick="checkType(this)" >
+                                    <switch name="vo">
+                                        <case value="1">PHP5主机</case>
+                                        <case value="2">ASP主机</case>
+                                    </switch>
+
+                                    </a>
+                                    <input type="radio" name="os_type" value="{$vo}" <if condition="$k eq 1">checked</if> style="display:none;" />
+                                </li>
+                                </volist>
+
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1" valign="top"><em>*</em> 线路：</td>
+                        <td colspan="3" class="td5">
+                            <input type="radio" id="checkbox-1-1" class="regular-checkbox" checked/>
+                            <label class="label_1" for="checkbox-1-1"></label>
+                            <switch name="price.type_id">
+                                <case value="1">国内线路</case>
+                                <case value="2">香港加速</case>
+                                <case value="3">香港优质</case>
+                                <case value="4">独立ip</case>
+                                <case value="5">美国线路</case>
+                            </switch>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1" valign="top">管理账号：</td>
+                        <td class="td5" width="35%">webmaster@yourdomain</td>
+                        <td class="td1" valign="top">管理密码：</td>
+                        <td class="td5">系统自动生成</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="virgm_poa">
+                <aside id="sidebar">
+                    <div class="vir_w300">
+                        <h1>已选配置</h1>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="vir_ta1">
+                            <tr>
+                                <td class="td1">产品名称：</td>
+                                <td><p>{$info.name}</p></td>
+                            </tr>
+                            <tr>
+                                <td class="td1">绑定域名：</td>
+                                <td><p id="bindDomain">请填写</p></td>
+                            </tr>
+                            <tr>
+                                <td class="td1">主机类型：</td>
+                                <td><p id="osType">PHP5</p></td>
+                            </tr>
+                            <tr>
+                                <td class="td1">线路：</td>
+                                <td><p>
+                                    <switch name="price.type_id">
+                                        <case value="1">国内线路</case>
+                                        <case value="2">香港加速</case>
+                                        <case value="3">香港优质</case>
+                                        <case value="4">独立ip</case>
+                                        <case value="5">美国线路</case>
+                                    </switch>
+                                </p></td>
+                            </tr>
+                            <tr>
+                                <td class="td1">购买年限：</td>
+                                <td><p><span id="buyYear">1</span>（年）</p></td>
+                            </tr>
+                            <tr>
+                                <td class="td1 td_pa">费用总计：</td>
+                                <td class="td_pa "><h4 id="total">￥{$price.one_price}</h4></td>
+                            </tr>
+                        </table>
+                        <p class="p1">
+                            <input type="checkbox" id="checkbox-2-1" class="regular-checkbox" checked/><label class="label_1" for="checkbox-2-1"></label>
+                            我已阅读并接受  <a href="">购买协议</a>
+                        </p>
+                        <div class="div_a">
+                            <a href="javascript:void(0)" id="confirmbuy" onclick="addToCart({$info.id})">确定购买</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="clear"></div>
+        </div>
+        </form>
+    </main>
+</div>
+<script>
+    $(document)
+            .ajaxStart(function(){
+
+                $("#confirmbuy").attr("disabled", true);
+            })
+            .ajaxStop(function(){
+                $("#confirmbuy").attr("disabled", false);
+            });
+
+    $(document).ready(function() {
+
+        $('#sidebar').stickySidebar({
+            sidebarTopMargin: 20,
+            footerThreshold: 60
+        });
+
+    });
+
+    function checkType(obj){
+        var osType = $(obj).html();
+        $('#osType').html(osType);
+        $('.bb').removeClass('a1');
+        $(obj).addClass("a1");
+        $(obj).parent().find('input[name=os_type]').prop("checked",true);
+    }
+
+    $('.td2').find("ul li a").click(function(){
+        var data_year = $(this).attr("data-year");
+        var total = $(this).attr("data-price");
+        $('input[name=year]').val(data_year);
+        $(this).parent().parent().find('a').removeClass("a1");
+        $(this).addClass("a1");
+        $('#buyYear').html(data_year);
+        $('#total').html("￥"+total);
+        //alert(data_year);
+    });
+
+    function addToCart(id){
+        var product_id = $("input[name=product_id]").val();
+        var domain = $("input[name=domain]").val();
+        var os_type = $("input[name=os_type]:checked").val();
+        var year = $("input[name=year]").val();
+        var price_id = '{$price.id}';
+        $.post("{:U('Cloud/addToCart')}", {id:id,price_id:price_id,domain:domain,os_type:os_type,year:year,product_id:product_id}, success, "json");
+        function success(data){
+            if(data.status==1){
+                window.location.href = data.url;
+            }else if(data.status==2){
+                layer.alert(data.msg,{title:"提示"});
+                window.location.href = data.url;
+            } else {
+                layer.alert(data.msg,{title:"提示"});
+                return false;
+            }
+        }
+    }
+
+</script>
+
+<!-- 底部 -->
+<include file="Public/bottom"/>
+<!-- /底部 -->
+<script type="text/javascript" src="__YWY__/js2016/lib/wjf/js/wjf-1.0.0.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/jqurey.tools/jquery.tools.rangeinput.min.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/layer/layer.js"></script>
+</body>
+</html>

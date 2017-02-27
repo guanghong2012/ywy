@@ -30,6 +30,11 @@ class CuserController extends HomeController{
      */
     public function login($username = '', $password = '', $verify = '')
     {
+        if(!empty(session('user_auth'))){
+            $this->error("您已登录！");
+        }
+        $userurl = session('userurl');//登录前的页面地址
+        echo $userurl;
         if(IS_POST){ //登录验证
             if(!$username){
                 $this->error('请输入用户名！');
@@ -60,7 +65,8 @@ class CuserController extends HomeController{
                 $Cuser = D('Cuser');
                 if($Cuser->login($uid)){ //登录用户
                     //TODO:跳转到登录前页面
-                    $this->success('登录成功！',U('Home/Cuser/index'));
+                    $userurl = session('userurl');
+                    $this->success('登录成功！',!empty($userurl) ? $userurl : U('Home/Cuser/index'));
                 } else {
                     $this->error($Cuser->getError());
                 }

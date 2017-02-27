@@ -29,7 +29,6 @@ class HomeController extends Controller {
         $userinfo = session('user_auth');
         if(!empty($userinfo)){
             $user_login = 1;
-            $user_account = $userinfo['account'];
             $user_name = $userinfo['username'];
 
             if(S($userinfo['id'].'_carNum')){
@@ -37,6 +36,13 @@ class HomeController extends Controller {
             }else{
                 $carNum = D("Cart")->getCartNumByUid($userinfo['id']);
                 S($userinfo['id'].'_carNum',$carNum,30);//缓存30秒
+            }
+
+            if(S($userinfo['id'].'_userAccount')){
+                $user_account = S($userinfo['id'].'_userAccount');//读取缓存数据
+            }else{
+                $user_account = D('Cuser')->where('id='.$userinfo['id'])->getField('account');
+                S($userinfo['id'].'_userAccount',$user_account,30);
             }
 
             $this->assign('user_name',$user_name);
