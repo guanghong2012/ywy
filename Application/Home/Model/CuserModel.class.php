@@ -84,5 +84,44 @@ class CuserModel extends Model{
         session('user_auth_sign', null);
     }
 
+    /**
+     * 获取用户信息
+     * @param  string  $uid         用户ID或用户名
+     * @param  boolean $is_username 是否使用用户名查询
+     * @return array                用户信息
+     */
+    public function info($uid, $is_username = false){
+        $map = array();
+        if($is_username){ //通过用户名获取
+            $map['username'] = $uid;
+        } else {
+            $map['id'] = $uid;
+        }
+
+        $user = $this->where($map)->field(true)->find();
+        if(is_array($user) && $user['status'] = 1){
+            return $user;
+            //return array($user['id'], $user['username'], $user['email'], $user['mobile']);
+        } else {
+            return -1; //用户不存在或被禁用
+        }
+    }
+
+    /*
+     * 更新用户单个字段信息
+     */
+    public function updateUserField($uid,$data)
+    {
+        if(empty($uid)  || empty($data)){
+            $this->error = '没有修改任何信息！';
+            return false;
+        }
+        //更新用户信息
+        $data = $this->create($data);
+        if($data){
+            return $this->where(array('id'=>$uid))->save($data);
+        }
+        return false;
+    }
 
 }

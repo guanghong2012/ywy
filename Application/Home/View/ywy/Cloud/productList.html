@@ -13,6 +13,8 @@
     <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
     <link href="__YWY__/css/style2.css" rel="stylesheet" type="text/css" /><!-- 表单美化 -->
+
+    <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
 </head>
 <body>
 <!-- 头部 -->
@@ -61,8 +63,8 @@
                         <ul>
                             <volist name="vo['price_info']" id="item" key="kk">
                             <li <if condition="$item['type_id'] eq 4">style='display:none;' class="single"<else />class="show"</if> >
-                                <input type="radio" name="price_{$vo.id}" id="checkbox-{$kk}-2" class="regular-checkbox" <eq name="kk" value="1">checked</eq> />
-                                <label class="label_1" for="checkbox-{$kk}-2"></label>
+                                <input type="radio" name="price_{$vo.id}" value="{$item.id}" id="checkbox-{$vo.id}{$kk}-2" class="regular-checkbox" <eq name="kk" value="1">checked</eq> />
+                                <label class="label_1" for="checkbox-{$vo.id}{$kk}-2"></label>
                                 <span>
                                     <switch name="item['type_id']">
                                         <case value="1">国内线路</case>
@@ -78,7 +80,7 @@
 
                         </ul>
                         <div class="anv">
-                            <a class="fl a1" href="virtual_gm.php">立即购买</a>
+                            <a class="fl a1" href="javascript:void(0)" onclick="buy({$vo.id})">立即购买</a>
                             <a class="fr" href="{:U('Cloud/productDetail',array('id'=>$vo['id']))}">了解详情</a>
                             <div class="clear"></div>
                         </div>
@@ -106,10 +108,28 @@
         }
     }
 
+    //立即购买
+    function buy(id){
+        var price_id = $("input[name=price_"+id+"]:checked").val();
+        if(id){
+            $.post("{:U('Cloud/productBuy')}", {id:id,price_id:price_id}, success, "json");
+            function success(data){
+                if(data.status==1){
+                    window.location.href = data.url;
+                } else {
+                    layer.alert(data.msg,{title:"提示"});
+                    return false;
+                }
+            }
+        }
+    }
 </script>
 
 <!-- 底部 -->
 <include file="Public/bottom"/>
 <!-- /底部 -->
+<script type="text/javascript" src="__YWY__/js2016/lib/wjf/js/wjf-1.0.0.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/jqurey.tools/jquery.tools.rangeinput.min.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/layer/layer.js"></script>
 </body>
 </html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="wsg,hth">
+    <meta name="description" content="ASW">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>注册-{:C('WEB_SITE_TITLE')}</title>
+    <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
+    <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
+    <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
+    <link href="__YWY__/css/style2.css" rel="stylesheet" type="text/css" /><!-- 表单美化 -->
+
+    <link rel="stylesheet" href="__YWY__/ios/css/custom.css"><!--ios特效必须-->
+    <link rel="stylesheet" href="__YWY__/ios/css/iosOverlay.css"><!--ios特效必须-->
+    <script src="__YWY__/ios/js/iosOverlay.js"></script><!--ios特效必须-->
+    <script src="__YWY__/ios/js/spin.min.js"></script>
+    <script src="__YWY__/ios/js/prettify.js"></script>
+    <script src="__YWY__/ios/js/custom.js"></script><!--ios特效必须-->
+</head>
+<body>
+<!-- 头部 -->
+<include file="Public/top"/>
+<!-- /头部 -->
+<div class="register">
+    <div class="register_div w1200">
+        <p class="p1"><a href="{:U('Cuser/login')}">已有账户，马上登录</a></p>
+        <h2>亿维云网帐中心会员注册</h2>
+        <div class="register_div1">
+            <form action="__SELF__" method="post">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="sign_ta">
+                    <tr>
+                        <td width="120" class="td1"><i>*</i>姓名：</td>
+                        <td><input type="text" placeholder="请输入姓名" name="username" class="sign_inp"></td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><i>*</i>邮箱：</td>
+                        <td><input type="text" name="email" placeholder="请输入电子邮件" class="sign_inp"></td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><i>*</i>输入密码：</td>
+                        <td><input type="password" name="password" placeholder="请输入密码" class="sign_inp" /></td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><i>*</i>确认密码：</td>
+                        <td><input type="password" name="repassword" class="sign_inp" placeholder="请再一次输入密码" /></td>
+                    </tr>
+                    <tr>
+                        <td class="td1">基本信息</td>
+                        <td class="td2">请输入真实的信息</td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><i>*</i>手机号码：</td>
+                        <td><input type="text" name="mobile" class="sign_inp" placeholder="请输入手机号码" /></td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><i>*</i>所在地址：</td>
+                        <td><input type="text" name="address" placeholder="请输入联系地址" class="sign_inp" /></td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><i>*</i>验证码：</td>
+                        <td>
+                            <input type="text" name="verify" placeholder="请输入验证码" class="sign_inp1" />
+                            <a class="sign_a1" href="javascript:void(0)"><img class="verifyimg reloadverify" alt="点击切换" src="{:U('verify')}" style="width: 200px;"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td class="td2">
+                            <input type="checkbox" name="xieyi" value="1" id="checkbox-1-1" class="regular-checkbox" />
+                            <label for="checkbox-1-1"></label> 我已阅读并同意<a href="">《 亿维云网用户注册协议》</a>
+                            <div class="controls Validform_checktip text-warning" style="color:red;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><button class="sign_submit1"  type="submit" >确 认</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document)
+            .ajaxStart(function(){
+                $("button:submit").attr("disabled", true);
+            })
+            .ajaxStop(function(){
+                $("button:submit").attr("disabled", false);
+            });
+
+
+    $("form").submit(function(){
+        var self = $(this);
+        var xieyi = $('input[name=xieyi]:checked').val();
+        if(!xieyi){
+            self.find(".Validform_checktip").text("请勾选并知悉《亿维云网用户注册协议》");
+            return false;
+        }
+
+        $.post(self.attr("action"), self.serialize(), success, "json");
+        return false;
+
+        function success(data){
+            if(data.status){
+                iosOverlay({
+                    text: "注册成功",
+                    duration: 2e3,
+                    icon: "__YWY__/ios/img/check.png"
+                });
+                setTimeout(window.location.href = data.url, 2000);
+
+            } else {
+                self.find(".Validform_checktip").text(data.info);
+                //刷新验证码
+                $(".reloadverify").click();
+            }
+        }
+    });
+
+    $(function(){
+        var verifyimg = $(".verifyimg").attr("src");
+        $(".reloadverify").click(function(){
+            if( verifyimg.indexOf('?')>0){
+                $(".verifyimg").attr("src", verifyimg+'&random='+Math.random());
+            }else{
+                $(".verifyimg").attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());
+            }
+        });
+    });
+</script>
+<!-- 底部 -->
+<include file="Public/bottom"/>
+<!-- /底部 -->
+</body>
+</html>

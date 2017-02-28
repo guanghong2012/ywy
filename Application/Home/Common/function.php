@@ -111,3 +111,21 @@ function priceMap($year){
     }
     return $price_str;
 }
+
+/*
+ * 获取一个新的流水号
+ */
+function createFlowNum($year){
+    if(empty($year)){
+        $year = date('Y');
+    }
+    //获取数据库中最后一个流水号
+    $latestFlowNum = M('paylog')->order('id desc')->getField('serialsn');
+    if(empty($latestFlowNum)){
+        $newFlowNum = $year.'000001';
+    }else{
+        $newFlowNum = intval($latestFlowNum) +1;
+    }
+    return $newFlowNum;
+
+}

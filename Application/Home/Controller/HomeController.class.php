@@ -35,14 +35,14 @@ class HomeController extends Controller {
                 $carNum = S($userinfo['id'].'_carNum');//读取缓存数据
             }else{
                 $carNum = D("Cart")->getCartNumByUid($userinfo['id']);
-                S($userinfo['id'].'_carNum',$carNum,30);//缓存30秒
+                S($userinfo['id'].'_carNum',$carNum,5);//缓存5秒
             }
 
             if(S($userinfo['id'].'_userAccount')){
                 $user_account = S($userinfo['id'].'_userAccount');//读取缓存数据
             }else{
                 $user_account = D('Cuser')->where('id='.$userinfo['id'])->getField('account');
-                S($userinfo['id'].'_userAccount',$user_account,30);
+                S($userinfo['id'].'_userAccount',$user_account,5);
             }
 
             $this->assign('user_name',$user_name);

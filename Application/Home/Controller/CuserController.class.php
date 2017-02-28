@@ -34,7 +34,7 @@ class CuserController extends HomeController{
             $this->error("您已登录！");
         }
         $userurl = session('userurl');//登录前的页面地址
-        echo $userurl;
+        //echo $userurl;
         if(IS_POST){ //登录验证
             if(!$username){
                 $this->error('请输入用户名！');
@@ -81,7 +81,7 @@ class CuserController extends HomeController{
             }
 
         } else { //显示登录表单
-            $this->display();
+            $this->display('Cuser/login1');
         }
     }
 
@@ -170,7 +170,7 @@ class CuserController extends HomeController{
             }
 
         } else { //显示注册表单
-            $this->display();
+            $this->display('Cuser/register1');
         }
     }
 

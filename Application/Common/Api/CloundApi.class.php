@@ -107,7 +107,33 @@ class CloundApi
 
         return $this->result;
     }
+    
+    /*
+     * 通过接口注册域名
+     */
+    public function domainRegister($data= null)
+    {
+        if(empty($data)){
+            $this->result = array("code"=>100,"注册参数不能为空");
+            return $this->result;
+        }
+        $this->result = $this->getResult($action='Domain.Register',$data);
+        return $this->result;
 
+    }
+
+    /*
+     * 通过接口购买虚拟主机
+     */
+    public function buyHost($data= null)
+    {
+        if(empty($data)){
+            $this->result = array("code"=>100,"参数不能为空");
+            return $this->result;
+        }
+        $this->result = $this->getResult($action='Site.Create',$data);
+        return $this->result;
+    }
 
 
 }

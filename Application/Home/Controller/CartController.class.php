@@ -228,7 +228,8 @@ class CartController extends HomeController{
                     'parameters' => $value['parameters'],//产品详细参数
                     'domain_info' => $value['domain_info'],//域名注册人信息
                     'price_id' => $value['price_id'],//虚拟机价格id
-                    'order_id' => $order_id
+                    'order_id' => $order_id,
+                    'buy_config' => $value['buy_config']//用户购买配置信息
                 );
                 $res = M('OrderGoods')->add($goods);
                 $res && $i++;
@@ -237,9 +238,34 @@ class CartController extends HomeController{
                 //清空用户购物车
                 $this->model->clearCartByUid($uid);
                 //去支付
+                //生成支付记录
+                $order_sn = D('Order')->where('id='.$order_id)->getField('ordersn');
+
+                $paylog = array(
+                    'ordersn' => $order_sn,
+                    'serialsn'=> createFlowNum(),
+                    'money' => $total,
+                    'status' => 0,
+                    'payment' => $payment,//支付方式 1=微信支付 2=支付宝支付 3=余额支付
+                    'create_time' => time()
+                );
+                $logid = M('Paylog')->add($paylog);//支付记录id
                 //余额支付
                 if(3==$payment){
-                    
+
+                    //扣减用户金额
+                    $res = D('UserAccountLog')->reduceMoney($uid,$total,'支付订单'.$order_sn.'扣减');
+                    if($res){
+                        M('Paylog')->where('id='.$logid)->setField('status',1);//设置已支付
+                        //更新订单支付状态
+                        $up = array('status'=>1,'paytime'=>time());
+                        $is_pay = D('Order')->where('id='.$order_id)->setField($up);
+                        if($is_pay){
+                            //这里进行通过接口购买产品的操作 将订单产品加入队列处理
+
+                            $this->redirect('Cuser/index');
+                        }
+                    }
                 }
                 //微信支付
                 if(1==$payment){

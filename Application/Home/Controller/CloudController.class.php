@@ -189,6 +189,14 @@ class CloudController extends HomeController{
                 default:
                     $os = 'CENTOS6';
             }
+
+            $buy_config = array(
+                'product_id' => $product_id,
+                'domain' => $domain,
+                'timeperiod' => $year*12,
+                'os_type' => $os_type
+            );
+
             $model = D("Cart");
             $data = array();
             $data['uid'] = $user['id'];
@@ -210,6 +218,7 @@ class CloudController extends HomeController{
             $data['domain_info'] = '';//域名注册信息
             $data['subtotal'] = $data['base_total'] + $data['added_price'];//全部总价
             $data['price_id'] = $price_id;
+            $data['buy_config'] = json_encode($buy_config);//用户购买的配置信息
             $res = $model->addCart($data);//加入购物车
             if($res){
                 $return = array('status'=>1,'url'=>U('Cart/index'),'msg'=>'加入购物车成功');

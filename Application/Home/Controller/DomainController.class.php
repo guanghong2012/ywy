@@ -25,6 +25,21 @@ class DomainController extends HomeController{
         //媒体报告6条
         $media_news = $document->where('category_id=57 and status=1')->order('level desc')->field('id,title,create_time')->select();
 
+        //域名分类
+        $all_domain_cate = S('all_domain_cate');
+        if(!$all_domain_cate){
+            $all_domain_cate = D('category')->where('pid=60 and status=1')->field('id,title')->order('sort asc')->select();
+
+            foreach($all_domain_cate as $key=>$value){
+                $all_tld = D('Document')->alias('a')->join('LEFT JOIN onethink_document_domain as b ON a.id=b.id')->where('a.category_id='.$value['id'])->field('b.*')->select();
+                $all_domain_cate[$key]['all_tld'] = $all_tld;
+            }
+            S('all_domain_cate',$all_domain_cate,1);//缓存60秒
+        }
+
+        print_r($all_domain_cate);
+
+        $this->assign('all_domain_cate',$all_domain_cate);
         $this->assign('advantages',$advantages);
         $this->assign('hot_news',$hot_news);
         $this->assign('product_news',$product_news);
@@ -38,6 +53,7 @@ class DomainController extends HomeController{
     public function checkDomainResult()
     {
         if(IS_POST){
+            print_r($_POST);die;
             $domain = I('post.domain');
             $tld = I('post.tld');
             $lang = I('post.lang') ? I('post.lang') : 'ENG';
@@ -54,6 +70,7 @@ class DomainController extends HomeController{
                     $result[$k]['id'] = $k;
                     $result[$k]['domain'] = $domain.$v;
                     $result[$k]['ltd'] = $v;
+                    $result[$k]['lang'] = $lang;
                     $rs = $Api->checkDomain($domain.$v,$v,$lang);
                     $result[$k]['result'] = json_decode($rs,true);
                 }
@@ -63,6 +80,7 @@ class DomainController extends HomeController{
                 $result[0]['id'] = 0;
                 $result[0]['domain'] = $domain.$tld;
                 $result[0]['ltd'] = $tld;
+                $result[0]['lang'] = $lang;
                 $result[0]['result'] = json_decode($rs,true);
 
             }
@@ -112,6 +130,7 @@ class DomainController extends HomeController{
                     'domain' => $val[0],
                     'ltd' => $list[$key]['ltd'],
                     'info'=> 0,
+                    'lang'=> $list[$key]['lang']
                 );
             }
             session('domainToBuy',$domainToBuy);
@@ -194,6 +213,13 @@ class DomainController extends HomeController{
             $j = 0;
             //加入购物车
             foreach($domainToBuy as $key=>$value){
+                $buy_config = array(
+                    'domain' => $value['domain'],
+                    'tld' => $value['ltd'],
+                    'year' => $value['month']/12,
+                    'lang' => $value['lang'],
+                    'encoding' => $value['lang']=='CHI' ? 'GBK':'ASCII',
+                );
                 $data = array();
                 $data['uid'] = $user['id'];
                 $data['name'] = $value['ltd']."域名";
@@ -211,7 +237,7 @@ class DomainController extends HomeController{
                 $data['type'] = 1;//产品类型 1=域名
                 $data['domain_info'] = json_encode($value['info']);//域名注册信息
                 $data['subtotal'] = $data['base_total'] + $data['added_price'];//全部总价
-
+                $data['buy_config'] = json_encode($buy_config);//用户购买的配置信息
                 $res = $model->addCart($data);
                 $res && $j++;
             }
