@@ -192,7 +192,7 @@ class CartController extends HomeController{
         //如果是余额支付 判断用户余额是否充足
         if(3 == $payment){
             if($total>$user_account){
-                $this->redirect('Cart/selectPayment',2,'余额不足');
+                redirect('Home/Cart/selectPayment',2,'余额不足');
             }
         }
         //遍历购物车 生成订单
@@ -221,7 +221,7 @@ class CartController extends HomeController{
                     'month' => $value['month'],//购买月份
                     'base_total' => $value['base_total'],//产品基本总价
                     'added_price' => $value['added_price'],//增值总价
-                    'type' => $value['type'],//产品类型 1=域名 2=虚拟机
+                    'type' => $value['type'],//产品类型 1=域名 2=虚拟机3=企业邮箱4=云服务器5=云建站模板
                     'subtotal' => $value['subtotal'],//总金额
                     'payment' => $payment,
                     'project' => $value['project'],//方案信息
@@ -263,6 +263,7 @@ class CartController extends HomeController{
                         if($is_pay){
                             //这里进行通过接口购买产品的操作 将订单产品加入队列处理
 
+                            enableOrderTemplate($order_id);//对订单中模板类型产品进行开通
                             $this->redirect('Cuser/index');
                         }
                     }

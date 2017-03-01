@@ -370,4 +370,30 @@ class CuserController extends HomeController{
         $this->display();
     }
 
+    /*
+     * 网站模板产品
+     */
+    public function userTemplate()
+    {
+        $user = session('user_auth');
+        $uid = $user['id'];
+        $keywords = I('get.keywords');//关键字
+        $map = array();
+        $map['uid'] = $uid;
+        if(!empty($keywords)){
+            $map['name'] = array("like",'%'.$keywords.'%');
+        }
+
+        $count      = M('user_template')->where($map)->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $list = M('user_template')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('list',$list);// 赋值数据集
+        $this->assign('page',$show);// 赋值分页输出
+
+        $this->display();
+    }
+
+
 }

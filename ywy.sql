@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2017 �?02 �?28 �?18:30
+-- 生成日期: 2017 �?03 �?01 �?18:13
 -- 服务器版本: 5.5.40
 -- PHP 版本: 5.6.1
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `onethink_action_log` (
   KEY `action_ip_ix` (`action_ip`),
   KEY `action_id_ix` (`action_id`),
   KEY `user_id_ix` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表' AUTO_INCREMENT=386 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表' AUTO_INCREMENT=454 ;
 
 --
 -- 转存表中的数据 `onethink_action_log`
@@ -467,7 +467,75 @@ INSERT INTO `onethink_action_log` (`id`, `action_id`, `user_id`, `action_ip`, `m
 (382, 7, 1, 0, 'model', 24, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488268849),
 (383, 8, 1, 0, 'attribute', 206, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488276000),
 (384, 7, 1, 0, 'model', 24, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488276021),
-(385, 7, 1, 0, 'model', 24, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488276072);
+(385, 7, 1, 0, 'model', 24, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488276072),
+(386, 1, 1, 0, 'member', 1, 'admin在2017-02-28 21:21登录了后台', 1, 1488288067),
+(387, 7, 1, 0, 'model', 25, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488289069),
+(388, 8, 1, 0, 'attribute', 207, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488289148),
+(389, 8, 1, 0, 'attribute', 208, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488289215),
+(390, 7, 1, 0, 'model', 26, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488289336),
+(391, 8, 1, 0, 'attribute', 209, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488289398),
+(392, 8, 1, 0, 'attribute', 210, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488289685),
+(393, 8, 1, 0, 'attribute', 211, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488289754),
+(394, 8, 1, 0, 'attribute', 212, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488289792),
+(395, 8, 1, 0, 'attribute', 213, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488289875),
+(396, 8, 1, 0, 'attribute', 214, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488289911),
+(397, 7, 1, 0, 'model', 26, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488290018),
+(398, 7, 1, 0, 'model', 25, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488290051),
+(399, 10, 1, 0, 'Menu', 137, '操作url：/ywy/newwebadmin.php?s=/Menu/edit.html', 1, 1488290132),
+(400, 8, 1, 0, 'attribute', 215, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488290495),
+(401, 10, 1, 0, 'Menu', 147, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1488290827),
+(402, 10, 1, 0, 'Menu', 148, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1488290870),
+(403, 10, 1, 0, 'Menu', 149, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1488291119),
+(404, 10, 1, 0, 'Menu', 150, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1488291588),
+(405, 8, 1, 0, 'attribute', 216, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488292196),
+(406, 10, 1, 0, 'Menu', 151, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1488293270),
+(407, 10, 1, 0, 'Menu', 152, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1488293300),
+(408, 10, 1, 0, 'Menu', 153, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1488295011),
+(409, 1, 1, 0, 'member', 1, 'admin在2017-03-01 09:25登录了后台', 1, 1488331551),
+(410, 1, 1, 0, 'cuser', 1, 'admin在2017-03-01 13:51登录了后台', 1, 1488347510),
+(411, 7, 1, 0, 'model', 27, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488348328),
+(412, 8, 1, 0, 'attribute', 217, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488348370),
+(413, 8, 1, 0, 'attribute', 218, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488348394),
+(414, 8, 1, 0, 'attribute', 219, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488348422),
+(415, 8, 1, 0, 'attribute', 220, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488348459),
+(416, 8, 1, 0, 'attribute', 221, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488348503),
+(417, 8, 1, 0, 'attribute', 222, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488348588),
+(418, 7, 1, 0, 'model', 27, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488348685),
+(419, 8, 1, 0, 'attribute', 223, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488350141),
+(420, 7, 1, 0, 'model', 28, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488355731),
+(421, 8, 1, 0, 'attribute', 224, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488355778),
+(422, 8, 1, 0, 'attribute', 225, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488355799),
+(423, 8, 1, 0, 'attribute', 226, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488355869),
+(424, 8, 1, 0, 'attribute', 227, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488355930),
+(425, 8, 1, 0, 'attribute', 228, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488355984),
+(426, 8, 1, 0, 'attribute', 229, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488356050),
+(427, 7, 1, 0, 'model', 28, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488356120),
+(428, 8, 1, 0, 'attribute', 226, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488356238),
+(429, 8, 1, 0, 'attribute', 229, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488356247),
+(430, 8, 1, 0, 'attribute', 230, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488358316),
+(431, 7, 1, 0, 'model', 29, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488359757),
+(432, 8, 1, 0, 'attribute', 231, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488359775),
+(433, 8, 1, 0, 'attribute', 232, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488359806),
+(434, 8, 1, 0, 'attribute', 233, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488359901),
+(435, 8, 1, 0, 'attribute', 234, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488359928),
+(436, 8, 1, 0, 'attribute', 235, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488359950),
+(437, 8, 1, 0, 'attribute', 236, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488359969),
+(438, 8, 1, 0, 'attribute', 237, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488360181),
+(439, 7, 1, 0, 'model', 29, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488360292),
+(440, 7, 1, 0, 'model', 30, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1488361348),
+(441, 8, 1, 0, 'attribute', 238, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488361397),
+(442, 8, 1, 0, 'attribute', 239, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488361488),
+(443, 8, 1, 0, 'attribute', 240, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488361538),
+(444, 8, 1, 0, 'attribute', 241, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488361582),
+(445, 8, 1, 0, 'attribute', 242, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488361615),
+(446, 8, 1, 0, 'attribute', 243, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488361634),
+(447, 8, 1, 0, 'attribute', 244, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488361914),
+(448, 8, 1, 0, 'attribute', 245, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488361994),
+(449, 8, 1, 0, 'attribute', 246, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488362109),
+(450, 8, 1, 0, 'attribute', 247, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488362377),
+(451, 8, 1, 0, 'attribute', 248, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488362419),
+(452, 8, 1, 0, 'attribute', 249, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488362628),
+(453, 8, 1, 0, 'attribute', 250, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1488362925);
 
 -- --------------------------------------------------------
 
@@ -556,7 +624,7 @@ CREATE TABLE IF NOT EXISTS `onethink_attribute` (
   `auto_type` varchar(25) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `model_id` (`model_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='模型属性表' AUTO_INCREMENT=207 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='模型属性表' AUTO_INCREMENT=251 ;
 
 --
 -- 转存表中的数据 `onethink_attribute`
@@ -753,7 +821,51 @@ INSERT INTO `onethink_attribute` (`id`, `name`, `title`, `field`, `type`, `value
 (203, 'is_checked', '是否选中', 'char(2) NOT NULL', 'radio', '0', '', 1, '0:否\r\n1:是', 24, 0, 1, 1488267310, 1488267310, '', 3, '', 'regex', '', 3, 'function'),
 (204, 'lang', '域名语言', 'char(10) NOT NULL', 'radio', 'ENG', '', 1, 'ENG:英文\r\nCHI:中文', 24, 0, 1, 1488267971, 1488267971, '', 3, '', 'regex', '', 3, 'function'),
 (205, 'encoding', '域名编码', 'char(10) NOT NULL', 'radio', 'ASCII', '', 1, 'ASCII:英文\r\nUTF-8:中文', 24, 0, 1, 1488268048, 1488268048, '', 3, '', 'regex', '', 3, 'function'),
-(206, 'is_commonuse', '是否常用域名', 'char(2) NOT NULL', 'radio', '0', '', 1, '0:否\r\n1:是', 24, 0, 1, 1488276000, 1488276000, '', 3, '', 'regex', '', 3, 'function');
+(206, 'is_commonuse', '是否常用域名', 'char(2) NOT NULL', 'radio', '0', '', 1, '0:否\r\n1:是', 24, 0, 1, 1488276000, 1488276000, '', 3, '', 'regex', '', 3, 'function'),
+(207, 'is_pc', '是否pc版', 'char(2) NOT NULL', 'radio', '1', '', 1, '1:PC\r\n2:手机', 25, 0, 1, 1488289148, 1488289148, '', 3, '', 'regex', '', 3, 'function'),
+(208, 'name', '模板名称', 'varchar(20) NOT NULL', 'string', '', '', 1, '', 25, 0, 1, 1488289215, 1488289215, '', 3, '', 'regex', '', 3, 'function'),
+(209, 'cate_id', '模板类型id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 26, 0, 1, 1488289398, 1488289398, '', 3, '', 'regex', '', 3, 'function'),
+(210, 'color', '模板色调', 'char(10) NOT NULL', 'radio', '#fe0000', '', 1, '1:#fe0000\r\n2:#ff6300\r\n3:#fae242\r\n4:#80d031\r\n5:#26e0d2\r\n6:#198ede\r\n7:#fe68ff\r\n8:#979797\r\n9:#000000\r\n10:#990099', 26, 0, 1, 1488289685, 1488289685, '', 3, '', 'regex', '', 3, 'function'),
+(211, 'name', '模板名称', 'varchar(25) NOT NULL', 'string', '', '', 1, '', 26, 0, 1, 1488289754, 1488289754, '', 3, '', 'regex', '', 3, 'function'),
+(212, 'price', '模板价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '0.00', '', 1, '', 26, 0, 1, 1488289792, 1488289792, '', 3, '', 'regex', '', 3, 'function'),
+(213, 'template_id', '模板id', 'varchar(255) NOT NULL', 'string', '1000', '', 1, '', 26, 0, 1, 1488289875, 1488289875, '', 3, '', 'regex', '', 3, 'function'),
+(214, 'images', '模板图片', 'int(10) UNSIGNED NOT NULL', 'picture', '', '', 1, '', 26, 0, 1, 1488289911, 1488289911, '', 3, '', 'regex', '', 3, 'function'),
+(215, 'level', '排序', 'int(3) UNSIGNED NOT NULL', 'num', '0', '', 1, '', 25, 0, 1, 1488290495, 1488290495, '', 3, '', 'regex', '', 3, 'function'),
+(216, 'level', '排序', 'int(10) UNSIGNED NOT NULL', 'num', '0', '', 1, '', 26, 0, 1, 1488292196, 1488292196, '', 3, '', 'regex', '', 3, 'function'),
+(217, 'tid', '模板记录id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 27, 0, 1, 1488348370, 1488348370, '', 3, '', 'regex', '', 3, 'function'),
+(218, 'template_id', '模板id', 'varchar(100) NOT NULL', 'string', '', '', 1, '', 27, 0, 1, 1488348394, 1488348394, '', 3, '', 'regex', '', 3, 'function'),
+(219, 'name', '模板名称', 'varchar(25) NOT NULL', 'string', '', '', 1, '', 27, 0, 1, 1488348422, 1488348422, '', 3, '', 'regex', '', 3, 'function'),
+(220, 'create_time', '创建时间', 'int(10) NOT NULL', 'datetime', '', '', 1, '', 27, 0, 1, 1488348459, 1488348459, '', 3, '', 'regex', '', 3, 'function'),
+(221, 'expiry_time', '到期时间', 'int(10) NOT NULL', 'datetime', '', '', 1, '', 27, 0, 1, 1488348503, 1488348503, '', 3, '', 'regex', '', 3, 'function'),
+(222, 'status', '产品状态', 'char(2) NOT NULL', 'radio', '0', '', 1, '0:未开通\r\n1:已开通\r\n2:已过期', 27, 0, 1, 1488348588, 1488348588, '', 3, '', 'regex', '', 3, 'function'),
+(223, 'uid', '用户id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 27, 0, 1, 1488350141, 1488350141, '', 3, '', 'regex', '', 3, 'function'),
+(224, 'product_id', '新一代产品id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 28, 0, 1, 1488355778, 1488355778, '', 3, '', 'regex', '', 3, 'function'),
+(225, 'name', '产品名称', 'varchar(10) NOT NULL', 'string', '', '', 1, '', 28, 0, 1, 1488355799, 1488355799, '', 3, '', 'regex', '', 3, 'function'),
+(226, 'price', '基本价格/年', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '', '', 1, '', 28, 0, 1, 1488356238, 1488355869, '', 3, '', 'regex', '', 3, 'function'),
+(227, 'usernum', '邮箱用户数', 'int(2) UNSIGNED NOT NULL', 'num', '5', '', 1, '', 28, 0, 1, 1488355930, 1488355930, '', 3, '', 'regex', '', 3, 'function'),
+(228, 'space', '每个用户邮箱容量', 'varchar(10) NOT NULL', 'string', '', '', 1, '', 28, 0, 1, 1488355984, 1488355984, '', 3, '', 'regex', '', 3, 'function'),
+(229, 'extra_price', '额外邮箱单价', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '', '', 1, '', 28, 0, 1, 1488356247, 1488356050, '', 3, '', 'regex', '', 3, 'function'),
+(230, 'product_status', '产品状态', 'char(2) NOT NULL', 'radio', '0', '', 1, '0:未开通\r\n1:已开通\r\n2:开通失败', 19, 0, 1, 1488358316, 1488358316, '', 3, '', 'regex', '', 3, 'function'),
+(231, 'uid', '用户id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 29, 0, 1, 1488359775, 1488359775, '', 3, '', 'regex', '', 3, 'function'),
+(232, 'domain', '绑定域名', 'varchar(20) NOT NULL', 'string', '', '', 1, '', 29, 0, 1, 1488359806, 1488359806, '', 3, '', 'regex', '', 3, 'function'),
+(233, 'name', '产品名称', 'varchar(20) NOT NULL', 'string', '', '', 1, '', 29, 0, 1, 1488359901, 1488359901, '', 3, '', 'regex', '', 3, 'function'),
+(234, 'usernum', '用户数', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 29, 0, 1, 1488359928, 1488359928, '', 3, '', 'regex', '', 3, 'function'),
+(235, 'space', '空间大小', 'varchar(20) NOT NULL', 'string', '', '', 1, '', 29, 0, 1, 1488359950, 1488359950, '', 3, '', 'regex', '', 3, 'function'),
+(236, 'create_time', '创建时间', 'int(10) NOT NULL', 'datetime', '', '', 1, '', 29, 0, 1, 1488359969, 1488359969, '', 3, '', 'regex', '', 3, 'function'),
+(237, 'expiry_time', '过期时间', 'int(10) NOT NULL', 'datetime', '', '', 1, '', 29, 0, 1, 1488360181, 1488360181, '', 3, '', 'regex', '', 3, 'function'),
+(238, 'name', '服务器名称', 'varchar(25) NOT NULL', 'string', '', '', 1, '', 30, 0, 1, 1488361397, 1488361397, '', 3, '', 'regex', '', 3, 'function'),
+(239, 'cpu', '处理器', 'varchar(30) NOT NULL', 'string', '', '', 1, '', 30, 0, 1, 1488361488, 1488361488, '', 3, '', 'regex', '', 3, 'function'),
+(240, 'memory', '内存', 'varchar(10) NOT NULL', 'string', '', '', 1, '', 30, 0, 1, 1488361538, 1488361538, '', 3, '', 'regex', '', 3, 'function'),
+(241, 'disk', '硬盘', 'varchar(25) NOT NULL', 'string', '', '', 1, '', 30, 0, 1, 1488361582, 1488361582, '', 3, '', 'regex', '', 3, 'function'),
+(242, 'bandwidth', '带宽', 'varchar(25) NOT NULL', 'string', '', '', 1, '', 30, 0, 1, 1488361615, 1488361615, '', 3, '', 'regex', '', 3, 'function'),
+(243, 'ip', 'IP', 'varchar(20) NOT NULL', 'string', '', '', 1, '', 30, 0, 1, 1488361634, 1488361634, '', 3, '', 'regex', '', 3, 'function'),
+(244, 'computer_room', '机房', 'text NOT NULL', 'textarea', '', '', 1, '', 30, 0, 1, 1488361914, 1488361914, '', 3, '', 'regex', '', 3, 'function'),
+(245, 'first_month_price', '首月价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '', '', 1, '', 30, 0, 1, 1488361994, 1488361994, '', 3, '', 'regex', '', 3, 'function'),
+(246, 'quarter_price', '季度价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '', '', 1, '', 30, 0, 1, 1488362109, 1488362109, '', 3, '', 'regex', '', 3, 'function'),
+(247, 'half_year_price', '半年价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '', '', 1, '', 30, 0, 1, 1488362377, 1488362377, '', 3, '', 'regex', '', 3, 'function'),
+(248, 'year_price', '一年价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '', '', 1, '', 30, 0, 1, 1488362419, 1488362419, '', 3, '', 'regex', '', 3, 'function'),
+(249, 'description', '描述', 'varchar(255) NOT NULL', 'string', '', '', 1, '', 30, 0, 1, 1488362628, 1488362628, '', 3, '', 'regex', '', 3, 'function'),
+(250, 'is_hot', '营销类型', 'char(10) NOT NULL', 'radio', '0', '', 1, '0:无\r\n1:热销\r\n2:推荐', 30, 0, 1, 1488362925, 1488362925, '', 3, '', 'regex', '', 3, 'function');
 
 -- --------------------------------------------------------
 
@@ -1086,7 +1198,7 @@ CREATE TABLE IF NOT EXISTS `onethink_cart` (
   `price_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '价格id',
   `buy_config` text NOT NULL COMMENT '用户购买配置信息',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=15 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=19 ;
 
 -- --------------------------------------------------------
 
@@ -1440,7 +1552,7 @@ CREATE TABLE IF NOT EXISTS `onethink_cuser` (
 --
 
 INSERT INTO `onethink_cuser` (`id`, `email`, `username`, `password`, `mobile`, `address`, `sex`, `qq`, `reg_time`, `reg_ip`, `update_time`, `status`, `last_login_time`, `last_login_ip`, `account`, `login`) VALUES
-(1, 'guanghong2012@126.com', '李志', '1625a05770c3ee32d06130866fc25d7f', '13533481813', '广州天河区科韵路255号', '1', '7778858', '1488253227', '0', '1488176266', '1', '1488263810', '0', '757.00', 1),
+(1, 'guanghong2012@126.com', '李志', '37e36e59794dd65d98006b57ef95af42', '13533481813', '广州天河区科韵路255号', '1', '7778858', '1488359582', '0', '1488359413', '1', '0', '0', '9797.00', 0),
 (3, 'develop12@qbt8.com', '骚刚', '37e36e59794dd65d98006b57ef95af42', '13580128021', '科韵路255号', '1', '', '1487572646', '0', '1487572646', '1', '1487571279', '0', '90.00', 2),
 (4, 'develop13@qbt8.com', '八嘎', '1625a05770c3ee32d06130866fc25d7f', '', '', '0', '', '1487558784', '0', '1487558784', '1', '', '', '0.00', 0),
 (5, 'develop21@qbt8.com', '曙光', '1625a05770c3ee32d06130866fc25d7f', '13570456594', '白云区', '0', '', '1487558993', '0', '1487558993', '1', '1488201813', '0', '0.00', 1),
@@ -1838,6 +1950,30 @@ INSERT INTO `onethink_hooks` (`id`, `name`, `description`, `type`, `update_time`
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `onethink_mail`
+--
+
+CREATE TABLE IF NOT EXISTS `onethink_mail` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `product_id` int(10) unsigned NOT NULL COMMENT '新一代产品id',
+  `name` varchar(10) NOT NULL COMMENT '产品名称',
+  `price` decimal(10,2) unsigned NOT NULL COMMENT '基本价格/年',
+  `usernum` int(2) unsigned NOT NULL DEFAULT '5' COMMENT '邮箱用户数',
+  `space` varchar(10) NOT NULL COMMENT '每个用户邮箱容量',
+  `extra_price` decimal(10,2) unsigned NOT NULL COMMENT '额外邮箱单价',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `onethink_mail`
+--
+
+INSERT INTO `onethink_mail` (`id`, `product_id`, `name`, `price`, `usernum`, `space`, `extra_price`) VALUES
+(1, 3111, '全球邮', '480.00', 5, '10G', '96.00');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `onethink_member`
 --
 
@@ -1863,7 +1999,7 @@ CREATE TABLE IF NOT EXISTS `onethink_member` (
 --
 
 INSERT INTO `onethink_member` (`uid`, `nickname`, `sex`, `birthday`, `qq`, `score`, `login`, `reg_ip`, `reg_time`, `last_login_ip`, `last_login_time`, `status`) VALUES
-(1, 'admin', 0, '0000-00-00', '', 70, 13, 0, 1487144121, 0, 1488245039, 1);
+(1, 'admin', 0, '0000-00-00', '', 70, 15, 0, 1487144121, 0, 1488331551, 1);
 
 -- --------------------------------------------------------
 
@@ -1885,7 +2021,7 @@ CREATE TABLE IF NOT EXISTS `onethink_menu` (
   PRIMARY KEY (`id`),
   KEY `pid` (`pid`),
   KEY `status` (`status`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=147 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=154 ;
 
 --
 -- 转存表中的数据 `onethink_menu`
@@ -2016,7 +2152,7 @@ INSERT INTO `onethink_menu` (`id`, `title`, `pid`, `sort`, `url`, `hide`, `tip`,
 (134, '新增案例', 130, 5, 'Cases/addDemo', 1, '', '案例', 0, 1),
 (135, '客户案例列表', 130, 6, 'Cases/demoList', 1, '', '案例', 0, 1),
 (136, '编辑客户案例', 130, 7, 'Cases/editDemo', 1, '', '案例', 0, 1),
-(137, '虚拟主机', 0, 8, 'Cloud/index', 0, '', '', 0, 1),
+(137, '虚拟主机', 0, 8, 'Cloud/cloudList', 0, '', '', 0, 1),
 (138, '虚拟主机分类', 137, 1, 'Cloud/index', 0, '', '虚拟主机分类', 0, 1),
 (139, '新增虚拟机分类', 137, 2, 'Cloud/addCate', 1, '', '虚拟主机分类', 0, 1),
 (140, '编辑虚拟机分类', 137, 3, 'Cloud/editCate', 1, '', '虚拟主机分类', 0, 1),
@@ -2025,7 +2161,14 @@ INSERT INTO `onethink_menu` (`id`, `title`, `pid`, `sort`, `url`, `hide`, `tip`,
 (143, '编辑虚拟机', 137, 6, 'Cloud/editCloud', 1, '', '虚拟机', 0, 1),
 (144, '价格列表', 137, 7, 'Cloud/priceList', 0, '', '虚拟机', 0, 1),
 (145, '添加虚拟机价格', 137, 8, 'Cloud/addPrice', 1, '', '虚拟机', 0, 1),
-(146, '编辑虚拟机价格', 137, 9, 'Cloud/editPrice', 1, '', '虚拟机', 0, 1);
+(146, '编辑虚拟机价格', 137, 9, 'Cloud/editPrice', 1, '', '虚拟机', 0, 1),
+(147, '云建站模板', 0, 9, 'Station/categoryList', 0, '', '', 0, 1),
+(148, '模板分类', 147, 1, 'Station/categoryList', 0, '', '模板分类', 0, 1),
+(149, '新增模板分类', 147, 2, 'Station/addCate', 1, '', '模板分类', 0, 1),
+(150, '编辑模板分类', 147, 3, 'Station/editCate', 1, '', '模板分类', 0, 1),
+(151, '模板列表', 147, 4, 'Station/templateList', 0, '', '模板', 0, 1),
+(152, '新增模板', 147, 5, 'Station/addTemplate', 1, '', '模板', 0, 1),
+(153, '编辑模板', 147, 7, 'Station/editTemplate', 1, '', '模板', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -2056,7 +2199,7 @@ CREATE TABLE IF NOT EXISTS `onethink_model` (
   `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
   `engine_type` varchar(25) NOT NULL DEFAULT 'MyISAM' COMMENT '数据库引擎',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='文档模型表' AUTO_INCREMENT=25 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='文档模型表' AUTO_INCREMENT=31 ;
 
 --
 -- 转存表中的数据 `onethink_model`
@@ -2086,7 +2229,13 @@ INSERT INTO `onethink_model` (`id`, `name`, `title`, `extend`, `relation`, `need
 (21, 'order', '订单', 0, '', 1, '', '1:基础', '', '', '', '', '', NULL, 10, '', '', 1488184157, 1488184157, 1, 'MyISAM'),
 (22, 'user_domain', '用户域名产品', 0, '', 1, '', '1:基础', '', '', '', '', '', NULL, 10, '', '', 1488245619, 1488245619, 1, 'MyISAM'),
 (23, 'user_vitrual', '用户虚拟机产品', 0, '', 1, '', '1:基础', '', '', '', '', '', NULL, 10, '', '', 1488246331, 1488246331, 1, 'MyISAM'),
-(24, 'domain', '域名产品', 1, '', 1, '{"1":["3","201","19","204","205","206","203","202"]}', '1:基础', '3,206,201,19,204,205,203,202', '', '', '', '', 'id:ID\r\ntld:域名后缀\r\ntype_id:促销类型\r\nis_checked:是否选中\r\nis_commonuse:是否常用域名\r\nid:操作:[EDIT]|编辑,[DELETE]|删除', 10, '', '', 1488267065, 1488276072, 1, 'MyISAM');
+(24, 'domain', '域名产品', 1, '', 1, '{"1":["3","201","19","204","205","206","203","202"]}', '1:基础', '3,206,201,19,204,205,203,202', '', '', '', '', 'id:ID\r\ntld:域名后缀\r\ntype_id:促销类型\r\nis_checked:是否选中\r\nis_commonuse:是否常用域名\r\nid:操作:[EDIT]|编辑,[DELETE]|删除', 10, '', '', 1488267065, 1488276072, 1, 'MyISAM'),
+(25, 'station_category', '云网站模板类型', 0, '', 1, '{"1":["208","207"]}', '1:基础', '', '', '', '', '', 'id:ID\r\nis_pc:是否PC版\r\nname:模板名称', 10, '', '', 1488289069, 1488290051, 1, 'MyISAM'),
+(26, 'station_template', '网站模板', 0, '', 1, '{"1":["213","214","212","211","210","209"]}', '1:基础', '', '', '', '', '', 'id:ID\r\nname:模板名称\r\nprice:模板价格', 10, '', '', 1488289336, 1488290018, 1, 'MyISAM'),
+(27, 'user_template', '用户模板', 0, '', 1, '{"1":["221","222","220","219","218","217"]}', '1:基础', '', '', '', '', '', 'id:ID\r\nname:模板名称\r\ntemplate_id:模板id\r\ncreate_time:创建时间\r\nexpiry_time:到期时间\r\nstatus:产品状态', 10, '', '', 1488348328, 1488348685, 1, 'MyISAM'),
+(28, 'mail', '全球邮', 0, '', 1, '{"1":["228","229","227","226","225","224"]}', '1:基础', '', '', '', '', '', 'id:ID\r\nname:名称\r\nprice:基本价格\r\nproduct_id:新一代产品id', 10, '', '', 1488355731, 1488356120, 1, 'MyISAM'),
+(29, 'user_mail', '用户企业邮', 0, '', 1, '{"1":["236","237","235","234","232","233","231"]}', '1:基础', '', '', '', '', '', 'id:ID\r\nname:产品名称\r\ndomain:绑定域名\r\nspace:空间大小\r\nusernum:用户数\r\ncreate_time:创建时间\r\nexpiry_time:过期时间', 10, '', '', 1488359757, 1488360292, 1, 'MyISAM'),
+(30, 'package_host', '套餐云主机', 0, '', 1, '', '1:基础', '', '', '', '', '', NULL, 10, '', '', 1488361348, 1488361348, 1, 'MyISAM');
 
 -- --------------------------------------------------------
 
@@ -2106,7 +2255,7 @@ CREATE TABLE IF NOT EXISTS `onethink_order` (
   `create_time` int(10) NOT NULL COMMENT '创建时间',
   `paytime` int(10) NOT NULL COMMENT '支付时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=8 ;
 
 --
 -- 转存表中的数据 `onethink_order`
@@ -2115,7 +2264,9 @@ CREATE TABLE IF NOT EXISTS `onethink_order` (
 INSERT INTO `onethink_order` (`id`, `ordersn`, `payment`, `status`, `total`, `uid`, `username`, `mobile`, `create_time`, `paytime`) VALUES
 (1, '1488251460', '3', '0', '241.00', 1, '李志', '13533481813', 1488251460, 0),
 (2, '1488252747', '3', '1', '241.00', 1, '李志', '13533481813', 1488252747, 1488252747),
-(3, '1488253227', '3', '1', '1.00', 1, '李志', '13533481813', 1488253227, 1488253227);
+(3, '1488253227', '3', '1', '1.00', 1, '李志', '13533481813', 1488253227, 1488253227),
+(7, '1488359582', '3', '1', '576.00', 1, '李志', '13533481813', 1488359582, 1488359582),
+(6, '1488350103', '3', '1', '128.00', 1, '李志', '13533481813', 1488350103, 1488350103);
 
 -- --------------------------------------------------------
 
@@ -2142,19 +2293,46 @@ CREATE TABLE IF NOT EXISTS `onethink_order_goods` (
   `domain_info` text NOT NULL COMMENT '域名注册信息',
   `order_id` int(10) unsigned NOT NULL COMMENT '订单id',
   `buy_config` text NOT NULL COMMENT '用户购买配置信息',
+  `product_status` char(2) NOT NULL DEFAULT '0' COMMENT '产品状态',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='订单产品' AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='订单产品' AUTO_INCREMENT=10 ;
 
 --
 -- 转存表中的数据 `onethink_order_goods`
 --
 
-INSERT INTO `onethink_order_goods` (`id`, `uid`, `username`, `mobile`, `product_name`, `product_id`, `month`, `base_total`, `added_price`, `type`, `subtotal`, `payment`, `project`, `parameters`, `price_id`, `domain_info`, `order_id`, `buy_config`) VALUES
-(1, 1, '李志', '13533481813', '.com域名', 0, 12, '1.00', '0.00', '1', '1.00', '3', '{"name":".com_ENG"}', '', 0, '{"r_organization":"\\u5343\\u4f70\\u7279\\u79d1\\u6280","r_organization1":"Qian Bai Te Ke Ji ","r_name":"\\u6768\\u5149","r_name1":"Yang Guang ","r_country":"CN","r_province":"\\u5e7f\\u4e1c\\u7701","r_province1":"Guang Dong Sheng ","r_city":"\\u5e7f\\u5dde","r_city1":"Guang Zhou ","r_postcode":"510000","r_email":"develop11@qbt8.com","r_street":"\\u68e0\\u4e0b\\u79d1\\u97f5\\u8def255\\u53f7","r_street1":"Tang Xia Ke Yun Lu 255Hao ","r_phone":"+86.13533481813","r_fax":"+86.020-82071951","radio-1-set":"1","radio-2-set":"1","radio-3-set":"1"}', 1, '{"domain":"baga168.com","tld":".com","year":1,"lang":"ENG","encoding":"ASCII"}'),
-(2, 1, '李志', '13533481813', '飓风2s型（国内）', 488, 12, '240.00', '0.00', '2', '240.00', '3', '{"name":"\\u98d3\\u98ce2s\\u578b\\uff08\\u56fd\\u5185\\uff09","os":"CENTOS6\\u6216windows"}', '{"id":"488","productclass_id":"2","name":"\\u98d3\\u98ce2s\\u578b\\uff08\\u56fd\\u5185\\uff09","description":"> Windows\\u6216\\u8005Linux\\u5e73\\u53f0<br>\\r\\n> 200M\\u7f51\\u9875 75M(3\\u4e2a)\\u90ae\\u5c40<br>\\r\\n> \\u652f\\u6301ASP(Windows)\\/PHP(Linux)<br>\\r\\n> Access(Windows)\\/30M MySQL\\u6570\\u636e\\u5e93(Linux)<br>\\r\\n> \\u9002\\u5408\\u4e2a\\u4eba\\u7528\\u6237\\u3001\\u5c0f\\u578b\\u4f01\\u4e1a<br>\\r\\n> \\u5feb\\u901f\\u4f4e\\u6210\\u672c\\u5730\\u521b\\u5efa\\u7f51\\u4e0a\\u5bb6\\u56ed","period_type":"3","default_timeperiod":"12","deposit":"0.0000","setup":"0.0000","price":"480.0000","bonus_timeperiod":"24","bonus_deposit":"0.0000","bonus_setup":"0.0000","bonus_price":"3840.0000","os":0,"_limit_Bandwidth":"250","_limit_Traffic":"20000","_limit_MaxConnections":"150","_limit_Quota":"200","_limit_PHP":1,"_limit_ASP":1,"_limit_MySQLQuota":"30","_limit_MSSQLQuota":"1","module":"Product","method":"infoProduct","echo_info":""}', 2, '', 1, '{"product_id":488,"domain":"baga123.com","timeperiod":12,"os_type":1}'),
-(3, 1, '李志', '13533481813', '.com域名', 0, 12, '1.00', '0.00', '1', '1.00', '3', '{"name":".com_ENG"}', '', 0, '{"r_organization":"\\u5343\\u4f70\\u7279\\u79d1\\u6280","r_organization1":"Qian Bai Te Ke Ji ","r_name":"\\u6768\\u5149","r_name1":"Yang Guang ","r_country":"CN","r_province":"\\u5e7f\\u4e1c\\u7701","r_province1":"Guang Dong Sheng ","r_city":"\\u5e7f\\u5dde","r_city1":"Guang Zhou ","r_postcode":"510000","r_email":"develop11@qbt8.com","r_street":"\\u68e0\\u4e0b\\u79d1\\u97f5\\u8def255\\u53f7","r_street1":"Tang Xia Ke Yun Lu 255Hao ","r_phone":"+86.13533481813","r_fax":"+86.020-82071951","radio-1-set":"1","radio-2-set":"1","radio-3-set":"1"}', 2, '{"domain":"baga168.com","tld":".com","year":1,"lang":"ENG","encoding":"ASCII"}'),
-(4, 1, '李志', '13533481813', '飓风2s型（国内）', 488, 12, '240.00', '0.00', '2', '240.00', '3', '{"name":"\\u98d3\\u98ce2s\\u578b\\uff08\\u56fd\\u5185\\uff09","os":"CENTOS6\\u6216windows"}', '{"id":"488","productclass_id":"2","name":"\\u98d3\\u98ce2s\\u578b\\uff08\\u56fd\\u5185\\uff09","description":"> Windows\\u6216\\u8005Linux\\u5e73\\u53f0<br>\\r\\n> 200M\\u7f51\\u9875 75M(3\\u4e2a)\\u90ae\\u5c40<br>\\r\\n> \\u652f\\u6301ASP(Windows)\\/PHP(Linux)<br>\\r\\n> Access(Windows)\\/30M MySQL\\u6570\\u636e\\u5e93(Linux)<br>\\r\\n> \\u9002\\u5408\\u4e2a\\u4eba\\u7528\\u6237\\u3001\\u5c0f\\u578b\\u4f01\\u4e1a<br>\\r\\n> \\u5feb\\u901f\\u4f4e\\u6210\\u672c\\u5730\\u521b\\u5efa\\u7f51\\u4e0a\\u5bb6\\u56ed","period_type":"3","default_timeperiod":"12","deposit":"0.0000","setup":"0.0000","price":"480.0000","bonus_timeperiod":"24","bonus_deposit":"0.0000","bonus_setup":"0.0000","bonus_price":"3840.0000","os":0,"_limit_Bandwidth":"250","_limit_Traffic":"20000","_limit_MaxConnections":"150","_limit_Quota":"200","_limit_PHP":1,"_limit_ASP":1,"_limit_MySQLQuota":"30","_limit_MSSQLQuota":"1","module":"Product","method":"infoProduct","echo_info":""}', 2, '', 2, '{"product_id":488,"domain":"baga123.com","timeperiod":12,"os_type":1}'),
-(5, 1, '李志', '13533481813', '.com域名', 0, 12, '1.00', '0.00', '1', '1.00', '3', '{"name":".com_ENG"}', '', 0, '{"r_organization":"\\u5343\\u4f70\\u7279\\u79d1\\u6280","r_organization1":"Qian Bai Te Ke Ji ","r_name":"\\u6768\\u5149","r_name1":"Yang Guang ","r_country":"CN","r_province":"\\u5e7f\\u4e1c\\u7701","r_province1":"Guang Dong Sheng ","r_city":"\\u5e7f\\u5dde","r_city1":"Guang Zhou ","r_postcode":"510000","r_email":"develop11@qbt8.com","r_street":"\\u68e0\\u4e0b\\u79d1\\u97f5\\u8def255\\u53f7","r_street1":"Tang Xia Ke Yun Lu 255Hao ","r_phone":"+86.13533481813","r_fax":"+86.020-82071951","radio-1-set":"1","radio-2-set":"1","radio-3-set":"1"}', 3, '{"domain":"baga168.com","tld":".com","year":1,"lang":"ENG","encoding":"ASCII"}');
+INSERT INTO `onethink_order_goods` (`id`, `uid`, `username`, `mobile`, `product_name`, `product_id`, `month`, `base_total`, `added_price`, `type`, `subtotal`, `payment`, `project`, `parameters`, `price_id`, `domain_info`, `order_id`, `buy_config`, `product_status`) VALUES
+(1, 1, '李志', '13533481813', '.com域名', 0, 12, '1.00', '0.00', '1', '1.00', '3', '{"name":".com_ENG"}', '', 0, '{"r_organization":"\\u5343\\u4f70\\u7279\\u79d1\\u6280","r_organization1":"Qian Bai Te Ke Ji ","r_name":"\\u6768\\u5149","r_name1":"Yang Guang ","r_country":"CN","r_province":"\\u5e7f\\u4e1c\\u7701","r_province1":"Guang Dong Sheng ","r_city":"\\u5e7f\\u5dde","r_city1":"Guang Zhou ","r_postcode":"510000","r_email":"develop11@qbt8.com","r_street":"\\u68e0\\u4e0b\\u79d1\\u97f5\\u8def255\\u53f7","r_street1":"Tang Xia Ke Yun Lu 255Hao ","r_phone":"+86.13533481813","r_fax":"+86.020-82071951","radio-1-set":"1","radio-2-set":"1","radio-3-set":"1"}', 1, '{"domain":"baga168.com","tld":".com","year":1,"lang":"ENG","encoding":"ASCII"}', '0'),
+(2, 1, '李志', '13533481813', '飓风2s型（国内）', 488, 12, '240.00', '0.00', '2', '240.00', '3', '{"name":"\\u98d3\\u98ce2s\\u578b\\uff08\\u56fd\\u5185\\uff09","os":"CENTOS6\\u6216windows"}', '{"id":"488","productclass_id":"2","name":"\\u98d3\\u98ce2s\\u578b\\uff08\\u56fd\\u5185\\uff09","description":"> Windows\\u6216\\u8005Linux\\u5e73\\u53f0<br>\\r\\n> 200M\\u7f51\\u9875 75M(3\\u4e2a)\\u90ae\\u5c40<br>\\r\\n> \\u652f\\u6301ASP(Windows)\\/PHP(Linux)<br>\\r\\n> Access(Windows)\\/30M MySQL\\u6570\\u636e\\u5e93(Linux)<br>\\r\\n> \\u9002\\u5408\\u4e2a\\u4eba\\u7528\\u6237\\u3001\\u5c0f\\u578b\\u4f01\\u4e1a<br>\\r\\n> \\u5feb\\u901f\\u4f4e\\u6210\\u672c\\u5730\\u521b\\u5efa\\u7f51\\u4e0a\\u5bb6\\u56ed","period_type":"3","default_timeperiod":"12","deposit":"0.0000","setup":"0.0000","price":"480.0000","bonus_timeperiod":"24","bonus_deposit":"0.0000","bonus_setup":"0.0000","bonus_price":"3840.0000","os":0,"_limit_Bandwidth":"250","_limit_Traffic":"20000","_limit_MaxConnections":"150","_limit_Quota":"200","_limit_PHP":1,"_limit_ASP":1,"_limit_MySQLQuota":"30","_limit_MSSQLQuota":"1","module":"Product","method":"infoProduct","echo_info":""}', 2, '', 1, '{"product_id":488,"domain":"baga123.com","timeperiod":12,"os_type":1}', '0'),
+(3, 1, '李志', '13533481813', '.com域名', 0, 12, '1.00', '0.00', '1', '1.00', '3', '{"name":".com_ENG"}', '', 0, '{"r_organization":"\\u5343\\u4f70\\u7279\\u79d1\\u6280","r_organization1":"Qian Bai Te Ke Ji ","r_name":"\\u6768\\u5149","r_name1":"Yang Guang ","r_country":"CN","r_province":"\\u5e7f\\u4e1c\\u7701","r_province1":"Guang Dong Sheng ","r_city":"\\u5e7f\\u5dde","r_city1":"Guang Zhou ","r_postcode":"510000","r_email":"develop11@qbt8.com","r_street":"\\u68e0\\u4e0b\\u79d1\\u97f5\\u8def255\\u53f7","r_street1":"Tang Xia Ke Yun Lu 255Hao ","r_phone":"+86.13533481813","r_fax":"+86.020-82071951","radio-1-set":"1","radio-2-set":"1","radio-3-set":"1"}', 2, '{"domain":"baga168.com","tld":".com","year":1,"lang":"ENG","encoding":"ASCII"}', '0'),
+(4, 1, '李志', '13533481813', '飓风2s型（国内）', 488, 12, '240.00', '0.00', '2', '240.00', '3', '{"name":"\\u98d3\\u98ce2s\\u578b\\uff08\\u56fd\\u5185\\uff09","os":"CENTOS6\\u6216windows"}', '{"id":"488","productclass_id":"2","name":"\\u98d3\\u98ce2s\\u578b\\uff08\\u56fd\\u5185\\uff09","description":"> Windows\\u6216\\u8005Linux\\u5e73\\u53f0<br>\\r\\n> 200M\\u7f51\\u9875 75M(3\\u4e2a)\\u90ae\\u5c40<br>\\r\\n> \\u652f\\u6301ASP(Windows)\\/PHP(Linux)<br>\\r\\n> Access(Windows)\\/30M MySQL\\u6570\\u636e\\u5e93(Linux)<br>\\r\\n> \\u9002\\u5408\\u4e2a\\u4eba\\u7528\\u6237\\u3001\\u5c0f\\u578b\\u4f01\\u4e1a<br>\\r\\n> \\u5feb\\u901f\\u4f4e\\u6210\\u672c\\u5730\\u521b\\u5efa\\u7f51\\u4e0a\\u5bb6\\u56ed","period_type":"3","default_timeperiod":"12","deposit":"0.0000","setup":"0.0000","price":"480.0000","bonus_timeperiod":"24","bonus_deposit":"0.0000","bonus_setup":"0.0000","bonus_price":"3840.0000","os":0,"_limit_Bandwidth":"250","_limit_Traffic":"20000","_limit_MaxConnections":"150","_limit_Quota":"200","_limit_PHP":1,"_limit_ASP":1,"_limit_MySQLQuota":"30","_limit_MSSQLQuota":"1","module":"Product","method":"infoProduct","echo_info":""}', 2, '', 2, '{"product_id":488,"domain":"baga123.com","timeperiod":12,"os_type":1}', '0'),
+(5, 1, '李志', '13533481813', '.com域名', 0, 12, '1.00', '0.00', '1', '1.00', '3', '{"name":".com_ENG"}', '', 0, '{"r_organization":"\\u5343\\u4f70\\u7279\\u79d1\\u6280","r_organization1":"Qian Bai Te Ke Ji ","r_name":"\\u6768\\u5149","r_name1":"Yang Guang ","r_country":"CN","r_province":"\\u5e7f\\u4e1c\\u7701","r_province1":"Guang Dong Sheng ","r_city":"\\u5e7f\\u5dde","r_city1":"Guang Zhou ","r_postcode":"510000","r_email":"develop11@qbt8.com","r_street":"\\u68e0\\u4e0b\\u79d1\\u97f5\\u8def255\\u53f7","r_street1":"Tang Xia Ke Yun Lu 255Hao ","r_phone":"+86.13533481813","r_fax":"+86.020-82071951","radio-1-set":"1","radio-2-set":"1","radio-3-set":"1"}', 3, '{"domain":"baga168.com","tld":".com","year":1,"lang":"ENG","encoding":"ASCII"}', '0'),
+(8, 1, '李志', '13533481813', '红色经典', 0, 12, '128.00', '0.00', '5', '128.00', '3', '{"name":"PC\\u4f01\\u4e1a\\u7ecf\\u5178\\u7248-\\u7ea2\\u8272\\u7ecf\\u5178"}', '', 0, '', 6, '{"id":"1","cate_id":"1","color":"#fe0000","name":"\\u7ea2\\u8272\\u7ecf\\u5178","price":"128.00","template_id":"1000","images":"33","level":"1"}', '0'),
+(9, 1, '李志', '13533481813', '全球邮', 3111, 12, '480.00', '96.00', '3', '576.00', '3', '{"name":"\\u5168\\u7403\\u90ae"}', '', 0, '', 7, '{"domain":"baga123.com","number":"1","timeperiod":12,"quota":0,"id":"1","name":"\\u5168\\u7403\\u90ae","price":"480.00","usernum":null,"space":"10G","extra_price":"96.00"}', '0');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `onethink_package_host`
+--
+
+CREATE TABLE IF NOT EXISTS `onethink_package_host` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `name` varchar(25) NOT NULL COMMENT '服务器名称',
+  `cpu` varchar(30) NOT NULL COMMENT '处理器',
+  `memory` varchar(10) NOT NULL COMMENT '内存',
+  `disk` varchar(25) NOT NULL COMMENT '硬盘',
+  `bandwidth` varchar(25) NOT NULL COMMENT '带宽',
+  `ip` varchar(20) NOT NULL COMMENT 'IP',
+  `computer_room` text NOT NULL COMMENT '机房',
+  `first_month_price` decimal(10,2) unsigned NOT NULL COMMENT '首月价格',
+  `quarter_price` decimal(10,2) unsigned NOT NULL COMMENT '季度价格',
+  `half_year_price` decimal(10,2) unsigned NOT NULL COMMENT '半年价格',
+  `year_price` decimal(10,2) unsigned NOT NULL COMMENT '一年价格',
+  `description` varchar(255) NOT NULL COMMENT '描述',
+  `is_hot` char(10) NOT NULL DEFAULT '0' COMMENT '营销类型',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -2171,7 +2349,7 @@ CREATE TABLE IF NOT EXISTS `onethink_paylog` (
   `payment` char(2) NOT NULL DEFAULT '3' COMMENT '支付方式',
   `create_time` int(10) NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=8 ;
 
 --
 -- 转存表中的数据 `onethink_paylog`
@@ -2180,7 +2358,11 @@ CREATE TABLE IF NOT EXISTS `onethink_paylog` (
 INSERT INTO `onethink_paylog` (`id`, `ordersn`, `serialsn`, `money`, `status`, `payment`, `create_time`) VALUES
 (1, '1488251460', '2017000001', '241.00', '0', '3', 1488251460),
 (2, '1488252747', '2017000002', '241.00', '1', '3', 1488252747),
-(3, '1488253227', '2017000003', '1.00', '1', '3', 1488253227);
+(3, '1488253227', '2017000003', '1.00', '1', '3', 1488253227),
+(4, '1488348086', '2017000004', '128.00', '1', '3', 1488348086),
+(5, '1488349993', '2017000005', '128.00', '1', '3', 1488349993),
+(6, '1488350103', '2017000006', '128.00', '1', '3', 1488350103),
+(7, '1488359582', '2017000007', '576.00', '1', '3', 1488359582);
 
 -- --------------------------------------------------------
 
@@ -2197,7 +2379,7 @@ CREATE TABLE IF NOT EXISTS `onethink_picture` (
   `status` tinyint(2) NOT NULL DEFAULT '0' COMMENT '状态',
   `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
 
 --
 -- 转存表中的数据 `onethink_picture`
@@ -2235,7 +2417,60 @@ INSERT INTO `onethink_picture` (`id`, `path`, `url`, `md5`, `sha1`, `status`, `c
 (29, '/Uploads/Picture/2017-02-24/58afa7650b967.jpg', '', '7e695e5263cc9e69e7492abdd55650c3', '0ebf111f8e0010c89160123c6c86026dfef68dc5', 1, 1487906660),
 (30, '/Uploads/Picture/2017-02-24/58afcc0f125a0.jpg', '', '1ba6d9ceabdca363b04f21b5dfd578a5', '4ba3a39c3714050172a3d178dadc647040445afd', 1, 1487916047),
 (31, '/Uploads/Picture/2017-02-24/58afde7e904d6.jpg', '', 'd6ff2317bf4395cc254df60f1dc71921', '4df77fb1609fbaae3e56b441d65cdf4af0853c84', 1, 1487920766),
-(32, '/Uploads/Picture/2017-02-25/58b14ea40e42f.jpg', '', '0cd777299d620d89845330a11873b522', 'd804cfacbf548c08a49e6534ec4ec6508698689f', 1, 1488015011);
+(32, '/Uploads/Picture/2017-02-25/58b14ea40e42f.jpg', '', '0cd777299d620d89845330a11873b522', 'd804cfacbf548c08a49e6534ec4ec6508698689f', 1, 1488015011),
+(33, '/Uploads/Picture/2017-02-28/58b58e7950ee0.jpg', '', '0c96a531b63014360ca9e047c7e1a7d1', 'bf3e5ce6a16cf456133bb74d1e2217ae2d800f09', 1, 1488293497),
+(34, '/Uploads/Picture/2017-03-01/58b6243d40ff3.jpg', '', '18e3376964f64e6c3c9fe5a834a26702', 'dbe74f21c0f6caa4528d3bdbe49c015f00284b27', 1, 1488331837),
+(35, '/Uploads/Picture/2017-03-01/58b638eb3f08b.jpg', '', 'eed4fa7f8a44bae759c2842f5632c444', '4d189de71a2277db8e1be965e8d32b1a1fd88f8b', 1, 1488337131);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `onethink_station_category`
+--
+
+CREATE TABLE IF NOT EXISTS `onethink_station_category` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `is_pc` char(2) NOT NULL DEFAULT '1' COMMENT '是否pc版',
+  `name` varchar(20) NOT NULL COMMENT '模板名称',
+  `level` int(3) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=5 ;
+
+--
+-- 转存表中的数据 `onethink_station_category`
+--
+
+INSERT INTO `onethink_station_category` (`id`, `is_pc`, `name`, `level`) VALUES
+(1, '1', 'PC企业经典版', 1),
+(3, '2', '手机经典', 1),
+(4, '1', 'PC蓝色海洋', 2);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `onethink_station_template`
+--
+
+CREATE TABLE IF NOT EXISTS `onethink_station_template` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `cate_id` int(10) unsigned NOT NULL COMMENT '模板类型id',
+  `color` char(10) NOT NULL DEFAULT '#fe0000' COMMENT '模板色调',
+  `name` varchar(25) NOT NULL COMMENT '模板名称',
+  `price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '模板价格',
+  `template_id` varchar(255) NOT NULL DEFAULT '1000' COMMENT '模板id',
+  `images` int(10) unsigned NOT NULL COMMENT '模板图片',
+  `level` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=4 ;
+
+--
+-- 转存表中的数据 `onethink_station_template`
+--
+
+INSERT INTO `onethink_station_template` (`id`, `cate_id`, `color`, `name`, `price`, `template_id`, `images`, `level`) VALUES
+(1, 1, '#fe0000', '红色经典', '128.00', '1000', 33, 1),
+(2, 1, '#ff6300', '蓝色经典', '250.00', '1001', 34, 1),
+(3, 3, '#fae242', '金色永恒', '188.00', '1002', 35, 2);
 
 -- --------------------------------------------------------
 
@@ -2300,7 +2535,7 @@ CREATE TABLE IF NOT EXISTS `onethink_ucenter_member` (
 --
 
 INSERT INTO `onethink_ucenter_member` (`id`, `username`, `password`, `email`, `mobile`, `reg_time`, `reg_ip`, `last_login_time`, `last_login_ip`, `update_time`, `status`) VALUES
-(1, 'admin', '30c3344bcff4de86bf764a4d718f9222', 'develop11@qbt8.com', '', 1487144121, 0, 1488245039, 0, 1487144121, 1);
+(1, 'admin', '30c3344bcff4de86bf764a4d718f9222', 'develop11@qbt8.com', '', 1487144121, 0, 1488331551, 0, 1487144121, 1);
 
 -- --------------------------------------------------------
 
@@ -2359,7 +2594,7 @@ CREATE TABLE IF NOT EXISTS `onethink_user_account_log` (
   `admin_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '管理员id',
   `type` char(1) NOT NULL DEFAULT '1' COMMENT '变动类型',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=14 ;
 
 --
 -- 转存表中的数据 `onethink_user_account_log`
@@ -2373,7 +2608,12 @@ INSERT INTO `onethink_user_account_log` (`id`, `money`, `create_time`, `desc`, `
 (5, '1000.00', 1488176266, '测试使用', 1, 1, '1'),
 (6, '-1.00', 1488252694, '测试支付订单扣减', 1, 0, '1'),
 (7, '-241.00', 1488252747, '支付订单1488252747扣减', 1, 0, '1'),
-(8, '-1.00', 1488253227, '支付订单1488253227扣减', 1, 0, '1');
+(8, '-1.00', 1488253227, '支付订单1488253227扣减', 1, 0, '1'),
+(9, '-128.00', 1488348086, '支付订单1488348086扣减', 1, 0, '1'),
+(10, '-128.00', 1488349993, '支付订单1488349993扣减', 1, 0, '1'),
+(11, '-128.00', 1488350103, '支付订单1488350103扣减', 1, 0, '1'),
+(12, '10000.00', 1488359413, '测试使用', 1, 1, '1'),
+(13, '-576.00', 1488359582, '支付订单1488359582扣减', 1, 0, '1');
 
 -- --------------------------------------------------------
 
@@ -2393,6 +2633,49 @@ CREATE TABLE IF NOT EXISTS `onethink_user_domain` (
   `uid` int(10) unsigned NOT NULL COMMENT '用户id',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `onethink_user_mail`
+--
+
+CREATE TABLE IF NOT EXISTS `onethink_user_mail` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `uid` int(10) unsigned NOT NULL COMMENT '用户id',
+  `domain` varchar(20) NOT NULL COMMENT '绑定域名',
+  `name` varchar(20) NOT NULL COMMENT '产品名称',
+  `usernum` int(10) unsigned NOT NULL COMMENT '用户数',
+  `space` varchar(20) NOT NULL COMMENT '空间大小',
+  `create_time` int(10) NOT NULL COMMENT '创建时间',
+  `expiry_time` int(10) NOT NULL COMMENT '过期时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `onethink_user_template`
+--
+
+CREATE TABLE IF NOT EXISTS `onethink_user_template` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `tid` int(10) unsigned NOT NULL COMMENT '模板记录id',
+  `template_id` varchar(100) NOT NULL COMMENT '模板id',
+  `name` varchar(25) NOT NULL COMMENT '模板名称',
+  `create_time` int(10) NOT NULL COMMENT '创建时间',
+  `expiry_time` int(10) NOT NULL COMMENT '到期时间',
+  `status` char(2) NOT NULL DEFAULT '0' COMMENT '产品状态',
+  `uid` int(10) unsigned NOT NULL COMMENT '用户id',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `onethink_user_template`
+--
+
+INSERT INTO `onethink_user_template` (`id`, `tid`, `template_id`, `name`, `create_time`, `expiry_time`, `status`, `uid`) VALUES
+(1, 1, '1000', '红色经典', 1488350103, 1519886103, '1', 1);
 
 -- --------------------------------------------------------
 

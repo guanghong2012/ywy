@@ -129,3 +129,39 @@ function createFlowNum($year){
     return $newFlowNum;
 
 }
+
+/*
+ * 对订单中模板类型产品进行开通
+ * $order_id 订单id
+ */
+function enableOrderTemplate($order_id){
+    if(empty($order_id)){
+        return false;
+    }
+    //判断订单支付状态
+    $order = D('Order')->detail($order_id);
+    if(!$order['status']){
+        return false;
+    }
+    //查询订单模板类型产品
+    $templates = M('OrderGoods')->where('order_id='.$order_id.' AND type=5')->select();
+    if(!empty($templates)){
+        foreach($templates as $key=>$val){
+            $buyConfig = json_decode($val['buy_config'],true);//购买配置
+            $data = array(
+                'tid' => $buyConfig['id'],//模板记录id
+                'template_id' => $buyConfig['template_id'],//模板id
+                'name' => $buyConfig['name'],//模板名称
+                'create_time' => time(),//创建时间
+                'expiry_time' => time()+86400*365,//一年有效期
+                'status' => 1,//0:未开通 1:已开通 2:已过期
+            );
+            $res = M('user_template')->add($data);
+            if($res){
+                //修改订单产品的开通状态
+                M('OrderGoods')->where('id='.$val['id'])->setField('product_status',1);//0:未开通 1:已开通 2:开通失败
+            }
+        }
+    }
+
+}

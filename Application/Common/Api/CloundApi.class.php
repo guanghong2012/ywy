@@ -135,5 +135,17 @@ class CloundApi
         return $this->result;
     }
 
+    /*
+     * 通过接口购买企业邮箱
+     */
+    public function buyMail($data=null)
+    {
+        if(empty($data)){
+            $this->result = array("code"=>100,"参数不能为空");
+            return $this->result;
+        }
+        $this->result = $this->getResult($action='CustomMail.Create',$data);
+        return $this->result;
+    }
 
 }

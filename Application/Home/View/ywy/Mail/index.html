@@ -6,9 +6,9 @@
     <meta name="description" content="ASW">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="keywords" content="亿维云网">
-    <Meta name="description" Content="亿维云网">
-    <title>亿维云网</title>
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>{:C('WEB_SITE_TITLE')}</title>
     <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
     <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
@@ -43,8 +43,8 @@
             <h2>· 企业信息化的第一步，实力体现</h2>
             <h2>· 资深邮箱品牌，卓越、稳定，睿智之选</h2>
             <h2>· 精湛、出色的服务团队，彻底解决您的后顾之忧</h2>
-            <p>优惠价格： <span>129</span> 元/年起</p>
-            <a href="">立即抢购</a>
+            <p>优惠价格： <span>{$mail.price}</span> 元/年起</p>
+            <a href="{:U('Mail/buyMail')}">立即抢购</a>
         </div>
         <div class="clear"></div>
     </div>
