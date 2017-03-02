@@ -33,6 +33,8 @@
                 <button id="loading" style="display: none;" class="btn">Loading Spinner</button>
                 <form action="{:U('Domain/checkDomainResult')}" method="post">
                     <input type="text" name="domain" class="input_1" placeholder="请输入您要的注册的域名">
+                    <input type="hidden" name="lang" value="ENG" />
+                    <input type="hidden" name="encoding" value="ASCII" />
                     <select name="tld" class="inse_1">
                         <option value=".com">.com</option>
                         <option value=".net">.net</option>

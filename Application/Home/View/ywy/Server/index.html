@@ -6,9 +6,9 @@
     <meta name="description" content="ASW">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="keywords" content="亿维云网">
-    <Meta name="description" Content="亿维云网">
-    <title>亿维云网</title>
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>{:C('WEB_SITE_TITLE')}</title>
     <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
     <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
@@ -469,64 +469,61 @@
                     <!-- 购买表单数据提交 -->
                     <form action="/services/cloudhost/Default.asp" method="post" id="J_buyOrTryForm" class="hide"></form>
                     <!-- 弹性云主机 结束 -->
+
                     <!-- 套餐云主机 开始 -->
                     <div class="tc-host wjf-ui-tab-content " id="J_tcHostDom">
                         <ul class="taocan-list cl horizontal-center" id="J_taocanListDom">
                             <!-- 套餐A -->
-                            <li class="taocan-item border-bottom border-right">
+                            <volist name="package_list" id="vo" key="k">
+                            <li class="taocan-item border-bottom <?php if($k % 3 !=0){?>border-right<?php }?>">
                                 <form class="column" action="/services/cloudhost/Order.asp">
-                                    <input type="hidden" data-xxxx='1' name="productid" value="xcloudA">
-                                    <input type="hidden" data-xxxx='1' name="CPU" value="IntelXeon E5-2620/5645*4 (四核心)">
-                                    <input type="hidden" data-xxxx='1' name="Memory" value="2GB">
-                                    <input type="hidden" data-xxxx='1' name="HardDisk" value="200G SAS硬盘+200G SATA(智能备份)">
-                                    <input type="hidden" data-xxxx='1' name="HostID" value="创业型云服务器">
-                                    <input type="hidden" data-xxxx='1' name="vps" value="okay">
-                                    <input type="hidden" data-xxxx='1' name="vr_room" value="8" id="J_xcloudA_vr_roomDom">
+                                    <!--<input type="hidden"  name="productid" value="xcloudA">
+                                    <input type="hidden"  name="CPU" value="IntelXeon E5-2620/5645*4 (四核心)">
+                                    <input type="hidden"  name="Memory" value="2GB">
+                                    <input type="hidden"  name="HardDisk" value="200G SAS硬盘+200G SATA(智能备份)">
+                                    <input type="hidden"  name="HostID" value="创业型云服务器">
+                                    <input type="hidden"  name="vps" value="okay">
+                                    <input type="hidden"  name="vr_room" value="8" id="J_xcloudA_vr_roomDom">-->
                                     <div class="column-top">
-                                        <p>创业型云服务器<em class="icon hot">热销</em></p>
-                                        <span>适用于企业官方网站/个人站长</span>
+                                        <p>{$vo.name} <if condition="$vo['is_hot'] eq 1"><em class="icon hot">热销</em><elseif condition="$vo['is_hot'] eq 2" /><em class="icon recommend">推荐</em></if> </p>
+                                        <span>{$vo.description}</span>
                                     </div>
                                     <dl class="column-config cl">
                                         <dt>处理器:</dt>
-                                        <dd>IntelXeon E5-2620/5645*4<span>(四核心)</span></dd>
+                                        <dd>{$vo.cpu}</dd>
                                         <dt>内存:</dt>
-                                        <dd>2GB</dd>
+                                        <dd>{$vo.memory}</dd>
                                         <dt>硬盘:</dt>
-                                        <dd>200G SAS硬盘+200G SATA<span>(智能备份)</span></dd>
+                                        <dd>{$vo.disk}</dd>
                                         <dt>带宽:</dt>
-                                        <dd id="radio_xcloudA_flux">3M独享</dd>
+                                        <dd id="radio_xcloudA_flux">{$vo.bandwidth}</dd>
                                         <dt>IP:</dt>
-                                        <dd id="radio_xcloudA_IP">独享IP一个</dd>
+                                        <dd id="radio_xcloudA_IP">{$vo.ip}</dd>
                                     </dl>
                                     <div class="column-txt">默认根据销量高低和推荐级别排序</div>
                                     <div class="server-room">
-                                        <span class="wjf-ui-select" id="J_xcloudA_roomsDom"></span>
-                                        <ul class="wjf-ui-select-container" id="J_xcloudA_containerDom">
-                                            <li class="item selected first-item" data-index="1" data-value="8">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_cdtt.asp">机房详情</a></span> 四川双线机房(推荐)
+                                        <span class="wjf-ui-select" id="J_xcloud{$k}_roomsDom"></span>
+                                        <ul class="wjf-ui-select-container" id="J_xcloud{$k}_containerDom">
+                                            <volist name="vo['computer_room']" id="item" key="kk">
+                                            <li class="item <?php if($kk==1){?>selected first-item<?php }?>" data-index="{$kk}" data-value="{$item.id}">
+                                                <span>---->><a target="blank" href="__ROOT__{$item.path}">机房详情</a></span> {$item.name}
                                             </li>
-                                            <li class="item" data-index="2" data-value="1">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_mydx.asp">机房详情</a></span>国内电信机房(高带宽)(无库存)</li>
-                                            <li class="item" data-index="3" data-value="3">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_bjsy.asp">机房详情</a></span>北京BGP多线机房(智能BGP)</li>
-                                            <li class="item" data-index="5" data-value="26">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_lsj.asp">机房详情</a></span>美国机房(免备案)</li>
-                                            <li class="item" data-index="6" data-value="20">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_xg.asp">机房详情</a></span>香港机房(免备案)</li>
+                                            </volist>
+
                                         </ul>
                                     </div>
-                                    <div class="column-price" id="J_vpsromprice_xcloudA_container">
-                                        <div class="ppl" id="vpsromprice_xcloudA_1"><span><span class="price">253</span>元首月,</span><span><span class="price">920</span>元/季,</span><span><span class="price">1680</span>元/半年,</span><span><span class="price">2980</span>元/年</span>
+                                    <div class="column-price" id="J_vpsromprice_xcloud{$k}_container">
+                                        <div class="ppl" id="vpsromprice_xcloud{$k}_1"><span><span class="price">253</span>元首月,</span><span><span class="price">920</span>元/季,</span><span><span class="price">1680</span>元/半年,</span><span><span class="price">2980</span>元/年</span>
                                         </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudA_2"><span><span class="price">304</span>元首月,</span><span><span class="price">1080</span>元/季,</span><span><span class="price">1980</span>元/半年,</span><span><span class="price">3580</span>元/年</span>
+                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloud{$k}_2"><span><span class="price">304</span>元首月,</span><span><span class="price">1080</span>元/季,</span><span><span class="price">1980</span>元/半年,</span><span><span class="price">3580</span>元/年</span>
                                         </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudA_3"><span><span class="price">389</span>元首月,</span><span><span class="price">1380</span>元/季,</span><span><span class="price">2680</span>元/半年,</span><span><span class="price">4580</span>元/年</span>
+                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloud{$k}_3"><span><span class="price">389</span>元首月,</span><span><span class="price">1380</span>元/季,</span><span><span class="price">2680</span>元/半年,</span><span><span class="price">4580</span>元/年</span>
                                         </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudA_4"><span><span class="price">338</span>元首月,</span><span><span class="price">1200</span>元/季,</span><span><span class="price">2350</span>元/半年,</span><span><span class="price">3980</span>元/年</span>
+                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloud{$k}_4"><span><span class="price">338</span>元首月,</span><span><span class="price">1200</span>元/季,</span><span><span class="price">2350</span>元/半年,</span><span><span class="price">3980</span>元/年</span>
                                         </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudA_5"><span><span class="price">474</span>元首月,</span><span><span class="price">1600</span>元/季,</span><span><span class="price">3060</span>元/半年,</span><span><span class="price">5580</span>元/年</span>
+                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloud{$k}_5"><span><span class="price">474</span>元首月,</span><span><span class="price">1600</span>元/季,</span><span><span class="price">3060</span>元/半年,</span><span><span class="price">5580</span>元/年</span>
                                         </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudA_6"><span><span class="price">423</span>元首月,</span><span><span class="price">1490</span>元/季,</span><span><span class="price">2800</span>元/半年,</span><span><span class="price">4980</span>元/年</span>
+                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloud{$k}_6"><span><span class="price">423</span>元首月,</span><span><span class="price">1490</span>元/季,</span><span><span class="price">2800</span>元/半年,</span><span><span class="price">4980</span>元/年</span>
                                         </div>
                                     </div>
                                     <div class="column-bottom">
@@ -534,316 +531,17 @@
                                     </div>
                                 </form>
                             </li>
+                            </volist>
                             <!-- 套餐B -->
-                            <li class="taocan-item border-bottom border-right">
-                                <form class="column" action="/services/cloudhost/Order.asp">
-                                    <input type="hidden" data-xxxx='1' name="productid" value="xcloudB">
-                                    <input type="hidden" data-xxxx='1' name="CPU" value="IntelXeon E5-2620/5645*4 (四核心)">
-                                    <input type="hidden" data-xxxx='1' name="Memory" value="3GB">
-                                    <input type="hidden" data-xxxx='1' name="HardDisk" value="300G SAS硬盘+300G SATA(智能备份)">
-                                    <input type="hidden" data-xxxx='1' name="HostID" value="发展型云服务器">
-                                    <input type="hidden" data-xxxx='1' name="vps" value="okay">
-                                    <input type="hidden" data-xxxx='1' name="vr_room" value="8" id="J_xcloudB_vr_roomDom">
-                                    <div class="column-top">
-                                        <p>发展型云服务器</p>
-                                        <span>适用于地方/行业门户网站</span>
-                                    </div>
-                                    <dl class="column-config cl">
-                                        <dt>处理器:</dt>
-                                        <dd>IntelXeon E5-2620/5645*4<span>(四核心)</span></dd>
-                                        <dt>内存:</dt>
-                                        <dd>3GB</dd>
-                                        <dt>硬盘:</dt>
-                                        <dd>300G SAS硬盘+300G SATA<span>(智能备份)</span></dd>
-                                        <dt>带宽:</dt>
-                                        <dd id="radio_xcloudB_flux">5M独享</dd>
-                                        <dt>IP:</dt>
-                                        <dd id="radio_xcloudB_IP">独享IP一个</dd>
-                                    </dl>
-                                    <div class="column-txt">默认根据销量高低和推荐级别排序</div>
-                                    <div class="server-room">
-                                        <span class="wjf-ui-select" id="J_xcloudB_roomsDom"></span>
-                                        <ul class="wjf-ui-select-container" id="J_xcloudB_containerDom">
-                                            <li class="item selected first-item" data-index="1" data-value="8">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_cdtt.asp">机房详情</a></span>四川双线机房(推荐)
-                                            </li>
-                                            <li class="item" data-index="2" data-value="1">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_mydx.asp">机房详情</a></span>国内电信机房(高带宽)(无库存)</li>
-                                            <li class="item" data-index="3" data-value="3">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_bjsy.asp">机房详情</a></span>北京BGP多线机房(智能BGP)</li>
-                                            <li class="item" data-index="5" data-value="26">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_lsj.asp">机房详情</a></span>美国机房(免备案)</li>
-                                            <li class="item" data-index="6" data-value="20">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_xg.asp">机房详情</a></span>香港机房(免备案)</li>
-                                        </ul>
-                                    </div>
-                                    <div class="column-price" id="J_vpsromprice_xcloudB_container">
-                                        <div class="ppl" id="vpsromprice_xcloudB_1"><span><span class="price">287</span>元首月,</span><span><span class="price">998</span>元/季,</span><span><span class="price">1999</span>元/半年,</span><span><span class="price">3380</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudB_2"><span><span class="price">338</span>元首月,</span><span><span class="price">1200</span>元/季,</span><span><span class="price">2380</span>元/半年,</span><span><span class="price">3980</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudB_3"><span><span class="price">466</span>元首月,</span><span><span class="price">1580</span>元/季,</span><span><span class="price">2980</span>元/半年,</span><span><span class="price">5480</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudB_4"><span><span class="price">389</span>元首月,</span><span><span class="price">1300</span>元/季,</span><span><span class="price">2600</span>元/半年,</span><span><span class="price">4580</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudB_5"><span><span class="price">508</span>元首月,</span><span><span class="price">1790</span>元/季,</span><span><span class="price">3380</span>元/半年,</span><span><span class="price">5980</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudB_6"><span><span class="price">508</span>元首月,</span><span><span class="price">1790</span>元/季,</span><span><span class="price">3480</span>元/半年,</span><span><span class="price">5980</span>元/年</span>
-                                        </div>
-                                    </div>
-                                    <div class="column-bottom">
-                                        <button type="submit" class="column-btn">立即购买</button>
-                                    </div>
-                                </form>
-                            </li>
+
                             <!-- 套餐C -->
-                            <li class="taocan-item border-bottom">
-                                <form class="column" action="/services/cloudhost/Order.asp">
-                                    <input type="hidden" data-xxxx='1' name="productid" value="xcloudC">
-                                    <input type="hidden" data-xxxx='1' name="CPU" value="IntelXeon E5-2620/5645*4 (四核心)">
-                                    <input type="hidden" data-xxxx='1' name="Memory" value="4GB">
-                                    <input type="hidden" data-xxxx='1' name="HardDisk" value="500G SAS硬盘+500G SATA(智能备份)">
-                                    <input type="hidden" data-xxxx='1' name="HostID" value="舒适型云服务器">
-                                    <input type="hidden" data-xxxx='1' name="vps" value="okay">
-                                    <input type="hidden" data-xxxx='1' name="vr_room" value="8" id="J_xcloudC_vr_roomDom">
-                                    <div class="column-top">
-                                        <p>舒适型云服务器<em class="icon recommend">推荐</em></p>
-                                        <span>适用于网上商城、团购网站等</span>
-                                    </div>
-                                    <dl class="column-config cl">
-                                        <dt>处理器:</dt>
-                                        <dd>IntelXeon E5-2620/5645*4<span>(四核心)</span></dd>
-                                        <dt>内存:</dt>
-                                        <dd>4GB</dd>
-                                        <dt>硬盘:</dt>
-                                        <dd>500G SAS硬盘+500G SATA<span>(智能备份)</span></dd>
-                                        <dt>带宽:</dt>
-                                        <dd id="radio_xcloudC_flux">5M独享</dd>
-                                        <dt>IP:</dt>
-                                        <dd id="radio_xcloudC_IP">独享IP一个</dd>
-                                    </dl>
-                                    <div class="column-txt">默认根据销量高低和推荐级别排序</div>
-                                    <div class="server-room">
-                                        <span class="wjf-ui-select" id="J_xcloudC_roomsDom"></span>
-                                        <ul class="wjf-ui-select-container" id="J_xcloudC_containerDom">
-                                            <li class="item selected first-item" data-index="1" data-value="8">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_cdtt.asp">机房详情</a></span>四川双线机房(推荐)
-                                            </li>
-                                            <li class="item" data-index="2" data-value="1">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_mydx.asp">机房详情</a></span>国内电信机房(高带宽)(无库存)</li>
-                                            <li class="item" data-index="3" data-value="3">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_bjsy.asp">机房详情</a></span>北京BGP多线机房(智能BGP)</li>
-                                            <li class="item" data-index="5" data-value="26">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_lsj.asp">机房详情</a></span>美国机房(免备案)</li>
-                                            <li class="item" data-index="6" data-value="20">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_xg.asp">机房详情</a></span>香港机房(免备案)</li>
-                                        </ul>
-                                    </div>
-                                    <div class="column-price" id="J_vpsromprice_xcloudC_container">
-                                        <div class="ppl" id="vpsromprice_xcloudC_1"><span><span class="price">321</span>元首月,</span><span><span class="price">1130</span>元/季,</span><span><span class="price">2180</span>元/半年,</span><span><span class="price">3780</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudC_2"><span><span class="price">381</span>元首月,</span><span><span class="price">1340</span>元/季,</span><span><span class="price">2580</span>元/半年,</span><span><span class="price">4480</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudC_3"><span><span class="price">559</span>元首月,</span><span><span class="price">1980</span>元/季,</span><span><span class="price">3800</span>元/半年,</span><span><span class="price">6580</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudC_4"><span><span class="price">423</span>元首月,</span><span><span class="price">1490</span>元/季,</span><span><span class="price">2800</span>元/半年,</span><span><span class="price">4980</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudC_5"><span><span class="price">568</span>元首月,</span><span><span class="price">1990</span>元/季,</span><span><span class="price">3880</span>元/半年,</span><span><span class="price">6680</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudC_6"><span><span class="price">578</span>元首月,</span><span><span class="price">2040</span>元/季,</span><span><span class="price">3900</span>元/半年,</span><span><span class="price">6800</span>元/年</span>
-                                        </div>
-                                    </div>
-                                    <div class="column-bottom">
-                                        <button type="submit" class="column-btn">立即购买</button>
-                                    </div>
-                                </form>
-                            </li>
+
                             <!-- 套餐D -->
-                            <li class="taocan-item border-right">
-                                <form class="column" action="/services/cloudhost/Order.asp">
-                                    <input type="hidden" data-xxxx='1' name="productid" value="xcloudD">
-                                    <input type="hidden" data-xxxx='1' name="CPU" value="IntelXeon E5-2620/5645*4 (四核心)">
-                                    <input type="hidden" data-xxxx='1' name="Memory" value="6GB">
-                                    <input type="hidden" data-xxxx='1' name="HardDisk" value="800G SAS硬盘+800G SATA(智能备份)">
-                                    <input type="hidden" data-xxxx='1' name="HostID" value="增强型云服务器">
-                                    <input type="hidden" data-xxxx='1' name="vps" value="okay">
-                                    <input type="hidden" data-xxxx='1' name="vr_room" value="8" id="J_xcloudD_vr_roomDom">
-                                    <div class="column-top">
-                                        <p>增强型云服务器</p>
-                                        <span>适用于社区SNS/论坛/ERP/OACRM等</span>
-                                    </div>
-                                    <dl class="column-config cl">
-                                        <dt>处理器:</dt>
-                                        <dd>IntelXeon E5-2620/5645*4<span>(四核心)</span></dd>
-                                        <dt>内存:</dt>
-                                        <dd>6GB</dd>
-                                        <dt>硬盘:</dt>
-                                        <dd>800G SAS硬盘+800G SATA<span>(智能备份)</span></dd>
-                                        <dt>带宽:</dt>
-                                        <dd id="radio_xcloudD_flux">5M独享</dd>
-                                        <dt>IP:</dt>
-                                        <dd id="radio_xcloudD_IP">独享IP一个</dd>
-                                    </dl>
-                                    <div class="column-txt">默认根据销量高低和推荐级别排序</div>
-                                    <div class="server-room">
-                                        <span class="wjf-ui-select" id="J_xcloudD_roomsDom"></span>
-                                        <ul class="wjf-ui-select-container" id="J_xcloudD_containerDom">
-                                            <li class="item selected first-item" data-index="1" data-value="8">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_cdtt.asp">机房详情</a></span>四川双线机房(推荐)
-                                            </li>
-                                            <li class="item" data-index="2" data-value="1">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_mydx.asp">机房详情</a></span>国内电信机房(高带宽)(无库存)</li>
-                                            <li class="item" data-index="3" data-value="3">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_bjsy.asp">机房详情</a></span>北京BGP多线机房(智能BGP)</li>
-                                            <li class="item" data-index="5" data-value="26">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_lsj.asp">机房详情</a></span>美国机房(免备案)</li>
-                                            <li class="item" data-index="6" data-value="20">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_xg.asp">机房详情</a></span>香港机房(免备案)</li>
-                                        </ul>
-                                    </div>
-                                    <div class="column-price" id="J_vpsromprice_xcloudD_container">
-                                        <div class="ppl" id="vpsromprice_xcloudD_1"><span><span class="price">541</span>元首月,</span><span><span class="price">1870</span>元/季,</span><span><span class="price">3650</span>元/半年,</span><span><span class="price">6360</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudD_2"><span><span class="price">636</span>元首月,</span><span><span class="price">2200</span>元/季,</span><span><span class="price">4300</span>元/半年,</span><span><span class="price">7480</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudD_3"><span><span class="price">848</span>元首月,</span><span><span class="price">2980</span>元/季,</span><span><span class="price">5680</span>元/半年,</span><span><span class="price">9980</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudD_4"><span><span class="price">748</span>元首月,</span><span><span class="price">2700</span>元/季,</span><span><span class="price">4980</span>元/半年,</span><span><span class="price">8800</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudD_5"><span><span class="price">848</span>元首月,</span><span><span class="price">2980</span>元/季,</span><span><span class="price">5680</span>元/半年,</span><span><span class="price">9980</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudD_6"><span><span class="price">833</span>元首月,</span><span><span class="price">2940</span>元/季,</span><span><span class="price">5780</span>元/半年,</span><span><span class="price">9800</span>元/年</span>
-                                        </div>
-                                    </div>
-                                    <div class="column-bottom">
-                                        <button type="submit" class="column-btn">立即购买</button>
-                                    </div>
-                                </form>
-                            </li>
+
                             <!-- 套餐E -->
-                            <li class="taocan-item border-right">
-                                <form class="column" action="/services/cloudhost/Order.asp">
-                                    <input type="hidden" data-xxxx='1' name="productid" value="xcloudE">
-                                    <input type="hidden" data-xxxx='1' name="CPU" value="IntelXeon E5-2620/5645*4 (四核心)">
-                                    <input type="hidden" data-xxxx='1' name="Memory" value="8GB">
-                                    <input type="hidden" data-xxxx='1' name="HardDisk" value="1T SAS硬盘+1T SATA(智能备份)">
-                                    <input type="hidden" data-xxxx='1' name="HostID" value="企业型云服务器">
-                                    <input type="hidden" data-xxxx='1' name="vps" value="okay">
-                                    <input type="hidden" data-xxxx='1' name="vr_room" value="8" id="J_xcloudE_vr_roomDom">
-                                    <div class="column-top">
-                                        <p>企业型云服务器</p>
-                                        <span>适用于网络游戏，其它高端应用等</span>
-                                    </div>
-                                    <dl class="column-config cl">
-                                        <dt>处理器:</dt>
-                                        <dd>IntelXeon E5-2620/5645*4<span>(四核心)</span></dd>
-                                        <dt>内存:</dt>
-                                        <dd>8GB</dd>
-                                        <dt>硬盘:</dt>
-                                        <dd>1T SAS硬盘+1T SATA<span>(智能备份)</span></dd>
-                                        <dt>带宽:</dt>
-                                        <dd id="radio_xcloudE_flux">5M独享</dd>
-                                        <dt>IP:</dt>
-                                        <dd id="radio_xcloudE_IP">独享IP一个</dd>
-                                    </dl>
-                                    <div class="column-txt">默认根据销量高低和推荐级别排序</div>
-                                    <div class="server-room">
-                                        <span class="wjf-ui-select" id="J_xcloudE_roomsDom"></span>
-                                        <ul class="wjf-ui-select-container" id="J_xcloudE_containerDom">
-                                            <li class="item selected first-item" data-index="1" data-value="8">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_cdtt.asp">机房详情</a></span>四川双线机房(推荐)
-                                            </li>
-                                            <li class="item" data-index="2" data-value="1">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_mydx.asp">机房详情</a></span>国内电信机房(高带宽)(无库存)</li>
-                                            <li class="item" data-index="3" data-value="3">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_bjsy.asp">机房详情</a></span>北京BGP多线机房(智能BGP)</li>
-                                            <li class="item" data-index="5" data-value="26">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_lsj.asp">机房详情</a></span>美国机房(免备案)</li>
-                                            <li class="item" data-index="6" data-value="20">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_xg.asp">机房详情</a></span>香港机房(免备案)</li>
-                                        </ul>
-                                    </div>
-                                    <div class="column-price" id="J_vpsromprice_xcloudE_container">
-                                        <div class="ppl" id="vpsromprice_xcloudE_1"><span><span class="price">636</span>元首月,</span><span><span class="price">2210</span>元/季,</span><span><span class="price">4230</span>元/半年,</span><span><span class="price">7480</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudE_2"><span><span class="price">748</span>元首月,</span><span><span class="price">2600</span>元/季,</span><span><span class="price">4980</span>元/半年,</span><span><span class="price">8800</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudE_3"><span><span class="price">1088</span>元首月,</span><span><span class="price">3840</span>元/季,</span><span><span class="price">7600</span>元/半年,</span><span><span class="price">12800</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudE_4"><span><span class="price">935</span>元首月,</span><span><span class="price">3300</span>元/季,</span><span><span class="price">6280</span>元/半年,</span><span><span class="price">11000</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudE_5"><span><span class="price">1088</span>元首月,</span><span><span class="price">3840</span>元/季,</span><span><span class="price">7600</span>元/半年,</span><span><span class="price">12800</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudE_6"><span><span class="price">1088</span>元首月,</span><span><span class="price">3840</span>元/季,</span><span><span class="price">7600</span>元/半年,</span><span><span class="price">12800</span>元/年</span>
-                                        </div>
-                                    </div>
-                                    <div class="column-bottom">
-                                        <button type="submit" class="column-btn">立即购买</button>
-                                    </div>
-                                </form>
-                            </li>
+
                             <!-- 套餐F -->
-                            <li class="taocan-item">
-                                <form class="column" action="/services/cloudhost/Order.asp">
-                                    <input type="hidden" data-xxxx='1' name="productid" value="xcloudF">
-                                    <input type="hidden" data-xxxx='1' name="CPU" value="IntelXeon E5-2620/5645*4 (四核心)">
-                                    <input type="hidden" data-xxxx='1' name="Memory" value="1.5GB">
-                                    <input type="hidden" data-xxxx='1' name="HardDisk" value="150G SAS硬盘+150G SATA(智能备份)">
-                                    <input type="hidden" data-xxxx='1' name="HostID" value="普及型云服务器">
-                                    <input type="hidden" data-xxxx='1' name="vps" value="okay">
-                                    <input type="hidden" data-xxxx='1' name="vr_room" value="8" id="J_xcloudF_vr_roomDom">
-                                    <div class="column-top">
-                                        <p>普及型云服务器</p>
-                                        <span>适用于中小企业展示型网站</span>
-                                    </div>
-                                    <dl class="column-config cl">
-                                        <dt>处理器:</dt>
-                                        <dd>IntelXeon E5-2620/5645*4<span>(双核心)</span></dd>
-                                        <dt>内存:</dt>
-                                        <dd>1.5GB</dd>
-                                        <dt>硬盘:</dt>
-                                        <dd>150G SAS硬盘+150G SATA<span>(智能备份)</span></dd>
-                                        <dt>带宽:</dt>
-                                        <dd id="radio_xcloudF_flux">5M独享</dd>
-                                        <dt>IP:</dt>
-                                        <dd id="radio_xcloudF_IP">独享IP一个</dd>
-                                    </dl>
-                                    <div class="column-txt">默认根据销量高低和推荐级别排序</div>
-                                    <div class="server-room">
-                                        <span class="wjf-ui-select" id="J_xcloudF_roomsDom"></span>
-                                        <ul class="wjf-ui-select-container" id="J_xcloudF_containerDom">
-                                            <li class="item selected first-item" data-index="1" data-value="8">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_cdtt.asp">机房详情</a></span>四川双线机房(推荐)
-                                            </li>
-                                            <li class="item" data-index="2" data-value="1">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_mydx.asp">机房详情</a></span>国内电信机房(高带宽)(无库存)</li>
-                                            <li class="item" data-index="3" data-value="3">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_bjsy.asp">机房详情</a></span>北京BGP多线机房(智能BGP)</li>
-                                            <li class="item" data-index="5" data-value="26">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_lsj.asp">机房详情</a></span>美国机房(免备案)</li>
-                                            <li class="item" data-index="6" data-value="20">
-                                                <span>---->><a target="blank" href="/services/Server/servr_room_info_xg.asp">机房详情</a></span>香港机房(免备案)</li>
-                                        </ul>
-                                    </div>
-                                    <div class="column-price" id="J_vpsromprice_xcloudF_container">
-                                        <div class="ppl" id="vpsromprice_xcloudF_1"><span><span class="price">211</span>元首月,</span><span><span class="price">760</span>元/季,</span><span><span class="price">1430</span>元/半年,</span><span><span class="price">2480</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudF_2"><span><span class="price">254</span>元首月,</span><span><span class="price">897</span>元/季,</span><span><span class="price">1680</span>元/半年,</span><span><span class="price">2990</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudF_3"><span><span class="price">322</span>元首月,</span><span><span class="price">1137</span>元/季,</span><span><span class="price">2050</span>元/半年,</span><span><span class="price">3790</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudF_4"><span><span class="price">296</span>元首月,</span><span><span class="price">1040</span>元/季,</span><span><span class="price">1980</span>元/半年,</span><span><span class="price">3480</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudF_5"><span><span class="price">381</span>元首月,</span><span><span class="price">1340</span>元/季,</span><span><span class="price">2480</span>元/半年,</span><span><span class="price">4480</span>元/年</span>
-                                        </div>
-                                        <div class="ppl" style="display:none;" id="vpsromprice_xcloudF_6"><span><span class="price">381</span>元首月,</span><span><span class="price">1340</span>元/季,</span><span><span class="price">2480</span>元/半年,</span><span><span class="price">4480</span>元/年</span>
-                                        </div>
-                                    </div>
-                                    <div class="column-bottom">
-                                        <button type="submit" class="column-btn">立即购买</button>
-                                    </div>
-                                </form>
-                            </li>
+
                         </ul>
                     </div>
                     <!--  <script id="tryTipTpl" type="text/x-jsrender"> -->

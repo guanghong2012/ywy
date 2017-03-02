@@ -43,22 +43,16 @@
             </tr>
         </table>
         <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#e5e5e5" class="name_ta1">
-
-            <volist name="list" id="vo" >
+            <input type="hidden" id="count_list" value="{$count_list}" />
+            <volist name="list" id="vo" key="k">
             <tr>
-                <td bgcolor="#ffffff" width="350" class="td1">{$vo.domain}</td>
+                <td bgcolor="#ffffff" width="350" class="td1">{$vo.domain}{$vo.tld}</td>
                 <td bgcolor="#ffffff" width="350" class="td2">
-                    <if condition="$vo['result']['data']['available'] eq 1">
-                    未注册
-                    <elseif condition="$vo['result']['data']['available'] eq 0" />
-                    已注册
-                        <else />
-                        查询失败
-                    </if>
+                    <img src="__YWY__/images/loading.gif" /><span id="checkme_{$k}" style="display: none;" onclick="checkDomain(this,{$k+1},'{$vo.domain}','{$vo.tld}','{$vo.lang}','{$vo.encoding}');">点我查询</span>
                 </td>
                 <td bgcolor="#ffffff" class="td3">
-                    <if condition="$vo['result']['data']['available'] eq 1">
-                    <div class="nice-select" name="nice-select">
+
+                    <div class="nice-select" name="nice-select" style="display: none;">
                         <input type="text" class="show" name="" value="￥5元/1年" readonly>
                         <input type="hidden" class="year" name="year[{$vo.id}][]" value="1" readonly>
                         <ul>
@@ -68,20 +62,18 @@
                             <li data-value="12">￥50元/12年</li>
                         </ul>
                     </div>
-                    <label  class="label_xz">
-                        <input id="checkbox-{$i}-1" class="regular-checkbox" checked="" name="domain[{$vo.id}][]" value="{$vo['domain']}" type="checkbox"><label class="label_1" for="checkbox-{$i}-1"></label>
+                    <label  class="label_xz" style="display: none;">
+                        <input id="checkbox-{$k}-1" class="regular-checkbox selectDomain"  name="domain[{$vo.id}][]" value="{$vo['domain']}{$vo['tld']}" type="checkbox"><label class="label_1" for="checkbox-{$k}-1"></label>
                         选择此域名
                     </label>
-                        <else />
 
-                    </if>
                 </td>
             </tr>
             </volist>
 
         </table>
         <div class="yxz_div">
-            <p>已选择域名：<span>【{$list[0]['domain']}】</span> <a href="javascript:void(0)" id="confirmbuy" onclick="$('#form1').submit();" >确定购买</a></p>
+            <p>已选择域名：<span>【<b id="sldomain"></b>】</span> <a href="javascript:void(0)" id="confirmbuy" onclick="$('#form1').submit();" >确定购买</a></p>
         </div>
         </form>
     </div>
@@ -148,6 +140,52 @@
     $(document).click(function(){
         $('[name="nice-select"] ul').hide();
     });
+
+
+    //ajax请求查询域名
+    function checkDomain(obj,target,domain,tld,lang,encoding){
+        var count_list = $('#count_list').val();
+        $.post("{:U('Domain/ajaxCheckDomain')}",{domain:domain,tld:tld,lang:lang,encoding:encoding},function(data){
+            if(data.status==1){
+                //查询成功
+                //alert(data.status);
+                //alert(data.available);
+
+                $(obj).parent().find("img").hide();
+                if(data.available==1){
+                    //可以注册
+                    $(obj).parent().find("img").before("<span>可注册</span>");
+                    $(obj).parent().parent().find(".td3").find(".nice-select").show()
+                    $(obj).parent().parent().find(".td3").find(".label_xz").show()
+                }else if(data.available===0){
+                    //已被注册
+                    $(obj).parent().find("img").before("<span>不可注册</span>");
+
+                }else{
+                    $(obj).parent().parent().find(".td3").html("<span>查询失败</span>")
+                }
+                //判断是否执行下一个ajax
+                if(target<=count_list){
+                    $("#checkme_"+target).click();
+                }
+            }
+
+        },'json');
+    }
+
+    //选中域名
+    $(".selectDomain").click(function(){
+        var _checked = $(this).prop("checked")
+        var _val = $(this).val()
+        var _html = $('#sldomain').html()
+        if(_checked){
+            $('#sldomain').html(_html+_val+' ')
+        }else{
+            _html = _html.replace(_val,'')
+            $('#sldomain').html(_html)
+        }
+    })
+
 </script>
 <!-- 底部 -->
 <include file="Public/bottom"/>
@@ -157,6 +195,13 @@
 <script type="text/javascript" src="__YWY__/js2016/lib/jqurey.tools/jquery.tools.rangeinput.min.js"></script>
 <script type="text/javascript" src="__YWY__/js2016/lib/layer/layer.js"></script>
 
-
+<script>
+    $(document).ready(function () {
+        var first_check = $("#checkme_1");
+        if(first_check){
+            first_check.click();
+        }
+    });
+</script>
 </body>
 </html>

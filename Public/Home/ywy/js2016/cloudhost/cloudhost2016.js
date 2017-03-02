@@ -1140,7 +1140,8 @@ var cloudhost = {
     // 套餐Tab
     initTCTab: function() {
         // 创业型云服务器
-        var id_suffix = 'ABCDEF'.split('');
+        //var id_suffix = 'ABCDEF'.split('');
+        var id_suffix = '123456789'.split('');
         var self = this;
         for (var i = 0, len = id_suffix.length; i < len; i++) {
             var suffix = id_suffix[i];

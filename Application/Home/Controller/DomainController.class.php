@@ -37,7 +37,7 @@ class DomainController extends HomeController{
             S('all_domain_cate',$all_domain_cate,1);//缓存60秒
         }
 
-        print_r($all_domain_cate);
+        //print_r($all_domain_cate);
 
         $this->assign('all_domain_cate',$all_domain_cate);
         $this->assign('advantages',$advantages);
@@ -52,16 +52,45 @@ class DomainController extends HomeController{
      */
     public function checkDomainResult()
     {
+        session('userurl',$_SERVER['REQUEST_URI']);//记录登录前的页面地址
         if(IS_POST){
-            print_r($_POST);die;
+           // print_r($_POST);die;
             $domain = I('post.domain');
             $tld = I('post.tld');
-            $lang = I('post.lang') ? I('post.lang') : 'ENG';
+            $lang = I('post.lang');
+            $encoding = I('post.encoding');
             if(empty($domain)){
                 $return = array("status"=>0,"msg"=>"请输入要查询的域名！");
                 echo json_encode($return);
                 exit();
             }
+            $searchList = array();
+            if(is_array($tld)){
+                foreach($tld as $key=>$value){
+                    $searchList[] = array(
+                        'id' => $key,
+                        'domain' => $domain,
+                        'tld' => $tld[$key],
+                        'lang' => $lang[$key],
+                        'encoding' => $encoding[$key],
+                    );
+                }
+            }else{
+                $searchList[] = array(
+                    'id' => 0,
+                    'domain' => $domain,
+                    'tld' => $tld,
+                    'lang' => $lang,
+                    'encoding' => $encoding,
+                );
+            }
+
+            session('check_domain',$searchList);
+            $return = array("status"=>1,"url"=>U('Domain/checkDomainResult'),"msg"=>"跳转！");
+            echo json_encode($return);
+            exit();
+    //print_r($searchList);
+            die;
             //调用接口查询域名是否被注册
             $Api = new CloundApi();
             if(is_array($tld)){
@@ -95,14 +124,44 @@ class DomainController extends HomeController{
             exit();
         }else{
             $list = session('check_domain');
+            $count_list = count($list);
 
-            print_r($list);
+            $this->assign('count_list',$count_list);
             $this->assign('list',$list);
             $this->display();
         }
 
     }
+    
+    /*
+     * ajax查询域名是否被注册
+     */
+    public function ajaxCheckDomain()
+    {
+        if(IS_AJAX){
+            $domain = I('domain');
+            $tld = I('tld');
+            $lang = I('lang');
+            $encoding = I('encoding');
 
+            if(empty($domain)){
+                $return = array("status"=>0,"msg"=>"请输入要查询的域名！");
+                echo json_encode($return);
+                exit();
+            }
+            $Api = new CloundApi();
+            $rs = $Api->checkDomain($domain.$tld,$tld,$lang,$encoding);
+            $result = json_decode($rs,true);
+            if($result['code']==200){
+                $return = array("status"=>1,'available'=>$result['data']['available'],"msg"=>"查询成功！");
+            }else{
+                $return = array("status"=>1,'available'=>$result['data']['available'],"msg"=>"查询失败！");
+            }
+            echo json_encode($return);
+            exit();
+        }
+    }
+    
     /*
      * 确定购买域名 将选中的域名加入需要购买的数组
      */
@@ -128,11 +187,13 @@ class DomainController extends HomeController{
                 $domainToBuy[] = array(
                     'month' => $years[$key][0]*12,//用月份保存
                     'domain' => $val[0],
-                    'ltd' => $list[$key]['ltd'],
+                    'tld' => $list[$key]['tld'],
                     'info'=> 0,
-                    'lang'=> $list[$key]['lang']
+                    'lang'=> $list[$key]['lang'],
+                    'encoding' => $list[$key]['encoding']
                 );
             }
+
             session('domainToBuy',$domainToBuy);
             $return = array("status"=>1,"url"=>U('Domain/buyDomainInfo'),"msg"=>"添加成功");
             echo json_encode($return);
@@ -215,7 +276,7 @@ class DomainController extends HomeController{
             foreach($domainToBuy as $key=>$value){
                 $buy_config = array(
                     'domain' => $value['domain'],
-                    'tld' => $value['ltd'],
+                    'tld' => $value['tld'],
                     'year' => $value['month']/12,
                     'lang' => $value['lang'],
                     'encoding' => $value['lang']=='CHI' ? 'GBK':'ASCII',
@@ -250,7 +311,7 @@ class DomainController extends HomeController{
         print_r($domainToBuy);
     }
 
-
+    
 
     
 }
