@@ -1,0 +1,141 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <div class="main-title">
+        <h2>新增弹性云主机</h2>
+    </div>
+    <form action="{:U('update')}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">主机名称<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="name" value="">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">描述<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="description" value="">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">CPU核数<span class="check-tips">(填写正整数,2的正整数倍,配置限制最大核数为：{$elastic_config['max_cpu_num']})</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" data-max="{$elastic_config['max_cpu_num']}" name="cpu" value="">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">内存大小<span class="check-tips">(单位：G，配置限制最小值为：{$elastic_config['memory_min_num']}，最大值：{$elastic_config['memory_max_num']})</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" data-min="{$elastic_config['memory_min_num']}" data-max="{$elastic_config['memory_max_num']}" name="memory" value="">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">硬盘大小<span class="check-tips">(单位：G，配置限制最小值：{$elastic_config['disk_min_num']}，最大值：{$elastic_config['disk_max_num']})</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="disk" data-min="{$elastic_config['disk_min_num']}" data-max="{$elastic_config['disk_max_num']}" value="">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">带宽大小<span class="check-tips">(单位：M，配置限制最小值：{$elastic_config['bandwidth_min_num']}，最大值：{$elastic_config['bandwidth_max_num']})</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="bandwidth" data-min="{$elastic_config['bandwidth_min_num']}" data-max="{$elastic_config['bandwidth_max_num']}" value="">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <button class="btn submit-btn ajax-post hidden" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <a class="btn btn-return" href="{$Think.cookie.__forward__}">返 回</a>
+            <input type="hidden" name="id" value=""/>
+
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+    <php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+    <link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+
+        Think.setValue("type", {$data.type|default='""'});
+        Think.setValue("display", {$data.display|default=0});
+
+        $('#submit').click(function(){
+            $('#form').submit();
+        });
+
+        //检测输入CPU数量
+        $("input[name=cpu]").on("change",function(){
+            var max = $(this).attr("data-max");
+            max = parseInt(max);
+            $(this).val($(this).val().replace(/[^0-9.]/g,''));
+            var _val = $(this).val();
+            _val = parseInt(_val);
+            if(_val>max){
+                $(this).val(max)
+            }
+        })
+
+        //检测输入内存
+        $("input[name=memory]").on("change",function(){
+            var max = $(this).attr("data-max");
+            max = parseFloat(max);
+            var min = $(this).attr("data-min");
+            min = parseFloat(min);
+            //$(this).val($(this).val().replace(/[^0-9.]/g,''));
+            var _val = $(this).val();
+            _val = parseFloat(_val);
+            if(_val>max){
+                $(this).val(max)
+            }
+            if(_val<min){
+                $(this).val(min)
+            }
+        })
+        //检测输入硬盘
+        $("input[name=disk]").on(" change",function(){
+            var max = $(this).attr("data-max");
+            max = parseInt(max);
+            var min = $(this).attr("data-min");
+            min = parseInt(min);
+            $(this).val($(this).val().replace(/[^0-9.]/g,''));
+            var _val = $(this).val();
+            _val = parseInt(_val);
+            if(_val>max){
+                $(this).val(max)
+            }
+            if(_val<min){
+                $(this).val(min)
+            }
+        })
+        //检测输入带宽
+        $("input[name=bandwidth]").on(" change",function(){
+            var max = $(this).attr("data-max");
+            max = parseInt(max);
+            var min = $(this).attr("data-min");
+            min = parseInt(min);
+            $(this).val($(this).val().replace(/[^0-9.]/g,''));
+            var _val = $(this).val();
+            _val = parseInt(_val);
+            if(_val>max){
+                $(this).val(max)
+            }
+            if(_val<min){
+                $(this).val(min)
+            }
+        })
+
+
+    </script>
+
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('ElasticHost/index')}');
+    </script>
+</block>

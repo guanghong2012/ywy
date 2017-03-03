@@ -1,0 +1,77 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <div class="main-title">
+        <h2>新增操作系统</h2>
+    </div>
+    <form action="{:U('updateOs')}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">操作系统名称<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="name" value="">
+            </div>
+        </div>
+        <div class="form-item cf">
+            <label class="item-label">操作系统类型<span class="check-tips"></span></label>
+            <div class="controls">
+                <label class="radio">
+                    <input type="radio" value="1" name="os_type" checked="">Windows
+                </label>
+                <label class="radio">
+                    <input type="radio" value="2" name="os_type">Linux
+                </label>
+
+            </div>
+        </div>
+        <div class="form-item cf">
+            <label class="item-label">CPU位数<span class="check-tips"></span></label>
+            <div class="controls">
+                <label class="radio">
+                    <input type="radio" value="32" name="os_bit" checked="">32位
+                </label>
+                <label class="radio">
+                    <input type="radio" value="64" name="os_bit">64位
+                </label>
+
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">价格<span class="check-tips">(元)</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="price" value="">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <button class="btn submit-btn ajax-post hidden" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <a class="btn btn-return" href="{$Think.cookie.__forward__}">返 回</a>
+            <input type="hidden" name="id" value=""/>
+
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+    <php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+    <link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+
+        Think.setValue("type", {$data.type|default='""'});
+        Think.setValue("display", {$data.display|default=0});
+
+        $('#submit').click(function(){
+            $('#form').submit();
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('ElasticConfig/osList')}');
+    </script>
+</block>

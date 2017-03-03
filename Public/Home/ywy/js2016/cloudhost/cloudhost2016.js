@@ -14,7 +14,7 @@ var cloudhost = {
         dataMin: 50,
         dataMax: 1000,
         // 带宽范围
-        fluxMin: 0,
+        fluxMin: 1,
         fluxMax: 100,
         // 配置类型 兼容表 url type传参对应配置类型
         defaultConfigTypeMapping: {
@@ -34,8 +34,8 @@ var cloudhost = {
         'basic': {
             title: "入门型",
             content: {
-                cpu: 2,
-                ram: 2,
+                cpu: basic_cpu,
+                ram: basic_memory,
                 data: 60,
                 flux: 2
             }
@@ -478,10 +478,11 @@ var cloudhost = {
         }, {
             value: 'linux',
             desc: 'linux'
-        }, {
+        }/*, {
             value: 'linux_west_slb',
             desc: '负载均衡'
-        }];
+        }*/
+        ];
         if ($("#customSubItems li").length > 1) {
             OSTYPE.push({
                 value: 'custom',

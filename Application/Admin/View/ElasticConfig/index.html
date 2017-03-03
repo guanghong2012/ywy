@@ -1,0 +1,132 @@
+<extend name="Public/base" />
+
+
+<block name="body">
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <div class="main-title cf">
+        <h2>
+            弹性云主机基本配置
+        </h2>
+    </div>
+    <!-- 标签页导航 -->
+    <div class="tab-wrap">
+        <ul class="tab-nav nav">
+
+            <li data-tab="tab1" class="current"><a href="javascript:void(0);">基础</a></li>
+
+        </ul>
+        <div class="tab-content">
+            <!-- 表单 -->
+            <form id="form" action="{:U('updateConfig')}" method="post" class="form-horizontal">
+                <!-- 基础文档模型 -->
+
+                <div id="tab1" class="tab-pane in tab1">
+
+                    <div class="form-item cf">
+                        <label class="item-label">CPU最大核数量<span class="check-tips">（填写正整数）</span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="max_cpu_num" value="{$info.max_cpu_num}">
+                        </div>
+                    </div>
+
+                    <div class="form-item cf">
+                        <label class="item-label">CPU单价<span class="check-tips">(元/核)</span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="cpu_price" value="{$info.cpu_price}">
+                        </div>
+                    </div>
+
+                    <div class="form-item cf">
+                    <label class="item-label">内存最小值<span class="check-tips">（单位：G）</span></label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="memory_min_num" value="{$info.memory_min_num}">
+                    </div>
+                </div>
+                    <div class="form-item cf">
+                        <label class="item-label">内存最大值<span class="check-tips">（单位：G）</span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="memory_max_num" value="{$info.memory_max_num}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">内存单价<span class="check-tips">(元/G)</span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="memory_price" value="{$info.memory_price}">
+                        </div>
+                    </div>
+
+                    <div class="form-item cf">
+                        <label class="item-label">硬盘最小值<span class="check-tips">（单位：G）</span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="disk_min_num" value="{$info.disk_min_num}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">硬盘最大值<span class="check-tips">（单位：G）</span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="disk_max_num" value="{$info.disk_max_num}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">硬盘单价<span class="check-tips">(元/G)</span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="disk_price" value="{$info.disk_price}">
+                        </div>
+                    </div>
+
+                    <div class="form-item cf">
+                        <label class="item-label">带宽最小值<span class="check-tips">（单位：M）</span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="bandwidth_min_num" value="{$info.bandwidth_min_num}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">带宽最大值<span class="check-tips">（单位：M）</span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="bandwidth_max_num" value="{$info.bandwidth_max_num}">
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">带宽单价<span class="check-tips">(元/M)</span></label>
+                        <div class="controls">
+                            <input type="text" class="text input-large" name="bandwidth_price" value="{$info.bandwidth_price}">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="form-item cf">
+                    <button class="btn submit-btn ajax-post hidden" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+                    <a class="btn btn-return" href="{$Think.cookie.__forward__}">返 回</a>
+
+                    <input type="hidden" name="id" value="{$info.id|default=''}"/>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+    <php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+    <link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+
+        Think.setValue("type", {$data.type|default='""'});
+        Think.setValue("display", {$data.display|default=0});
+
+        $('#submit').click(function(){
+            $('#form').submit();
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('ElasticConfig/index')}');
+    </script>
+</block>

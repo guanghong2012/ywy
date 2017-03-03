@@ -25,6 +25,140 @@
     <!-- 全局依赖插件 -->
     <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
     <link rel="stylesheet" href="__YWY__/server/css/west.css" type="text/css">
+
+    <script>
+        //预定义全局js变量
+        //var basic_config = new Array()
+        var basic_cpu = '{$basic.cpu}';//基本型cpu核数
+        basic_cpu = getcpuIndex(basic_cpu);
+        var basic_memory = '{$basic.memory}';//基本型内存大小
+        basic_memory = getmemIndex(basic_memory);
+        var basic_disk = '{$basic.disk}';//基本型内存大小
+        basic_disk = parseInt(basic_disk);
+        var basic_bandwidth = '{$basic.bandwidth}';//基本型带宽大小
+        basic_bandwidth = parseInt(basic_bandwidth);
+
+        //标准型
+        var standard_cpu = '{$standard.cpu}';//标准型 cpu核数
+        standard_cpu = getcpuIndex(standard_cpu);
+        var standard_memory = '{$standard.memory}';//标准型 内存大小
+        standard_memory = getmemIndex(standard_memory);
+        var standard_disk = '{$standard.disk}';//标准型 硬盘大小
+        standard_disk = parseInt(standard_disk);
+        var standard_bandwidth = '{$standard.bandwidth}';//标准型 带宽大小
+        standard_bandwidth = parseInt(standard_bandwidth);
+
+        //商务型
+        var business_cpu = '{$business.cpu}';//标准型 cpu核数
+        business_cpu = getcpuIndex(business_cpu);
+        var business_memory = '{$business.memory}';//标准型 内存大小
+        business_memory = getmemIndex(business_memory);
+        var business_disk = '{$business.disk}';//标准型 硬盘大小
+        business_disk = parseInt(business_disk);
+        var business_bandwidth = '{$business.bandwidth}';//标准型 带宽大小
+        business_bandwidth = parseInt(business_bandwidth);
+
+        //舒适型
+        var comfortable_cpu = '{$comfortable.cpu}';//标准型 cpu核数
+        comfortable_cpu = getcpuIndex(comfortable_cpu);
+        var comfortable_memory = '{$comfortable.memory}';//标准型 内存大小
+        comfortable_memory = getmemIndex(comfortable_memory);
+        var comfortable_disk = '{$comfortable.disk}';//标准型 硬盘大小
+        comfortable_disk = parseInt(comfortable_disk);
+        var comfortable_bandwidth = '{$comfortable.bandwidth}';//标准型 带宽大小
+        comfortable_bandwidth = parseInt(comfortable_bandwidth);
+
+        //企业型
+        var enterprise_cpu = '{$enterprise.cpu}';//标准型 cpu核数
+        enterprise_cpu = getcpuIndex(enterprise_cpu);
+        var enterprise_memory = '{$enterprise.memory}';//标准型 内存大小
+        enterprise_memory = getmemIndex(enterprise_memory);
+        var enterprise_disk = '{$enterprise.disk}';//标准型 硬盘大小
+        enterprise_disk = parseInt(enterprise_disk);
+        var enterprise_bandwidth = '{$enterprise.bandwidth}';//标准型 带宽大小
+        enterprise_bandwidth = parseInt(enterprise_bandwidth);
+
+        //豪华型
+        var luxury_cpu = '{$luxury.cpu}';//标准型 cpu核数
+        luxury_cpu = getcpuIndex(luxury_cpu);
+        var luxury_memory = '{$luxury.memory}';//标准型 内存大小
+        luxury_memory = getmemIndex(luxury_memory);
+        var luxury_disk = '{$luxury.disk}';//标准型 硬盘大小
+        luxury_disk = parseInt(luxury_disk);
+        var luxury_bandwidth = '{$luxury.bandwidth}';//标准型 带宽大小
+        luxury_bandwidth = parseInt(luxury_bandwidth);
+
+        //根据cpu核数得出对应的index下标
+        function getcpuIndex(num){
+            var index;
+            switch (num){
+                case '1':
+                    index = 1;
+                    break
+                case '2':
+                    index = 2
+                    break
+                case '4':
+                    index = 3;
+                    break
+                case '8':
+                    index =4;
+                    break
+                case '12':
+                    index = 5;
+                    break
+                case '16':
+                    index = 6;
+                    break
+            }
+            return index;
+        }
+        //根据内存大小得出对应的index下标
+        function getmemIndex(num){
+            var index;
+            switch (num){
+                case '0.5':
+                    index = 1;
+                    break
+                case '1':
+                    index = 2
+                    break
+                case '2':
+                    index = 3;
+                    break
+                case '3':
+                    index =4;
+                    break
+                case '4':
+                    index = 5;
+                    break
+                case '6':
+                    index = 6;
+                    break
+                case '8':
+                    index = 7;
+                    break
+                case '12':
+                    index = 8;
+                    break
+                case '16':
+                    index = 9;
+                    break
+                case '32':
+                    index = 10;
+                    break
+                case '64':
+                    index = 11;
+                    break
+                case '128':
+                    index = 12;
+                    break
+            }
+            return index;
+        }
+
+    </script>
+
 </head>
 <!-- 云服务器 end-->
 
@@ -130,63 +264,61 @@
                         <!-- 产品配置模板 -->
                         <script id="J_productonfigListContainerTpl" type="text/x-jsrender">
                         <li>
-                            <label class="">产品类型：</label><span class="">{{:productTypeDesc}}</span></li>
+                            <label class="">产品类型：</label><span class="">商务型</span></li>
                         <li>
-                            <label class="">CPU：</label><span class="">{{:cpuCount}}核</span></li>
+                            <label class="">CPU：</label><span class="">4核</span></li>
                         <li>
-                            <label class="">内存：</label><span class="">{{:ramCount}}G</span></li>
+                            <label class="">内存：</label><span class="">4G</span></li>
                         <li>
-                            <label class="">硬盘：</label><span class="">{{:dataCount}}G</span></li>
+                            <label class="">硬盘：</label><span class="">100G</span></li>
                         <li>
-                            <label class="">带宽：</label><span class="">{{:fluxCount}}Mbps</span></li>
+                            <label class="">带宽：</label><span class="">4Mbps</span></li>
                         <li>
-                            <label class="f-l">操作系统：</label><span class="" style="display:block;overflow:hidden">{{:CHOICE_OSDesc}}</span></li>
+                            <label class="f-l">操作系统：</label><span class="" style="display:block;overflow:hidden">Win2012</span></li>
                         <li>
-                            <label class="">线路：</label><span class="">{{:roomDesc}}</span></li>
+                            <label class="">线路：</label><span class=""></span></li>
                         <li>
-                            <label class="">存储模式：</label><span class="">{{:disktypeDesc}}</span></li>
+                            <label class="">存储模式：</label><span class=""></span></li>
                         <li>
-                            <label class="">服务标准：</label><span class="">{{:servicetypeDesc}}</span></li>
+                            <label class="">服务标准：</label><span class=""></span></li>
                         <li>
-                            <label class="">购买量：</label><span class="">{{:renewTimeDesc}}x {{:buycount}}台</span></li>
+                            <label class="">购买量：</label><span class="">x 台</span></li>
                         <li>
                             <label class=""style="color: #fe7402;">赠送时长：</label><span class="" style="color: #fe7402;font-weight: bold;">
-                            {{if giftTime}}
-                            {{:giftTime}}
-                            {{else}}
+
                             无
-                            {{/if}}
+
                             </span>
                         </li>
                         <li>
                             <label class="">集群ID：</label><span class="">
-                            {{if setebsid}}
-                            {{:setebsid}}
-                            {{else}}
+
                             随机分配
-                            {{/if}}
+
                             </span></li>
                     </script>
                         <!-- 当前配置 结束 -->
                         <div class="tx-host">
                             <div class="tuijian-config" id="J_tuijianBtnsDom">
+
                                 <a class="pos-r" href="javascript:void(0);" data-value="basic" data-type="tejia">入门型
-                                    <div class="manager-tip">适用于中小企业展示型网站<i></i></div>
+                                    <div class="manager-tip">{$basic.description}<i></i></div>
                                 </a>
+
                                 <a class="pos-r" href="javascript:void(0);" data-value="standard" data-type="biaozhun">标准型
-                                    <div class="manager-tip">适用于企业官方网站、个人站长<i></i></div>
+                                    <div class="manager-tip">{$standard.description}<i></i></div>
                                 </a>
                                 <a class="pos-r" href="javascript:void(0);" data-value="business" data-type="shangwu">商务型
-                                    <div class="manager-tip">适用于地方/行业门户网站<i></i></div>
+                                    <div class="manager-tip">{$business.description}<i></i></div>
                                 </a>
                                 <a class="pos-r" href="javascript:void(0);" data-value="comfortable">舒适型
-                                    <div class="manager-tip">适用于网上商城、团购网站等<i></i></div>
+                                    <div class="manager-tip">{$comfortable.description}<i></i></div>
                                 </a>
                                 <a class="pos-r" href="javascript:void(0);" data-value="enterprise">企业型
-                                    <div class="manager-tip" style="width: 204px;">适用于社区SNS/论坛/ERP/OACRM等<i></i></div>
+                                    <div class="manager-tip" style="width: 204px;">{$enterprise.description}<i></i></div>
                                 </a>
                                 <a class="pos-r" href="javascript:void(0);" data-value="luxury">豪华型
-                                    <div class="manager-tip">适用于网络游戏，其它高端应用等<i></i></div>
+                                    <div class="manager-tip">{$luxury.description}<i></i></div>
                                 </a>
                             </div>
                             <div class="config-box cl">
@@ -221,7 +353,7 @@
                                 </a>
                             </div>
                             <div class="config-box cl">
-                                <label for="">内存:</label>
+                                <label>内存:</label>
 
                                 <div class="right-side cl">
                                     <div class="low-config-tip" id="J_ramLowTip">
@@ -258,7 +390,7 @@
                                 </a>
                             </div>
                             <div class="config-box cl">
-                                <label for="">硬盘:</label>
+                                <label>硬盘:</label>
                                 <div class="right-side cl">
                                     <span class="config-modify config-minus" data-target="data"></span>
                                     <input type="text" data-orig-type="range" name="data" id="dataRange" class="range" >
@@ -282,7 +414,7 @@
                                 </a>
                             </div>
                             <div class="config-box cl">
-                                <label for="">带宽:</label>
+                                <label>带宽:</label>
                                 <div class="right-side cl flux-container">
                                     <div class="low-config-tip" id="J_fluxLowTip">选择0M带宽不能访问公网（不分配公网IP），且后期亦不能升级带宽！</div>
                                     <span class="config-modify config-minus" data-target="flux"></span>
@@ -290,7 +422,7 @@
                                     <span class="config-modify config-plus" data-target="flux"></span>
                                     <span class="config-count-unit">M</span>
                                     <ul class="range-desc cl" id="J_fluxRangeDesc">
-                                        <li data-index="0" class="first"><a href="javascript:void(0);">0M</a></li>
+                                        <li data-index="0" class="first"><a href="javascript:void(0);">1M</a></li>
                                         <li data-index="100" class="last"><a href="javascript:void(0);">100M</a></li>
                                     </ul>
                                 </div>
@@ -317,11 +449,30 @@
                                 </div>
                                 <!-- 操作系统子项 window与linux子项分别渲染-->
                                 <ul class="hide" id="windowSubItems">
-                                    <li class="item selected first" data-value="">请选择相关版本<i class="trangle-arrow pngFix"></i></li><li class="item" data-value="win_2008_64"><i class="icon-type windows"></i>Win2008 64位(预装php+sql2008等网站集成环境,3G或以上内存)[强烈推荐]<i class="icon-ver icon-64"></i></li><li class="item" data-value="win_2008"><i class="icon-type windows"></i>Win2008 64位(纯净版)<i class="icon-ver icon-64"></i></li><li class="item" data-value="win2008_en_clean"><i class="icon-type windows"></i>Win2008 64位(英文纯净版)<i class="icon-ver icon-64"></i></li><li class="item" data-value="win_2012_mssql2012"><i class="icon-type windows"></i>win2012 64位(预装sqlserver2012)<i class="icon-ver icon-64"></i></li><li class="item" data-value="win_2012_clean"><i class="icon-type windows"></i>Win2012 64位(纯净版)<i class="icon-ver icon-64"></i></li><li class="item" data-value="win"><i class="icon-type windows"></i>Win2003 32位(预装sqlserver2000及常用软件)[官方停止安全更新,不推荐]<i class="icon-ver icon-32"></i></li><li class="item" data-value="win_2005"><i class="icon-type windows"></i>Win2003 32位(预装sqlserver2005及常用软件)[官方停止安全更新,不推荐]<i class="icon-ver icon-32"></i></li><li class="item" data-value="win_clean"><i class="icon-type windows"></i>Win2003 32位(纯净版)[官方停止安全更新,不推荐]<i class="icon-ver icon-32"></i></li><li class="item" data-value="win_64"><i class="icon-type windows"></i>Win2003 64位(纯净版)[官方停止安全更新,不推荐]<i class="icon-ver icon-64"></i></li></ul>
+                                    <li class="item selected first" data-value="">请选择相关版本<i class="trangle-arrow pngFix"></i></li>
+
+                                    <volist name="windows" id="vo">
+                                    <li class="item" data-value="{$vo.id}" data-price="{$vo.price}" ><i class="icon-type windows"></i>{$vo.name}<i class="icon-ver icon-64"></i></li>
+                                    </volist>
+                                    <!--
+                                    <li class="item" data-value="win_2008"><i class="icon-type windows"></i>Win2008 64位(纯净版)<i class="icon-ver icon-64"></i></li><li class="item" data-value="win2008_en_clean"><i class="icon-type windows"></i>Win2008 64位(英文纯净版)<i class="icon-ver icon-64"></i></li><li class="item" data-value="win_2012_mssql2012"><i class="icon-type windows"></i>win2012 64位(预装sqlserver2012)<i class="icon-ver icon-64"></i></li><li class="item" data-value="win_2012_clean"><i class="icon-type windows"></i>Win2012 64位(纯净版)<i class="icon-ver icon-64"></i></li><li class="item" data-value="win"><i class="icon-type windows"></i>Win2003 32位(预装sqlserver2000及常用软件)[官方停止安全更新,不推荐]<i class="icon-ver icon-32"></i></li><li class="item" data-value="win_2005"><i class="icon-type windows"></i>Win2003 32位(预装sqlserver2005及常用软件)[官方停止安全更新,不推荐]<i class="icon-ver icon-32"></i></li><li class="item" data-value="win_clean"><i class="icon-type windows"></i>Win2003 32位(纯净版)[官方停止安全更新,不推荐]<i class="icon-ver icon-32"></i></li><li class="item" data-value="win_64"><i class="icon-type windows"></i>Win2003 64位(纯净版)[官方停止安全更新,不推荐]<i class="icon-ver icon-64"></i></li>-->
+
+                                </ul>
+
                                 <ul class="hide" id="linuxSubItems">
-                                    <li class="item selected first" data-value="">请选择相关版本<i class="trangle-arrow pngFix"></i></li><li class="item" data-value="linux_wd"><i class="icon-type linux"></i>Linux 32位(CentOS6.2,预装wd控制面板)<i class="icon-ver icon-32"></i></li><li class="item" data-value="linux_64"><i class="icon-type linux"></i>Linux 64位(CentOS6.2,预装wd控制面板)<i class="icon-ver icon-64"></i></li><li class="item" data-value="linux_6.4"><i class="icon-type linux"></i>Linux 64位(CentOS6.4,纯净版)<i class="icon-ver icon-64"></i></li><li class="item" data-value="linux_centos7"><i class="icon-type linux"></i>Linux 64位(CentOS7.0,纯净版)<i class="icon-ver icon-64"></i></li><li class="item" data-value="linux_debian64"><i class="icon-type linux"></i>Linux 64位(Debian 7.0 纯净版)<i class="icon-ver icon-64"></i></li><li class="item" data-value="linux_ubuntu"><i class="icon-type linux"></i>Linux 32位(ubuntu-14.04-server)<i class="icon-ver icon-32"></i></li><li class="item" data-value="linux_ubuntu_64"><i class="icon-type linux"></i>Linux 64位(ubuntu-14.04-server)<i class="icon-ver icon-64"></i></li></ul>
+                                    <li class="item selected first" data-value="">请选择相关版本<i class="trangle-arrow pngFix"></i></li>
+                                    <volist name="linux" id="vo">
+                                    <li class="item" data-value="{$vo.id}" data-price="{$vo.price}" ><i class="icon-type linux"></i>{$vo.name}<i class="icon-ver icon-32"></i></li>
+                                    </volist>
+                                    <!--
+                                    <li class="item" data-value="linux_64"><i class="icon-type linux"></i>Linux 64位(CentOS6.2,预装wd控制面板)<i class="icon-ver icon-64"></i></li><li class="item" data-value="linux_6.4"><i class="icon-type linux"></i>Linux 64位(CentOS6.4,纯净版)<i class="icon-ver icon-64"></i></li><li class="item" data-value="linux_centos7"><i class="icon-type linux"></i>Linux 64位(CentOS7.0,纯净版)<i class="icon-ver icon-64"></i></li><li class="item" data-value="linux_debian64"><i class="icon-type linux"></i>Linux 64位(Debian 7.0 纯净版)<i class="icon-ver icon-64"></i></li><li class="item" data-value="linux_ubuntu"><i class="icon-type linux"></i>Linux 32位(ubuntu-14.04-server)<i class="icon-ver icon-32"></i></li><li class="item" data-value="linux_ubuntu_64"><i class="icon-type linux"></i>Linux 64位(ubuntu-14.04-server)<i class="icon-ver icon-64"></i></li>-->
+
+                                </ul>
+                                <!--
                                 <ul class="hide" id="customSubItems">
-                                    <li class="item selected first" data-value="">请选择相关版本<i class="trangle-arrow pngFix"></i></li></ul>
+                                    <li class="item selected first" data-value="">请选择相关版本<i class="trangle-arrow pngFix"></i></li>
+                                </ul>-->
+
                             </div>
                             <div style="position:absolute;margin-top:-35px;margin-left:113px;">
                                 <a class="pos-r" href="javascript:void(0);">
@@ -350,7 +501,16 @@
                             <div class="config-box cl" style="overflow:visible;">
                                 <label class="f-l">线路：</label>
                                 <div class="config-room" id="J_roomsContainerDom">
-                                    <span class="link-btn active" data-desc="智能多线" data-value="37">智能多线 <span class="btn-desc">推荐,免费提供一个独立IP <a href="/services/cloudhost/server_room_cloud.asp" target="_blank">机房详情>></a></span><i class="btn-desc-arrow"></i></span><span class="link-btn " data-desc="华中BGP" data-value="42">华中BGP <span class="btn-desc">性价比高！BGP多线云服务器,独立IP <a href="/services/Server/servr_room_info_hzbgp.asp" target="_blank">机房详情>></a></span><i class="btn-desc-arrow"></i></span><span class="link-btn " data-desc="电信线路" data-value="38">电信线路 <span class="btn-desc">性价比高，免费提供一个独立IP <a href="/services/cloudhost/server_room_cloud.asp" target="_blank">机房详情>></a></span><i class="btn-desc-arrow"></i></span><span class="link-btn " data-desc="华北BGP" data-value="39">华北BGP <span class="btn-desc">独立IP，只接企业客户 <a href="/services/Server/servr_room_info_bjsy.asp" target="_blank">机房详情>></a></span><i class="btn-desc-arrow"></i></span><span class="link-btn " data-desc="华南BGP" data-value="40">华南BGP <span class="btn-desc">暂时缺货 <a href="/services/Server/servr_room_info_hnbgp.asp" target="_blank">机房详情>></a></span><i class="btn-desc-arrow"></i></span><span class="link-btn " data-desc="亚洲数据中心" data-value="36">亚洲数据中心 <span class="btn-desc">电信+香港双IP，免备案,独享IP二个 <a href="/services/Server/servr_room_info_aisa_ebs.asp" target="_blank">机房详情>></a></span><i class="btn-desc-arrow"></i></span>
+
+                                    <volist name="line" id="vo" key="k">
+                                    <span class="link-btn <eq name='k' value='1'>active</eq> " data-desc="{$vo.name}" data-value="{$vo.id}" data-price="{$vo.price}" >{$vo.name}
+                                        <span class="btn-desc">{$vo.description} <a href="javascript:void(0)" target="_blank">机房详情>></a></span><i class="btn-desc-arrow"></i>
+                                    </span>
+                                    </volist>
+                                    <!--
+                                    <span class="link-btn " data-desc="华中BGP" data-value="42">华中BGP <span class="btn-desc">性价比高！BGP多线云服务器,独立IP <a href="/services/Server/servr_room_info_hzbgp.asp" target="_blank">机房详情>></a></span><i class="btn-desc-arrow"></i></span><span class="link-btn " data-desc="电信线路" data-value="38">电信线路 <span class="btn-desc">性价比高，免费提供一个独立IP <a href="/services/cloudhost/server_room_cloud.asp" target="_blank">机房详情>></a></span><i class="btn-desc-arrow"></i></span><span class="link-btn " data-desc="华北BGP" data-value="39">华北BGP <span class="btn-desc">独立IP，只接企业客户 <a href="/services/Server/servr_room_info_bjsy.asp" target="_blank">机房详情>></a></span><i class="btn-desc-arrow"></i></span><span class="link-btn " data-desc="华南BGP" data-value="40">华南BGP <span class="btn-desc">暂时缺货 <a href="/services/Server/servr_room_info_hnbgp.asp" target="_blank">机房详情>></a></span><i class="btn-desc-arrow"></i></span><span class="link-btn " data-desc="亚洲数据中心" data-value="36">亚洲数据中心 <span class="btn-desc">电信+香港双IP，免备案,独享IP二个 <a href="/services/Server/servr_room_info_aisa_ebs.asp" target="_blank">机房详情>></a></span><i class="btn-desc-arrow"></i></span>
+                                    -->
+
                                     <div class="pos-r">
                                         <div class="low-config-tip hide" style="position:static;opacity:1;width:588px;" id="J_roomTipDesc">您本地是非电信方式上网，建议选择BGP机房，否则在上传和远程桌面连接时可能比较卡。</div>
                                         <div class="low-config-tip hide" style="position:static;opacity:1;z-index:999;background-image: none;color:#6a6a6a;padding-left:0;" id="J_roomDDOSTipDesc">
@@ -362,18 +522,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="config-box cl" id="J_diskTypeContainerDom">
+                            <!--存储模式暂时不用
+                            <div class="config-box cl" id="J_diskTypeContainerDom" style="display: none">
                                 <label>存储模式：</label>
                                 <a class="link-btn active ml-15" href="javascript:void(0);" data-value="ebs">分布式集群存储</a>
                                 <a class="link-btn" href="javascript:void(0);" data-value="ssd">SSD固态硬盘</a>
                             </div>
+
                             <div style="position:absolute;margin-top:-54px;margin-left:112px;"><a class="pos-r" href="" target="_blank">
                                 <span class="icon-question"></span>
                                 <div class="manager-tip" style=" top: 30px;left: -16px; width: 264px; z-index: 100;">
                                     <strong>分布式存储:</strong><br />每份数据保留4份，安全性和稳定性更高，支持热迁移。适合对稳定性、安全性要求很高的应用。<br /><strong>SSD固态硬盘：</strong><br />采用Intel企业级高端SSD硬盘，形成Raid阵列，拥有极高的随机读写IOPS。价格较贵，适合对IO要求特别高的应用。
                                     <i></i>
                                 </div>
-                            </a></div>
+                            </a></div>-->
 
                             <div class="count-info">
                                 <p class="title">购买量</p>
@@ -388,36 +550,20 @@
                                 <div class="config-box cl" style="overflow: initial;">
                                     <label>服务标准：</label>
                                     <dl class="config-service cl" id="J_serviceTypeContainerDom">
-                                        <dt data-value="亿维云基础服务">
+
+                                        <volist name="service" id="vo" key="k">
+                                        <dt <eq name="k" value="2">class="active"</eq> <if condition="$k eq count($service)">style="border-right: none;"</if> data-value="{$vo.name}">
                                         <div class="service-content">
-                                            <p>基础服务</p>
-                                            <div class="config-service-txt">免费</div>
-                                            <div class="config-service-desc">服务器内部问题单项收费</div>
+                                            <p>{$vo.name}</p>
+                                            <div class="config-service-txt"><if condition="$vo['price'] eq 0.00 ">免费<else />{$vo.price}元/月</if></div>
+                                            <div class="config-service-desc">{$vo.description}</div>
                                         </div>
                                         </dt>
-                                        <dt class="active" data-value="亿维云铜牌服务">
-                                        <div class="service-content">
-                                            <p>铜牌服务</p>
-                                            <div class="config-service-txt">30元/月</div>
-                                            <div class="config-service-desc">提供标准技术支持</div>
-                                        </div>
-                                        </dt>
-                                        <dt data-value="亿维云银牌服务">
-                                        <div class="service-content">
-                                            <p>银牌服务</p>
-                                            <div class="config-service-txt">88元/月</div>
-                                            <div class="config-service-desc">提供优先技术支持</div>
-                                        </div>
-                                        </dt>
-                                        <dt style="border-right: none;" data-value="亿维云金牌服务">
-                                        <div class="service-content">
-                                            <p>金牌服务</p>
-                                            <div class="config-service-txt">188元/月</div>
-                                            <div class="config-service-desc">提供全方位技术支持</div>
-                                        </div>
-                                        </dt>
+                                        </volist>
+
+
                                     </dl>
-                                    <a class="blue-link" href="/services/Server/vip_vps.asp" target="_blank">《查看服务标准》</a>
+                                    <a class="blue-link" href="" target="_blank">《查看服务标准》</a>
                                 </div>
                                 <div class="config-box cl" style="overflow: visible;">
                                     <label>购买时长：</label>
