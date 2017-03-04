@@ -21,14 +21,16 @@
     <link rel="stylesheet" href="__YWY__/server/css/wjf-1.css">
     <link rel="stylesheet" href="__YWY__/server/css/pjList.css">
     <link rel="stylesheet" href="__YWY__/server/css/cloudhost.css">
-    <script language="javascript" src="__YWY__/jscripts/kf/login.js"></script>
+
+    <!--<script language="javascript" src="__YWY__/jscripts/kf/login.js"></script>-->
     <!-- 全局依赖插件 -->
     <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
     <link rel="stylesheet" href="__YWY__/server/css/west.css" type="text/css">
 
     <script>
         //预定义全局js变量
-        //var basic_config = new Array()
+        var calculate_url = "{:U('Server/ajaxCalculatePrice')}";//ajax计算价格地址
+
         var basic_cpu = '{$basic.cpu}';//基本型cpu核数
         basic_cpu = getcpuIndex(basic_cpu);
         var basic_memory = '{$basic.memory}';//基本型内存大小
@@ -157,6 +159,22 @@
             return index;
         }
 
+        function checkLogin(){
+            $.ajax({
+                type: "POST",
+                url: "{:U('Server/ajaxCheckLogin')}",
+                data: {check:1},
+                contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                dataType:"text",
+                success: function(datas){
+                    if(datas==0){
+                        return 0;
+                    }else{
+                        return 1;
+                    }
+                }
+            });
+        }
     </script>
 
 </head>
@@ -246,11 +264,11 @@
                                 </li>
                             </ul>
                             <!--    <div class="config-price">费用总计：</div> -->
-                            <div class="font24 orange" id="J_configPriceDom">--</div>
+                            <div class="font24 orange" id="J_configPriceDom"></div>
                             <!-- 价格优惠信息描述 -->
                             <div id="priceDiscountDesc"></div>
                             <div id="agreement_container" class="cl">
-                                <label for="J_agreement" class="dis-ib checked" id="J_agreement_label">
+                                <label  class="dis-ib checked" id="J_agreement_label">
                                 </label>
                                 <div style="overflow:hidden">
                                     我已阅读并同意
@@ -262,41 +280,40 @@
                                 <a class="config-btn btn_try" href="javascript:void(0);">试用配置</a></div>
                         </div>
                         <!-- 产品配置模板 -->
+                        <literal>
                         <script id="J_productonfigListContainerTpl" type="text/x-jsrender">
                         <li>
-                            <label class="">产品类型：</label><span class="">商务型</span></li>
+                            <label class="">产品类型：</label><span class="">{{:productTypeDesc}}</span></li>
                         <li>
-                            <label class="">CPU：</label><span class="">4核</span></li>
+                            <label class="">CPU：</label><span class="">{{:cpuCount}}核</span></li>
                         <li>
-                            <label class="">内存：</label><span class="">4G</span></li>
+                            <label class="">内存：</label><span class="">{{:ramCount}}G</span></li>
                         <li>
-                            <label class="">硬盘：</label><span class="">100G</span></li>
+                            <label class="">硬盘：</label><span class="">{{:dataCount}}G</span></li>
                         <li>
-                            <label class="">带宽：</label><span class="">4Mbps</span></li>
+                            <label class="">带宽：</label><span class="">{{:fluxCount}}Mbps</span></li>
                         <li>
-                            <label class="f-l">操作系统：</label><span class="" style="display:block;overflow:hidden">Win2012</span></li>
+                            <label class="f-l">操作系统：</label><span class="" style="display:block;overflow:hidden">{{:CHOICE_OSDesc}}</span></li>
                         <li>
-                            <label class="">线路：</label><span class=""></span></li>
+                            <label class="">线路：</label><span class="">{{:roomDesc}}</span></li>
+
+                            <label class="">服务标准：</label><span class="">{{:servicetypeDesc}}</span></li>
                         <li>
-                            <label class="">存储模式：</label><span class=""></span></li>
-                        <li>
-                            <label class="">服务标准：</label><span class=""></span></li>
-                        <li>
-                            <label class="">购买量：</label><span class="">x 台</span></li>
+                            <label class="">购买量：</label><span class="">{{:renewTimeDesc}}x {{:buycount}} 台</span></li>
                         <li>
                             <label class=""style="color: #fe7402;">赠送时长：</label><span class="" style="color: #fe7402;font-weight: bold;">
 
+                            {{if giftTime}}
+                            {{:giftTime}}
+                            {{else}}
                             无
+                            {{/if}}
 
                             </span>
                         </li>
-                        <li>
-                            <label class="">集群ID：</label><span class="">
 
-                            随机分配
-
-                            </span></li>
                     </script>
+                    </literal>
                         <!-- 当前配置 结束 -->
                         <div class="tx-host">
                             <div class="tuijian-config" id="J_tuijianBtnsDom">
@@ -552,7 +569,7 @@
                                     <dl class="config-service cl" id="J_serviceTypeContainerDom">
 
                                         <volist name="service" id="vo" key="k">
-                                        <dt <eq name="k" value="2">class="active"</eq> <if condition="$k eq count($service)">style="border-right: none;"</if> data-value="{$vo.name}">
+                                        <dt <eq name="k" value="1">class="active"</eq> <if condition="$k eq count($service)">style="border-right: none;"</if> data-value="{$vo.id}" data-name="{$vo.name}" >
                                         <div class="service-content">
                                             <p>{$vo.name}</p>
                                             <div class="config-service-txt"><if condition="$vo['price'] eq 0.00 ">免费<else />{$vo.price}元/月</if></div>
@@ -573,27 +590,27 @@
                                          ...
                                          </span>
                                             <i class="btn-desc-arrow"></i></dt>
-                                        <dt data-value="2" data-desc="3个月" data-gift="">3个月
+                                        <dt data-value="3" data-desc="3个月" data-gift="">3个月
                                         </dt>
-                                        <dt data-value="3" class="gift" data-desc="6个月" data-gift="半个月">6个月
+                                        <dt data-value="6" class="gift" data-desc="6个月" data-gift="半个月">6个月
                                         <span class="btn-desc">
                                         赠送半月
                                          </span>
                                             <i class="btn-desc-arrow"></i>
                                         </dt>
-                                        <dt data-value="4" class="gift" data-desc="1年" data-gift="2个月">1年<span class="btn-desc">
+                                        <dt data-value="12" class="gift" data-desc="1年" data-gift="2个月">1年<span class="btn-desc">
                                         赠送2月
                                          </span>
                                             <i class="btn-desc-arrow"></i></dt>
-                                        <dt data-value="5" class="gift turn-back" data-desc="2年" data-gift="8个月">2年<span class="btn-desc">
+                                        <dt data-value="24" class="gift turn-back" data-desc="2年" data-gift="8个月">2年<span class="btn-desc">
                                         赠送8月
                                          </span>
                                             <i class="btn-desc-arrow"></i></dt>
-                                        <dt data-value="6" class="gift turn-back" data-desc="3年" data-gift="15个月">3年<span class="btn-desc">
+                                        <dt data-value="36" class="gift turn-back" data-desc="3年" data-gift="15个月">3年<span class="btn-desc">
                                         赠送15月
                                          </span>
                                             <i class="btn-desc-arrow"></i></dt>
-                                        <dt data-value="7" class="gift turn-back" style="border-right: none;" data-desc="5年" data-gift="30个月">5年<span class="btn-desc">
+                                        <dt data-value="60" class="gift turn-back" style="border-right: none;" data-desc="5年" data-gift="30个月">5年<span class="btn-desc">
                                         赠送30月
                                          </span>
                                             <i class="btn-desc-arrow"></i></dt>
@@ -613,7 +630,7 @@
                         </div>
                     </div>
                     <!-- 购买表单数据提交 -->
-                    <form action="/services/cloudhost/Default.asp" method="post" id="J_buyOrTryForm" class="hide"></form>
+                    <form action="{:U('Server/buyHost')}" method="post" id="J_buyOrTryForm" class="hide"></form>
                     <!-- 弹性云主机 结束 -->
 
                     <!-- 套餐云主机 开始 -->

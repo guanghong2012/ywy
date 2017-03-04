@@ -88,7 +88,7 @@
                 <h3>{$vo.number}</h3>
             </div>
             <div class="tdw100 div_ty">
-                <h3>{$vo.year}年</h3>
+                <h3>{$vo.year}</h3>
             </div>
             <div class="tdw380 div_ty">
                 <h3>基本价格：{$vo.base_total} + 增值价格：{$vo.added_price} = {$vo.subtotal} 元</h3>
@@ -114,6 +114,7 @@
                     </div>
                     <empty name="vo['parameters']">
                         <else />
+                    <if condition="$vo['type'] eq 2">
                     <div class="div1_2">
                         <h2>具体参数</h2>
                         <ul>
@@ -143,6 +144,28 @@
                         </ul>
                         <div class="clear"></div>
                     </div>
+                    <elseif condition="$vo['type'] eq 4" />
+                        <div class="div1_2">
+                            <h2>具体参数</h2>
+                            <ul>
+                                <li>
+                                    <p><span>cpu：</span>{$vo['parameters']['cpu']}核</p>
+                                    <p><span>内存：</span>{$vo['parameters']['memory']}G</p>
+                                    <p><span>硬盘：</span>{$vo['parameters']['disk']}G</p>
+                                </li>
+                                <li>
+                                    <p><span>带宽：</span>{$vo['parameters']['bandwidth']}MB</p>
+                                    <p><span>线路：</span>{$vo['parameters']['line_name']}</p>
+                                </li>
+                                <li>
+                                    <p><span>服务标准：</span>{$vo['parameters']['service_name']}</p>
+                                    <p><span>操作系统：</span>{$vo['parameters']['os_name']}</p>
+                                </li>
+
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                    </if>
                     </empty>
 
                 </div>

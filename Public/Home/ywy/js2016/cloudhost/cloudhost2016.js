@@ -23,7 +23,7 @@ var cloudhost = {
             biaozhun: 'standard'
         },
         // 默认配置类型 商务型
-        defaultConfigType: 'business',
+        defaultConfigType: 'standard',
         // CPU 下标对应CPU数量
         cpuIndexCountMap: [-1, 1, 2, 4, 8, 12, 16],
         ramIndexCountMap: [-1, 0.5, 1, 2, 3, 4, 6, 8, 12, 16, 32, 64, 128]
@@ -36,53 +36,53 @@ var cloudhost = {
             content: {
                 cpu: basic_cpu,
                 ram: basic_memory,
-                data: 60,
-                flux: 2
+                data: basic_disk,
+                flux: basic_bandwidth
             }
         },
         'standard': {
             title: "标准型",
             content: {
-                cpu: 2,
-                ram: 3,
-                data: 80,
-                flux: 3
+                cpu: standard_cpu,
+                ram: standard_memory,
+                data: standard_disk,
+                flux: standard_bandwidth
             }
         },
         'business': {
             title: "商务型",
             content: {
-                cpu: 3,
-                ram: 5,
-                data: 100,
-                flux: 4
+                cpu: business_cpu,
+                ram: business_memory,
+                data: business_disk,
+                flux: business_bandwidth
             }
         },
         'comfortable': {
             title: "舒适型",
             content: {
-                cpu: 3,
-                ram: 5,
-                data: 200,
-                flux: 5
+                cpu: comfortable_cpu,
+                ram: comfortable_memory,
+                data: comfortable_disk,
+                flux: comfortable_bandwidth
             }
         },
         'enterprise': {
             title: "企业型",
             content: {
-                cpu: 4,
-                ram: 7,
-                data: 300,
-                flux: 8
+                cpu: enterprise_cpu,
+                ram: enterprise_memory,
+                data: enterprise_disk,
+                flux: enterprise_bandwidth
             }
         },
         'luxury': {
             title: "豪华型",
             content: {
-                cpu: 5,
-                ram: 8,
-                data: 500,
-                flux: 10
+                cpu: luxury_cpu,
+                ram: luxury_memory,
+                data: luxury_disk,
+                flux: luxury_bandwidth
             }
         }
     },
@@ -99,11 +99,11 @@ var cloudhost = {
         // 操作系统版本
         // CHOICE_OS: 'win',
         // 线路
-        room: 37,
+        room: $("#J_roomsContainerDom").find("span.active").attr("data-value"),
         // 存储模式
         disktype: 'ebs',
         // 服务标准
-        servicetype: '西部数码铜牌服务',
+        servicetype: 1,
         // 购买时长
         renewTime: 1,
         // 购买数量
@@ -113,9 +113,9 @@ var cloudhost = {
         // 集群ID 默认为空 表示 随机分配
         setebsid: '',
         // 试用或者购买 均为该字段
-        act: 'buysub'
+        act: 'buysub',
             // 购买为0  试用为1
-            // paytype: 0
+        //paytype: 0
 
     },
     initBanner: function() {
@@ -758,14 +758,19 @@ var cloudhost = {
                 return;
             }
             if ($(this).hasClass('btn_buy')) {
-               // self.buyCloudHost();
-			   islogin(function(){self.buyCloudHost.call(self)})
+                $is_login = checkLogin();
+                if($is_login == 0){
+                    layer.alert("请登录！");
+                    return false;
+                }
+                self.buyCloudHost();
+			   //islogin(function(){self.buyCloudHost.call(self)})
             } else if ($(this).hasClass('btn_vhostupcloud')) {
-                //self.buyCloudHost();
-				 islogin(function(){self.buyCloudHost.call(self)})
+                self.buyCloudHost();
+				 //islogin(function(){self.buyCloudHost.call(self)})
             } else {
-              //  self.tryCloudHost();
-			   islogin(function(){self.tryCloudHost.call(self)})
+                self.tryCloudHost();
+			   //islogin(function(){self.tryCloudHost.call(self)})
             }
         });
 
@@ -872,6 +877,8 @@ var cloudhost = {
             // 0 试用 1 购买
             // 购买0 试用为 1
             self.serverConfig.paytype = buyOrTry ? 0 : 1;
+            self.submitOrder(buyOrTry);
+            /*
             if (select_room == "37" || select_room == "38") {
                 isSetEbsid(function() {
                     // 更新配置信息 === 不再重新取数据(只变更集群ID)
@@ -889,6 +896,8 @@ var cloudhost = {
                 // 执行提交订单流程
                 self.submitOrder(buyOrTry);
             }
+            */
+
 
         } else {
             layer.alert("您还没有同意西部数码主机租用协议");
@@ -1051,15 +1060,16 @@ var cloudhost = {
                 // 线路
                 roomDesc: $("#J_roomsContainerDom span.active").attr('data-desc'),
                 // 存储模式
-                disktypeDesc: $("#J_diskTypeContainerDom a.active").text(),
+                //disktypeDesc: $("#J_diskTypeContainerDom a.active").text(),
                 // 服务标准
-                servicetypeDesc: $("#J_serviceTypeContainerDom dt.active").attr('data-value'),
+                //servicetypeDesc: $("#J_serviceTypeContainerDom dt.active").attr('data-value'),
+                servicetypeDesc: $("#J_serviceTypeContainerDom dt.active").attr('data-name'),
                 // 购买时长
                 renewTimeDesc: $("#J_renewTimeContainerDom dt.active").attr('data-desc'),
                 // 购买数量
                 buycount: self.serverConfig.buycount,
                 // 集群ID
-                setebsid: $("#J_setebsidHiddenDom").val(),
+                //setebsid: $("#J_setebsidHiddenDom").val(),
                 // 赠送时长
                 giftTime: $("#J_renewTimeContainerDom dt.active").attr('data-gift')
             };
@@ -1084,22 +1094,19 @@ var cloudhost = {
             });
             // 发送请求 获取实时价格
             self.updatePriceXHR = $.ajax({
-                url: '/services/cloudhost/',
+                url: calculate_url,
                 type: 'POST',
                 data: configInfo,
+                dataType:"json",
                 success: function(msg) {
-                    var priceList = msg.match(/>\d+元?</g);
-                    var priceListDomArr = [];
-                    var priceRegexp = /[<>元]/g;
-                    if (priceList.length == 1) {
-                        priceListDomArr.push('<span class="realprice">&yen; ' + (priceList[0].replace(priceRegexp, '')) + '</span>');
-                    } else {
-                        priceListDomArr.push('<span class="realprice">&yen; ' + (priceList[1].replace(priceRegexp, '')) + '</span>');
-                        priceListDomArr.push('<span class="origiPrice">&yen; ' + (priceList[0].replace(priceRegexp, '')) + '</span>');
+                    if(msg.status==1){
+                        $("#J_configPriceDom").html('<span class="realprice">&yen;'+msg.total+'</span>');
+                        changeBuyStatus(true);
+                    }else{
+                        //layer.alert(msg.msg);
                     }
-                    $("#J_configPriceDom").html(priceListDomArr.join(''));
-
                     // 如果购买的是一个月
+                    /*
                     if (configInfo.renewTime == '1') {
                         if (userlevel != "1" && userlevel != "") {
                             $("#priceDiscountDesc").html(" (首月8折特惠)");
@@ -1112,7 +1119,9 @@ var cloudhost = {
                     } else {
                         $("#priceDiscountDesc").hide();
                     }
-                    changeBuyStatus(true);
+                    */
+
+
                 },
                 error: function() {
 

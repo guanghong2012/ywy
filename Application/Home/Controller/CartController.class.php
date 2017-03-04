@@ -35,7 +35,8 @@ class CartController extends HomeController{
                 $value['parameters'] = json_decode($value['parameters'],true);//产品参数信息
             }
             $value['project'] = json_decode($value['project'],true);//方案信息
-            $value['year'] = $value['month']/12;
+            //$value['year'] = $value['month']/12;
+            $value['year'] = formatYear($value['month']);
             if(2==$value['type']){
                 //虚拟主机
                 $price_info = M('CpPrice')->where('id='.$value['price_id'])->find();
@@ -113,7 +114,8 @@ class CartController extends HomeController{
             if(!empty($value['parameters'])){
                 $value['parameters'] = json_decode($value['parameters'],true);//产品参数信息
             }
-            $value['year'] = $value['month']/12;
+            //$value['year'] = $value['month']/12;
+            $value['year'] = formatYear($value['month']);
             $value['project'] = json_decode($value['project'],true);//方案信息
             if(2==$value['type']){
                 //虚拟主机

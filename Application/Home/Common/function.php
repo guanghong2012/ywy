@@ -165,3 +165,42 @@ function enableOrderTemplate($order_id){
     }
 
 }
+
+/**
+ * @param $arr
+ * @param $key_name
+ * @return array
+ * 将数据库中查出的列表以指定的 id 作为数组的键名
+ */
+function convert_arr_key($arr, $key_name)
+{
+    $arr2 = array();
+    foreach($arr as $key => $val){
+        $arr2[$val[$key_name]] = $val;
+    }
+    return $arr2;
+}
+
+/*
+ * 优雅显示年月
+ */
+function formatYear($month){
+    if(empty($month)){
+        return false;
+    }
+    if($month<12){
+        return $month.'个月';
+    }
+    if($month>=12){
+        //大于12个月
+        $mod = $month % 12;
+        $floor = floor($month/12);
+        if($mod==0){
+            return $floor.'年';
+        }else{
+            return $floor.'年'.$mod.'个月';
+        }
+
+    }
+
+}
