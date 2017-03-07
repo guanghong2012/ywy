@@ -165,6 +165,24 @@
                             </ul>
                             <div class="clear"></div>
                         </div>
+                    <elseif condition="$vo['type'] eq 6" />
+                        <div class="div1_2">
+                            <h2>具体参数</h2>
+                            <ul>
+                                <li>
+                                    <p><span>cpu：</span>{$vo['parameters']['cpu']}</p>
+                                    <p><span>内存：</span>{$vo['parameters']['memory']}G</p>
+                                    <p><span>硬盘：</span>{$vo['parameters']['disk']}G</p>
+                                </li>
+                                <li>
+                                    <p><span>带宽：</span>{$vo['parameters']['bandwidth']}</p>
+                                    <p><span>IP：</span>{$vo['parameters']['ip']}</p>
+                                </li>
+
+
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
                     </if>
                     </empty>
 

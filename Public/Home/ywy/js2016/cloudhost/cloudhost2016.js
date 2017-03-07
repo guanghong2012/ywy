@@ -1162,10 +1162,13 @@ var cloudhost = {
                 selectContainerSelector: '#J_xcloud' + suffix + '_containerDom',
                 onSelect: (function(suffix) {
                     var vr_roomInput = $("#J_xcloud" + suffix + "_vr_roomDom");
+                    var vr_month = $("#J_xcloud" + suffix + "_vr_month");
                     var ajaxXHR = null;
                     return function(value, desc, item) {
                         // 更新线路
                         vr_roomInput.val(value);
+                        //vr_month.val(1)
+                        /*
                         ajaxXHR && ajaxXHR.abort();
                         // 更新相应的带宽信息等
                         ajaxXHR = $.ajax({
@@ -1184,6 +1187,7 @@ var cloudhost = {
                                 $("#radio_xcloud" + suffix + "_IP").html(msg[1]);
                             }
                         });
+                        */
                         // 切换价格
                         $("#J_vpsromprice_xcloud" + suffix + "_container").find('div.ppl').hide();
                         $("#vpsromprice_xcloud" + suffix + "_" + item.attr('data-index')).show();

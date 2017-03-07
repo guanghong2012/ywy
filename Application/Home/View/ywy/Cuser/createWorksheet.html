@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="wsg,hth">
+    <meta name="description" content="ASW">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>用户中心-{:C('WEB_SITE_TITLE')}</title>
+    <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
+    <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
+    <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
+    <script src="__YWY__/css/sfq/js/index.js"></script><!-- 手风琴 -->
+    <link href="__YWY__/css/sfq/css/font-awesome.min.css" rel="stylesheet"><!-- 手风琴 -->
+    <link href="__YWY__/css/sfq/css/style.css" rel="stylesheet" media="screen" type="text/css" /><!-- 手风琴 -->
+    <link href="__YWY__/css/style2.css" rel="stylesheet" type="text/css" /><!-- 表单美化 -->
+    <link href="__YWY__/css/reveal/reveal.css" rel="stylesheet"><!-- 8.0 三种弹出效果 -->
+    <script src="__YWY__/js/reveal/jquery.reveal.js"></script><!-- 8.0 三种弹出效果 -->
+    <script type="text/javascript" src="__YWY__/js/jquery-rl.js"></script><!-- 日历 -->
+    <script type="text/javascript" src="__YWY__/js/jquery.date_input.pack.js"></script> <!-- 日历 end -->
+    <link href="__YWY__/css/upload-zy/zyUpload.css" rel="stylesheet"><!-- 9.0 Upload上传 -->
+
+    <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
+
+    <script>
+        var upload_url = "{:U('File/fileupload')}";//上传控制器
+    </script>
+    <script src="__YWY__/js/upload-zy/zyFile.js"></script><!-- 9.0 Upload上传 -->
+    <script src="__YWY__/js/upload-zy/zyUpload.js"></script><!-- 9.0 Upload上传 -->
+    <script src="__YWY__/js/upload-zy/upload.js"></script><!-- 9.0 Upload上传 -->
+
+</head>
+<body>
+<!-- 头部 -->
+<include file="Public/top"/>
+<!-- /头部 -->
+<div class="user_index">
+    <div class="w1200">
+        <!-- 用户导航 -->
+        <include file="Public/user_nav"/>
+        <!-- /用户导航 -->
+        <div class="user_fr_bank user_fr_bank_1">
+            <h2>提交工单</h2>
+            <div class="div_bank">
+                <div class="user_div">
+                    <form action="{:U('Cuser/createWorksheet')}" method="post">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="user_tjgd_ta">
+                           八嘎: <input id="imgcontainer" name="images" type="text" value="" />
+
+                            <tr>
+                                <td class="td1">工单标题：</td>
+                                <td><input name="title" type="text" class="tjgd_inp"></td>
+                            </tr>
+                            <tr>
+                                <td class="td1" valign="top">问题描述：</td>
+                                <td><textarea name="content" cols="" rows="" class="tjgd_text"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td class="td1" valign="top">问题附件：</td>
+                                <td><div id="demo" class="demo"></div></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><input name="" type="submit" class="tjgd_button" value="提交工单"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document)
+            .ajaxStart(function(){
+                //document.getElementById('loading').click();
+                $("input:submit").attr("disabled", true);
+            })
+            .ajaxStop(function(){
+                $("input:submit").attr("disabled", false);
+            });
+    $("form").submit(function(){
+        var self = $(this);
+        $.post(self.attr("action"), self.serialize(), success, "json");
+        return false;
+
+        function success(data){
+            if(data.status==1){
+                layer.alert("请重试",{title:"提示"});
+                setTimeout(window.location.href = data.url,2000)
+                //window.location.href = data.url;
+            } else {
+                layer.alert(data.msg,{title:"提示"});
+                return false;
+            }
+        }
+    });
+</script>
+
+<!-- 底部 -->
+<include file="Public/bottom"/>
+<!-- /底部 -->
+<script type="text/javascript" src="__YWY__/js2016/lib/wjf/js/wjf-1.0.0.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/jqurey.tools/jquery.tools.rangeinput.min.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/layer/layer.js"></script>
+</body>
+</html>

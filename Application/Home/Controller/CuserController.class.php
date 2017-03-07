@@ -16,12 +16,12 @@ class CuserController extends HomeController{
         if(!in_array(ACTION_NAME,array('login','logout','verify','register'))){
             $this->is_login();
         }
-
+        $this->user_auth = session('user_auth');
     }
     //用户首页
     public function index()
     {
-        print_r(session('user_auth'));
+        //print_r(session('user_auth'));
         $this->display();
     }
     
@@ -106,7 +106,7 @@ class CuserController extends HomeController{
      */
     public function password()
     {
-        $user = session('user_auth');
+        $user = $this->user_auth;
         if(!$user){
             $this->error( '您还没有登陆',U('Cuser/login') );
         }
@@ -200,9 +200,9 @@ class CuserController extends HomeController{
     /*
      * 修改资料
      */
-    public function profile($username='')
+    public function profile()
     {
-        $user = session('user_auth');
+        $user = $this->user_auth;
         $uid = $user['id'];
         $Api = new CuserApi();
         $info = $Api->info($uid);
@@ -264,7 +264,7 @@ class CuserController extends HomeController{
      */
     public function account_log()
     {
-        $user = session('user_auth');
+        $user = $this->user_auth;
         $uid = $user['id'];
         $Api = new CuserApi();
         $info = $Api->info($uid);
@@ -301,7 +301,7 @@ class CuserController extends HomeController{
      */
     public function charge_log()
     {
-        $user = session('user_auth');
+        $user = $this->user_auth;
         $uid = $user['id'];
         $Api = new CuserApi();
         $info = $Api->info($uid);
@@ -338,7 +338,7 @@ class CuserController extends HomeController{
      */
     public function withdraw_log()
     {
-        $user = session('user_auth');
+        $user = $this->user_auth;
         $uid = $user['id'];
         $Api = new CuserApi();
         $info = $Api->info($uid);
@@ -375,7 +375,7 @@ class CuserController extends HomeController{
      */
     public function userTemplate()
     {
-        $user = session('user_auth');
+        $user = $this->user_auth;
         $uid = $user['id'];
         $keywords = I('get.keywords');//关键字
         $map = array();
@@ -395,5 +395,213 @@ class CuserController extends HomeController{
         $this->display();
     }
 
+    /*
+     * 域名产品
+     */
+    public function userDomain()
+    {
+        $user = $this->user_auth;
+        $uid = $user['id'];
+        $keywords = I('get.keywords');//关键字
+        $map = array();
+        $map['uid'] = $uid;
+        if(!empty($keywords)){
+            $map['name'] = array("like",'%'.$keywords.'%');
+        }
+
+        $count      = M('user_domain')->where($map)->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $list = M('user_domain')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('list',$list);// 赋值数据集
+        $this->assign('page',$show);// 赋值分页输出
+
+        $this->display();
+    }
+    
+    /*
+     * 虚拟主机
+     */
+    public function userVitrual()
+    {
+        $user = $this->user_auth;
+        $uid = $user['id'];
+        $keywords = I('get.keywords');//关键字
+        $map = array();
+        $map['uid'] = $uid;
+        if(!empty($keywords)){
+            $map['order_id'] = array("like",'%'.$keywords.'%');
+        }
+
+        $count      = M('user_vitrual')->where($map)->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $list = M('user_vitrual')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('list',$list);// 赋值数据集
+        $this->assign('page',$show);// 赋值分页输出
+
+        $this->display();
+    }
+
+    /*
+     * 用户邮局
+     */
+    public function userMail()
+    {
+        $user = $this->user_auth;
+        $uid = $user['id'];
+        $keywords = I('get.keywords');//关键字
+        $map = array();
+        $map['uid'] = $uid;
+        if(!empty($keywords)){
+            $map['order_id'] = array("like",'%'.$keywords.'%');
+        }
+
+        $count      = M('user_mail')->where($map)->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $list = M('user_mail')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('list',$list);// 赋值数据集
+        $this->assign('page',$show);// 赋值分页输出
+
+        $this->display();
+    }
+    
+    /*
+     * 弹性云主机
+     */
+    public function userHost()
+    {
+        $user = $this->user_auth;
+        $uid = $user['id'];
+        $keywords = I('get.keywords');//关键字
+        $map = array();
+        $map['uid'] = $uid;
+        if(!empty($keywords)){
+            $map['id'] = $keywords;
+        }
+
+        $count      = M('user_host')->where($map)->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $list = M('user_host')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('list',$list);// 赋值数据集
+        $this->assign('page',$show);// 赋值分页输出
+
+        $this->display();
+    }
+    /*
+     * 套餐云主机
+     */
+    public function userPackagehost()
+    {
+        $user = $this->user_auth;
+        $uid = $user['id'];
+        $keywords = I('get.keywords');//关键字
+        $map = array();
+        $map['uid'] = $uid;
+        if(!empty($keywords)){
+            $map['id'] = $keywords;
+        }
+
+        $count      = M('user_packagehost')->where($map)->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $list = M('user_packagehost')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('list',$list);// 赋值数据集
+        $this->assign('page',$show);// 赋值分页输出
+
+        $this->display();
+    }
+    
+    /*
+     * 我的工单
+     */
+    public function userWorksheet()
+    {
+        $user = $this->user_auth;
+        $uid = $user['id'];
+        $keywords = I('get.keywords');//关键字
+        $map = array();
+        $map['uid'] = $uid;
+        if(!empty($keywords)){
+            $map['order_sn'] = $keywords;
+        }
+
+        $count      = M('user_worksheet')->where($map)->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $list = M('user_worksheet')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('list',$list);// 赋值数据集
+        $this->assign('page',$show);// 赋值分页输出
+
+        $this->display();
+    }
+
+    public function createWorksheet()
+    {
+        $user = $this->user_auth;
+        $uid = $user['id'];
+        if(IS_POST){
+            $data = I('post.');
+            if(empty($data['title'])){
+                $return = array("status"=>0,"msg"=>"请输入工单标题");
+                echo json_encode($return);die;
+            }
+            if(empty($data['content'])){
+                $return = array("status"=>0,"msg"=>"请输入问题描述");
+                echo json_encode($return);die;
+            }
+            $images = array();
+            if(!empty($data['images'])){
+                $images_json = explode("#",$data['images']);
+                foreach($images_json as $key=>$value){
+                    if(!empty($value)){
+                        $images[] = json_decode($value,true);
+                    }
+
+                }
+            }
+            $image_id = array();
+            if(!empty($images)){
+                foreach($images as $val){
+                    //保存图片
+                    $picture_data = array(
+                        'path' => '/Uploads/'.$val['savepath'].$val['savename'],
+                        'md5' => $val['md5'],
+                        'sha1' => $val['sha1'],
+                        'status' => 1,
+                        'create_time' => time()
+                    );
+                    $image_id[] = D('picture')->add($picture_data);//图片id
+                }
+            }
+
+            $worksheet = array(
+                'uid' => $uid,
+                'title' => $data['title'],
+                'order_sn' => 'GD'.time(),
+                'create_time' => time(),
+                'content' => $data['content'],
+                'images' => !empty($image_id) ? json_encode($image_id) : '',
+            );
+            $res = M('user_worksheet')->add($worksheet);
+            if($res){
+                $return = array("status"=>1,"msg"=>"工单提交成功","url"=>U('Cuser/userWorksheet'));
+                echo json_encode($return);exit;
+            }
+
+
+        }else{
+            $this->display();
+        }
+    }
+    
 
 }

@@ -639,14 +639,16 @@
                             <!-- 套餐A -->
                             <volist name="package_list" id="vo" key="k">
                             <li class="taocan-item border-bottom <?php if($k % 3 !=0){?>border-right<?php }?>">
-                                <form class="column" action="/services/cloudhost/Order.asp">
-                                    <!--<input type="hidden"  name="productid" value="xcloudA">
-                                    <input type="hidden"  name="CPU" value="IntelXeon E5-2620/5645*4 (四核心)">
-                                    <input type="hidden"  name="Memory" value="2GB">
-                                    <input type="hidden"  name="HardDisk" value="200G SAS硬盘+200G SATA(智能备份)">
-                                    <input type="hidden"  name="HostID" value="创业型云服务器">
-                                    <input type="hidden"  name="vps" value="okay">
-                                    <input type="hidden"  name="vr_room" value="8" id="J_xcloudA_vr_roomDom">-->
+                                <form class="column" action="{:U('Server/buyPackageHost')}" method="post">
+                                    <input type="hidden"  name="productid" value="{$vo.id}">
+                                    <input type="hidden"  name="CPU" value="{$vo.cpu}">
+                                    <input type="hidden"  name="Memory" value="{$vo.memory}">
+                                    <input type="hidden"  name="HardDisk" value="{$vo.disk}">
+                                    <input type="hidden"  name="Hostname" value="{$vo.name}">
+                                    <input type="hidden"  name="price" value="{$vo.first_month_price}" id="J_xcloud{$k}_vr_roomDom">
+                                    <input type="hidden"  name="month" value="1" id="J_xcloud{$k}_vr_month">
+                                    <input type="hidden"  name="bandwidth" value="{$vo.bandwidth}" />
+                                    <input type="hidden"  name="ip" value="{$vo.ip}" />
                                     <div class="column-top">
                                         <p>{$vo.name} <if condition="$vo['is_hot'] eq 1"><em class="icon hot">热销</em><elseif condition="$vo['is_hot'] eq 2" /><em class="icon recommend">推荐</em></if> </p>
                                         <span>{$vo.description}</span>
@@ -663,18 +665,33 @@
                                         <dt>IP:</dt>
                                         <dd id="radio_xcloudA_IP">{$vo.ip}</dd>
                                     </dl>
-                                    <div class="column-txt">默认根据销量高低和推荐级别排序</div>
+                                    <!--<div class="column-txt">默认根据销量高低和推荐级别排序</div>-->
                                     <div class="server-room">
                                         <span class="wjf-ui-select" id="J_xcloud{$k}_roomsDom"></span>
                                         <ul class="wjf-ui-select-container" id="J_xcloud{$k}_containerDom">
+                                            <li class="item selected first-item" data-index="1" data-value="{$vo.first_month_price}" data-month="1" data-id="{$k}" >
+                                                <a  href="javascript:void(0)">首月{$vo.first_month_price}元</a>
+                                            </li>
+                                            <li class="item" data-index="2" data-value="{$vo.quarter_price}" data-month="3" data-id="{$k}" >
+                                                <a  href="javascript:void(0)">{$vo.quarter_price}元/季</a></li>
+                                            <li class="item" data-index="3" data-value="{$vo[half_year_price]}" data-month="6" data-id="{$k}" >
+                                                <a  href="javascript:void(0)">{$vo[half_year_price]}元/半年</a></li>
+                                            <li class="item" data-index="4" data-value="{$vo.year_price}" data-month="12" data-id="{$k}" >
+                                                <a  href="javascript:void(0)">{$vo.year_price}元/年</a></li>
+
+                                        </ul>
+                                        <!--不要机房了
+                                        <ul class="wjf-ui-select-container" id="J_xcloud{$k}_containerDom">
                                             <volist name="vo['computer_room']" id="item" key="kk">
                                             <li class="item <?php if($kk==1){?>selected first-item<?php }?>" data-index="{$kk}" data-value="{$item.id}">
-                                                <span>---->><a target="blank" href="__ROOT__{$item.path}">机房详情</a></span> {$item.name}
+                                                <span>><a target="blank" href="__ROOT__{$item.path}">机房详情</a></span> {$item.name}
                                             </li>
                                             </volist>
 
                                         </ul>
+                        -->
                                     </div>
+                                    <!--不要机房了
                                     <div class="column-price" id="J_vpsromprice_xcloud{$k}_container">
                                         <div class="ppl" id="vpsromprice_xcloud{$k}_1"><span><span class="price">253</span>元首月,</span><span><span class="price">920</span>元/季,</span><span><span class="price">1680</span>元/半年,</span><span><span class="price">2980</span>元/年</span>
                                         </div>
@@ -689,6 +706,7 @@
                                         <div class="ppl" style="display:none;" id="vpsromprice_xcloud{$k}_6"><span><span class="price">423</span>元首月,</span><span><span class="price">1490</span>元/季,</span><span><span class="price">2800</span>元/半年,</span><span><span class="price">4980</span>元/年</span>
                                         </div>
                                     </div>
+                                    -->
                                     <div class="column-bottom">
                                         <button type="submit" class="column-btn">立即购买</button>
                                     </div>
@@ -903,7 +921,7 @@
 <!-- 页面通用滚动插件 -->
 <script type="text/javascript" src="__YWY__/js2016/lib/jquery.SuperSlide/jquery.SuperSlide.2.1.1.x.js"></script>
 <script type="text/javascript" src="__YWY__/js2016/root/jqinclude.js"></script>
-<script type="text/javascript" src="__YWY__/jscripts/config/config.js"></script>
+<!--<script type="text/javascript" src="__YWY__/jscripts/config/config.js"></script>-->
 
 <script type="text/javascript">
     function dynamicLoadScript(url) {
@@ -916,9 +934,39 @@
     // 临时隐藏
     // G_SHOW_RIGHT_BAR=false;
     // 导航、侧边栏代码
-    dynamicLoadScript('__YWY__/js2016/common/menu.js?ver=20170117');
+    //dynamicLoadScript('__YWY__/js2016/common/menu.js?ver=20170117');
     // 页面导航顶部Login js初始化
-    dynamicLoadScript('__YWY__/js2016/topjs.asp');
+    //dynamicLoadScript('__YWY__/js2016/topjs.asp');
+
+
+    //套餐云主机购买
+    $(".column").submit(function(){
+        var self = $(this);
+        $.post(self.attr("action"), self.serialize(), success, "json");
+        return false;
+
+        function success(data){
+            if(data.status==1){
+                layer.alert(data.msg,{title:"提示"})
+                setTimeout(window.location.href = data.url,2000);
+                //window.location.href = data.url;
+            }else if(data.status == 2){
+                layer.alert(data.msg,{title:"提示"});
+            } else {
+                layer.alert("请重试",{title:"提示"});
+                return false;
+            }
+        }
+    })
+
+
+    //套餐云主机选择价格
+    $(".wjf-ui-select-container").find(".item").click(function(){
+        var month = $(this).attr("data-month")
+        var target = $(this).attr("data-id")
+        $("#J_xcloud"+target+"_vr_month").val(month)
+    })
+
 </script>
 <!-- 底部 -->
 <include file="Public/bottom"/>

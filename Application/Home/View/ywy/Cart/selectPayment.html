@@ -103,36 +103,76 @@
                     </div>
                     <empty name="vo['parameters']">
                         <else />
-                    <div class="div1_2">
-                        <h2>具体参数</h2>
-                        <ul>
-                            <li>
-                                <p><span>线路：</span>{$vo.lineType}</p>
-                                <p><span>同时最大连接数：</span>{$vo['parameters']['_limit_MaxConnections']}个</p>
-                                <p><span>MySQL空间限制：</span>{$vo['parameters']['_limit_MySQLQuota']}MB</p>
-                            </li>
-                            <li>
-                                <p><span>WWW站点：</span>支持</p>
-                                <p><span>磁盘空间限制：</span>{$vo['parameters']['_limit_Quota']}M</p>
-                            </li>
+                        <if condition="$vo['type'] eq 2">
+                            <div class="div1_2">
+                                <h2>具体参数</h2>
+                                <ul>
+                                    <li>
+                                        <p><span>线路：</span>{$vo.lineType}</p>
+                                        <p><span>同时最大连接数：</span>{$vo['parameters']['_limit_MaxConnections']}个</p>
+                                        <p><span>MySQL空间限制：</span>{$vo['parameters']['_limit_MySQLQuota']}MB</p>
+                                    </li>
+                                    <li>
+                                        <p><span>WWW站点：</span>支持</p>
+                                        <p><span>磁盘空间限制：</span>{$vo['parameters']['_limit_Quota']}MB</p>
+                                    </li>
+                                    <li>
+                                        <p><span>带宽限制：</span>{$vo['parameters']['_limit_Bandwidth']}KB/秒</p>
+                                        <p><span>PHP：</span>
+                                            <if condition="$vo['parameters']['_limit_PHP'] eq 1">
+                                                支持
+                                                <else />
+                                                不支持
+                                            </if>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p><span>流量限制：</span>{$vo['parameters']['_limit_Traffic']}MB/月</p>
+                                        <p><span>MYSQL数据库：</span>支持</p>
+                                    </li>
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                            <elseif condition="$vo['type'] eq 4" />
+                            <div class="div1_2">
+                                <h2>具体参数</h2>
+                                <ul>
+                                    <li>
+                                        <p><span>cpu：</span>{$vo['parameters']['cpu']}核</p>
+                                        <p><span>内存：</span>{$vo['parameters']['memory']}G</p>
+                                        <p><span>硬盘：</span>{$vo['parameters']['disk']}G</p>
+                                    </li>
+                                    <li>
+                                        <p><span>带宽：</span>{$vo['parameters']['bandwidth']}MB</p>
+                                        <p><span>线路：</span>{$vo['parameters']['line_name']}</p>
+                                    </li>
+                                    <li>
+                                        <p><span>服务标准：</span>{$vo['parameters']['service_name']}</p>
+                                        <p><span>操作系统：</span>{$vo['parameters']['os_name']}</p>
+                                    </li>
 
-                            <li>
-                                <p><span>带宽限制：</span>{$vo['parameters']['_limit_Bandwidth']}KB/秒</p>
-                                <p><span>PHP：</span>
-                                    <if condition="$vo['parameters']['_limit_PHP'] eq 1">
-                                        支持
-                                        <else />
-                                        不支持
-                                    </if>
-                                </p>
-                            </li>
-                            <li>
-                                <p><span>流量限制：</span>{$vo['parameters']['_limit_Traffic']}MB/月</p>
-                                <p><span>MYSQL数据库：</span>支持</p>
-                            </li>
-                        </ul>
-                        <div class="clear"></div>
-                    </div>
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                            <elseif condition="$vo['type'] eq 6" />
+                            <div class="div1_2">
+                                <h2>具体参数</h2>
+                                <ul>
+                                    <li>
+                                        <p><span>cpu：</span>{$vo['parameters']['cpu']}</p>
+                                        <p><span>内存：</span>{$vo['parameters']['memory']}G</p>
+                                        <p><span>硬盘：</span>{$vo['parameters']['disk']}G</p>
+                                    </li>
+                                    <li>
+                                        <p><span>带宽：</span>{$vo['parameters']['bandwidth']}</p>
+                                        <p><span>IP：</span>{$vo['parameters']['ip']}</p>
+                                    </li>
+
+
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                        </if>
                     </empty>
                 </div>
             </div>

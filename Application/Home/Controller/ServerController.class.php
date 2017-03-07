@@ -15,11 +15,14 @@ class ServerController extends HomeController{
         session('userurl',$_SERVER['REQUEST_URI']);//记录登录前的页面地址
         //套餐云产品
         $package_list = D('PackageHost')->order('level asc')->select();
+        /*不要机房了
         if(!empty($package_list)){
             foreach($package_list as $key=>$value){
                 $package_list[$key]['computer_room'] = json_decode($value['computer_room'],true);
             }
         }
+        */
+
 
         //弹性云主机
         $model = M('elastic_host');
@@ -338,6 +341,63 @@ class ServerController extends HomeController{
             $this->success('加入购物车成功', U('Cart/index'));
         }
 
+    }
+    
+    /*
+     * 购买云套餐主机
+     */
+    public function buyPackageHost()
+    {
+        /* 用户登录检测 */
+        $user = session('user_auth');
+        if(empty($user)){
+            $return = array("status"=>2,"msg"=>"用户未登录");
+            echo json_encode($return);exit;
+        }
+
+        $data = I('post.');
+
+        //加入购物车
+        $buy_config = array(
+            'cpu' => $data['CPU'],//cpu
+            'memory' => $data['Memory'],//内存大小
+            'disk' => $data['HardDisk'],//硬盘大小
+            'hostname' => $data['Hostname'],//主机名称
+            'buytime' => $data['month'],//购买时长 月
+            'host_id' => $data['productid'],//套餐云id
+            'price' => $data['price'],//总价格
+            'bandwidth' => $data['bandwidth'],//带宽
+            'ip' => $data['ip'],
+        );
+
+        $model = D("Cart");
+        $data = array();
+        $data['uid'] = $user['id'];
+        $data['product_id'] = 0;//新一代产品id
+        $data['name'] = "套餐云主机-".$buy_config['hostname'];
+        $data['keywords'] = '无';
+        $data['number'] = 1;
+        $data['price'] = $buy_config['price'];//域名单价未知
+        $data['month'] = $buy_config['buytime'];//购买时限
+        $data['base_total'] = $buy_config['price'];
+        $data['added_price'] = 0.00;
+
+        $project['name'] = "套餐云主机-".$buy_config['hostname'];//方案名称
+
+        $data['project'] = json_encode($project);//方案信息
+        $data['parameters'] = json_encode($buy_config);//产品参数信息
+        $data['type'] = 6;//产品类型 1=域名 2=虚拟机3=企业邮箱4=弹性云主机5=云建站 6=套餐云主机
+        $data['domain_info'] = '';//域名注册信息
+        $data['subtotal'] = $data['price'] + $data['added_price'];//全部总价
+        $data['price_id'] = 0;
+        $data['buy_config'] = json_encode($buy_config);//用户购买的配置信息
+        $res = $model->addCart($data);//加入购物车
+        if($res){
+            $return = array("status"=>1,"url"=>U('Cart/index'),"msg"=>"加入购物车成功");
+            echo json_encode($return);exit;
+        }
+
+        print_r($data);
     }
     
 }

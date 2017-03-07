@@ -58,7 +58,7 @@ class MailController extends HomeController{
                 'id' => $mail['id'],
                 'name' => $mail['name'],
                 'price' => $mail['price'],
-                'usernum' => $mail['$mail'],//基本邮箱用户数量
+                'usernum' => $mail['usernum'],//基本邮箱用户数量
                 'space' => $mail['space'],//每个用户邮箱容量
                 'extra_price' => $mail['extra_price']//额外邮箱单价
             );

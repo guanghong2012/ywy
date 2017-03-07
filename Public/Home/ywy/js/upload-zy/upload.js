@@ -6,7 +6,7 @@ $(function(){
 		height           :   "auto",                 // 宽度
 		itemWidth        :   "120px",                 // 文件项的宽度
 		itemHeight       :   "100px",                 // 文件项的高度
-		url              :   "/upload/UploadAction",  // 上传文件的路径
+		url              :   upload_url,  // 上传文件的路径
 		multiple         :   true,                    // 是否可以多个文件上传
 		dragDrop         :   true,                    // 是否可以拖动上传文件
 		del              :   true,                    // 是否可以删除文件
@@ -24,9 +24,10 @@ $(function(){
 			console.info("当前剩余的文件：");
 			console.info(surplusFiles);
 		},
-		onSuccess: function(file){                    // 文件上传成功的回调方法
+		onSuccess: function(file,response){                    // 文件上传成功的回调方法
 			console.info("此文件上传成功：");
 			console.info(file);
+			console.info(response);
 		},
 		onFailure: function(file){                    // 文件上传失败的回调方法
 			console.info("此文件上传失败：");
