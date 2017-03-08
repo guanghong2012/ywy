@@ -23,7 +23,6 @@
     <link href="__YWY__/css/upload-zy/zyUpload.css" rel="stylesheet"><!-- 9.0 Upload上传 -->
 
     <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
-
     <script>
         var upload_url = "{:U('File/fileupload')}";//上传控制器
     </script>
@@ -42,23 +41,49 @@
         <include file="Public/user_nav"/>
         <!-- /用户导航 -->
         <div class="user_fr_bank user_fr_bank_1">
-            <h2>提交工单</h2>
+            <h2>工单详情 <span class="fr" style="margin-right:20px;">{$info.create_time|date='Y-m-d H:i:s',###}</span></h2>
             <div class="div_bank">
-                <div class="user_div">
-                    <form action="{:U('Cuser/createWorksheet')}" method="post">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="user_tjgd_ta">
-                           <input id="imgcontainer" name="images" type="hidden" value="" />
+                <div class="gdxq_div">
+                    <h3>{$info.title}</h3>
+                    {$info.content}
+                </div>
 
+                <volist name="chact_list" id="vo">
+                    <if condition="$vo['from'] eq '管理员'">
+                <div class="gdxq_hf">
+                    <h3><span>{$vo.create_time|date='Y-m-d H:i:s',###}</span><span>来自：管理员</span></h3>
+                    <div class="gdxq_hf_1">
+                        <p>{$vo.content}</p>
+                    </div>
+                </div>
+                        <else />
+                        <div class="gdxq_hf1">
+                            <h3><span>{$vo.create_time|date='Y-m-d H:i:s',###}</span><span>来自：我</span></h3>
+                            <div class="gdxq_hf_1">
+                                <p>{$vo.content}</p>
+                                <empty name="vo['images']">
+                                    <else />
+                                    <volist name="vo['images']" id="item">
+                                    <img src="{$item|get_cover=###,'path'}" />
+                                    </volist>
+                                </empty>
+                            </div>
+                        </div>
+                    </if>
+                </volist>
+                <if condition="$info['status'] eq 1">
+                <div class="user_div" style="padding-top:20px;margin-top:35px; border-top:3px solid #e7e7e7;">
+                    <form action="{:U('Cuser/workSheetReply')}" method="post">
+                        <input type="hidden" name="sheet_id" value="{$info.id}" />
+                        <input type="hidden" name="from" value="{$user.username}" />
+                        <input id="imgcontainer" name="images" type="hidden" value="" />
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="user_tjgd_ta">
                             <tr>
-                                <td class="td1">工单标题：</td>
-                                <td><input name="title" type="text" class="tjgd_inp"></td>
+                                <td class="td1" valign="top">回复内容：</td>
+                                <td><textarea name="content" cols="" rows="" class="tjgd_text" style="width:100%; height:120px;"></textarea></td>
                             </tr>
                             <tr>
-                                <td class="td1" valign="top">问题描述：</td>
-                                <td><textarea name="content" cols="" rows="" class="tjgd_text"></textarea></td>
-                            </tr>
-                            <tr>
-                                <td class="td1" valign="top">上传图片：</td>
+                                <td class="td1" valign="top">回复附件：</td>
                                 <td><div id="demo" class="demo"></div></td>
                             </tr>
                             <tr>
@@ -68,6 +93,7 @@
                         </table>
                     </form>
                 </div>
+                </if>
             </div>
         </div>
         <div class="clear"></div>
@@ -89,7 +115,7 @@
 
         function success(data){
             if(data.status==1){
-                layer.alert("请重试",{title:"提示"});
+                layer.alert(data.msg,{title:"提示"});
                 setTimeout(window.location.href = data.url,2000)
                 //window.location.href = data.url;
             } else {

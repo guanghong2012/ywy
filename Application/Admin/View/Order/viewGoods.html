@@ -1,0 +1,121 @@
+<extend name="Public/base" />
+
+
+<block name="body">
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <div class="main-title cf">
+        <h2>
+            查看 [{$info.product_name}]
+        </h2>
+        <h3><a href="{:U('Order/orderGoods',array('order_id'=>$info['order_id']))}">返回产品列表</a></h3>
+    </div>
+    <!-- 标签页导航 -->
+    <div class="tab-wrap">
+        <ul class="tab-nav nav">
+
+            <li data-tab="tab1" class="current"><a href="javascript:void(0);">基础</a></li>
+
+        </ul>
+        <div class="tab-content">
+            <!-- 表单 -->
+            <form id="form" action="{:U('updateSheet')}" method="post" class="form-horizontal">
+                <!-- 基础文档模型 -->
+
+                <div id="tab1" class="tab-pane in tab1">
+
+                    <div class="form-item cf">
+                        <label class="item-label">产品名称<span class="check-tips"></span></label>
+                        <div class="controls">
+                            {$info.product_name}
+                        </div>
+                    </div>
+
+                    <div class="form-item cf">
+                        <label class="item-label">新一代产品id<span class="check-tips"></span></label>
+                        <div class="controls">
+                            {$info.product_id}
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">购买月份<span class="check-tips"></span></label>
+                        <div class="controls">
+                            {$info.month}个月
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">价格信息<span class="check-tips"></span></label>
+                        <div class="controls">
+                            基本金额：{$info.base_total}元，增值金额：{$info.added_price}元，产品总价：{$info.subtotal}元
+                        </div>
+                    </div>
+
+                    <div class="form-item cf">
+                        <label class="item-label">产品状态<span class="check-tips"></span></label>
+                        <div class="controls">
+                            <label class="radio">
+                                <input type="radio" value="0" name="product_status" <eq name="info['product_status']" value="0">checked</eq> >未开通
+                            </label>
+                            <label class="radio">
+                                <input type="radio" value="1" name="product_status" <eq name="info['product_status']" value="1">checked</eq> />已开通
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">产品类型<span class="check-tips"></span></label>
+                        <div class="controls"><!--//产品类型 1=域名 2=虚拟机3=企业邮箱 4=弹性云主机 5=云建站模板 6=套餐云主机-->
+                            <switch name="info['type']">
+                                <case value="1">域名</case>
+                                <case value="2">虚拟机</case>
+                                <case value="3">企业邮箱</case>
+                                <case value="4">弹性云主机</case>
+                                <case value="5">云建站模板</case>
+                                <case value="6">套餐云主机</case>
+                            </switch>
+                        </div>
+                    </div>
+
+                    <div class="form-item cf">
+                        <label class="item-label">接口参数<span class="check-tips">（显示的是开通该产品需要提交到接口的参数,只有域名注册、虚拟机、邮局这三个产品有）</span></label>
+                        <div class="controls">
+
+                                <?php print_r($info['config']);?>
+
+                        </div>
+                    </div>
+
+                </div>
+
+               <!-- <div class="form-item cf">
+                    <button class="btn submit-btn ajax-post hidden" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+                    <a class="btn btn-return" href="{$Think.cookie.__forward__}">返 回</a>
+
+                    <input type="hidden" name="id" value="{$info.id|default=''}"/>
+
+                </div>-->
+            </form>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+    <php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+    <link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+
+        Think.setValue("type", {$data.type|default='""'});
+        Think.setValue("display", {$data.display|default=0});
+
+        $('#submit').click(function(){
+            $('#form').submit();
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav("{:U('Order/index')}");
+    </script>
+</block>

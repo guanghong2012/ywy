@@ -58,9 +58,9 @@ class MailController extends HomeController{
                 'id' => $mail['id'],
                 'name' => $mail['name'],
                 'price' => $mail['price'],
-                'usernum' => $mail['usernum'],//基本邮箱用户数量
+                'usernum' => $mail['usernum']+$extra_mail_num,//基本邮箱用户数量
                 'space' => $mail['space'],//每个用户邮箱容量
-                'extra_price' => $mail['extra_price']//额外邮箱单价
+                'extra_price' => $mail['extra_price']*$extra_mail_num//额外邮箱总价
             );
 
             $model = D("Cart");
@@ -91,6 +91,20 @@ class MailController extends HomeController{
             }
 
 
+        }
+    }
+    
+    /*
+     * 计算价格
+     */
+    public function calculate()
+    {
+        if(IS_AJAX){
+            $num = I('post.num');
+            $mail = M('Mail')->find(1);
+            $total = $mail['price'] + $num*$mail['extra_price'];
+            $return = array('status'=>1,'total'=>number_format($total,2),'msg'=>'加入购物车成功');
+            echo json_encode($return);exit;
         }
     }
     

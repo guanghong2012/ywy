@@ -40,7 +40,7 @@ class buyMail_schedule implements schedule {
         }
         $goods = M('order_goods')->where('id='.$order_goods_id)->find();
         $buy_config = json_decode($goods['buy_config'],true);
-        //生成用户虚拟机产品
+        //生成用户邮局
         $data = array(
             'uid' => $goods['uid'],
             'domain' => $buy_config['domain'],

@@ -57,7 +57,7 @@
                                                 <li><a class="a1" href="">域名管理</a></li>
                                                 <li><a class="a2" href="">主机管理</a></li>
                                                 <li><a class="a3" href="">我要充值</a></li>
-                                                <li><a class="a4" href="">提交工单</a></li>
+                                                <li><a class="a4" href="{:U('Cuser/createWorksheet')}">提交工单</a></li>
                                             </ul>
                                             <div class="clear"></div>
                                         </div>
@@ -85,13 +85,13 @@
     </div>
     <div class="daoh fr">
         <ul>
-            <li><a href="{:U('Index/index')}" class="a1">首页</a></li>
-            <li><a href="{:U('Domain/index')}">域名注册</a></li>
-            <li><a href="{:U('Cloud/index')}">虚拟主机</a></li>
-            <li><a href="{:U('Mail/index')}">企业邮箱</a></li>
-            <li><a href="{:U('Server/index')}">云服务端</a></li>
-            <li><a href="{:U('Station/index')}">云建站</a></li>
-            <li><a href="{:U('Service/index')}">客服中心</a></li>
+            <li><a href="{:U('Index/index')}" <eq name="CONTROLLER_NAME" value="Index">class="a1"</eq> >首页</a></li>
+            <li><a href="{:U('Domain/index')}" <eq name="CONTROLLER_NAME" value="Domain">class="a1"</eq> >域名注册</a></li>
+            <li><a href="{:U('Cloud/index')}" <eq name="CONTROLLER_NAME" value="Cloud">class="a1"</eq> >虚拟主机</a></li>
+            <li><a href="{:U('Mail/index')}" <eq name="CONTROLLER_NAME" value="Mail">class="a1"</eq> >企业邮箱</a></li>
+            <li><a href="{:U('Server/index')}" <eq name="CONTROLLER_NAME" value="Server">class="a1"</eq> >云服务端</a></li>
+            <li><a href="{:U('Station/index')}" <eq name="CONTROLLER_NAME" value="Station">class="a1"</eq> >云建站</a></li>
+            <li><a href="{:U('Service/index')}" <eq name="CONTROLLER_NAME" value="Service">class="a1"</eq> >客服中心</a></li>
         </ul>
     </div>
     <div class="clear"></div>

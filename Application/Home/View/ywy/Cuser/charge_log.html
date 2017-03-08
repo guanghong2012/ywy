@@ -38,14 +38,14 @@
                     <p>当前账户余额：<span>{$info.account}元</span></p><a href="">充 值</a><a href="">提 现</a>
                     <div class="clear"></div>
                 </div>
-                <form action="{:U('Cuser/account_log')}" method="get">
+                <form action="{:U('Cuser/charge_log')}" method="get">
                     <div class="user_div">
                         <div class="riq_ss fl">
                             <input name="m" type="hidden" value="Home" />
                             <input name="c" type="hidden" value="Cuser" />
-                            <input name="a" type="hidden" value="account_log" />
-                            <input type="text" name="start" class="date_picker" placeholder="请选择时间段">
-                            <input type="text" name="end" class="date_picker" placeholder="请选择时间段">
+                            <input name="a" type="hidden" value="charge_log" />
+                            <input type="text" name="start" value="{:I('get.start')}" class="date_picker" placeholder="请选择时间段">
+                            <input type="text" name="end" value="{:I('get.end')}" class="date_picker" placeholder="请选择时间段">
                         </div>
                         <script type="text/javascript">
                             $(function(){
@@ -54,7 +54,7 @@
                         </script>
                         <div class="gjc_ss fl">
 
-                            <input name="keywords" type="text" class="gjc_inp" placeholder="输入关键词搜索">
+                            <input name="keywords" value="{:I('get.keywords')}" type="text" class="gjc_inp" placeholder="输入关键词搜索">
                             <input  type="submit" value="" class="gjc_anv">
 
                             <div class="clear"></div>

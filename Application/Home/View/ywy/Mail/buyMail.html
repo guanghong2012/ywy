@@ -95,7 +95,7 @@
                             </tr>
                             <tr>
                                 <td class="td1 td_pa">费用总计：</td>
-                                <td class="td_pa "><h4>￥480.00</h4></td>
+                                <td class="td_pa "><h4 id="feiyong">￥480.00</h4></td>
                             </tr>
                         </table>
                         <p class="p1">
@@ -134,9 +134,10 @@
             $('#domain').html(value);
         });
 
-        $("input[name=number]").on("keyup keydown change",function(){
+        $("input[name=number]").on("change",function(){
             $(this).val($(this).val().replace(/[^0-9.]/g,''));
             $('#mailnum').html($(this).val());
+            calculate();
         });
 
 
@@ -166,6 +167,16 @@
                     layer.alert(data.msg,{title:"提示"});
                     return false;
                 }
+            }
+        }
+    }
+
+    function calculate(){
+        var num = $("input[name=number]").val();
+        $.post("{:U('Mail/calculate')}", {num:num}, success, "json");
+        function success(data){
+            if(data.status==1){
+                $("#feiyong").html("￥"+data.total);
             }
         }
     }

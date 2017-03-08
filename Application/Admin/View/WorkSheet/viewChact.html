@@ -1,0 +1,98 @@
+<extend name="Public/base" />
+
+
+<block name="body">
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <div class="main-title cf">
+        <h2>
+            查看 【{$worksheet.title}-的回复/咨询】
+        </h2>
+    </div>
+    <!-- 标签页导航 -->
+    <div class="tab-wrap">
+        <ul class="tab-nav nav">
+
+            <li data-tab="tab1" class="current"><a href="javascript:void(0);">基础</a></li>
+
+        </ul>
+        <div class="tab-content">
+            <!-- 表单 -->
+            <form id="form" action="{:U('updateCate')}" method="post" class="form-horizontal">
+                <!-- 基础文档模型 -->
+
+                <div id="tab1" class="tab-pane in tab1">
+
+                    <div class="form-item cf">
+                        <label class="item-label">工单标题<span class="check-tips"></span></label>
+                        <div class="controls">
+                            <a href="{:U('WorkSheet/info',array('id'=>$worksheet['id']))}">{$worksheet.title}</a>
+
+                        </div>
+                    </div>
+                    <div class="form-item cf">
+                        <label class="item-label">发言人<span class="check-tips"></span></label>
+                        <div class="controls">
+                            {$info.from}
+                        </div>
+                    </div>
+
+                    <div class="form-item cf">
+                        <label class="item-label">回复附件<span class="check-tips"></span></label>
+                        <div class="controls">
+                            <empty name="info['images']">
+                                无
+                                <else />
+                                <volist name="info['images']" id="vo">
+                                    <img src="{$vo|get_cover=###,'path'}" />
+                                </volist>
+                            </empty>
+                        </div>
+                    </div>
+
+
+                    <div class="form-item cf">
+                        <label class="item-label">回复/咨询描述<span class="check-tips"></span></label>
+                        <div class="controls">
+                            <label class="textarea input-large">
+                                <textarea readonly>{$info.content}</textarea>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--<div class="form-item cf">
+                    <button class="btn submit-btn ajax-post hidden" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+                    <a class="btn btn-return" href="{$Think.cookie.__forward__}">返 回</a>
+
+                    <input type="hidden" name="id" value="{$info.id|default=''}"/>
+
+                </div>-->
+
+            </form>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+    <php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+    <link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+
+        Think.setValue("type", {$data.type|default='""'});
+        Think.setValue("display", {$data.display|default=0});
+
+        $('#submit').click(function(){
+            $('#form').submit();
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav("{:U('WorkSheet/index')}");
+    </script>
+</block>

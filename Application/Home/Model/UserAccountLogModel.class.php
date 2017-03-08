@@ -40,7 +40,8 @@ class UserAccountLogModel extends Model{
                     'create_time' => NOW_TIME,
                     'desc' => $desc,
                     'uid' => $uid,
-                    'admin_id' => $admin_id
+                    'admin_id' => $admin_id,
+                    'type' => 1//1=充值2=消费或后台调节3=提现
                     //'admin_id' => $_SESSION['onethink_admin']['user_auth']['uid'],
                 );
                 if($this->create($array)){
@@ -77,6 +78,7 @@ class UserAccountLogModel extends Model{
                     'desc' => $desc,
                     'uid' => $uid,
                     'admin_id' => $admin_id,
+                    'type' => 2//1=充值2=消费或后台调节3=提现
                 );
                 if($this->create($array)){
                     $insertid = $this->add();
