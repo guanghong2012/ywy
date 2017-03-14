@@ -31,7 +31,7 @@
 				<h2>资金明细</h2>
 				<div class="div_bank">
 					<div class="yue">
-						<p>当前账户余额：<span>1250.00元</span></p><a href="">充 值</a><a href="">提 现</a>
+						<p>当前账户余额：<span>1250.00元</span></p><a href="user_recharge.php">充 值</a><a href="user_withdrawals.php">提 现</a>
 						<div class="clear"></div>
 					</div>
 					<div class="user_div">

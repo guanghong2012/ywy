@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="wsg,hth">
+    <meta name="description" content="ASW">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="{$info.keywords}">
+    <Meta name="description" Content="{$info.description}">
+    <title>{$info.title}</title>
+    <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
+    <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
+    <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
+</head>
+<body>
+<!-- 头部 -->
+<include file="Public/top"/>
+<!-- /头部 -->
+<div class="bzzx_bank" style="padding-top:0">
+    <div class="w1200 mbs_div">
+        <ul>
+            <li><a href="{:U('Index/index')}">首页</a></li>
+            <li>></li>
+            <li><a href="{:U('Cuser/noticeList')}">公告栏</a></li>
+            <li>></li>
+            <li class="li1">{$info.title}</li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <div class="w1200">
+        <div class="bzzx_fr" style="width:100%">
+            <h2>公告详情</h2>
+            <div class="bzzx_test">
+                <div class="bzzx_bt">
+                    <h3>{$info.title}</h3>
+                    <p><span>编辑：亿维云</span><span>日期：{$info.create_time|date='Y-m-d',###}</span></p>
+                </div>
+                <div class="bzzx_nr">
+                    {$info.content}
+                </div>
+                <div class="bzzx_sx">
+                    <ul>
+                        <li>上一篇：
+                            <empty name="prev">
+                                <a href="javascript:">没有了</a>
+                                <else />
+                            <a href="{:U('Cuser/viewNotice?id='.$prev['id'])}">{$prev.title}</a>
+                            </empty>
+                        </li>
+                        <li>下一篇：
+                            <empty name="next">
+                                <a href="javascript:">敬请期待</a>
+                                <else />
+                            <a href="{:U('Cuser/viewNotice?id='.$next['id'])}">{$next.title}</a>
+                            </empty>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- 底部 -->
+<include file="Public/bottom"/>
+<!-- /底部 -->
+</body>
+</html>

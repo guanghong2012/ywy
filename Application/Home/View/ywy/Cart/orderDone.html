@@ -53,10 +53,16 @@
                 <p>【账户余额：{$account}元】-{$total|number_format=###,2}元</p>
             </div>
         </div>
+        <form id="orderform" action="{:U('Cart/createOrder')}" method="post">
+            <volist name="list" id="vo">
+            <input   name="cartid[]" value="{$vo.id}" checked="" type="checkbox" style="display: none" />
+            </volist>
+            <input name="payment" value="{$payment}" type="hidden" />
         <div class="shop_div6">
-            <a class="a2" href="{:U('Cart/createOrder',array('payment'=>$payment))}">确定支付</a>
-            <a class="a1" href="{:U('Cart/selectPayment')}">上一步</a>
+            <a class="a2" href="javascript:void(0)" onclick="$('#orderform').submit()">确定支付</a>
+            <a class="a1" href="javascript:history.go(-1)">上一步</a>
         </div>
+        </form>
     </div>
 </div>
 <div class="blank50"></div>

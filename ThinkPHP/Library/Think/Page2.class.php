@@ -130,7 +130,7 @@ class Page2{
                 }
             }else{
                 if($page > 0 && $this->totalPages != 1){
-                    $link_page .= '<li><a href="javascript:void(0)">' . $page . '</a></li>';
+                    $link_page .= '<li><a class="current" href="javascript:void(0)">' . $page . '</a></li>';
                 }
             }
         }

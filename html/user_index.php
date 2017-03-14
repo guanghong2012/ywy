@@ -24,7 +24,7 @@
 			<div class="user_fr_bank">
 				<div class="user_w625 fl">
 					<div class="div1">
-						<h2>帐户余额：<span>1250元</span> <a href="">充值</a></h2>
+						<h2>帐户余额：<span>1250元</span> <a href="user_recharge.php">充值</a></h2>
 					</div>
 					<div class="div2">
 						<ul>
@@ -41,10 +41,10 @@
 					</div>
 				</div>
 				<div class="user_w315 fr">
-					<h2>公告栏</h2>
+					<h2>公告栏<a href="public_list.php">More+</a></h2>
 					<ul>
 						<li>
-							<a href="">
+							<a href="public_details.php">
 								<div class="div1">
 									<p>元旦放假公告</p>
 									<span>2016-05-26</span>
@@ -53,7 +53,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="public_details.php">
 								<div class="div1">
 									<p>元旦放假公告</p>
 									<span>2016-05-26</span>
@@ -62,7 +62,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="public_details.php">
 								<div class="div1">
 									<p>元旦放假公告</p>
 									<span>2016-05-26</span>
@@ -71,7 +71,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="public_details.php">
 								<div class="div1">
 									<p>元旦放假公告</p>
 									<span>2016-05-26</span>
@@ -80,7 +80,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="public_details.php">
 								<div class="div1">
 									<p>元旦放假公告</p>
 									<span>2016-05-26</span>
@@ -89,7 +89,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="public_details.php">
 								<div class="div1">
 									<p>元旦放假公告</p>
 									<span>2016-05-26</span>
@@ -98,7 +98,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="public_details.php">
 								<div class="div1">
 									<p>元旦放假公告</p>
 									<span>2016-05-26</span>
@@ -107,7 +107,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="public_details.php">
 								<div class="div1">
 									<p>元旦放假公告</p>
 									<span>2016-05-26</span>
@@ -116,7 +116,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="public_details.php">
 								<div class="div1">
 									<p>元旦放假公告</p>
 									<span>2016-05-26</span>

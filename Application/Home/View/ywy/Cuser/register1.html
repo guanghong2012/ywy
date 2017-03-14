@@ -71,7 +71,7 @@
                         <td>&nbsp;</td>
                         <td class="td2">
                             <input type="checkbox" name="xieyi" value="1" id="checkbox-1-1" class="regular-checkbox" />
-                            <label for="checkbox-1-1"></label> 我已阅读并同意<a href="">《 亿维云网用户注册协议》</a>
+                            <label for="checkbox-1-1"></label> 我已阅读并同意<a href="{:U('Index/detail?id=51')}" target="_blank" >《 亿维云网用户注册协议》</a>
                             <div class="controls Validform_checktip text-warning" style="color:red;"></div>
                         </td>
                     </tr>
@@ -107,12 +107,10 @@
 
         function success(data){
             if(data.status){
-                iosOverlay({
-                    text: "注册成功",
-                    duration: 2e3,
-                    icon: "__YWY__/ios/img/check.png"
-                });
-                setTimeout(window.location.href = data.url, 2000);
+                alert("注册成功！");
+                //show_msgs("注册成功")
+                //setTimeout(location.href = data.url, 2000);
+                window.location.href = data.url
 
             } else {
                 self.find(".Validform_checktip").text(data.info);
@@ -132,6 +130,15 @@
             }
         });
     });
+
+    function show_msgs(msg){
+        iosOverlay({
+            text: msg,
+            duration: 2e3,
+            icon: "__YWY__/ios/img/check.png"
+        });
+    }
+
 </script>
 <!-- 底部 -->
 <include file="Public/bottom"/>

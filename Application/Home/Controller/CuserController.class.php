@@ -13,7 +13,7 @@ class CuserController extends HomeController{
     public function _initialize()
     {
         parent::_initialize();
-        if(!in_array(ACTION_NAME,array('login','logout','verify','register'))){
+        if(!in_array(ACTION_NAME,array('login','logout','verify','register','forgetPass','setPass'))){
             $this->is_login();
         }
         $this->user_auth = session('user_auth');
@@ -22,6 +22,10 @@ class CuserController extends HomeController{
     public function index()
     {
         //print_r(session('user_auth'));
+        //网站公告
+        $notice = D('document')->where('category_id=68 and status=1')->order('level desc')->limit(9)->field('id,title,create_time')->select();
+
+
         $user = $this->user_auth;
         $uid = $user['id'];
 
@@ -62,6 +66,7 @@ class CuserController extends HomeController{
         $user_worksheet = M('user_worksheet')->where('uid='.$uid)->count();//工单个数
         $inhandle_worksheet = M('user_worksheet')->where('uid='.$uid.' and status =1')->count();//处理中工单个数
 
+        $this->assign('notice',$notice);
         $this->assign('user_domain',$user_domain);
         $this->assign('expiring_domain',$expiring_domain);
         $this->assign('user_vitrual',$user_vitrual);
@@ -212,7 +217,8 @@ class CuserController extends HomeController{
             $uid = $User->register($username, $password, $email,$mobile,$address);
             if(0 < $uid){ //注册成功
                 //TODO: 发送验证邮件
-                $this->success('注册成功！',U('login'));
+                //$this->success('注册成功！',U('login'));
+                echo json_encode(array("status"=>1,"url"=>U('login')));
             } else { //注册失败，显示错误信息
                 $this->error($this->showRegError($uid));
             }
@@ -732,6 +738,123 @@ class CuserController extends HomeController{
             }
 
         }
+    }
+    
+    /*
+     * 找回密码
+     */
+    public function forgetPass()
+    {
+        if(IS_POST){
+            $email = stripslashes(I('post.email'));
+            $verify = I('post.verify');
+            /* 检测验证码 */
+            if(!check_verify($verify,1)){
+                $this->error('验证码输入错误！');
+            }
+            //检测邮箱
+            if(!check_email($email)){
+                $this->error('请输入正确的邮箱地址！');
+            }
+            //检测该邮箱是否存在
+            $map['email'] = $email;
+            $check = D('Cuser')->where($map)->find();
+            if(empty($check)){
+                $this->error('邮箱不存在！');
+            }
+            $getpasstime = time();//密码找回验证时间戳
+            $token = md5($check['id'].$check['email'].$check['password']);
+            $url = 'http://'.$_SERVER['HTTP_HOST'].U('Cuser/setPass',array('email'=>$email,'token'=>$token));
+
+            $body = "亲爱的".$email."：<br/>您在".date('Y-m-d H:i:s')."提交了找回密码请求。请点击下面的链接重置密码（按钮24小时内有效）。<br/><a href='".$url."'target='_blank'>".$url."</a>";
+            //发送邮件
+            $send = send_mail($email,"亿维云-找回密码",$body);
+            if($send){
+                D('Cuser')->where('id='.$check['id'])->setField('getpasstime',$getpasstime);//更新数据发送时间
+                echo json_encode(array('status'=>1,"msg"=>'邮件发送成功',"url"=>U('Cuser/forgetPass')));
+                exit;
+            }
+
+        }else{
+            $this->display();
+        }
+    }
+    
+    //重置密码
+    public function setPass()
+    {
+        //$data = I('get.');
+        $token = stripslashes(trim($_GET['token']));
+        $email = stripslashes(trim($_GET['email']));
+        $map['email'] = $email;
+        $uinfo = D('Cuser')->where($map)->find();
+        if($uinfo){
+            $mt = md5($uinfo['id'].$uinfo['email'].$uinfo['password']);
+            if($mt == $token){
+                if(time()-$uinfo['getpasstime']>24*60*60){
+                    redirect('/Index/index', 5, '该链接已过期...');
+                }else{
+                    //更改密码
+                    $update['password'] = '123456';
+                    $API = new CuserApi();
+                    $res = $API->updateFields($uinfo['id'],$update);
+                    if($res['status']){
+
+                        $this->display();
+                    }
+                }
+            }else{
+                redirect('/Index/index', 5, '无效链接...');
+            }
+        }else{
+            redirect('/Index/index', 5, '错误链接...');
+        }
+
+
+    }
+
+    //查看虚拟主机
+    public function viewVitrual()
+    {
+        $id = (int)I('get.id');
+        !$id && $this->error("非法访问！");
+        $info = M('user_vitrual')->find($id);
+        $this->assign('info',$info);
+        $this->display();
+    }
+    
+    //公告列表
+    public function noticeList()
+    {
+        $Document = D('Document');
+        $map = array();
+        $map['category_id'] = 68;
+        $map['status'] = 1;
+
+        $count      = $Document->where($map)->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page2($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $list = $Document->where($map)->order('level desc, create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('list',$list);// 赋值数据集
+        $this->assign('page',$show);// 赋值分页输出
+        $this->display();
+    }
+    //公告内容
+    public function viewNotice($id)
+    {
+        $id = (int)$id;
+        !$id && $this->_empty();
+        $info = D('document')->detail($id);
+        //下一条
+        $next = D('document')->next($info);
+        //上一条
+        $prev = D('document')->prev($info);
+
+        $this->assign('prev',$prev);
+        $this->assign('next',$next);
+        $this->assign('info',$info);
+        $this->display();
     }
 
 

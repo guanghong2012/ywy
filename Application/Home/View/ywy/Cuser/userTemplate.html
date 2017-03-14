@@ -48,12 +48,12 @@
                         <th width="180">创建时间</th>
                         <th width="180">到期时间</th>
                         <th width="180">状态</th>
-                        <!--<th>操作</th>-->
+                        <th>操作</th>
                     </tr>
                     <volist name="list" id="vo">
                     <tr>
                         <td>{$vo.template_id}</td>
-                        <td class="td_wz"><a href="" target="_blank">{$vo.name}</a></td>
+                        <td class="td_wz"><a href="javascript:" target="_blank">{$vo.name}</a></td>
                         <td>{$vo.create_time|date='Y-m-d H:i:s',###}</td>
                         <td>{$vo.expiry_time|date='Y-m-d H:i:s',###}</td>
                         <td>
@@ -63,11 +63,11 @@
                                 <case value="2">已过期</case>
                             </switch>
                         </td>
-                        <!--<td class="cz_td">
-                            <a href="">控制面板</a>
+                        <td class="cz_td">
+
                             <a href="">续费</a>
-                            <a href="#" data-reveal-id="myModal" data-animation="none">修改密码</a>
-                        </td>-->
+
+                        </td>
                     </tr>
                     </volist>
 

@@ -13,6 +13,7 @@ class domainRegister_schedule implements schedule {
      * array("dest"=>xxxxx,"content"=>xxxxxx);
      */
     public function exec($data){
+        set_time_limit(0);
         //域名注册
         $Api = new \Common\Api\CloundApi();
         $return = $Api->domainRegister($data);

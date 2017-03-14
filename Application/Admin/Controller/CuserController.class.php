@@ -271,7 +271,7 @@ class CuserController extends AdminController {
             unset($data['password']);
             unset($data['repassword']);
             if($data){
-                $res = $User->updateInfo($id,$password,$data);
+                $res = $User->updateInfo1($id,$password,$data);
                 if($res['status']){
                     $this->success("修改成功！");
                 }

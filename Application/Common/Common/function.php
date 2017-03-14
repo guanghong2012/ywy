@@ -1067,3 +1067,43 @@ function request_post($url = '', $post_data = array()) {
 
     return $data;
 }
+
+/*
+ * 发送邮件
+ * $email 收件邮箱
+ * $subject 邮件标题
+ * $body 邮件内容
+ */
+function send_mail($email,$subject,$body=''){
+    require_once(LIB_PATH.'Org/phpmailer/phpmailer.class.php');//从PHPMailer目录导入phpmailer.class.php类文件
+    try {
+        $mail = new PHPMailer;
+        $mail->IsSMTP();
+        $mail->CharSet='UTF-8'; //设置邮件的字符编码，这很重要，不然中文乱码
+        $mail->SMTPAuth   = true;                  //开启认证
+        $mail->Port       = C('MAIL_SMTP_PORT');//SMTP端口
+        $mail->Host       = C('MAIL_SMTP_HOST');//SMTP服务器
+        $mail->Username   = C('MAIL_SMTP_USER');// SMTP服务器用户名
+        $mail->Password   = C('MAIL_SMTP_PASS');// SMTP服务器密码
+        //$mail->IsSendmail(); //如果没有sendmail组件就注释掉，否则出现“Could  not execute: /var/qmail/bin/sendmail ”的错误提示
+        $mail->AddReplyTo(C('MAIL_SMTP_USER'),"亿维云");//回复地址
+        $mail->From       = C('MAIL_SMTP_USER');
+        $mail->FromName   = "亿维云";
+        $to = $email;
+        $mail->AddAddress($to);
+        $mail->Subject  = $subject;
+        $mail->Body = $body;
+        $mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; //当邮件不支持html时备用显示，可以省略
+        $mail->WordWrap   = 80; // 设置每行字符串的长度
+        //$mail->AddAttachment("f:/test.png");  //可以添加附件
+        $mail->IsHTML(true);
+        $mail->Send();
+        return true;
+    } catch (phpmailerException $e) {
+        return $e->errorMessage();
+    }
+}
+
+/*
+ *
+ */

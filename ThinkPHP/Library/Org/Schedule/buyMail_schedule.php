@@ -15,6 +15,7 @@ class buyMail_schedule implements schedule {
      * 接口返回：{"code":"200","message":"成功","data":{"master_id":2728088,"order_id":2728088,"account_bill_id":1670491,"cash_balance":1904.7901,"bonus_balance":8858,"cash_trans_total":76045.2099,"bonus_trans_total":69220,"transaction_id":3067712,"u_affected_rows":1,"cash_recharge_total":77950,"bonus_recharge_total":78078,"bonus_recharge_id":512263,"instance_id":168756,"mail_id":168756,"keyname":"aicar168.com","expiry_time":"2018-03-07 10:18:56","module":"Order","method":"placeOrder","echo_info":""}}
      */
     public function exec($data){
+        set_time_limit(0);
         //购买全球邮
         $Api = new \Common\Api\CloundApi();
 

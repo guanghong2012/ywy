@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="wsg,hth">
+    <meta name="description" content="ASW">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>{:C('WEB_SITE_TITLE')}</title>
+    <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
+    <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
+    <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
+</head>
+<body>
+<!-- 头部 -->
+<include file="Public/top"/>
+<!-- /头部 -->
+
+<div class="qydt_div">
+    <div class="w1200">
+        <div class="qydt_w900 fl">
+            <h1>{$category.title}</h1>
+            <ul>
+                <volist name="list" id="vo">
+                <li>
+                    <a href="{:U('News/detail',array('id'=>$vo['id']))}">
+                        <div class="div1">
+                            <div class="div_fl">
+                                <img src="{$vo.cover_id|get_cover=###,'path'}" alt="">
+                            </div>
+                            <div class="div_fr">
+                                <h2>{$vo.title}</h2>
+                                <p class="p1">{$vo.description}</p>
+                                <p class="p2">{$vo.create_time|date='Y-m-d',###}</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </a>
+                </li>
+                </volist>
+
+            </ul>
+           <!--分页-->
+            {$page}
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- 底部 -->
+<include file="Public/bottom"/>
+<!-- /底部 -->
+</body>
+</html>

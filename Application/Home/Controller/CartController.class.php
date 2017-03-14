@@ -98,11 +98,18 @@ class CartController extends HomeController{
      */
     public function selectPayment()
     {
+        $datas = I('post.');
+        $ids = $datas['cartid'];
+        if(empty($ids)){
+            $this->error("请选择要支付的产品！");
+        }
         $user = session('user_auth');
         $uid = $user['id'];
 
         //获取用户的购物车列表
-        $list = $this->model->getCartByUid($uid);
+        //$list = $this->model->getCartByUid($uid);
+        $list = $this->model->getListByIds($ids);
+
         if(empty($list)){
             $this->error("购物车为空！");
         }
@@ -142,7 +149,7 @@ class CartController extends HomeController{
                 $value['lineType'] = $lineType;
             }
         }
-        $total = $this->model->getToal('',$uid);//购物车总价
+        $total = $this->model->getToal($ids,$uid);//购物车总价
 
         $this->assign('total',$total);
         $this->assign('list',$list);
@@ -154,19 +161,26 @@ class CartController extends HomeController{
      */
     public function orderDone()
     {
+        $datas = I('post.');
+        $ids = $datas['cartid'];
+        if(empty($ids)){
+            $this->error("请选择要支付的产品！");
+        }
         $user = session('user_auth');
         $uid = $user['id'];
         //获取用户的购物车列表
-        $list = $this->model->getCartByUid($uid);
+        //$list = $this->model->getCartByUid($uid);
+        $list = $this->model->getListByIds($ids);
         if(empty($list)){
             $this->error("购物车为空！");
         }
 
         $payment = I('post.payment');
         !$payment && $this->error("请重新提交表单");
-        $total = $this->model->getToal('',$uid);//购物车总价
+        $total = $this->model->getToal($ids,$uid);//购物车总价
         $user_account = D('Cuser')->where('id='.$uid)->getField('account');
 
+        $this->assign('list',$list);
         $this->assign('account',$user_account);
         $this->assign('total',$total);
         $this->assign('payment',$payment);
@@ -178,18 +192,24 @@ class CartController extends HomeController{
      */
     public function createOrder()
     {
-        $payment = intval(I('get.payment'));
+        $payment = intval(I('post.payment'));//支付方式
+        $datas = I('post.');
+        $ids = $datas['cartid'];
+        if(empty($ids)){
+            $this->error("请选择要支付的产品！");
+        }
         if(!$payment){
-            $this->redirect('Cart/selectPayment',2,'请选择支付方式');
+            $this->redirect('Cart/index',2,'请选择支付方式');
         }
         $user = session('user_auth');
         $uid = $user['id'];
         //获取用户的购物车列表
-        $list = $this->model->getCartByUid($uid);
+        //$list = $this->model->getCartByUid($uid);
+        $list = $this->model->getListByIds($ids);
         if(empty($list)){
             $this->redirect('Index/index',2,'购物车为空！');
         }
-        $total = $this->model->getToal('',$uid);//购物车总价
+        $total = $this->model->getToal($ids,$uid);//购物车总价
         $user_account = D('Cuser')->where('id='.$uid)->getField('account');//用户余额
         //如果是余额支付 判断用户余额是否充足
         if(3 == $payment){
@@ -238,7 +258,8 @@ class CartController extends HomeController{
             }
             if($i == $cartnum){
                 //清空用户购物车
-                $this->model->clearCartByUid($uid);
+                //$this->model->clearCartByUid($uid);
+                $this->model->deleteCartByIds($ids);
                 //去支付
                 //生成支付记录
                 $order_sn = D('Order')->where('id='.$order_id)->getField('ordersn');

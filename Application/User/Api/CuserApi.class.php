@@ -114,5 +114,17 @@ class CuserApi extends Api{
         }
         return $return;
     }
+    
+    //更新一个字段
+    public function updateFields($uid,$data)
+    {
+        if($this->model->updateUserField($uid,$data) !== false){
+            $return['status'] = true;
+        }else{
+            $return['status'] = false;
+            $return['info'] = $this->model->getError();
+        }
+        return $return;
+    }
 
 }

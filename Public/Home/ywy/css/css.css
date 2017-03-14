@@ -1442,6 +1442,11 @@ b,em,i{
 .page_div li a.ar:hover{
 	background: #ff5517 url(../images/jt_y1.png) no-repeat center center;
 }
+.page_div .current{
+	background: #ff5517;
+	color: #fff;
+	border: 1px solid #ff5517;
+}
 /*翻页 end*/
 
 /*栏目*/
@@ -2122,6 +2127,12 @@ b,em,i{
     height: 40px;
     line-height: 40px;
     padding-left: 15px;
+}
+.user_w315 h2 a{
+	float: right;
+	color: #fff;
+	font-size: 12px;
+	margin-right: 20px;
 }
 .user_w315 ul{
 	padding:10px 15px 0;
@@ -3821,3 +3832,99 @@ b,em,i{
 }
 
 /*购物车 end*/
+
+
+
+
+
+
+
+
+/*新增页面 2017/03/14*/
+.recharge_ta td{
+	height: 60px;
+	padding: 0 5px;
+}
+.recharge_ta td.td1{
+	font-size: 16px;
+	color: #333;
+	text-align: right;
+	width: 150px;
+}
+.recharge_ta td.td2{
+
+}
+.recharge_ta td.td2 span{
+	font-size: 24px;
+	color: #ff6800;
+}
+.recharge_ta td.td2 em{
+	font-size: 18px;
+	color: #333;
+	margin-left: 10px;
+}
+.recharge_ta td.zf_td a{
+	display: block;
+	height: 50px;
+	line-height: 40px;
+	float: left;
+	margin-right: 20px;
+	font-size: 14px;
+	color: #333;
+	padding: 5px ;
+	background: #e7e7e7;
+}
+.recharge_ta td.zf_td a img{
+	width: 40px;
+	height: 40px;
+	margin-right: 5px;
+}
+.wxzf_div{
+	padding: 50px 40px !important;
+	background: #fff !important;
+	width: 400px !important;
+	margin-left: -200px !important;
+	height: 328px !important;
+	top: 50% !important;
+	margin-top: -164px !important;
+}
+.wxzf_div img{
+	width: 180px;
+	height: 180px;
+}
+.wxzf_div p{
+	font-size: 20px;
+	margin-top: 20px;
+}
+.zf_div{
+	padding: 50px 40px 25px !important;
+	background: #fff !important;
+	width: 500px !important;
+	margin-left: -250px !important;
+	height: 250px !important;
+	top: 50% !important;
+	margin-top: -125px !important;
+}
+.zf_div h2{
+	text-align: left;
+	font-size: 16px;
+	line-height: 30px;
+}
+.zf_div .div1{
+	margin: 30px 0 15px;
+}
+.zf_div .div1 a{
+	display: block;
+	width: 45%;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	background: #0092ef;
+	color: #fff;
+	font-size: 16px;
+	border-radius: 3px;
+}
+.zf_div .div1 a.a2{
+	background: #dedede;
+	color: #333;
+}

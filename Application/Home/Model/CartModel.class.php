@@ -159,4 +159,40 @@ class CartModel extends Model{
         return $status;
     }
     
+    //根据购物车id获取数据
+    public function getListByIds($ids)
+    {
+        if(empty($ids)){
+            $this->error = '缺少id！';
+            return false;
+        }
+        if(is_array($ids)){
+            $cartid = implode(',',$ids);
+        }
+        $map = array();
+        $map['id'] = array("in",$cartid);
+        $list = $this->where($map)->order('add_time desc')->select();
+        return $list;
+    }
+
+    //根据id删除购物车产品
+    public function deleteCartByIds($ids)
+    {
+        if(empty($ids)){
+            $this->error = '缺少id！';
+            return false;
+        }
+        if(is_array($ids)){
+            $cartid = implode(',',$ids);
+        }
+        $map = array();
+        $map['id'] = array("in",$cartid);
+        $status = $this->where($map)->delete(); //删除购物车
+        if(false === $status){
+            $this->error = '删除购物车出错！';
+            return false;
+        }
+        return $status;
+    }
+    
 }

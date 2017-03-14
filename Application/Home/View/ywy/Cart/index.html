@@ -73,6 +73,7 @@
             <div class="clear"></div>
         </div>
 
+        <form id="forms1" action="{:U('Cart/selectPayment')}" method="post">
         <volist name="list" id="vo">
         <div class="shop_div3">
             <div class="tdw70 div_ty">
@@ -190,6 +191,7 @@
             </div>
         </div>
         </volist>
+        </form>
 
 
         <div class="shop_div4">
@@ -201,7 +203,7 @@
                 <empty name="carNum">
                     <a class="a2" href="{:U('Index/index')}">去首页</a>
                     <else />
-                <a class="a2" href="{:U('Cart/selectPayment')}">下一步</a>
+                <a class="a2" href="javascript:" onclick="gotoPay()">下一步</a>
                 </empty>
                 <span>总价：<em>{$total|number_format=###,2} 元</em></span>
                 <span>您已选择：<em>{$carNum}</em>件商品</span>
@@ -235,6 +237,7 @@
 
         var aa = document.getElementsByName("cartid[]");
         var ids = "";
+        var checked_num = 0;
         if(aa.length==0){
             layer.alert("请选择要删除的产品",{title:"提示"});
         }else{
@@ -242,16 +245,20 @@
             for (var i = 0; i < aa.length; i++) {
                 if (aa[i].checked) {
                     ids += aa[i].value+',';
+                    checked_num ++;
                 }
             }
-
-            layer.confirm('<span style="font-size:14px">提示：确定要删除吗', {
-                icon: 3,
-                title: '温馨提示'
-            }, function(index) {
-                continueCallBack(ids);
-                layer.close(index);
-            });
+            if(checked_num>0){
+                layer.confirm('<span style="font-size:14px">提示：确定要删除吗', {
+                    icon: 3,
+                    title: '温馨提示'
+                }, function(index) {
+                    continueCallBack(ids);
+                    layer.close(index);
+                });
+            }else{
+                layer.alert("请选择要删除的产品",{title:"提示"});
+            }
 
         }
 
@@ -278,6 +285,32 @@
                 layer.alert(data.msg,{title:"提示"});
             }
         }, "json");
+    }
+
+    //下一步
+    function gotoPay(){
+        var aa = document.getElementsByName("cartid[]");
+        var ids = "";
+        var checked_num = 0;
+        if(aa.length==0){
+            layer.alert("没有要支付的产品",{title:"提示"});
+        }else if(aa.length>0){
+            for (var i = 0; i < aa.length; i++) {
+                if (aa[i].checked) {
+                    ids += aa[i].value+',';
+                    checked_num ++;
+                }
+            }
+            if(checked_num>0){
+                $("#forms1").submit();
+            }else{
+                layer.alert("请选择要支付的产品",{title:"提示"});
+            }
+
+
+
+        }
+
     }
 
 </script>

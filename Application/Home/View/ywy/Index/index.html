@@ -70,303 +70,89 @@
                 <ul>
                     <li>云服务器</li>
                     <li>企业邮箱</li>
-                    <li>嘘拟主机</li>
+                    <li>虚拟主机</li>
                     <li>云建站</li>
                 </ul>
                 <div class="clear"></div>
             </div>
             <div class="blank45"></div>
             <div class="bd">
+                <!--云服务器 start-->
                 <div>
                     <ul class="jic_ul">
+                        <volist name="package_list" id="vo">
                         <li>
-                            <h2>入门型云服务器</h2>
+                            <h2>{$vo.name}</h2>
                             <div class="div_1">
                                 <img src="__YWY__/images/ioc_1.png" alt="">
-                                <p><span>288</span><em>/</em>年</p>
+                                <p><span>{$vo.year_price}</span><em>/</em>年</p>
                             </div>
                             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="ta_1">
                                 <tr>
                                     <td width="65" align="center">CPU：</td>
-                                    <td align="center">InterXeon1核</td>
+                                    <td align="center">{$vo.cpu}</td>
                                 </tr>
                                 <tr>
                                     <td align="center">内存：</td>
-                                    <td align="center">512M</td>
+                                    <td align="center">{$vo.memory}</td>
                                 </tr>
                                 <tr>
                                     <td align="center">硬盘：</td>
-                                    <td align="center">50G(分布式集群云存储)</td>
+                                    <td align="center">{$vo.disk}</td>
                                 </tr>
-                                <tr>
-                                    <td align="center">机房：</td>
-                                    <td align="center">电信线路</td>
-                                </tr>
+
                                 <tr>
                                     <td align="center" class="td_no">宽带：</td>
-                                    <td align="center" class="td_no">1M</td>
+                                    <td align="center" class="td_no">{$vo.bandwidth}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="2" class="td_no td_1">
-                                        <a class="a1" href="">立即购买</a>
-                                        <a class="a2" href="">浏览更多</a>
+                                        <a class="a1" href="{:U('Server/index')}">立即购买</a>
+                                        <a class="a2" href="{:U('Server/index')}">浏览更多</a>
                                     </td>
                                 </tr>
                             </table>
                         </li>
-                        <li>
-                            <h2>标准型云服务器</h2>
-                            <div class="div_1">
-                                <img src="__YWY__/images/ioc_1.png" alt="">
-                                <p><span>288</span><em>/</em>年</p>
-                            </div>
-                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="ta_1">
-                                <tr>
-                                    <td width="65" align="center">CPU：</td>
-                                    <td align="center">InterXeon1核</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">内存：</td>
-                                    <td align="center">512M</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">硬盘：</td>
-                                    <td align="center">50G(分布式集群云存储)</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">机房：</td>
-                                    <td align="center">电信线路</td>
-                                </tr>
-                                <tr>
-                                    <td align="center" class="td_no">宽带：</td>
-                                    <td align="center" class="td_no">1M</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="td_no td_1">
-                                        <a class="a1" href="">立即购买</a>
-                                        <a class="a2" href="">浏览更多</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </li>
-                        <li>
-                            <h2>入门型云服务器</h2>
-                            <div class="div_1">
-                                <img src="__YWY__/images/ioc_1.png" alt="">
-                                <p><span>288</span><em>/</em>年</p>
-                            </div>
-                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="ta_1">
-                                <tr>
-                                    <td width="65" align="center">CPU：</td>
-                                    <td align="center">InterXeon1核</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">内存：</td>
-                                    <td align="center">512M</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">硬盘：</td>
-                                    <td align="center">50G(分布式集群云存储)</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">机房：</td>
-                                    <td align="center">电信线路</td>
-                                </tr>
-                                <tr>
-                                    <td align="center" class="td_no">宽带：</td>
-                                    <td align="center" class="td_no">1M</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="td_no td_1">
-                                        <a class="a1" href="">立即购买</a>
-                                        <a class="a2" href="">浏览更多</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </li>
-                        <li>
-                            <h2>标准型云服务器</h2>
-                            <div class="div_1">
-                                <img src="__YWY__/images/ioc_1.png" alt="">
-                                <p><span>288</span><em>/</em>年</p>
-                            </div>
-                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="ta_1">
-                                <tr>
-                                    <td width="65" align="center">CPU：</td>
-                                    <td align="center">InterXeon1核</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">内存：</td>
-                                    <td align="center">512M</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">硬盘：</td>
-                                    <td align="center">50G(分布式集群云存储)</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">机房：</td>
-                                    <td align="center">电信线路</td>
-                                </tr>
-                                <tr>
-                                    <td align="center" class="td_no">宽带：</td>
-                                    <td align="center" class="td_no">1M</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="td_no td_1">
-                                        <a class="a1" href="">立即购买</a>
-                                        <a class="a2" href="">浏览更多</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </li>
+                        </volist>
+
+
                     </ul>
                     <div class="clear"></div>
                 </div>
+                <!--云服务器 end-->
+                <!--企业邮箱 start-->
                 <div>
                     <ul class="jic_ul">
                         <li>
-                            <h2>入门型云服务器</h2>
+                            <h2>企业邮箱</h2>
                             <div class="div_1">
                                 <img src="__YWY__/images/ioc_1.png" alt="">
-                                <p><span>288</span><em>/</em>年</p>
+                                <p><span>{$mail.price}</span><em>/</em>年</p>
                             </div>
                             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="ta_1">
                                 <tr>
-                                    <td width="65" align="center">CPU：</td>
-                                    <td align="center">InterXeon1核</td>
+                                    <td width="65" align="center">基本用户数：</td>
+                                    <td align="center">{$mail.usernum}</td>
                                 </tr>
                                 <tr>
-                                    <td align="center">内存：</td>
-                                    <td align="center">512M</td>
+                                    <td align="center">邮箱空间：</td>
+                                    <td align="center">{$mail.space}/人</td>
                                 </tr>
-                                <tr>
-                                    <td align="center">硬盘：</td>
-                                    <td align="center">50G(分布式集群云存储)</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">机房：</td>
-                                    <td align="center">电信线路</td>
-                                </tr>
-                                <tr>
-                                    <td align="center" class="td_no">宽带：</td>
-                                    <td align="center" class="td_no">1M</td>
-                                </tr>
+
                                 <tr>
                                     <td colspan="2" class="td_no td_1">
-                                        <a class="a1" href="">立即购买</a>
-                                        <a class="a2" href="">浏览更多</a>
+                                        <a class="a1" href="{:U('Mail/buyMail')}">立即购买</a>
+                                        <a class="a2" href="{:U('Mail/index')}">浏览更多</a>
                                     </td>
                                 </tr>
                             </table>
                         </li>
-                        <li>
-                            <h2>标准型云服务器</h2>
-                            <div class="div_1">
-                                <img src="__YWY__/images/ioc_1.png" alt="">
-                                <p><span>288</span><em>/</em>年</p>
-                            </div>
-                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="ta_1">
-                                <tr>
-                                    <td width="65" align="center">CPU：</td>
-                                    <td align="center">InterXeon1核</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">内存：</td>
-                                    <td align="center">512M</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">硬盘：</td>
-                                    <td align="center">50G(分布式集群云存储)</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">机房：</td>
-                                    <td align="center">电信线路</td>
-                                </tr>
-                                <tr>
-                                    <td align="center" class="td_no">宽带：</td>
-                                    <td align="center" class="td_no">1M</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="td_no td_1">
-                                        <a class="a1" href="">立即购买</a>
-                                        <a class="a2" href="">浏览更多</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </li>
-                        <li>
-                            <h2>入门型云服务器</h2>
-                            <div class="div_1">
-                                <img src="__YWY__/images/ioc_1.png" alt="">
-                                <p><span>288</span><em>/</em>年</p>
-                            </div>
-                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="ta_1">
-                                <tr>
-                                    <td width="65" align="center">CPU：</td>
-                                    <td align="center">InterXeon1核</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">内存：</td>
-                                    <td align="center">512M</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">硬盘：</td>
-                                    <td align="center">50G(分布式集群云存储)</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">机房：</td>
-                                    <td align="center">电信线路</td>
-                                </tr>
-                                <tr>
-                                    <td align="center" class="td_no">宽带：</td>
-                                    <td align="center" class="td_no">1M</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="td_no td_1">
-                                        <a class="a1" href="">立即购买</a>
-                                        <a class="a2" href="">浏览更多</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </li>
-                        <li>
-                            <h2>标准型云服务器</h2>
-                            <div class="div_1">
-                                <img src="__YWY__/images/ioc_1.png" alt="">
-                                <p><span>288</span><em>/</em>年</p>
-                            </div>
-                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="ta_1">
-                                <tr>
-                                    <td width="65" align="center">CPU：</td>
-                                    <td align="center">InterXeon1核</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">内存：</td>
-                                    <td align="center">512M</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">硬盘：</td>
-                                    <td align="center">50G(分布式集群云存储)</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">机房：</td>
-                                    <td align="center">电信线路</td>
-                                </tr>
-                                <tr>
-                                    <td align="center" class="td_no">宽带：</td>
-                                    <td align="center" class="td_no">1M</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="td_no td_1">
-                                        <a class="a1" href="">立即购买</a>
-                                        <a class="a2" href="">浏览更多</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </li>
+
                     </ul>
                     <div class="clear"></div>
                 </div>
+                <!--企业邮箱 end-->
+
                 <div>
                     <ul class="jic_ul">
                         <li>
@@ -756,7 +542,7 @@
         <div class="cqhd">
             <h2>长期活动</h2>
             <div class="blank30"></div>
-            <div><a href=""><img src="__YWY__/images/a2.jpg" alt=""></a></div>
+            <div><a href="{:U('News/index',array('cate_id'=>54))}"><img src="__YWY__/images/a2.jpg" alt=""></a></div>
         </div>
         <div class="rmdt slide_box2">
             <div class="hd">
@@ -779,7 +565,7 @@
 
                     </ul>
                     <div class="clear"></div>
-                    <div class="ck"><a href="">查看全部</a></div>
+                    <div class="ck"><a href="{:U('News/index',array('cate_id'=>53))}">查看全部</a></div>
                 </div>
                 <div>
                     <ul>
@@ -790,7 +576,7 @@
 
                     </ul>
                     <div class="clear"></div>
-                    <div class="ck"><a href="">查看全部</a></div>
+                    <div class="ck"><a href="{:U('News/index',array('cate_id'=>59))}">查看全部</a></div>
                 </div>
                 <div>
                     <ul>
@@ -801,7 +587,7 @@
 
                     </ul>
                     <div class="clear"></div>
-                    <div class="ck"><a href="">查看全部</a></div>
+                    <div class="ck"><a href="{:U('News/index',array('cate_id'=>57))}">查看全部</a></div>
                 </div>
             </div>
         </div>

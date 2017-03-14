@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="wsg,hth">
+    <meta name="description" content="ASW">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>找回密码-{:C('WEB_SITE_TITLE')}</title>
+    <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
+    <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
+    <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
+
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+    <block name="style"></block>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="__STATIC__/jquery-1.10.2.min.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+    <script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
+    <!--<![endif]-->
+
+</head>
+<body>
+<!-- 头部 -->
+<include file="Public/top"/>
+<!-- /头部 -->
+<div class="sign_div">
+    <div class="w1200 sign_div_1">
+        <div class="sign_div_fl">
+            <div class="sign_div_ewm">
+                <img src="__YWY__/images/ewm_1.jpg" alt="">
+                <p>扫一扫，关注亿维云网，随时随地获取产品最新资讯</p>
+            </div>
+        </div>
+        <div class="sign_div_fr">
+            <h2>亿维云网找回密码</h2>
+            <p>尊敬的用户，您的密码已重设为：123456，请尽快登录修改密码！</p>
+            <p><a href="{:U('Cuser/login')}">点击立即登录</a></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(document)
+            .ajaxStart(function(){
+                $("input:submit").attr("disabled", true);
+            })
+            .ajaxStop(function(){
+                $("input:submit").attr("disabled", false);
+            });
+
+
+    $("form").submit(function(){
+        var self = $(this);
+        $.post(self.attr("action"), self.serialize(), success, "json");
+        return false;
+
+        function success(data){
+            if(data.status){
+                alert("邮件发送成功");
+                window.location.href = data.url;
+            } else {
+                self.find(".Validform_checktip").text(data.info);
+                //刷新验证码
+                $(".reloadverify").click();
+            }
+        }
+    });
+
+    $(function(){
+        var verifyimg = $(".verifyimg").attr("src");
+        $(".reloadverify").click(function(){
+            if( verifyimg.indexOf('?')>0){
+                $(".verifyimg").attr("src", verifyimg+'&random='+Math.random());
+            }else{
+                $(".verifyimg").attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());
+            }
+        });
+    });
+</script>
+<!-- 底部 -->
+<include file="Public/bottom"/>
+<!-- /底部 -->
+</body>
+</html>

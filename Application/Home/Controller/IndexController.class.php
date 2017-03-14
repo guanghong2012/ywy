@@ -40,10 +40,13 @@ class IndexController extends HomeController {
             }
         }
 
-        //$CloundApi = new CloundApi();
-        //$res = $CloundApi->checkDomain('abc123.com','.com');
-        //print_r($res);die;
+        //套餐云产品
+        $package_list = D('PackageHost')->order('level asc')->select();
+        //企业邮箱
+        $mail = M('mail')->find(1);
 
+        $this->assign('mail',$mail);
+        $this->assign('package_list',$package_list);
         $this->assign('all_solution',$all_solution);
         $this->assign('advantages',$advantages);
         $this->assign('hot_news',$hot_news);
@@ -189,6 +192,28 @@ class IndexController extends HomeController {
         $res = $queue::executeQueue($data);
         print_r($res);
         */
+    }
+
+    /*
+     * 公共详情页
+     */
+    public function detail()
+    {
+        $id = (int)I('id');
+        !$id && $this->error("非法访问");
+        /* 获取详细信息 */
+        $Document = D('Document');
+        $info = $Document->detail($id);
+        if(!$info){
+            $this->error($Document->getError());
+        }
+        $this->assign('info', $info);
+        $this->display();
+    }
+
+    public function send()
+    {
+        send_mail("develop11@qbt8.com","测试一下","<h1>我是测试</h1>这是php点点通（<font color=red>www.phpddt.com</font>）对phpmailer的测试内容");
     }
 
 }

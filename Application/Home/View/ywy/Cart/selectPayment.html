@@ -38,7 +38,9 @@
 <include file="Public/top"/>
 <!-- /头部 -->
 <div class="shopping_div">
+
     <div class="w1200">
+        <form id="form1" action="{:U('Cart/orderDone')}" method="post">
         <div class="shop_div1" style="background:url('__YWY__/images/b4_1.png') no-repeat right center">
             <h2>收银台列表</h2>
             <a href="javascript:" onclick="showall()">展开全部详细信息</a>
@@ -67,6 +69,7 @@
         </div>
 
         <volist name="list" id="vo">
+            <input   name="cartid[]" value="{$vo.id}" checked="" type="checkbox" style="display: none" />
         <div class="shop_div3">
             <div class="tdw305 div_ty">
                 <h2>{$vo.name}</h2>
@@ -178,7 +181,7 @@
             </div>
         </div>
         </volist>
-        <form id="form1" action="{:U('Cart/orderDone')}" method="post">
+
         <div class="shop_div5">
             <h2>应支付金额：<span>{$total|number_format=###,2} 元</span></h2>
             <ul>
@@ -213,7 +216,7 @@
         </div>
         <div class="shop_div6">
             <a class="a2" href="javascript:void(0)" onclick="$('#form1').submit();">下一步</a>
-            <a class="a1" href="{:U('Cart/index')}">上一步</a>
+            <a class="a1" href="javascript:history.go(-1)">上一步</a>
         </div>
         </form>
     </div>

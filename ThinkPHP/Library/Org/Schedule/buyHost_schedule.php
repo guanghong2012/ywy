@@ -15,6 +15,7 @@ class buyHost_schedule implements schedule {
      * {"code":"200","message":"成功","data":{"host_id":"956054","order_id":2720282,"state":"0","closed_by":"0","free_days":null,"create_time":"2017-02-21 15:28:13","site_id":637441,"expiry_time":"2018-03-21 15:28:13","errordocuments":null,"directoryindex":"","site_comment":null,"close_code":null,"os_type":"CENTOS6","product_name":"H10066377","login":"H10066377","password":"F77Xa7v2","ftp_state":"0","ftp_closed_by":"0","ftp_user":"webmaster@H10066377","ftp_pass":"ls559Mi4","site_ip":"124.172.147.4","web_state":"0","web_closed_by":"0","web_ip":"124.172.146.2","web_port":80,"web_servername":"H10066377","_limit_Bandwidth":"250","_limit_Traffic":"20000","_usage_Traffic":"0","_limit_MaxConnections":"150","_limit_Quota":"200","_usage_Quota":"0","_limit_Asp":0,"_limit_AspDotNet":0,"_limit_Jsp":0,"_limit_Servlet":0,"_limit_Php":1,"0":0,"web_serveraliases":"aicar168.com www.aicar168.com a637441.sn4513.gzonet.net","_limit_WebSite":1,"_limit_FTPAccount":1,"_limit_MySQLDBSpace":"30","_usage_MySQLDBSpace":"0","_usage_MySQLDB":1,"_limit_MySQLDB":1,"mysql_id":"159814","mysql_ip":"124.172.147.3","module":"Order","method":"placeOrder","echo_info":""}}
      */
     public function exec($data){
+        set_time_limit(0);
         //购买虚拟主机
         $Api = new \Common\Api\CloundApi();
 
