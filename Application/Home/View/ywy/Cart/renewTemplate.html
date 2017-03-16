@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="wsg,hth">
+    <meta name="description" content="ASW">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>选择支付方式-{:C('WEB_SITE_TITLE')}</title>
+    <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
+    <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
+    <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
+    <link href="__YWY__/css/style2.css" rel="stylesheet" type="text/css" /><!-- 表单美化 -->
+    <link href="__YWY__/css/selectpick/cui.css" rel="stylesheet" type="text/css"><!-- 2.2 selectpick美化下拉框插件 -->
+    <SCRIPT>
+        function show(c_Str)
+        {
+            if(document.all(c_Str).style.display=='none')
+            {document.all(c_Str).style.display='block'}
+            else{document.all(c_Str).style.display='none'}
+        }
+        function showall(){
+
+            $("[id^='tip']").each(function(){
+                if($(this).is(":hidden")){
+                    $(this).show();
+                }else{
+                    $(this).hide();
+                }
+            });
+        }
+    </SCRIPT>
+</head>
+<body>
+<!-- 头部 -->
+<include file="Public/top"/>
+<!-- /头部 -->
+<div class="shopping_div">
+
+    <div class="w1200">
+        <form id="form1" action="{:U('Cart/renewTemplateDone')}" method="post">
+            <input type="hidden" name="user_template_id" value="{$user_template.id}" />
+            <div class="shop_div1" style="background:url('__YWY__/images/b4_1.png') no-repeat right center">
+                <h2>收银台列表</h2>
+                <a href="javascript:" onclick="showall()">展开全部详细信息</a>
+                <div class="clear"></div>
+            </div>
+            <div class="shop_div2">
+                <div class="tdw305">
+                    <h3>产品名称</h3>
+                </div>
+                <div class="tdw100">
+                    <h3>关键字</h3>
+                </div>
+                <div class="tdw90">
+                    <h3>数量</h3>
+                </div>
+                <div class="tdw100">
+                    <h3>时限</h3>
+                </div>
+                <div class="tdw380">
+                    <h3>价格</h3>
+                </div>
+                <div class="tdw160">
+                    <h3>操作</h3>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="shop_div3">
+                <div class="tdw305 div_ty">
+                    <h2>{$user_template.name}</h2>
+                </div>
+                <div class="tdw100 div_ty">
+                    <h3>续费</h3>
+                </div>
+                <div class="tdw90 div_ty">
+                    <h3>1</h3>
+                </div>
+                <div class="tdw100 div_ty">
+                    <h3>1年</h3>
+                </div>
+                <div class="tdw380 div_ty">
+                    <h3>价格：{$template.price}元</h3>
+                </div>
+                <div class="clear"></div>
+
+            </div>
+
+
+            <div class="shop_div5">
+                <h2>应支付金额：<span>{$template.price|number_format=###,2} 元</span></h2>
+                <ul>
+                    <li>
+                        <label>
+                            <input id="hot_select_op_1" name="payment" value="1" class="regular-radio"  type="radio">
+                            <label for="hot_select_op_1" class="label_2"></label>
+                            <img src="__YWY__/images/g1.png" alt="">
+                        </label>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <label>
+                            <input id="hot_select_op_2" name="payment" value="2" class="regular-radio" type="radio">
+                            <label for="hot_select_op_2" class="label_2"></label>
+                            <img src="__YWY__/images/g2.png" alt="">
+                        </label>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <label>
+                            <input id="hot_select_op_3" name="payment" value="3" class="regular-radio" checked="" type="radio">
+                            <label for="hot_select_op_3" class="label_2"></label>
+                            <img src="__YWY__/images/g3.png" alt="">
+                        </label>
+                        <span>余额：{$user_account}元</span><a href="">【前去充值】</a>
+                        <div class="clear"></div>
+                    </li>
+                    <li></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="shop_div6">
+                <a class="a2" href="javascript:void(0)" onclick="$('#form1').submit();">下一步</a>
+                <a class="a1" href="javascript:history.go(-1)">上一步</a>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="blank50"></div>
+<!-- 底部 -->
+<include file="Public/bottom"/>
+<!-- /底部 -->
+</body>
+</html>

@@ -135,6 +135,7 @@
 				<a href="<?php echo U('Cuser/edit',array('id'=>$vo['id']));?>" >查看</a>
 				<a href="<?php echo U('Cuser/changeAccount',array('uid'=>$vo['id']));?>" >调节资金</a>
 				<a href="<?php echo U('Cuser/accountLog',array('uid'=>$vo['id']));?>" >资金记录</a>
+				<a href="<?php echo U('Cuser/userDomains',array('uid'=>$vo['id']));?>" >查看用户产品</a>
 
 				<?php if(($vo["status"]) == "1"): ?><a href="<?php echo U('Cuser/changeStatus?method=forbidUser&id='.$vo['id']);?>" class="ajax-get">禁用</a>
 				<?php else: ?>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="wsg,hth">
+    <meta name="description" content="ASW">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>{:C('WEB_SITE_TITLE')}</title>
+    <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
+    <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
+    <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
+    <link href="__YWY__/css/style2.css" rel="stylesheet" type="text/css" /><!-- 表单美化 -->
+    <link href="__YWY__/css/default/style.css" rel="stylesheet" /><!-- 右边滚动 -->
+    <link rel="stylesheet" type="text/css" href="__YWY__/css/default/default.css"><!-- 右边滚动 -->
+    <script src="__YWY__/js/stickySidebar.js"></script>
+
+    <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
+</head>
+<body>
+<!-- 头部 -->
+<include file="Public/top"/>
+<!-- /头部 -->
+<div class="virtual_lx_div">
+    <div class="w1200 mbs_div">
+        <ul>
+            <li><a href="{:U('Index/index')}">首页</a></li>
+            <li>></li>
+            <li><a href="{:U('Mail/index')}">企业邮箱</a></li>
+            <li>></li>
+            <li class="li1">续费</li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <main class="clearfix">
+        <div class="w1200 virgm_div">
+
+            <div class="vir_w870 fl main_content" id="content">
+                <h1><i></i>{$mail.name}</h1>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="vir_ta">
+                    <tr>
+                        <td class="td1" valign="top">选择续费时限：</td>
+                        <td colspan="3" class="td2">
+                            <ul>
+                                <li><a class="a1" href="">{$mail.price}元 / 1年</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1" valign="top"> 绑定域名：</td>
+                        <td colspan="3" class="td3">
+                            <input type="text" name="domain" value="{$user_mail.domain}" readonly class="inp_1">
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="virgm_poa">
+                <aside id="sidebar">
+                    <div class="vir_w300">
+                        <h1>已选配置</h1>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="vir_ta1">
+                            <tr>
+                                <td class="td1">产品名称：</td>
+                                <td><p>{$mail.name}</p></td>
+                            </tr>
+                            <tr>
+                                <td class="td1">绑定域名：</td>
+                                <td><p id="domain">{$user_mail.domain}</p></td>
+                            </tr>
+
+                            <tr>
+                                <td class="td1">续费年限：</td>
+                                <td><p>1（年）</p></td>
+                            </tr>
+                            <tr>
+                                <td class="td1 td_pa">费用总计：</td>
+                                <td class="td_pa "><h4 id="feiyong">￥{$total}</h4></td>
+                            </tr>
+                        </table>
+                        <p class="p1">
+                            <input type="checkbox" id="checkbox-2-1" class="regular-checkbox" checked/><label class="label_1" for="checkbox-2-1"></label>
+                            我已阅读并接受  <a href="{:U('Index/detail?id=53')}" target="_blank">购买协议</a>
+                        </p>
+                        <div class="div_a">
+                            <a href="{:U('Cart/renewMailSelectPayment',array('mail_id'=>$user_mail['id']))}" class="buyBtn">确定续费</a>
+                            <p style="color: red;">（一经购买，无法删除退款）</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </main>
+</div>
+
+<!-- 底部 -->
+<include file="Public/bottom"/>
+<!-- /底部 -->
+<script type="text/javascript" src="__YWY__/js2016/lib/wjf/js/wjf-1.0.0.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/jqurey.tools/jquery.tools.rangeinput.min.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/layer/layer.js"></script>
+</body>
+</html>

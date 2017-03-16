@@ -59,7 +59,7 @@
                         <td>{$vo.expire_time|substr=###,0,10}</td>
                         <td class="cz_td">
                             <a href="http://host.ns365.net" target="_blank">控制面板</a>
-                            <a href="">续费</a>
+                            <a href="{:U('Cart/renewVitrual?id='.$vo['id'])}">续费</a>
                             <a href="{:U('Cuser/viewVitrual?id='.$vo['id'])}">查看</a>
                         </td>
                     </tr>

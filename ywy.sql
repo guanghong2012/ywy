@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2017 �?03 �?09 �?11:12
+-- 生成日期: 2017 �?03 �?16 �?18:15
 -- 服务器版本: 5.5.40
 -- PHP 版本: 5.6.1
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `onethink_action_log` (
   KEY `action_ip_ix` (`action_ip`),
   KEY `action_id_ix` (`action_id`),
   KEY `user_id_ix` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表' AUTO_INCREMENT=627 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表' AUTO_INCREMENT=701 ;
 
 --
 -- 转存表中的数据 `onethink_action_log`
@@ -709,7 +709,81 @@ INSERT INTO `onethink_action_log` (`id`, `action_id`, `user_id`, `action_ip`, `m
 (623, 1, 6, 0, 'cuser', 6, '在2017-03-09 09:48登录了后台', 1, 1489024112),
 (624, 1, 6, 0, 'cuser', 6, '在2017-03-09 09:49登录了后台', 1, 1489024185),
 (625, 1, 6, 0, 'cuser', 6, '在2017-03-09 09:59登录了后台', 1, 1489024765),
-(626, 1, 6, 0, 'cuser', 6, '在2017-03-09 10:06登录了后台', 1, 1489025200);
+(626, 1, 6, 0, 'cuser', 6, '在2017-03-09 10:06登录了后台', 1, 1489025200),
+(627, 1, 1, 0, 'member', 1, 'admin在2017-03-13 10:35登录了后台', 1, 1489372536),
+(628, 1, 1, 0, 'cuser', 1, 'admin在2017-03-13 10:37登录了后台', 1, 1489372675),
+(629, 1, 1, 0, 'cuser', 1, 'admin在2017-03-13 11:17登录了后台', 1, 1489375033),
+(630, 7, 1, 0, 'model', 40, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1489385529),
+(631, 8, 1, 0, 'attribute', 333, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489385567),
+(632, 8, 1, 0, 'attribute', 334, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489385619),
+(633, 7, 1, 0, 'model', 40, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1489385708),
+(634, 7, 1, 0, 'model', 40, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1489385759),
+(635, 11, 1, 0, 'category', 67, '操作url：/ywy/newwebadmin.php?s=/Category/add.html', 1, 1489385814),
+(636, 7, 1, 0, 'model', 40, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1489385870),
+(637, 8, 1, 0, 'attribute', 335, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489389073),
+(638, 6, 1, 0, 'config', 39, '操作url：/ywy/newwebadmin.php?s=/Config/edit.html', 1, 1489391286),
+(639, 1, 1, 0, 'cuser', 1, 'admin在2017-03-13 17:21登录了后台', 1, 1489396869),
+(640, 1, 1, 0, 'cuser', 1, 'admin在2017-03-13 17:25登录了后台', 1, 1489397120),
+(641, 1, 1, 0, 'cuser', 1, 'admin在2017-03-13 17:33登录了后台', 1, 1489397594),
+(642, 1, 1, 0, 'cuser', 1, 'admin在2017-03-14 09:17登录了后台', 1, 1489454255),
+(643, 1, 1, 0, 'member', 1, 'admin在2017-03-14 09:37登录了后台', 1, 1489455470),
+(644, 8, 1, 0, 'attribute', 336, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489471072),
+(645, 10, 1, 0, 'Menu', 181, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1489474925),
+(646, 8, 1, 0, 'attribute', 337, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489476528),
+(647, 7, 1, 0, 'model', 41, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1489483115),
+(648, 8, 1, 0, 'attribute', 338, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489483139),
+(649, 8, 1, 0, 'attribute', 339, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489483156),
+(650, 7, 1, 0, 'model', 41, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1489483208),
+(651, 7, 1, 0, 'model', 41, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1489483228),
+(652, 7, 1, 0, 'model', 41, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1489483283),
+(653, 11, 1, 0, 'category', 68, '操作url：/ywy/newwebadmin.php?s=/Category/add.html', 1, 1489483309),
+(654, 1, 1, 0, 'cuser', 1, 'admin在2017-03-15 09:17登录了后台', 1, 1489540634),
+(655, 1, 1, 0, 'member', 1, 'admin在2017-03-15 09:55登录了后台', 1, 1489542903),
+(656, 8, 1, 0, 'attribute', 340, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489543299),
+(657, 8, 1, 0, 'attribute', 340, '操作url：/ywy/newwebadmin.php?s=/Attribute/remove/id/340.html', 1, 1489543636),
+(658, 8, 1, 0, 'attribute', 341, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489544126),
+(659, 7, 1, 0, 'model', 42, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1489548102),
+(660, 8, 1, 0, 'attribute', 342, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548137),
+(661, 8, 1, 0, 'attribute', 343, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548194),
+(662, 8, 1, 0, 'attribute', 344, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548246),
+(663, 8, 1, 0, 'attribute', 345, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548279),
+(664, 8, 1, 0, 'attribute', 346, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548298),
+(665, 8, 1, 0, 'attribute', 347, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548325),
+(666, 8, 1, 0, 'attribute', 348, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548348),
+(667, 8, 1, 0, 'attribute', 349, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548367),
+(668, 8, 1, 0, 'attribute', 350, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548388),
+(669, 7, 1, 0, 'model', 43, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1489548438),
+(670, 8, 1, 0, 'attribute', 351, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548475),
+(671, 8, 1, 0, 'attribute', 352, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548745),
+(672, 8, 1, 0, 'attribute', 353, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548809),
+(673, 8, 1, 0, 'attribute', 354, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548868),
+(674, 8, 1, 0, 'attribute', 355, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548931),
+(675, 8, 1, 0, 'attribute', 356, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489548966),
+(676, 8, 1, 0, 'attribute', 357, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489549051),
+(677, 8, 1, 0, 'attribute', 358, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489549105),
+(678, 8, 1, 0, 'attribute', 359, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489549196),
+(679, 8, 1, 0, 'attribute', 360, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489558764),
+(680, 8, 1, 0, 'attribute', 361, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489570118),
+(681, 8, 1, 0, 'attribute', 362, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489570140),
+(682, 8, 1, 0, 'attribute', 363, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489570157),
+(683, 8, 1, 0, 'attribute', 290, '操作url：/ywy/newwebadmin.php?s=/Attribute/remove/id/290.html', 1, 1489570271),
+(684, 1, 1, 0, 'cuser', 1, 'admin在2017-03-16 09:17登录了后台', 1, 1489627056),
+(685, 1, 1, 0, 'member', 1, 'admin在2017-03-16 09:45登录了后台', 1, 1489628707),
+(686, 8, 1, 0, 'attribute', 364, '操作url：/ywy/newwebadmin.php?s=/Attribute/update.html', 1, 1489628777),
+(687, 10, 1, 0, 'Menu', 182, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1489635276),
+(688, 10, 1, 0, 'Menu', 182, '操作url：/ywy/newwebadmin.php?s=/Menu/edit.html', 1, 1489635286),
+(689, 10, 1, 0, 'Menu', 183, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1489636645),
+(690, 10, 1, 0, 'Menu', 184, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1489645226),
+(691, 10, 1, 0, 'Menu', 185, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1489648351),
+(692, 10, 1, 0, 'Menu', 186, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1489649603),
+(693, 10, 1, 0, 'Menu', 187, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1489650580),
+(694, 10, 1, 0, 'Menu', 188, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1489653150),
+(695, 10, 1, 0, 'Menu', 188, '操作url：/ywy/newwebadmin.php?s=/Menu/edit.html', 1, 1489653159),
+(696, 10, 1, 0, 'Menu', 189, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1489654664),
+(697, 10, 1, 0, 'Menu', 190, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1489656251),
+(698, 10, 1, 0, 'Menu', 191, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1489657616),
+(699, 10, 1, 0, 'Menu', 192, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1489657675),
+(700, 10, 1, 0, 'Menu', 193, '操作url：/ywy/newwebadmin.php?s=/Menu/add.html', 1, 1489658553);
 
 -- --------------------------------------------------------
 
@@ -799,7 +873,7 @@ CREATE TABLE IF NOT EXISTS `onethink_attribute` (
   `auto_type` varchar(25) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `model_id` (`model_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='模型属性表' AUTO_INCREMENT=333 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='模型属性表' AUTO_INCREMENT=365 ;
 
 --
 -- 转存表中的数据 `onethink_attribute`
@@ -1080,7 +1154,7 @@ INSERT INTO `onethink_attribute` (`id`, `name`, `title`, `field`, `type`, `value
 (287, 'service', '服务标准', 'varchar(25) NOT NULL', 'string', '', '', 1, '', 36, 0, 1, 1488772518, 1488772518, '', 3, '', 'regex', '', 3, 'function'),
 (288, 'create_time', '创建时间', 'int(10) NOT NULL', 'datetime', '', '', 1, '', 36, 0, 1, 1488772587, 1488772587, '', 3, '', 'regex', '', 3, 'function'),
 (289, 'expiry_time', '过期时间', 'int(10) NOT NULL', 'datetime', '', '', 1, '', 36, 0, 1, 1488772623, 1488772623, '', 3, '', 'regex', '', 3, 'function'),
-(290, 'product_id', '站内产品id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 36, 0, 1, 1488772677, 1488772677, '', 3, '', 'regex', '', 3, 'function'),
+(364, 'renew_result', '续费结果备注', 'text NOT NULL', 'textarea', '', '', 1, '', 43, 0, 1, 1489628777, 1489628777, '', 3, '', 'regex', '', 3, 'function'),
 (291, 'uid', '用户id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 37, 0, 1, 1488778925, 1488778925, '', 3, '', 'regex', '', 3, 'function'),
 (292, 'name', '主机名称', 'varchar(25) NOT NULL', 'string', '', '', 1, '', 37, 0, 1, 1488778943, 1488778943, '', 3, '', 'regex', '', 3, 'function'),
 (293, 'product_id', '站内产品id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 37, 0, 1, 1488778971, 1488778971, '', 3, '', 'regex', '', 3, 'function'),
@@ -1123,7 +1197,37 @@ INSERT INTO `onethink_attribute` (`id`, `name`, `title`, `field`, `type`, `value
 (329, 'from', '回复身份', 'varchar(20) NOT NULL', 'string', '', '', 1, '', 39, 0, 1, 1488942759, 1488875519, '', 3, '', 'regex', '', 3, 'function'),
 (330, 'create_time', '创建时间', 'varchar(20) NOT NULL', 'string', '', '', 1, '', 39, 0, 1, 1488875551, 1488875551, '', 3, '', 'regex', '', 3, 'function'),
 (331, 'content', '回复内容', 'text NOT NULL', 'editor', '', '', 1, '', 39, 0, 1, 1488875612, 1488875612, '', 3, '', 'regex', '', 3, 'function'),
-(332, 'images', '回复图片附件', 'text NOT NULL', 'pictures', '', '', 1, '', 39, 0, 1, 1488875631, 1488875631, '', 3, '', 'regex', '', 3, 'function');
+(332, 'images', '回复图片附件', 'text NOT NULL', 'pictures', '', '', 1, '', 39, 0, 1, 1488875631, 1488875631, '', 3, '', 'regex', '', 3, 'function'),
+(333, 'keywords', '关键字', 'varchar(255) NOT NULL', 'string', '', '', 1, '', 40, 0, 1, 1489385567, 1489385567, '', 3, '', 'regex', '', 3, 'function'),
+(334, 'content', '文章内容', 'text NOT NULL', 'editor', '', '', 1, '', 40, 0, 1, 1489385619, 1489385619, '', 3, '', 'regex', '', 3, 'function'),
+(335, 'getpasstime', '找回密码验证时间戳', 'int(10) NOT NULL', 'date', '', '', 1, '', 4, 0, 1, 1489389073, 1489389073, '', 3, '', 'regex', '', 3, 'function'),
+(336, 'desc', '开通描述信息', 'text NOT NULL', 'textarea', '', '', 1, '', 36, 0, 1, 1489471072, 1489471072, '', 3, '', 'regex', '', 3, 'function'),
+(337, 'desc', '开通备注', 'text NOT NULL', 'textarea', '', '', 1, '', 37, 0, 1, 1489476528, 1489476528, '', 3, '', 'regex', '', 3, 'function'),
+(338, 'keywords', '关键字', 'varchar(255) NOT NULL', 'string', '', '', 1, '', 41, 0, 1, 1489483139, 1489483139, '', 3, '', 'regex', '', 3, 'function'),
+(339, 'content', '文章内容', 'text NOT NULL', 'editor', '', '', 1, '', 41, 0, 1, 1489483156, 1489483156, '', 3, '', 'regex', '', 3, 'function'),
+(341, 'web_ordergoods_id', '站内订单产品id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 23, 0, 1, 1489544126, 1489544126, '', 3, '', 'regex', '', 3, 'function'),
+(342, 'order_sn', '续费订单号', 'varchar(20) NOT NULL', 'string', '', '', 1, '', 42, 0, 1, 1489548137, 1489548137, '', 3, '', 'regex', '', 3, 'function'),
+(343, 'payment', '支付方式', 'char(10) NOT NULL', 'radio', '3', '', 1, '1:微信支付\r\n2:支付宝支付\r\n3:余额支付\r\n', 42, 0, 1, 1489548194, 1489548194, '', 3, '', 'regex', '', 3, 'function'),
+(344, 'status', '支付状态', 'char(10) NOT NULL', 'radio', '0', '', 1, '0:未支付\r\n1:已支付', 42, 0, 1, 1489548246, 1489548246, '', 3, '', 'regex', '', 3, 'function'),
+(345, 'total', '订单总额', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '', '', 1, '', 42, 0, 1, 1489548279, 1489548279, '', 3, '', 'regex', '', 3, 'function'),
+(346, 'uid', '用户id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 42, 0, 1, 1489548298, 1489548298, '', 3, '', 'regex', '', 3, 'function'),
+(347, 'username', '用户名', 'varchar(10) NOT NULL', 'string', '', '', 1, '', 42, 0, 1, 1489548325, 1489548325, '', 3, '', 'regex', '', 3, 'function'),
+(348, 'mobile', '手机号码', 'varchar(13) NOT NULL', 'string', '', '', 1, '', 42, 0, 1, 1489548348, 1489548348, '', 3, '', 'regex', '', 3, 'function'),
+(349, 'create_time', '创建时间', 'int(10) NOT NULL', 'datetime', '', '', 1, '', 42, 0, 1, 1489548367, 1489548367, '', 3, '', 'regex', '', 3, 'function'),
+(350, 'pay_time', '支付时间', 'int(10) NOT NULL', 'datetime', '', '', 1, '', 42, 0, 1, 1489548388, 1489548388, '', 3, '', 'regex', '', 3, 'function'),
+(351, 'uid', '用户id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 43, 0, 1, 1489548475, 1489548475, '', 3, '', 'regex', '', 3, 'function'),
+(352, 'type', '产品类型', 'char(20) NOT NULL', 'radio', '', '', 1, 'domain:域名\r\nvitrual:虚拟机\r\nmail:企业邮局\r\ntemplate:网站模板\r\nhost:弹性云主机\r\npackagehost:套餐云主机', 43, 0, 1, 1489548745, 1489548745, '', 3, '', 'regex', '', 3, 'function'),
+(353, 'order_id', '订单id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 43, 0, 1, 1489548809, 1489548809, '', 3, '', 'regex', '', 3, 'function'),
+(354, 'product_name', '产品名称', 'varchar(20) NOT NULL', 'string', '', '', 1, '', 43, 0, 1, 1489548868, 1489548868, '', 3, '', 'regex', '', 3, 'function'),
+(355, 'total', '总价格', 'decimal(10,2) UNSIGNED NOT NULL', 'num', '', '', 1, '', 43, 0, 1, 1489548931, 1489548931, '', 3, '', 'regex', '', 3, 'function'),
+(356, 'month', '续费时限（月）', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 43, 0, 1, 1489548966, 1489548966, '', 3, '', 'regex', '', 3, 'function'),
+(357, 'product_status', '续费状态', 'char(10) NOT NULL', 'radio', '0', '', 1, '0:未续费\r\n1:续费成功', 43, 0, 1, 1489549051, 1489549051, '', 3, '', 'regex', '', 3, 'function'),
+(358, 'price_id', '虚拟机价格id', 'int(10) UNSIGNED NOT NULL', 'num', '0', '', 1, '', 43, 0, 1, 1489549105, 1489549105, '', 3, '', 'regex', '', 3, 'function'),
+(359, 'buy_config', '续费参数', 'text NOT NULL', 'textarea', '', '', 1, '', 43, 0, 1, 1489549196, 1489549196, '', 3, '', 'regex', '', 3, 'function'),
+(360, 'user_goods_id', '用户产品id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 43, 0, 1, 1489558764, 1489558764, '', 3, '', 'regex', '', 3, 'function'),
+(361, 'os_id', '操作系统id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 36, 0, 1, 1489570118, 1489570118, '', 3, '', 'regex', '', 3, 'function'),
+(362, 'line_id', '线路id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 36, 0, 1, 1489570140, 1489570140, '', 3, '', 'regex', '', 3, 'function'),
+(363, 'service_id', '服务id', 'int(10) UNSIGNED NOT NULL', 'num', '', '', 1, '', 36, 0, 1, 1489570157, 1489570157, '', 3, '', 'regex', '', 3, 'function');
 
 -- --------------------------------------------------------
 
@@ -1456,7 +1560,7 @@ CREATE TABLE IF NOT EXISTS `onethink_cart` (
   `price_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '价格id',
   `buy_config` text NOT NULL COMMENT '用户购买配置信息',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=31 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=39 ;
 
 -- --------------------------------------------------------
 
@@ -1548,7 +1652,7 @@ CREATE TABLE IF NOT EXISTS `onethink_category` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_name` (`name`),
   KEY `pid` (`pid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='分类表' AUTO_INCREMENT=67 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='分类表' AUTO_INCREMENT=69 ;
 
 --
 -- 转存表中的数据 `onethink_category`
@@ -1582,7 +1686,9 @@ INSERT INTO `onethink_category` (`id`, `name`, `title`, `pid`, `sort`, `list_row
 (63, 'chineseDomain', '中文域名', 60, 3, 10, '', '', '', '', '', '', '', '24', '24', '2', 0, 1, 1, 0, 0, '', NULL, 1488268285, 1488268290, 1, 0, ''),
 (64, 'guoDomain', '国别域名', 60, 4, 10, '', '', '', '', '', '', '', '24', '24', '2', 0, 1, 1, 0, 0, '', NULL, 1488268331, 1488268337, 1, 0, ''),
 (65, 'cnDomain', 'CN域名', 60, 5, 10, '', '', '', '', '', '', '', '24', '24', '2', 0, 1, 1, 0, 0, '', NULL, 1488268365, 1488268371, 1, 0, ''),
-(66, 'selfDomain', '自定义域名', 60, 6, 10, '', '', '', '', '', '', '', '24', '24', '2', 0, 1, 1, 0, 0, '', NULL, 1488268397, 1488268405, 1, 0, '');
+(66, 'selfDomain', '自定义域名', 60, 6, 10, '', '', '', '', '', '', '', '24', '24', '2', 0, 1, 1, 0, 0, '', NULL, 1488268397, 1488268405, 1, 0, ''),
+(67, 'common_articles', '公共文章', 0, 0, 10, '', '', '', '', '', '', '', '40', '40', '2', 0, 1, 1, 0, 0, '', NULL, 1489385814, 1489385814, 1, 0, ''),
+(68, 'notice', '公告', 0, 0, 10, '', '', '', '', '', '', '', '41', '41', '2', 0, 1, 1, 0, 0, '', NULL, 1489483309, 1489483309, 1, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1704,7 +1810,7 @@ CREATE TABLE IF NOT EXISTS `onethink_config` (
   UNIQUE KEY `uk_name` (`name`),
   KEY `type` (`type`),
   KEY `group` (`group`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
 
 --
 -- 转存表中的数据 `onethink_config`
@@ -1720,7 +1826,7 @@ INSERT INTO `onethink_config` (`id`, `name`, `type`, `title`, `group`, `extra`, 
 (11, 'DOCUMENT_POSITION', 3, '文档推荐位', 2, '', '文档推荐位，推荐到多个位置KEY值相加即可', 1379053380, 1379235329, 1, '1:列表推荐\r\n2:频道推荐\r\n4:首页推荐', 3),
 (12, 'DOCUMENT_DISPLAY', 3, '文档可见性', 2, '', '文章可见性仅影响前台显示，后台不收影响', 1379056370, 1379235322, 1, '0:所有人可见\r\n1:仅注册会员可见\r\n2:仅管理员可见', 4),
 (13, 'COLOR_STYLE', 4, '后台色系', 1, 'default_color:默认\r\nblue_color:紫罗兰', '后台颜色风格', 1379122533, 1379235904, 1, 'default_color', 10),
-(20, 'CONFIG_GROUP_LIST', 3, '配置分组', 4, '', '配置分组', 1379228036, 1384418383, 1, '1:基本\r\n2:内容\r\n3:用户\r\n4:系统', 4),
+(20, 'CONFIG_GROUP_LIST', 3, '配置分组', 4, '', '配置分组', 1379228036, 1384418383, 1, '1:基本\r\n2:内容\r\n3:用户\r\n4:系统\r\n5:邮箱配置', 4),
 (21, 'HOOKS_TYPE', 3, '钩子的类型', 4, '', '类型 1-用于扩展显示内容，2-用于扩展业务处理', 1379313397, 1379313407, 1, '1:视图\r\n2:控制器', 6),
 (22, 'AUTH_CONFIG', 3, 'Auth配置', 4, '', '自定义Auth.class.php类配置', 1379409310, 1379409564, 1, 'AUTH_ON:1\r\nAUTH_TYPE:2', 8),
 (23, 'OPEN_DRAFTBOX', 4, '是否开启草稿功能', 2, '0:关闭草稿功能\r\n1:开启草稿功能\r\n', '新增文章时的草稿功能配置', 1379484332, 1379484591, 1, '1', 1),
@@ -1737,7 +1843,11 @@ INSERT INTO `onethink_config` (`id`, `name`, `type`, `title`, `group`, `extra`, 
 (34, 'DENY_VISIT', 3, '超管专限控制器方法', 0, '', '仅超级管理员可访问的控制器方法', 1386644141, 1386644659, 1, '0:Addons/addhook\r\n1:Addons/edithook\r\n2:Addons/delhook\r\n3:Addons/updateHook\r\n4:Admin/getMenus\r\n5:Admin/recordList\r\n6:AuthManager/updateRules\r\n7:AuthManager/tree', 0),
 (35, 'REPLY_LIST_ROWS', 0, '回复列表每页条数', 2, '', '', 1386645376, 1387178083, 1, '10', 0),
 (36, 'ADMIN_ALLOW_IP', 2, '后台允许访问IP', 4, '', '多个用逗号分隔，如果不配置表示不限制IP访问', 1387165454, 1387165553, 1, '', 12),
-(37, 'SHOW_PAGE_TRACE', 4, '是否显示页面Trace', 4, '0:关闭\r\n1:开启', '是否显示页面Trace信息', 1387165685, 1387165685, 1, '0', 1);
+(37, 'SHOW_PAGE_TRACE', 4, '是否显示页面Trace', 4, '0:关闭\r\n1:开启', '是否显示页面Trace信息', 1387165685, 1387165685, 1, '0', 1),
+(38, 'MAIL_SMTP_HOST', 1, 'SMTP 服务器', 5, '', '', 1489391226, 1489391226, 1, 'smtp.126.com', 1),
+(39, 'MAIL_SMTP_PORT', 1, 'SMTP服务器的端口号', 5, '', '', 1489391273, 1489391286, 1, '25', 2),
+(40, 'MAIL_SMTP_USER', 1, 'SMTP服务器用户名', 5, '', '', 1489391325, 1489391325, 1, 'guanghong2012@126.com', 3),
+(41, 'MAIL_SMTP_PASS', 1, 'SMTP服务器密码', 5, '', '', 1489391362, 1489391362, 1, 'guanghong.com', 4);
 
 -- --------------------------------------------------------
 
@@ -1802,20 +1912,21 @@ CREATE TABLE IF NOT EXISTS `onethink_cuser` (
   `last_login_ip` varchar(100) NOT NULL COMMENT '最后登陆IP',
   `account` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '账户余额',
   `login` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '登录次数',
+  `getpasstime` int(10) NOT NULL COMMENT '找回密码验证时间戳',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=15 ;
 
 --
 -- 转存表中的数据 `onethink_cuser`
 --
 
-INSERT INTO `onethink_cuser` (`id`, `email`, `username`, `password`, `mobile`, `address`, `sex`, `qq`, `reg_time`, `reg_ip`, `update_time`, `status`, `last_login_time`, `last_login_ip`, `account`, `login`) VALUES
-(1, 'guanghong2012@126.com', '李志', '1625a05770c3ee32d06130866fc25d7f', '13533481813', '广州天河区科韵路255号', '1', '7778858', '1488869165', '0', '1488359413', '1', '1488936559', '0', '8369.00', 1),
-(3, 'develop12@qbt8.com', '骚刚', '37e36e59794dd65d98006b57ef95af42', '13580128021', '科韵路255号', '1', '', '1487572646', '0', '1487572646', '1', '1487571279', '0', '90.00', 2),
-(4, 'develop13@qbt8.com', '八嘎', '1625a05770c3ee32d06130866fc25d7f', '', '', '0', '', '1487558784', '0', '1487558784', '1', '', '', '0.00', 0),
-(5, 'develop21@qbt8.com', '曙光', '1625a05770c3ee32d06130866fc25d7f', '13570456594', '白云区', '0', '', '1487558993', '0', '1487558993', '1', '1488201813', '0', '0.00', 1),
-(6, 'laohuang@126.com', '隔壁老黄', '1625a05770c3ee32d06130866fc25d7f', '13580127425', '广东省汕尾市陆丰市', '0', '', '1489024154', '0', '1489024154', '1', '1489025200', '0', '0.00', 5),
-(8, 'juntang@126.com', '林俊堂', '1625a05770c3ee32d06130866fc25d7f', '18576815110', '广东省东莞市樟木头', '0', '', '1488265595', '0', '1488265595', '1', '', '', '0.00', 0);
+INSERT INTO `onethink_cuser` (`id`, `email`, `username`, `password`, `mobile`, `address`, `sex`, `qq`, `reg_time`, `reg_ip`, `update_time`, `status`, `last_login_time`, `last_login_ip`, `account`, `login`, `getpasstime`) VALUES
+(1, 'guanghong2012@126.com', '李志', '1625a05770c3ee32d06130866fc25d7f', '13533481813', '广州天河区科韵路255号', '1', '7778858', '1489633927', '0', '1489397616', '1', '0', '0', '6102.00', 0, 1489395058),
+(3, 'develop12@qbt8.com', '骚刚', '37e36e59794dd65d98006b57ef95af42', '13580128021', '科韵路255号', '1', '', '1487572646', '0', '1487572646', '1', '1487571279', '0', '90.00', 2, 0),
+(5, 'develop21@qbt8.com', '曙光', '1625a05770c3ee32d06130866fc25d7f', '13570456594', '白云区', '0', '', '1487558993', '0', '1487558993', '1', '1488201813', '0', '0.00', 1, 0),
+(6, 'laohuang@126.com', '隔壁老黄', '1625a05770c3ee32d06130866fc25d7f', '13580127425', '广东省汕尾市陆丰市', '0', '', '1489024154', '0', '1489024154', '1', '1489025200', '0', '0.00', 5, 0),
+(8, 'juntang@126.com', '林俊堂', '1625a05770c3ee32d06130866fc25d7f', '18576815110', '广东省东莞市樟木头', '0', '', '1488265595', '0', '1488265595', '1', '', '', '0.00', 0, 0),
+(14, 'lisi@126.com', '李四', '1625a05770c3ee32d06130866fc25d7f', '13580128025', '科韵路255号', '0', '', '1489374997', '0', '1489374997', '1', '', '', '0.00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1851,7 +1962,7 @@ CREATE TABLE IF NOT EXISTS `onethink_document` (
   PRIMARY KEY (`id`),
   KEY `idx_category_status` (`category_id`,`status`),
   KEY `idx_status_type_pid` (`status`,`uid`,`pid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='文档模型基础表' AUTO_INCREMENT=49 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='文档模型基础表' AUTO_INCREMENT=57 ;
 
 --
 -- 转存表中的数据 `onethink_document`
@@ -1863,8 +1974,8 @@ INSERT INTO `onethink_document` (`id`, `uid`, `name`, `title`, `category_id`, `g
 (4, 1, '', '广东省守合同重信用企业', 50, 0, '', 0, 0, 8, 2, 0, 0, 2, 1, 0, 0, 0, 0, 0, 2, 1487232209, 1487232209, 1),
 (5, 1, '', '广东省中小企业发展促进会常务理事', 50, 0, '', 0, 0, 8, 2, 0, 0, 3, 1, 0, 0, 0, 0, 0, 1, 1487232291, 1487232291, 1),
 (6, 1, '', 'pptv', 51, 0, '', 0, 0, 9, 2, 0, 0, 4, 1, 0, 0, 0, 0, 0, 1, 1487234030, 1487234030, 1),
-(7, 1, '', '年前我们求敬业福，年后我们敬业求福', 53, 0, '年前我们求敬业福，年后我们敬业求福', 0, 0, 10, 2, 0, 0, 5, 1, 0, 0, 0, 0, 0, 1, 1487234409, 1487234532, 1),
-(8, 1, '', '百度长时间不收录上线网站，这是搞哪样？', 54, 0, '百度长时间不收录上线网站，这是搞哪样？', 0, 0, 10, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1487234854, 1487234894, 1),
+(7, 1, '', '年前我们求敬业福，年后我们敬业求福', 53, 0, '年前我们求敬业福，年后我们敬业求福', 0, 0, 10, 2, 0, 0, 5, 1, 0, 0, 7, 0, 0, 1, 1487234409, 1487234532, 1),
+(8, 1, '', '百度长时间不收录上线网站，这是搞哪样？', 54, 0, '百度长时间不收录上线网站，这是搞哪样？', 0, 0, 10, 2, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1487234854, 1487234894, 1),
 (9, 1, '', '备案中心', 55, 0, '备案中心', 0, 0, 10, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1487235598, 1487235663, 1),
 (10, 1, '', '联系我们', 56, 0, '', 0, 0, 11, 2, 0, 0, 7, 1, 0, 0, 0, 0, 0, 0, 1487389157, 1487389157, 1),
 (11, 1, '', '自动开通', 58, 0, '我们产品实现在线付款后实时开通，无需等待人工审核。', 0, 0, 12, 2, 0, 0, 9, 1, 0, 0, 0, 0, 0, 6, 1487312410, 1487312410, 1),
@@ -1904,7 +2015,15 @@ INSERT INTO `onethink_document` (`id`, `uid`, `name`, `title`, `category_id`, `g
 (45, 1, '', '.wang', 62, 0, '', 0, 0, 24, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1488269155, 1488269155, 1),
 (46, 1, '', '.xin', 62, 0, '', 0, 0, 24, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1488269176, 1488269176, 1),
 (47, 1, '', '.china', 64, 0, '', 0, 0, 24, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1488269208, 1488269208, 1),
-(48, 1, '', '.com.cn', 65, 0, '', 0, 0, 24, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1488269227, 1488269227, 1);
+(48, 1, '', '.com.cn', 65, 0, '', 0, 0, 24, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1488269227, 1488269227, 1),
+(49, 1, '', '萨德事件持续发酵 零售上市公司纷纷下架乐天产品', 53, 0, '萨德事件持续发酵 零售上市公司纷纷下架乐天产品', 0, 0, 10, 2, 0, 0, 42, 1, 0, 0, 5, 0, 0, 2, 1489377214, 1489377349, 1),
+(50, 1, '', '习近平主席在解放军代表团全体会议上的重要讲话引起热烈反响', 53, 0, '习近平主席在解放军代表团全体会议上的重要讲话引起热烈反响', 0, 0, 10, 2, 0, 0, 43, 1, 0, 0, 2, 0, 0, 3, 1489377377, 1489377466, 1),
+(51, 1, '', '亿维云网用户注册协议', 67, 0, '亿维云网用户注册协议', 0, 0, 40, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1489385878, 1489385965, 1),
+(52, 1, '', '亿维云云服务器租用协议', 67, 0, '亿维云云服务器租用协议', 0, 0, 40, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1489386039, 1489386076, 1),
+(53, 1, '', '产品购买协议', 67, 0, '产品购买协议', 0, 0, 40, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1489386096, 1489386122, 1),
+(54, 1, '', '云服务端服务标准', 67, 0, '云服务端服务标准', 0, 0, 40, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1489386153, 1489386256, 1),
+(55, 1, '', '网站公告1', 68, 0, '网站公告1', 0, 0, 41, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 1489483318, 1489483370, 1),
+(56, 1, '', '网站公告2', 68, 0, '网站公告2', 0, 0, 41, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1489483375, 1489483389, 1);
 
 -- --------------------------------------------------------
 
@@ -1965,6 +2084,29 @@ CREATE TABLE IF NOT EXISTS `onethink_document_article` (
   `bookmark` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '收藏数',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='文档模型文章表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `onethink_document_common_article`
+--
+
+CREATE TABLE IF NOT EXISTS `onethink_document_common_article` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `keywords` varchar(255) NOT NULL COMMENT '关键字',
+  `content` text NOT NULL COMMENT '文章内容',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=55 ;
+
+--
+-- 转存表中的数据 `onethink_document_common_article`
+--
+
+INSERT INTO `onethink_document_common_article` (`id`, `keywords`, `content`) VALUES
+(51, '亿维云网用户注册协议', '<p>\r\n	亿维云网用户注册协议\r\n</p>\r\n<p>\r\n	这里是注册协议的具体内容。\r\n</p>'),
+(52, '亿维云云服务器租用协议', '<p>\r\n	亿维云云服务器租用协议\r\n</p>\r\n<p>\r\n	&nbsp; &nbsp; 以下是租用协议具体内容。\r\n</p>'),
+(53, '产品购买协议', '<p>\r\n	产品购买协议\r\n</p>\r\n<p>\r\n	&nbsp; &nbsp; 亿维云产品购买协议具体内容。\r\n</p>'),
+(54, '云服务端服务标准', '<h1 style="text-align:center;">\r\n	<span style="font-size:12px;">云服务端服务标准</span>\r\n</h1>\r\n<p>\r\n	<span style="font-size:12px;">&nbsp;&nbsp;&nbsp;&nbsp;云服务端服务标准<br />\r\n</span>\r\n</p>');
 
 -- --------------------------------------------------------
 
@@ -2112,7 +2254,7 @@ CREATE TABLE IF NOT EXISTS `onethink_document_news` (
   `keywords` varchar(255) NOT NULL COMMENT '关键字',
   `content` text NOT NULL COMMENT '文章内容',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=30 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=51 ;
 
 --
 -- 转存表中的数据 `onethink_document_news`
@@ -2122,7 +2264,30 @@ INSERT INTO `onethink_document_news` (`id`, `keywords`, `content`) VALUES
 (7, '年前我们求敬业福，年后我们敬业求福', '<span style="color:#333333;background-color:#FFFFFF;font-size:16px;font-family:&quot;">这么远，那么快，春节</span><span style="color:#333333;background-color:#FFFFFF;font-size:16px;font-family:&quot;">7</span><span style="color:#333333;background-color:#FFFFFF;font-size:16px;font-family:&quot;">天长假眨眼就过去了，我们又开始奋斗。</span>'),
 (8, '百度长时间不收录上线网站，这是搞哪样？', '百度长时间不收录上线网站，这是搞哪样？'),
 (9, '备案中心', '这里是备案中心内容展示区'),
-(29, '亿维云网新一代虚拟机发售', '亿维云网新一代虚拟机发售');
+(29, '亿维云网新一代虚拟机发售', '亿维云网新一代虚拟机发售'),
+(49, '萨德事件', '<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	韩国乐天事件持续发酵，自韩国乐天集团签署供地协议后，中国商界的抵制声音愈发强烈，多家超市已将包括乐天旗下商品甚至全部韩国产品下架。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	据《证券日报》记者了解到，这波下架事件仍未结束，诸多零售上市公司也参与进来。3月7日，有投资者在深交所互动易平台询问*ST人乐公司“抵制乐天，人人乐在行动！这消息是真的吗？”对此，*ST人乐回复称，*ST人乐公司已经全部下架乐天产品。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	据记者获悉，其它零售门店如大润发全国所有门店目前已经全线下架乐天品牌所有商品，并停止销售，全部退货。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	此外，乐天玛特超市网站也处于崩溃状态。截至昨日晚间，《证券日报》记者登陆乐天玛特中国官网网站发现，网页一直显示：“抱歉，页面正在维护中，请稍后访问。”\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	<strong>超市大规模下架乐天商品</strong>\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	继航空公司禁飞韩国以及旅游公司下架赴韩国旅行产品后，商贸零售超市也陆续下架韩国乐天公司产品。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	据《证券日报》记者了解，不少零售上市公司公开表示，下架韩国乐天商品。例如，*ST人乐就公开在深交所互动易上回复投资者称，*ST人乐公司已经全部下架乐天产品。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	无独有偶，据消费者表示，另外一家零售商，华润万家系统内所有乐天产品也已经下架，商品后续处理方案等待上级通知。此外，还包括大润发以及银座商城在内的商家也已经将韩国乐天品牌全部下架。另有在浙江徐州经营商超的有关负责人告诉《证券日报》记者，徐州市区的乐天玛特超市不仅关店，并且零售商圈的大大小小商户自觉开始下架韩国乐天的产品，“商家们这个时候态度很坚决，很多在原先摆放乐天商品的空货架上贴上了‘韩国产品已经下架’等标签。”\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	事实上，据记者了解，除实体零售商外，包括天猫以及京东在内的电商平台也开始下架乐天产品。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	主做跨境电商的洋码头相关电商网站有关负责人在接受《证券日报》记者采访时也表示，“鉴于目前的情况，洋码头是不会主动推荐韩国的有关商品。”\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	<strong>对乐天集团影响巨大</strong>\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	从2月28日乐天超市有限公司北京崇文门分店因发布违法广告遭处罚事件被重新挖出到各大零售商抵制乐天商品，乐天集团在中国的处境似乎越来越糟糕。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	据韩联社报道，截止到当地时间3月8日下午4时（北京时间3时），共有55家乐天玛特在华门店暂停营业。考虑到中国乐天玛特门店总数为99家，目前暂停营业的乐天玛特门店约占中国市场的一半以上。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	3月3日，国家旅游局发文提示赴韩国旅游风险。国家旅游局提醒中国公民，清醒认识出境旅行风险，慎重选择旅游目的地。似乎是响应着这一提示的号召，国内多家旅行社相继宣布停止销售赴韩游线路，国内部分旅游网站下架了所有韩国游产品。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	受上述消息影响，韩国乐天公司股票一路下跌。公开资料显示，乐天集团的另一大业务为在韩国的乐天免税店，2016年韩国免税店市场规模为12.27万亿韩元，72%由外国游客掏腰包，其中，大部分为中国人。以中国游客购买额占70%计算，金额大致为8.6万亿韩元。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	中国游客撑起了韩国旅游业半边天，中国赴韩国游客减少直接影响乐天免税店销售额度。此前有乐天集团旗下公司有关负责人与《证券日报》记者交流时表示，韩国商家其实希望与中国人民建立友好合作关系，“毕竟大家都知道，来韩国的游客中大部分还是以中国游客为主，韩国的诸多产业都依赖中国人民。”\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	乐天集团是韩国五大集团之一，世界五百强跨国企业。乐天集团在华事业占集团总体的比重较大，数据显示，乐天在中国的事业占据其整个版图的29%。并且在韩国的乐天免税店，整体购买额中70%来自中国消费者。乐天自1994年进入中国市场，2016年，乐天集团在华营业额高达3.2万亿韩元（约合192.3亿人民币元）。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	上述负责人同时表示，乐天集团此次的选择不仅影响了公司本身的经营，同时对韩国相关产业也带来了巨大的影响。\r\n</p>'),
+(50, '习近平主席，解放军代表团全体会议', '<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	新华社北京3月12日电 题：走向科技兴军的灿烂春天——习近平主席在解放军代表团全体会议上的重要讲话引起热烈反响\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	新华社记者王经国、王玉山、琚振华\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	“下更大气力推动科技兴军，坚持向科技创新要战斗力，为我军建设提供强大科技支撑。”“我们必须增强紧迫感，以更大决心和力度抓紧推动科技创新和进步。”“要把提高官兵科技素养作为一项基础性工作来抓，在全军大力传播科学精神、普及科学知识，使学习科技、运用科技在全军蔚然成风。”\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	12日下午，中共中央总书记、国家主席、中央军委主席习近平在出席解放军代表团全体会议时发表的重要讲话，在出席<a class="a-tips-Article-QQ" target="_blank" href="http://news.qq.com/zt2015/2015lh/index.htm">两会</a>的军队代表委员中引起热烈反响。大家纷纷表示，要顺势而为、乘势而上，把科技创新摆在更加重要位置，大力开展军民协同创新，推动部队战斗力建设跨越发展，以崭新面貌和优异成绩迎接党的十九大胜利召开。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	<strong>“习主席的重要讲话吹响了科技兴军的时代号角”</strong>\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	“习主席站在时代发展和战略全局的高度，深刻揭示了世界军事科技发展规律。”全国人大代表、武警新疆总队政委王爱国说，“习主席的重要讲话吹响了科技兴军的时代号角。”\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	“军事领域从来就是一个对抗最激烈、最具创新活力的领域，如果不加快创新，迎头赶上，就会出现技术鸿沟，陷于战略被动。”全国人大代表、空军某指挥所参谋长刘文力说。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	实现强军兴军，必须要有强大的科技作支撑。“真正的核心技术是买不来的，要在激烈的国际军事竞争中掌握主动，必须大力推进科技进步和创新，大幅提高国防科技自主创新能力。”全国人大代表、火箭军某基地装备部部长谈卫红说。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	当前，国防和军队建设正处在崭新的历史起点上。军队代表委员们表示，我军建设的内外环境和时代条件都发生很大变化，比以往任何时候都更加需要继承和发扬创新精神。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	创新能力是一支军队的核心竞争力，也是生成和提高战斗力的加速器。“军事力量的较量，深层次的是军事科技创新能力的较量。”全国人大代表、火箭军某研究所所长李贤玉说，实践证明，谁牵住了科技创新这个“牛鼻子”，谁就能走好科技创新这步棋，就能占领先机，赢得优势。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	“习主席的重要讲话既有战略设计又有思路措施，既有总体部署又有政策安排，是一个相互关联相互促进的有机整体。”在现场聆听习主席的重要讲话后，全国人大代表、陆军第42集团军某旅副旅长田伟倍感振奋，“创新动力更足、创新自信更坚定。现在，大家都坚定了共同的信念，那就是以只争朝夕的精神攻坚克难、创新进取。”\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	<strong>“把创新成果转化为实实在在的战斗力”</strong>\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	在解放军代表团全体会议上，习主席强调，要推动搞好顶层设计和战略筹划，推动国防科技和武器装备军民融合，推动军地合力培育军事人才，推动体制机制和政策制度改革，加快我军建设向质量效能型和科技密集型转变。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	“习主席高瞻远瞩、运筹帷幄，为实现科技兴军宏伟蓝图指明了方向、提供了遵循。”全国人大代表、军事科学院研究员陈舟说，“只要我们按照习主席的指示部署狠抓落实，一定可以把创新成果转化为实实在在的战斗力。”\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	“科技创新一定要为战斗力建设服务，只有与国家安全需求对接，与战场需求对接，才能实现科技创新的真正价值。”全国人大代表、中部战区陆军副司令员杨波说，要瞄准国际前沿，围绕国家、军队重大战略需求，刻苦攻关，抢占事关长远和全局的科技战略制高点，力争在重要军事科技领域实现跨越发展。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	全国政协委员、海军原副政委范印华说，坚持科技兴军，必须牢固树立军事科技是核心战斗力、核心创造力的观念，努力提高科技对战斗力的贡献率。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	全国人大代表、海军副政委丁海春说，军队要实现跨越式发展，就必须着眼世界军事科技前沿，着眼未来战争的特点规律，集军民之合力融合科技要素，在战斗力转化上取得重大突破，夺取克敌制胜的制高点。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	作为科研战线的技术尖兵，全国人大代表、军事医学科学院某研究所所长陈薇对“捕捉军事能力发展的潜在增长点”有着切身的感受：“只有坚持姓军为战，瞄准明天的战争，瞄准制约战斗力提升的重大科技问题，勇闯禁区、勇挑重担，才能不断培育新的战斗力增长点。”\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	“要让科技兴军在基层落地生根，必须大力提高官兵的科技素质，用好高技术新型武器装备。”全国人大代表、东部战区副司令员兼东部战区陆军司令员秦卫江说，一支现代化的军队必须拥有掌握现代化知识的军人。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	<strong>“肩负起科技兴军的历史责任”</strong>\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	科技兴军，人才引领。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	“习主席关于科技兴军一系列决策部署，鼓舞人心、催人奋进。”全国政协委员、国防科技大学原政治委员徐一天说，“必须紧紧扭住人才这个核心要素，结合国防和军队改革，大力推进人才培养创新。”\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	“高水平的科技人才，才可能实现高水平的科技创新。”全国人大代表、国防科技大学原教授周兴铭说，“要广开门路引进人才，把有志于献身国防和军队事业的优秀人才吸引过来。培养人才要与科研实践相结合，通过给任务、压担子等方式发现人才、磨练人才。”\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	“听了习主席的重要讲话，倍受鼓舞，也进一步增强了科技创新的紧迫感，我们必须肩负起科技兴军的历史责任。”全国人大代表、中部战区副司令员兼中部战区空军司令员庄可柱说，要把习主席的重要讲话精神落实到工作中去，做好理论创新、提高新质战斗力、创新战法训法、创新人才培养工作，促进部队战斗力持续提升。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	“广大官兵是我军战斗力的主体，要把提高官兵科技素养作为一项基础性工作来抓。”全国人大代表、中部战区某通信团教导员王方说，让科技创新的理念内化为广大官兵的科学认知，外化为推动强军兴军各项工作的自觉行动，让学科技、用科技在军营蔚然成风。\r\n</p>\r\n<p class="text" style="font-family:&quot;font-size:16px;background-color:#FFFFFF;text-indent:2em;">\r\n	号角声声，鼙鼓阵阵。走在科技兴军道路上的人民军队，向着实现强军目标、建设世界一流军队的宏伟蓝图阔步迈进。\r\n</p>');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `onethink_document_notice`
+--
+
+CREATE TABLE IF NOT EXISTS `onethink_document_notice` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `keywords` varchar(255) NOT NULL COMMENT '关键字',
+  `content` text NOT NULL COMMENT '文章内容',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=57 ;
+
+--
+-- 转存表中的数据 `onethink_document_notice`
+--
+
+INSERT INTO `onethink_document_notice` (`id`, `keywords`, `content`) VALUES
+(55, '网站公告1', '<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	本文以 MySQL 为例，介绍通过 MicroColor ServHA Cluster for Linux 配置 MySQL 共享磁盘阵列\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	双机容错集群。\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	主要步骤：\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	一、 配置防火墙\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	二、 安装并配置 ServHA Cluster\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	三、 安装并配置 MySQL。\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	四、 将 MySQL 服务交由集群管理。\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	注意事项：\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	一、 MySQL 配置双机集群方案要求两机都安装 MySQL， 数据库文件放在共享盘内。\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	二、 在配置安装 MySQL 前， 请先配置 ServHA Cluster 将共享盘交由集群管理,以免双机\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	同时访问共享盘,造成数据异常（下面会详细介绍操作步骤）。\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	三、 两机的 MySQL 安装配置必须完全相同。\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	四、 如果遇到权限问题导致 MySQL 无法启动，请自行根据日志配置用户权限，本文档\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	不再赘述。\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	五、 远程无法连接 MySQL 时，请用户自行设置 MySQL 白名单，本文档不在赘述。\r\n</p>'),
+(56, '网站公告2', '<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	本文以 MySQL 为例，介绍通过 MicroColor ServHA Cluster for Linux 配置 MySQL 共享磁盘阵列\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	双机容错集群。\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	主要步骤：\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	一、 配置防火墙\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	二、 安装并配置 ServHA Cluster\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	三、 安装并配置 MySQL。\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	四、 将 MySQL 服务交由集群管理。\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	注意事项：\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	一、 MySQL 配置双机集群方案要求两机都安装 MySQL， 数据库文件放在共享盘内。\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	二、 在配置安装 MySQL 前， 请先配置 ServHA Cluster 将共享盘交由集群管理,以免双机\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	同时访问共享盘,造成数据异常（下面会详细介绍操作步骤）。\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	三、 两机的 MySQL 安装配置必须完全相同。\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	四、 如果遇到权限问题导致 MySQL 无法启动，请自行根据日志配置用户权限，本文档\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	不再赘述。\r\n</p>\r\n<p style="font-family:微软雅黑;font-size:14px;background-color:#FFFFFF;">\r\n	五、 远程无法连接 MySQL 时，请用户自行设置 MySQL 白名单，本文档不在赘述。\r\n</p>');
 
 -- --------------------------------------------------------
 
@@ -2390,7 +2555,7 @@ CREATE TABLE IF NOT EXISTS `onethink_member` (
 --
 
 INSERT INTO `onethink_member` (`uid`, `nickname`, `sex`, `birthday`, `qq`, `score`, `login`, `reg_ip`, `reg_time`, `last_login_ip`, `last_login_time`, `status`) VALUES
-(1, 'admin', 0, '0000-00-00', '', 80, 24, 0, 1487144121, 0, 1489023858, 1);
+(1, 'admin', 0, '0000-00-00', '', 90, 28, 0, 1487144121, 0, 1489628707, 1);
 
 -- --------------------------------------------------------
 
@@ -2412,7 +2577,7 @@ CREATE TABLE IF NOT EXISTS `onethink_menu` (
   PRIMARY KEY (`id`),
   KEY `pid` (`pid`),
   KEY `status` (`status`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=181 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=194 ;
 
 --
 -- 转存表中的数据 `onethink_menu`
@@ -2586,7 +2751,20 @@ INSERT INTO `onethink_menu` (`id`, `title`, `pid`, `sort`, `url`, `hide`, `tip`,
 (177, '订单管理', 0, 11, 'Order/index', 0, '', '', 0, 1),
 (178, '订单列表', 177, 1, 'Order/index', 0, '', '订单', 0, 1),
 (179, '订单产品', 177, 2, 'Order/orderGoods', 1, '', '订单', 0, 1),
-(180, '查看订单产品', 177, 3, 'Order/viewGoods', 1, '', '订单', 0, 1);
+(180, '查看订单产品', 177, 3, 'Order/viewGoods', 1, '', '订单', 0, 1),
+(181, '开通产品', 177, 4, 'Order/enableGoods', 1, '', '订单', 0, 1),
+(182, '续费订单', 177, 5, 'Order/renewOrder', 0, '', '续费订单', 0, 1),
+(183, '续费订单产品', 177, 6, 'Order/renewOrderGoods', 1, '', '续费订单', 0, 1),
+(184, '查看续费订单产品', 177, 7, 'Order/viewRenewGoods', 1, '', '续费订单', 0, 1),
+(185, '待续费产品', 177, 8, 'Order/waitRenew', 0, '', '续费订单', 0, 1),
+(186, '待开通订单产品', 177, 5, 'Order/waitOpenGoods', 0, '', '订单', 0, 1),
+(187, '查看开通结果', 177, 5, 'Order/viewResult', 1, '', '订单', 0, 1),
+(188, '用户域名产品', 124, 0, 'Cuser/userDomains', 1, '', '用户管理', 0, 1),
+(189, '用户虚拟机产品', 124, 0, 'Cuser/userVitrual', 1, '', '用户管理', 0, 1),
+(190, '用户邮局产品', 124, 0, 'Cuser/userMail', 1, '', '用户管理', 0, 1),
+(191, '用户弹性云主机', 124, 0, 'Cuser/userHost', 1, '', '用户管理', 0, 1),
+(192, '用户网站模板产品', 124, 0, 'Cuser/userTemplate', 1, '', '用户管理', 0, 1),
+(193, '用户套餐云主机', 124, 0, 'Cuser/userPackagehost', 1, '', '用户管理', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -2617,7 +2795,7 @@ CREATE TABLE IF NOT EXISTS `onethink_model` (
   `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
   `engine_type` varchar(25) NOT NULL DEFAULT 'MyISAM' COMMENT '数据库引擎',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='文档模型表' AUTO_INCREMENT=40 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='文档模型表' AUTO_INCREMENT=44 ;
 
 --
 -- 转存表中的数据 `onethink_model`
@@ -2662,7 +2840,11 @@ INSERT INTO `onethink_model` (`id`, `name`, `title`, `extend`, `relation`, `need
 (36, 'user_host', '用户弹性云主机', 0, '', 1, '{"1":["287","286","288","289","290","285","284","280","281","282","283","279"]}', '1:基础', '', '', '', '', '', 'id:ID\r\nname:主机名称', 10, '', '', 1488772263, 1488778894, 1, 'MyISAM'),
 (37, 'user_packagehost', '用户套餐云主机', 0, '', 1, '{"1":["297","298","299","300","296","295","292","293","294","291"]}', '1:基础', '', '', '', '', '', 'id:ID\r\nname:主机名称', 10, '', '', 1488778882, 1488779225, 1, 'MyISAM'),
 (38, 'user_worksheet', '用户工单', 0, '', 1, '{"1":["325","326","327","324","323","321","322","320"]}', '1:基础', '', '', '', '', '', 'id:ID\r\nuid:用户id\r\ntitle:工单标题\r\norder_sn:工单编号', 10, '', '', 1488874829, 1488875381, 1, 'MyISAM'),
-(39, 'worksheet_chact', '工单聊天记录', 0, '', 1, '', '1:基础', '', '', '', '', '', NULL, 10, '', '', 1488875437, 1488875437, 1, 'MyISAM');
+(39, 'worksheet_chact', '工单聊天记录', 0, '', 1, '', '1:基础', '', '', '', '', '', NULL, 10, '', '', 1488875437, 1488875437, 1, 'MyISAM'),
+(40, 'common_article', '公共文章', 1, '', 1, '{"1":["3","333","5","16","20","334"]}', '1:基础', '16,22,21,20,3,334,5,333', '', '', '', '', 'id:ID\r\ntitle:标题\r\nview:浏览量\r\nid:操作:[EDIT]|编辑', 10, '', '', 1489385529, 1489385870, 1, 'MyISAM'),
+(41, 'notice', '公告', 1, '', 1, '{"1":["3","338","5","16","19","20","339"]}', '1:基础', '22,21,3,338,5,16,19,20,339', '', '', '', '', 'id:ID\r\ntitle:标题\r\nkeywords:关键字\r\nid:操作:[EDIT]|编辑,[DELETE]|删除', 10, '', '', 1489483115, 1489483283, 1, 'MyISAM'),
+(42, 'renew_order', '续费订单', 0, '', 1, '', '1:基础', '', '', '', '', '', NULL, 10, '', '', 1489548102, 1489548102, 1, 'MyISAM'),
+(43, 'renew_order_goods', '续费订单产品', 0, '', 1, '', '1:基础', '', '', '', '', '', NULL, 10, '', '', 1489548438, 1489548438, 1, 'MyISAM');
 
 -- --------------------------------------------------------
 
@@ -2682,7 +2864,7 @@ CREATE TABLE IF NOT EXISTS `onethink_order` (
   `create_time` int(10) NOT NULL COMMENT '创建时间',
   `paytime` int(10) NOT NULL COMMENT '支付时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=13 ;
 
 --
 -- 转存表中的数据 `onethink_order`
@@ -2695,7 +2877,9 @@ INSERT INTO `onethink_order` (`id`, `ordersn`, `payment`, `status`, `total`, `ui
 (6, '1488350103', '3', '1', '128.00', 1, '李志', '13533481813', 1488350103, 1488350103),
 (9, '1488855526', '3', '1', '576.00', 1, '李志', '13533481813', 1488855526, 1488855526),
 (8, '1488619596', '3', '1', '612.00', 1, '李志', '13533481813', 1488619596, 1488619596),
-(10, '1488869165', '3', '1', '240.00', 1, '李志', '13533481813', 1488869165, 1488869165);
+(10, '1488869165', '3', '1', '240.00', 1, '李志', '13533481813', 1488869165, 1488869165),
+(11, '1489455276', '3', '1', '480.00', 1, '李志', '13533481813', 1489455276, 1489455277),
+(12, '1489476023', '3', '1', '253.00', 1, '李志', '13533481813', 1489476023, 1489476023);
 
 -- --------------------------------------------------------
 
@@ -2724,7 +2908,7 @@ CREATE TABLE IF NOT EXISTS `onethink_order_goods` (
   `buy_config` text NOT NULL COMMENT '用户购买配置信息',
   `product_status` char(2) NOT NULL DEFAULT '0' COMMENT '产品状态',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='订单产品' AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='订单产品' AUTO_INCREMENT=15 ;
 
 --
 -- 转存表中的数据 `onethink_order_goods`
@@ -2738,8 +2922,10 @@ INSERT INTO `onethink_order_goods` (`id`, `uid`, `username`, `mobile`, `product_
 (5, 1, '李志', '13533481813', '.com域名', 0, 12, '1.00', '0.00', '1', '1.00', '3', '{"name":".com_ENG"}', '', 0, '{"r_organization":"\\u5343\\u4f70\\u7279\\u79d1\\u6280","r_organization1":"Qian Bai Te Ke Ji ","r_name":"\\u6768\\u5149","r_name1":"Yang Guang ","r_country":"CN","r_province":"\\u5e7f\\u4e1c\\u7701","r_province1":"Guang Dong Sheng ","r_city":"\\u5e7f\\u5dde","r_city1":"Guang Zhou ","r_postcode":"510000","r_email":"develop11@qbt8.com","r_street":"\\u68e0\\u4e0b\\u79d1\\u97f5\\u8def255\\u53f7","r_street1":"Tang Xia Ke Yun Lu 255Hao ","r_phone":"+86.13533481813","r_fax":"+86.020-82071951","radio-1-set":"1","radio-2-set":"1","radio-3-set":"1"}', 3, '{"domain":"baga168.com","tld":".com","year":1,"lang":"ENG","encoding":"ASCII"}', '0'),
 (8, 1, '李志', '13533481813', '红色经典', 0, 12, '128.00', '0.00', '5', '128.00', '3', '{"name":"PC\\u4f01\\u4e1a\\u7ecf\\u5178\\u7248-\\u7ea2\\u8272\\u7ecf\\u5178"}', '', 0, '', 6, '{"id":"1","cate_id":"1","color":"#fe0000","name":"\\u7ea2\\u8272\\u7ecf\\u5178","price":"128.00","template_id":"1000","images":"33","level":"1"}', '0'),
 (11, 1, '李志', '13533481813', '全球邮', 3111, 12, '480.00', '96.00', '3', '576.00', '3', '{"name":"\\u5168\\u7403\\u90ae"}', '', 0, '', 9, '{"domain":"baga168.com","number":"1","timeperiod":12,"quota":0,"id":"1","name":"\\u5168\\u7403\\u90ae","price":"480.00","usernum":"5","space":"10G","extra_price":"96.00"}', '1'),
-(10, 1, '李志', '13533481813', '弹性云主机', 0, 6, '612.00', '0.00', '4', '612.00', '3', '{"name":"\\u5f39\\u6027\\u4e91\\u4e3b\\u673a","os":"Win2008 64\\u4f4d\\uff08\\u7eaf\\u51c0\\u7248\\uff09"}', '{"cpu":2,"memory":2,"disk":"50","bandwidth":"2","line_id":"1","service_id":"1","buytime":"6","buycount":"1","os_id":"1","line_name":"\\u667a\\u80fd\\u591a\\u7ebf","service_name":"\\u57fa\\u7840\\u670d\\u52a1","os_name":"Win2008 64\\u4f4d\\uff08\\u7eaf\\u51c0\\u7248\\uff09"}', 0, '', 8, '{"cpu":2,"memory":2,"disk":"50","bandwidth":"2","line_id":"1","service_id":"1","buytime":"6","buycount":"1","os_id":"1","line_name":"\\u667a\\u80fd\\u591a\\u7ebf","service_name":"\\u57fa\\u7840\\u670d\\u52a1","os_name":"Win2008 64\\u4f4d\\uff08\\u7eaf\\u51c0\\u7248\\uff09"}', '0'),
-(12, 1, '李志', '13533481813', '飓风2s型（国内）', 488, 12, '240.00', '0.00', '2', '240.00', '3', '{"name":"\\u98d3\\u98ce2s\\u578b\\uff08\\u56fd\\u5185\\uff09","os":"CENTOS6\\u6216windows"}', '{"id":"488","productclass_id":"2","name":"\\u98d3\\u98ce2s\\u578b\\uff08\\u56fd\\u5185\\uff09","description":"> Windows\\u6216\\u8005Linux\\u5e73\\u53f0<br>\\r\\n> 200M\\u7f51\\u9875 75M(3\\u4e2a)\\u90ae\\u5c40<br>\\r\\n> \\u652f\\u6301ASP(Windows)\\/PHP(Linux)<br>\\r\\n> Access(Windows)\\/30M MySQL\\u6570\\u636e\\u5e93(Linux)<br>\\r\\n> \\u9002\\u5408\\u4e2a\\u4eba\\u7528\\u6237\\u3001\\u5c0f\\u578b\\u4f01\\u4e1a<br>\\r\\n> \\u5feb\\u901f\\u4f4e\\u6210\\u672c\\u5730\\u521b\\u5efa\\u7f51\\u4e0a\\u5bb6\\u56ed","period_type":"3","default_timeperiod":"12","deposit":"0.0000","setup":"0.0000","price":"480.0000","bonus_timeperiod":"24","bonus_deposit":"0.0000","bonus_setup":"0.0000","bonus_price":"3840.0000","os":0,"_limit_Bandwidth":"250","_limit_Traffic":"20000","_limit_MaxConnections":"150","_limit_Quota":"200","_limit_PHP":1,"_limit_ASP":1,"_limit_MySQLQuota":"30","_limit_MSSQLQuota":"1","module":"Product","method":"infoProduct","echo_info":""}', 2, '', 10, '{"product_id":488,"domain":"supperdog.com","timeperiod":12,"os_type":1}', '0');
+(10, 1, '李志', '13533481813', '弹性云主机', 0, 6, '612.00', '0.00', '4', '612.00', '3', '{"name":"\\u5f39\\u6027\\u4e91\\u4e3b\\u673a","os":"Win2008 64\\u4f4d\\uff08\\u7eaf\\u51c0\\u7248\\uff09"}', '{"cpu":2,"memory":2,"disk":"50","bandwidth":"2","line_id":"1","service_id":"1","buytime":"6","buycount":"1","os_id":"1","line_name":"\\u667a\\u80fd\\u591a\\u7ebf","service_name":"\\u57fa\\u7840\\u670d\\u52a1","os_name":"Win2008 64\\u4f4d\\uff08\\u7eaf\\u51c0\\u7248\\uff09"}', 0, '', 8, '{"cpu":2,"memory":2,"disk":"50","bandwidth":"2","line_id":"1","service_id":"1","buytime":"6","buycount":"1","os_id":"1","line_name":"\\u667a\\u80fd\\u591a\\u7ebf","service_name":"\\u57fa\\u7840\\u670d\\u52a1","os_name":"Win2008 64\\u4f4d\\uff08\\u7eaf\\u51c0\\u7248\\uff09"}', '1'),
+(12, 1, '李志', '13533481813', '飓风2s型（国内）', 488, 12, '240.00', '0.00', '2', '240.00', '3', '{"name":"\\u98d3\\u98ce2s\\u578b\\uff08\\u56fd\\u5185\\uff09","os":"CENTOS6\\u6216windows"}', '{"id":"488","productclass_id":"2","name":"\\u98d3\\u98ce2s\\u578b\\uff08\\u56fd\\u5185\\uff09","description":"> Windows\\u6216\\u8005Linux\\u5e73\\u53f0<br>\\r\\n> 200M\\u7f51\\u9875 75M(3\\u4e2a)\\u90ae\\u5c40<br>\\r\\n> \\u652f\\u6301ASP(Windows)\\/PHP(Linux)<br>\\r\\n> Access(Windows)\\/30M MySQL\\u6570\\u636e\\u5e93(Linux)<br>\\r\\n> \\u9002\\u5408\\u4e2a\\u4eba\\u7528\\u6237\\u3001\\u5c0f\\u578b\\u4f01\\u4e1a<br>\\r\\n> \\u5feb\\u901f\\u4f4e\\u6210\\u672c\\u5730\\u521b\\u5efa\\u7f51\\u4e0a\\u5bb6\\u56ed","period_type":"3","default_timeperiod":"12","deposit":"0.0000","setup":"0.0000","price":"480.0000","bonus_timeperiod":"24","bonus_deposit":"0.0000","bonus_setup":"0.0000","bonus_price":"3840.0000","os":0,"_limit_Bandwidth":"250","_limit_Traffic":"20000","_limit_MaxConnections":"150","_limit_Quota":"200","_limit_PHP":1,"_limit_ASP":1,"_limit_MySQLQuota":"30","_limit_MSSQLQuota":"1","module":"Product","method":"infoProduct","echo_info":""}', 2, '', 10, '{"product_id":488,"domain":"supperdog.com","timeperiod":12,"os_type":1}', '0'),
+(13, 1, '李志', '13533481813', '全球邮', 3111, 12, '480.00', '0.00', '3', '480.00', '3', '{"name":"\\u5168\\u7403\\u90ae"}', '', 0, '', 11, '{"domain":"baga123.com","number":"0","timeperiod":12,"quota":0,"id":"1","name":"\\u5168\\u7403\\u90ae","price":"480.00","usernum":5,"space":"10G","extra_price":0}', '1'),
+(14, 1, '李志', '13533481813', '套餐云主机-创业型云服务器', 0, 1, '253.00', '0.00', '6', '253.00', '3', '{"name":"\\u5957\\u9910\\u4e91\\u4e3b\\u673a-\\u521b\\u4e1a\\u578b\\u4e91\\u670d\\u52a1\\u5668"}', '{"cpu":" IntelXeon E5-2620\\/5645*4(\\u56db\\u6838\\u5fc3)","memory":"2GB","disk":"200G SAS\\u786c\\u76d8+200G SATA(\\u667a\\u80fd\\u5907\\u4efd)","hostname":"\\u521b\\u4e1a\\u578b\\u4e91\\u670d\\u52a1\\u5668","buytime":"1","host_id":"1","price":"253.00","bandwidth":"3M\\u72ec\\u4eab","ip":" \\u72ec\\u4eabIP\\u4e00\\u4e2a"}', 0, '', 12, '{"cpu":" IntelXeon E5-2620\\/5645*4(\\u56db\\u6838\\u5fc3)","memory":"2GB","disk":"200G SAS\\u786c\\u76d8+200G SATA(\\u667a\\u80fd\\u5907\\u4efd)","hostname":"\\u521b\\u4e1a\\u578b\\u4e91\\u670d\\u52a1\\u5668","buytime":"1","host_id":"1","price":"253.00","bandwidth":"3M\\u72ec\\u4eab","ip":" \\u72ec\\u4eabIP\\u4e00\\u4e2a"}', '1');
 
 -- --------------------------------------------------------
 
@@ -2790,7 +2976,7 @@ CREATE TABLE IF NOT EXISTS `onethink_paylog` (
   `payment` char(2) NOT NULL DEFAULT '3' COMMENT '支付方式',
   `create_time` int(10) NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=19 ;
 
 --
 -- 转存表中的数据 `onethink_paylog`
@@ -2806,7 +2992,15 @@ INSERT INTO `onethink_paylog` (`id`, `ordersn`, `serialsn`, `money`, `status`, `
 (7, '1488359582', '2017000007', '576.00', '1', '3', 1488359582),
 (8, '1488619596', '2017000008', '612.00', '1', '3', 1488619596),
 (9, '1488855526', '2017000009', '576.00', '1', '3', 1488855526),
-(10, '1488869165', '2017000010', '240.00', '1', '3', 1488869165);
+(10, '1488869165', '2017000010', '240.00', '1', '3', 1488869165),
+(11, '1489455276', '2017000011', '480.00', '1', '3', 1489455277),
+(12, '1489476023', '2017000012', '253.00', '1', '3', 1489476023),
+(13, '1489567911', '2017000013', '128.00', '1', '3', 1489567911),
+(14, '1489568778', '2017000014', '128.00', '1', '3', 1489568778),
+(15, '1489568847', '2017000015', '128.00', '1', '3', 1489568847),
+(16, '1489568921', '2017000016', '128.00', '1', '3', 1489568921),
+(17, '1489629928', '2017000017', '102.00', '1', '3', 1489629929),
+(18, '1489633928', '2017000018', '920.00', '1', '3', 1489633928);
 
 -- --------------------------------------------------------
 
@@ -2823,7 +3017,7 @@ CREATE TABLE IF NOT EXISTS `onethink_picture` (
   `status` tinyint(2) NOT NULL DEFAULT '0' COMMENT '状态',
   `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=44 ;
 
 --
 -- 转存表中的数据 `onethink_picture`
@@ -2870,7 +3064,76 @@ INSERT INTO `onethink_picture` (`id`, `path`, `url`, `md5`, `sha1`, `status`, `c
 (38, '/Uploads/Picture/2017-03-02/58b78df845e96.jpg', '', 'dc485aa62ae8f65f46185147e9c727c9', '27b05a9615425cb3e6a365706322235075fd7bc0', 1, 1488424440),
 (39, '/Uploads/Picture/2017-03-07/58be8e985e2ba.jpg', '', 'f8bdc4824d888c45d17b72dca87564c8', 'fda5e49f2d4af2be1c3e0636db88d4ab1fccc1a5', 1, 1488883359),
 (40, '/Uploads/Picture/2017-03-07/58be8e995e05d.png', '', '6d3370da9677412d14a0a4fb13d69c56', '8783474ec7bebeb5a137c047c8290f8684ed9efe', 1, 1488883359),
-(41, '/Uploads/Picture/2017-03-08/58bf9d4a07893.jpg', '', '78289be95ae533e46c7c00be5f01b5b1', 'c49dd2eb4f8e69a69b6b4b4073067cc8b5648693', 1, 1488952652);
+(41, '/Uploads/Picture/2017-03-08/58bf9d4a07893.jpg', '', '78289be95ae533e46c7c00be5f01b5b1', 'c49dd2eb4f8e69a69b6b4b4073067cc8b5648693', 1, 1488952652),
+(42, '/Uploads/Picture/2017-03-13/58c6184309ed4.jpg', '', 'b329788e989ae3944a1f2765bef92b94', '0460a6ef218a2373eb1389a486f8801c30f79348', 1, 1489377346),
+(43, '/Uploads/Picture/2017-03-13/58c6189dbe350.jpg', '', 'f17ef26551b48b8cf109ed5bb60e985b', 'cc879b486e50279d1001671240011fe19bef658d', 1, 1489377437);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `onethink_renew_order`
+--
+
+CREATE TABLE IF NOT EXISTS `onethink_renew_order` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `order_sn` varchar(20) NOT NULL COMMENT '续费订单号',
+  `payment` char(10) NOT NULL DEFAULT '3' COMMENT '支付方式',
+  `status` char(10) NOT NULL DEFAULT '0' COMMENT '支付状态',
+  `total` decimal(10,2) unsigned NOT NULL COMMENT '订单总额',
+  `uid` int(10) unsigned NOT NULL COMMENT '用户id',
+  `username` varchar(10) NOT NULL COMMENT '用户名',
+  `mobile` varchar(13) NOT NULL COMMENT '手机号码',
+  `create_time` int(10) NOT NULL COMMENT '创建时间',
+  `pay_time` int(10) NOT NULL COMMENT '支付时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=7 ;
+
+--
+-- 转存表中的数据 `onethink_renew_order`
+--
+
+INSERT INTO `onethink_renew_order` (`id`, `order_sn`, `payment`, `status`, `total`, `uid`, `username`, `mobile`, `create_time`, `pay_time`) VALUES
+(1, '1489567911', '3', '1', '128.00', 1, '李志', '13533481813', 1489567911, 1489567911),
+(2, '1489568778', '3', '1', '128.00', 1, '李志', '13533481813', 1489568778, 1489568778),
+(3, '1489568847', '3', '1', '128.00', 1, '李志', '13533481813', 1489568847, 1489568847),
+(4, '1489568921', '3', '1', '128.00', 1, '李志', '13533481813', 1489568921, 1489568921),
+(5, '1489629928', '3', '1', '102.00', 1, '李志', '13533481813', 1489629928, 1489629929),
+(6, '1489633928', '3', '1', '920.00', 1, '李志', '13533481813', 1489633928, 1489633928);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `onethink_renew_order_goods`
+--
+
+CREATE TABLE IF NOT EXISTS `onethink_renew_order_goods` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `uid` int(10) unsigned NOT NULL COMMENT '用户id',
+  `type` char(20) NOT NULL COMMENT '产品类型',
+  `order_id` int(10) unsigned NOT NULL COMMENT '订单id',
+  `product_name` varchar(20) NOT NULL COMMENT '产品名称',
+  `total` decimal(10,2) unsigned NOT NULL COMMENT '总价格',
+  `month` int(10) unsigned NOT NULL COMMENT '续费时限（月）',
+  `product_status` char(10) NOT NULL DEFAULT '0' COMMENT '续费状态',
+  `price_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '虚拟机价格id',
+  `buy_config` text NOT NULL COMMENT '续费参数',
+  `user_goods_id` int(10) unsigned NOT NULL COMMENT '用户产品id',
+  `renew_result` text NOT NULL COMMENT '续费结果备注',
+  PRIMARY KEY (`id`),
+  KEY `user_goods_id` (`user_goods_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=7 ;
+
+--
+-- 转存表中的数据 `onethink_renew_order_goods`
+--
+
+INSERT INTO `onethink_renew_order_goods` (`id`, `uid`, `type`, `order_id`, `product_name`, `total`, `month`, `product_status`, `price_id`, `buy_config`, `user_goods_id`, `renew_result`) VALUES
+(1, 1, 'template', 1, '红色经典', '128.00', 12, '1', 0, '{"name":"\\u7ea2\\u8272\\u7ecf\\u5178","template_id":"1000","year":1,"cur_expiry_time":"1519886103"}', 1, ''),
+(2, 1, 'template', 2, '红色经典', '128.00', 12, '1', 0, '{"name":"\\u7ea2\\u8272\\u7ecf\\u5178","template_id":"1000","year":1,"cur_expiry_time":"1550990103"}', 1, ''),
+(3, 1, 'template', 3, '红色经典', '128.00', 12, '1', 0, '{"name":"\\u7ea2\\u8272\\u7ecf\\u5178","template_id":"1000","year":1,"cur_expiry_time":"1582094103"}', 1, ''),
+(4, 1, 'template', 4, '红色经典', '128.00', 12, '1', 0, '{"name":"\\u7ea2\\u8272\\u7ecf\\u5178","template_id":"1000","year":1,"cur_expiry_time":"1613198103"}', 1, ''),
+(5, 1, 'host', 5, '弹性云主机', '102.00', 1, '1', 0, '{"name":"\\u5f39\\u6027\\u4e91\\u4e3b\\u673a","user_host_id":1,"month":1,"total":102,"cur_expiry_time":"1505026961"}', 1, '弹性云主机2342423，已在后台手动续费'),
+(6, 1, 'packagehost', 6, '套餐云主机-创业型云服务器', '920.00', 3, '1', 0, '{"name":"\\u5957\\u9910\\u4e91\\u4e3b\\u673a-\\u521b\\u4e1a\\u578b\\u4e91\\u670d\\u52a1\\u5668","user_host_id":1,"month":3,"total":"920.00","cur_expiry_time":"1492069216"}', 1, '后台已经手动续费');
 
 -- --------------------------------------------------------
 
@@ -2890,25 +3153,42 @@ CREATE TABLE IF NOT EXISTS `onethink_schedule_list` (
   `exec_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '执行结果0=未执行1=执行中2=执行结束',
   `exec_info` text NOT NULL COMMENT '执行结果信息',
   `exec_lock` tinyint(1) NOT NULL DEFAULT '0' COMMENT '任务是否锁住，防止多次请求 0=否1=是',
+  `order_goods_id` int(11) NOT NULL DEFAULT '0' COMMENT '订单产品id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='计划任务列表' AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='计划任务列表' AUTO_INCREMENT=28 ;
 
 --
 -- 转存表中的数据 `onethink_schedule_list`
 --
 
-INSERT INTO `onethink_schedule_list` (`id`, `type`, `name`, `data`, `schedule_date`, `schedule_time`, `exec_begin_time`, `exec_end_time`, `exec_status`, `exec_info`, `exec_lock`) VALUES
-(1, 'checkDomain', '域名查询', 'a:4:{s:6:"domain";s:11:"baga168.com";s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";}', '2017-03-06', 1488787613, 1488787619, 1488787619, 2, '可以注册', 0),
-(2, 'buyHost', '虚拟主机注册', 'a:5:{s:6:"domain";s:11:"baga168.com";s:10:"product_id";s:3:"488";s:10:"timeperiod";s:2:"12";s:7:"os_type";s:1:"1";s:8:"goods_id";i:4;}', '2017-03-07', 1488850801, 1488851352, 1488851352, 2, '{"host_id":"957039","order_id":2728056,"state":"0","closed_by":"0","free_days":null,"create_time":"2017-03-07 09:49:11","site_id":638414,"expiry_time":"2018-04-07 09:49:10","errordocuments":null,"directoryindex":"","site_comment":null,"close_code":null,"os_type":"CENTOS6","product_name":"H10067350","login":"H10067350","password":"V4h83r9N","ftp_state":"0","ftp_closed_by":"0","ftp_user":"webmaster@H10067350","ftp_pass":"R5a63BU8","site_ip":"124.172.156.236","web_state":"0","web_closed_by":"0","web_ip":"124.172.156.220","web_port":80,"web_servername":"H10067350","_limit_Bandwidth":"250","_limit_Traffic":"20000","_usage_Traffic":"0","_limit_MaxConnections":"150","_limit_Quota":"200","_usage_Quota":"0","_limit_Asp":0,"_limit_AspDotNet":0,"_limit_Jsp":0,"_limit_Servlet":0,"_limit_Php":1,"0":0,"web_serveraliases":"baga168.com www.baga168.com","_limit_WebSite":1,"_limit_FTPAccount":1,"_limit_MySQLDBSpace":"30","_usage_MySQLDBSpace":"0","_usage_MySQLDB":1,"_limit_MySQLDB":1,"mysql_id":"160425","mysql_ip":"124.172.156.236","module":"Order","method":"placeOrder","echo_info":""}', 0),
-(3, 'buyMail', '全球邮购买', 'a:5:{s:6:"domain";s:11:"baga168.com";s:5:"quota";i:0;s:10:"timeperiod";i:12;s:6:"number";s:1:"1";s:8:"goods_id";i:11;}', '2017-03-07', 1488856030, 1488856130, 1488856130, 2, '{"master_id":2728134,"order_id":2728134,"account_bill_id":1670756,"cash_balance":1943.1901,"bonus_balance":8829,"cash_trans_total":76006.8099,"bonus_trans_total":69220,"transaction_id":3067880,"u_affected_rows":1,"cash_recharge_total":77950,"bonus_recharge_total":78049,"bonus_recharge_id":512348,"instance_id":168766,"mail_id":168766,"keyname":"baga168.com","expiry_time":"2018-03-07 11:08:48","module":"Order","method":"placeOrder","echo_info":""}', 0),
-(4, 'domainRegister', '域名注册', 'a:66:{s:6:"domain";s:11:"baga168.com";s:4:"year";i:1;s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";s:14:"r_organization";s:15:"千佰特科技";s:15:"r_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"r_name";s:6:"杨光";s:7:"r_name1";s:11:"Yang Guang ";s:9:"r_country";s:2:"CN";s:10:"r_province";s:9:"广东省";s:11:"r_province1";s:17:"Guang Dong Sheng ";s:6:"r_city";s:6:"广州";s:7:"r_city1";s:11:"Guang Zhou ";s:10:"r_postcode";s:6:"510000";s:7:"r_email";s:18:"develop11@qbt8.com";s:8:"r_street";s:21:"棠下科韵路255号";s:9:"r_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"r_phone";s:15:"+86.13533481813";s:5:"r_fax";s:16:"+86.020-82071951";s:14:"a_organization";s:15:"千佰特科技";s:15:"a_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"a_name";s:6:"杨光";s:7:"a_name1";s:11:"Yang Guang ";s:9:"a_country";s:2:"CN";s:10:"a_province";s:9:"广东省";s:11:"a_province1";s:17:"Guang Dong Sheng ";s:6:"a_city";s:6:"广州";s:7:"a_city1";s:11:"Guang Zhou ";s:10:"a_postcode";s:6:"510000";s:7:"a_email";s:18:"develop11@qbt8.com";s:8:"a_street";s:21:"棠下科韵路255号";s:9:"a_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"a_phone";s:15:"+86.13533481813";s:5:"a_fax";s:16:"+86.020-82071951";s:14:"b_organization";s:15:"千佰特科技";s:15:"b_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"b_name";s:6:"杨光";s:7:"b_name1";s:11:"Yang Guang ";s:9:"b_country";s:2:"CN";s:10:"b_province";s:9:"广东省";s:11:"b_province1";s:17:"Guang Dong Sheng ";s:6:"b_city";s:6:"广州";s:7:"b_city1";s:11:"Guang Zhou ";s:10:"b_postcode";s:6:"510000";s:7:"b_email";s:18:"develop11@qbt8.com";s:8:"b_street";s:21:"棠下科韵路255号";s:9:"b_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"b_phone";s:15:"+86.13533481813";s:5:"b_fax";s:16:"+86.020-82071951";s:14:"t_organization";s:15:"千佰特科技";s:15:"t_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"t_name";s:6:"杨光";s:7:"t_name1";s:11:"Yang Guang ";s:9:"t_country";s:2:"CN";s:10:"t_province";s:9:"广东省";s:11:"t_province1";s:17:"Guang Dong Sheng ";s:6:"t_city";s:6:"广州";s:7:"t_city1";s:11:"Guang Zhou ";s:10:"t_postcode";s:6:"510000";s:7:"t_email";s:18:"develop11@qbt8.com";s:8:"t_street";s:21:"棠下科韵路255号";s:9:"t_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"t_phone";s:15:"+86.13533481813";s:5:"t_fax";s:16:"+86.020-82071951";s:8:"goods_id";i:5;}', '2017-03-07', 1488866651, 1488866803, 1488866803, 2, '{"module":"Order","method":"placeOrder","echo_info":""}', 0),
-(5, 'domainRegister', '域名注册-baga168.com', 'a:66:{s:6:"domain";s:11:"baga168.com";s:4:"year";i:1;s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";s:14:"r_organization";s:15:"千佰特科技";s:15:"r_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"r_name";s:6:"杨光";s:7:"r_name1";s:11:"Yang Guang ";s:9:"r_country";s:2:"CN";s:10:"r_province";s:9:"广东省";s:11:"r_province1";s:17:"Guang Dong Sheng ";s:6:"r_city";s:6:"广州";s:7:"r_city1";s:11:"Guang Zhou ";s:10:"r_postcode";s:6:"510000";s:7:"r_email";s:18:"develop11@qbt8.com";s:8:"r_street";s:21:"棠下科韵路255号";s:9:"r_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"r_phone";s:15:"+86.13533481813";s:5:"r_fax";s:16:"+86.020-82071951";s:14:"a_organization";s:15:"千佰特科技";s:15:"a_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"a_name";s:6:"杨光";s:7:"a_name1";s:11:"Yang Guang ";s:9:"a_country";s:2:"CN";s:10:"a_province";s:9:"广东省";s:11:"a_province1";s:17:"Guang Dong Sheng ";s:6:"a_city";s:6:"广州";s:7:"a_city1";s:11:"Guang Zhou ";s:10:"a_postcode";s:6:"510000";s:7:"a_email";s:18:"develop11@qbt8.com";s:8:"a_street";s:21:"棠下科韵路255号";s:9:"a_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"a_phone";s:15:"+86.13533481813";s:5:"a_fax";s:16:"+86.020-82071951";s:14:"b_organization";s:15:"千佰特科技";s:15:"b_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"b_name";s:6:"杨光";s:7:"b_name1";s:11:"Yang Guang ";s:9:"b_country";s:2:"CN";s:10:"b_province";s:9:"广东省";s:11:"b_province1";s:17:"Guang Dong Sheng ";s:6:"b_city";s:6:"广州";s:7:"b_city1";s:11:"Guang Zhou ";s:10:"b_postcode";s:6:"510000";s:7:"b_email";s:18:"develop11@qbt8.com";s:8:"b_street";s:21:"棠下科韵路255号";s:9:"b_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"b_phone";s:15:"+86.13533481813";s:5:"b_fax";s:16:"+86.020-82071951";s:14:"t_organization";s:15:"千佰特科技";s:15:"t_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"t_name";s:6:"杨光";s:7:"t_name1";s:11:"Yang Guang ";s:9:"t_country";s:2:"CN";s:10:"t_province";s:9:"广东省";s:11:"t_province1";s:17:"Guang Dong Sheng ";s:6:"t_city";s:6:"广州";s:7:"t_city1";s:11:"Guang Zhou ";s:10:"t_postcode";s:6:"510000";s:7:"t_email";s:18:"develop11@qbt8.com";s:8:"t_street";s:21:"棠下科韵路255号";s:9:"t_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"t_phone";s:15:"+86.13533481813";s:5:"t_fax";s:16:"+86.020-82071951";s:8:"goods_id";s:1:"1";}', '2017-03-07', 1488869165, 0, 0, 0, '', 0),
-(6, 'buyHost', '虚拟主机注册', 'a:5:{s:6:"domain";s:11:"baga123.com";s:10:"product_id";i:488;s:10:"timeperiod";i:12;s:7:"os_type";i:1;s:8:"goods_id";s:1:"2";}', '2017-03-07', 1488869165, 0, 0, 0, '', 0),
-(7, 'domainRegister', '域名注册-baga168.com', 'a:66:{s:6:"domain";s:11:"baga168.com";s:4:"year";i:1;s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";s:14:"r_organization";s:15:"千佰特科技";s:15:"r_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"r_name";s:6:"杨光";s:7:"r_name1";s:11:"Yang Guang ";s:9:"r_country";s:2:"CN";s:10:"r_province";s:9:"广东省";s:11:"r_province1";s:17:"Guang Dong Sheng ";s:6:"r_city";s:6:"广州";s:7:"r_city1";s:11:"Guang Zhou ";s:10:"r_postcode";s:6:"510000";s:7:"r_email";s:18:"develop11@qbt8.com";s:8:"r_street";s:21:"棠下科韵路255号";s:9:"r_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"r_phone";s:15:"+86.13533481813";s:5:"r_fax";s:16:"+86.020-82071951";s:14:"a_organization";s:15:"千佰特科技";s:15:"a_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"a_name";s:6:"杨光";s:7:"a_name1";s:11:"Yang Guang ";s:9:"a_country";s:2:"CN";s:10:"a_province";s:9:"广东省";s:11:"a_province1";s:17:"Guang Dong Sheng ";s:6:"a_city";s:6:"广州";s:7:"a_city1";s:11:"Guang Zhou ";s:10:"a_postcode";s:6:"510000";s:7:"a_email";s:18:"develop11@qbt8.com";s:8:"a_street";s:21:"棠下科韵路255号";s:9:"a_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"a_phone";s:15:"+86.13533481813";s:5:"a_fax";s:16:"+86.020-82071951";s:14:"b_organization";s:15:"千佰特科技";s:15:"b_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"b_name";s:6:"杨光";s:7:"b_name1";s:11:"Yang Guang ";s:9:"b_country";s:2:"CN";s:10:"b_province";s:9:"广东省";s:11:"b_province1";s:17:"Guang Dong Sheng ";s:6:"b_city";s:6:"广州";s:7:"b_city1";s:11:"Guang Zhou ";s:10:"b_postcode";s:6:"510000";s:7:"b_email";s:18:"develop11@qbt8.com";s:8:"b_street";s:21:"棠下科韵路255号";s:9:"b_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"b_phone";s:15:"+86.13533481813";s:5:"b_fax";s:16:"+86.020-82071951";s:14:"t_organization";s:15:"千佰特科技";s:15:"t_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"t_name";s:6:"杨光";s:7:"t_name1";s:11:"Yang Guang ";s:9:"t_country";s:2:"CN";s:10:"t_province";s:9:"广东省";s:11:"t_province1";s:17:"Guang Dong Sheng ";s:6:"t_city";s:6:"广州";s:7:"t_city1";s:11:"Guang Zhou ";s:10:"t_postcode";s:6:"510000";s:7:"t_email";s:18:"develop11@qbt8.com";s:8:"t_street";s:21:"棠下科韵路255号";s:9:"t_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"t_phone";s:15:"+86.13533481813";s:5:"t_fax";s:16:"+86.020-82071951";s:8:"goods_id";s:1:"3";}', '2017-03-07', 1488869165, 0, 0, 0, '', 0),
-(8, 'buyHost', '虚拟主机注册', 'a:5:{s:6:"domain";s:11:"baga123.com";s:10:"product_id";i:488;s:10:"timeperiod";i:12;s:7:"os_type";i:1;s:8:"goods_id";s:1:"4";}', '2017-03-07', 1488869165, 0, 0, 0, '', 0),
-(9, 'domainRegister', '域名注册-baga168.com', 'a:66:{s:6:"domain";s:11:"baga168.com";s:4:"year";i:1;s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";s:14:"r_organization";s:15:"千佰特科技";s:15:"r_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"r_name";s:6:"杨光";s:7:"r_name1";s:11:"Yang Guang ";s:9:"r_country";s:2:"CN";s:10:"r_province";s:9:"广东省";s:11:"r_province1";s:17:"Guang Dong Sheng ";s:6:"r_city";s:6:"广州";s:7:"r_city1";s:11:"Guang Zhou ";s:10:"r_postcode";s:6:"510000";s:7:"r_email";s:18:"develop11@qbt8.com";s:8:"r_street";s:21:"棠下科韵路255号";s:9:"r_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"r_phone";s:15:"+86.13533481813";s:5:"r_fax";s:16:"+86.020-82071951";s:14:"a_organization";s:15:"千佰特科技";s:15:"a_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"a_name";s:6:"杨光";s:7:"a_name1";s:11:"Yang Guang ";s:9:"a_country";s:2:"CN";s:10:"a_province";s:9:"广东省";s:11:"a_province1";s:17:"Guang Dong Sheng ";s:6:"a_city";s:6:"广州";s:7:"a_city1";s:11:"Guang Zhou ";s:10:"a_postcode";s:6:"510000";s:7:"a_email";s:18:"develop11@qbt8.com";s:8:"a_street";s:21:"棠下科韵路255号";s:9:"a_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"a_phone";s:15:"+86.13533481813";s:5:"a_fax";s:16:"+86.020-82071951";s:14:"b_organization";s:15:"千佰特科技";s:15:"b_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"b_name";s:6:"杨光";s:7:"b_name1";s:11:"Yang Guang ";s:9:"b_country";s:2:"CN";s:10:"b_province";s:9:"广东省";s:11:"b_province1";s:17:"Guang Dong Sheng ";s:6:"b_city";s:6:"广州";s:7:"b_city1";s:11:"Guang Zhou ";s:10:"b_postcode";s:6:"510000";s:7:"b_email";s:18:"develop11@qbt8.com";s:8:"b_street";s:21:"棠下科韵路255号";s:9:"b_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"b_phone";s:15:"+86.13533481813";s:5:"b_fax";s:16:"+86.020-82071951";s:14:"t_organization";s:15:"千佰特科技";s:15:"t_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"t_name";s:6:"杨光";s:7:"t_name1";s:11:"Yang Guang ";s:9:"t_country";s:2:"CN";s:10:"t_province";s:9:"广东省";s:11:"t_province1";s:17:"Guang Dong Sheng ";s:6:"t_city";s:6:"广州";s:7:"t_city1";s:11:"Guang Zhou ";s:10:"t_postcode";s:6:"510000";s:7:"t_email";s:18:"develop11@qbt8.com";s:8:"t_street";s:21:"棠下科韵路255号";s:9:"t_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"t_phone";s:15:"+86.13533481813";s:5:"t_fax";s:16:"+86.020-82071951";s:8:"goods_id";s:1:"5";}', '2017-03-07', 1488869165, 0, 0, 0, '', 0),
-(10, 'buyMail', '全球邮购买', 'a:5:{s:6:"domain";s:11:"baga168.com";s:5:"quota";i:0;s:10:"timeperiod";i:12;s:6:"number";s:1:"1";s:8:"goods_id";s:2:"11";}', '2017-03-07', 1488869165, 0, 0, 0, '', 0),
-(11, 'buyHost', '虚拟主机注册', 'a:5:{s:6:"domain";s:13:"supperdog.com";s:10:"product_id";i:488;s:10:"timeperiod";i:12;s:7:"os_type";i:1;s:8:"goods_id";s:2:"12";}', '2017-03-07', 1488869165, 0, 0, 0, '', 0);
+INSERT INTO `onethink_schedule_list` (`id`, `type`, `name`, `data`, `schedule_date`, `schedule_time`, `exec_begin_time`, `exec_end_time`, `exec_status`, `exec_info`, `exec_lock`, `order_goods_id`) VALUES
+(1, 'checkDomain', '域名查询', 'a:4:{s:6:"domain";s:11:"baga168.com";s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";}', '2017-03-06', 1488787613, 1488787619, 1488787619, 2, '可以注册', 0, 0),
+(2, 'buyHost', '虚拟主机注册', 'a:5:{s:6:"domain";s:11:"baga168.com";s:10:"product_id";s:3:"488";s:10:"timeperiod";s:2:"12";s:7:"os_type";s:1:"1";s:8:"goods_id";i:4;}', '2017-03-07', 1488850801, 1488851352, 1488851352, 2, '{"host_id":"957039","order_id":2728056,"state":"0","closed_by":"0","free_days":null,"create_time":"2017-03-07 09:49:11","site_id":638414,"expiry_time":"2018-04-07 09:49:10","errordocuments":null,"directoryindex":"","site_comment":null,"close_code":null,"os_type":"CENTOS6","product_name":"H10067350","login":"H10067350","password":"V4h83r9N","ftp_state":"0","ftp_closed_by":"0","ftp_user":"webmaster@H10067350","ftp_pass":"R5a63BU8","site_ip":"124.172.156.236","web_state":"0","web_closed_by":"0","web_ip":"124.172.156.220","web_port":80,"web_servername":"H10067350","_limit_Bandwidth":"250","_limit_Traffic":"20000","_usage_Traffic":"0","_limit_MaxConnections":"150","_limit_Quota":"200","_usage_Quota":"0","_limit_Asp":0,"_limit_AspDotNet":0,"_limit_Jsp":0,"_limit_Servlet":0,"_limit_Php":1,"0":0,"web_serveraliases":"baga168.com www.baga168.com","_limit_WebSite":1,"_limit_FTPAccount":1,"_limit_MySQLDBSpace":"30","_usage_MySQLDBSpace":"0","_usage_MySQLDB":1,"_limit_MySQLDB":1,"mysql_id":"160425","mysql_ip":"124.172.156.236","module":"Order","method":"placeOrder","echo_info":""}', 0, 0),
+(3, 'buyMail', '全球邮购买', 'a:5:{s:6:"domain";s:11:"baga168.com";s:5:"quota";i:0;s:10:"timeperiod";i:12;s:6:"number";s:1:"1";s:8:"goods_id";i:11;}', '2017-03-07', 1488856030, 1488856130, 1488856130, 2, '{"master_id":2728134,"order_id":2728134,"account_bill_id":1670756,"cash_balance":1943.1901,"bonus_balance":8829,"cash_trans_total":76006.8099,"bonus_trans_total":69220,"transaction_id":3067880,"u_affected_rows":1,"cash_recharge_total":77950,"bonus_recharge_total":78049,"bonus_recharge_id":512348,"instance_id":168766,"mail_id":168766,"keyname":"baga168.com","expiry_time":"2018-03-07 11:08:48","module":"Order","method":"placeOrder","echo_info":""}', 0, 0),
+(4, 'domainRegister', '域名注册', 'a:66:{s:6:"domain";s:11:"baga168.com";s:4:"year";i:1;s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";s:14:"r_organization";s:15:"千佰特科技";s:15:"r_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"r_name";s:6:"杨光";s:7:"r_name1";s:11:"Yang Guang ";s:9:"r_country";s:2:"CN";s:10:"r_province";s:9:"广东省";s:11:"r_province1";s:17:"Guang Dong Sheng ";s:6:"r_city";s:6:"广州";s:7:"r_city1";s:11:"Guang Zhou ";s:10:"r_postcode";s:6:"510000";s:7:"r_email";s:18:"develop11@qbt8.com";s:8:"r_street";s:21:"棠下科韵路255号";s:9:"r_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"r_phone";s:15:"+86.13533481813";s:5:"r_fax";s:16:"+86.020-82071951";s:14:"a_organization";s:15:"千佰特科技";s:15:"a_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"a_name";s:6:"杨光";s:7:"a_name1";s:11:"Yang Guang ";s:9:"a_country";s:2:"CN";s:10:"a_province";s:9:"广东省";s:11:"a_province1";s:17:"Guang Dong Sheng ";s:6:"a_city";s:6:"广州";s:7:"a_city1";s:11:"Guang Zhou ";s:10:"a_postcode";s:6:"510000";s:7:"a_email";s:18:"develop11@qbt8.com";s:8:"a_street";s:21:"棠下科韵路255号";s:9:"a_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"a_phone";s:15:"+86.13533481813";s:5:"a_fax";s:16:"+86.020-82071951";s:14:"b_organization";s:15:"千佰特科技";s:15:"b_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"b_name";s:6:"杨光";s:7:"b_name1";s:11:"Yang Guang ";s:9:"b_country";s:2:"CN";s:10:"b_province";s:9:"广东省";s:11:"b_province1";s:17:"Guang Dong Sheng ";s:6:"b_city";s:6:"广州";s:7:"b_city1";s:11:"Guang Zhou ";s:10:"b_postcode";s:6:"510000";s:7:"b_email";s:18:"develop11@qbt8.com";s:8:"b_street";s:21:"棠下科韵路255号";s:9:"b_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"b_phone";s:15:"+86.13533481813";s:5:"b_fax";s:16:"+86.020-82071951";s:14:"t_organization";s:15:"千佰特科技";s:15:"t_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"t_name";s:6:"杨光";s:7:"t_name1";s:11:"Yang Guang ";s:9:"t_country";s:2:"CN";s:10:"t_province";s:9:"广东省";s:11:"t_province1";s:17:"Guang Dong Sheng ";s:6:"t_city";s:6:"广州";s:7:"t_city1";s:11:"Guang Zhou ";s:10:"t_postcode";s:6:"510000";s:7:"t_email";s:18:"develop11@qbt8.com";s:8:"t_street";s:21:"棠下科韵路255号";s:9:"t_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"t_phone";s:15:"+86.13533481813";s:5:"t_fax";s:16:"+86.020-82071951";s:8:"goods_id";i:5;}', '2017-03-07', 1488866651, 1488866803, 1488866803, 2, '{"module":"Order","method":"placeOrder","echo_info":""}', 0, 0),
+(5, 'domainRegister', '域名注册-baga168.com', 'a:66:{s:6:"domain";s:11:"baga168.com";s:4:"year";i:1;s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";s:14:"r_organization";s:15:"千佰特科技";s:15:"r_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"r_name";s:6:"杨光";s:7:"r_name1";s:11:"Yang Guang ";s:9:"r_country";s:2:"CN";s:10:"r_province";s:9:"广东省";s:11:"r_province1";s:17:"Guang Dong Sheng ";s:6:"r_city";s:6:"广州";s:7:"r_city1";s:11:"Guang Zhou ";s:10:"r_postcode";s:6:"510000";s:7:"r_email";s:18:"develop11@qbt8.com";s:8:"r_street";s:21:"棠下科韵路255号";s:9:"r_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"r_phone";s:15:"+86.13533481813";s:5:"r_fax";s:16:"+86.020-82071951";s:14:"a_organization";s:15:"千佰特科技";s:15:"a_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"a_name";s:6:"杨光";s:7:"a_name1";s:11:"Yang Guang ";s:9:"a_country";s:2:"CN";s:10:"a_province";s:9:"广东省";s:11:"a_province1";s:17:"Guang Dong Sheng ";s:6:"a_city";s:6:"广州";s:7:"a_city1";s:11:"Guang Zhou ";s:10:"a_postcode";s:6:"510000";s:7:"a_email";s:18:"develop11@qbt8.com";s:8:"a_street";s:21:"棠下科韵路255号";s:9:"a_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"a_phone";s:15:"+86.13533481813";s:5:"a_fax";s:16:"+86.020-82071951";s:14:"b_organization";s:15:"千佰特科技";s:15:"b_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"b_name";s:6:"杨光";s:7:"b_name1";s:11:"Yang Guang ";s:9:"b_country";s:2:"CN";s:10:"b_province";s:9:"广东省";s:11:"b_province1";s:17:"Guang Dong Sheng ";s:6:"b_city";s:6:"广州";s:7:"b_city1";s:11:"Guang Zhou ";s:10:"b_postcode";s:6:"510000";s:7:"b_email";s:18:"develop11@qbt8.com";s:8:"b_street";s:21:"棠下科韵路255号";s:9:"b_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"b_phone";s:15:"+86.13533481813";s:5:"b_fax";s:16:"+86.020-82071951";s:14:"t_organization";s:15:"千佰特科技";s:15:"t_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"t_name";s:6:"杨光";s:7:"t_name1";s:11:"Yang Guang ";s:9:"t_country";s:2:"CN";s:10:"t_province";s:9:"广东省";s:11:"t_province1";s:17:"Guang Dong Sheng ";s:6:"t_city";s:6:"广州";s:7:"t_city1";s:11:"Guang Zhou ";s:10:"t_postcode";s:6:"510000";s:7:"t_email";s:18:"develop11@qbt8.com";s:8:"t_street";s:21:"棠下科韵路255号";s:9:"t_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"t_phone";s:15:"+86.13533481813";s:5:"t_fax";s:16:"+86.020-82071951";s:8:"goods_id";s:1:"1";}', '2017-03-07', 1488869165, 0, 0, 0, '', 0, 0),
+(6, 'buyHost', '虚拟主机注册', 'a:5:{s:6:"domain";s:11:"baga123.com";s:10:"product_id";i:488;s:10:"timeperiod";i:12;s:7:"os_type";i:1;s:8:"goods_id";s:1:"2";}', '2017-03-07', 1488869165, 0, 0, 0, '', 0, 0),
+(7, 'domainRegister', '域名注册-baga168.com', 'a:66:{s:6:"domain";s:11:"baga168.com";s:4:"year";i:1;s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";s:14:"r_organization";s:15:"千佰特科技";s:15:"r_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"r_name";s:6:"杨光";s:7:"r_name1";s:11:"Yang Guang ";s:9:"r_country";s:2:"CN";s:10:"r_province";s:9:"广东省";s:11:"r_province1";s:17:"Guang Dong Sheng ";s:6:"r_city";s:6:"广州";s:7:"r_city1";s:11:"Guang Zhou ";s:10:"r_postcode";s:6:"510000";s:7:"r_email";s:18:"develop11@qbt8.com";s:8:"r_street";s:21:"棠下科韵路255号";s:9:"r_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"r_phone";s:15:"+86.13533481813";s:5:"r_fax";s:16:"+86.020-82071951";s:14:"a_organization";s:15:"千佰特科技";s:15:"a_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"a_name";s:6:"杨光";s:7:"a_name1";s:11:"Yang Guang ";s:9:"a_country";s:2:"CN";s:10:"a_province";s:9:"广东省";s:11:"a_province1";s:17:"Guang Dong Sheng ";s:6:"a_city";s:6:"广州";s:7:"a_city1";s:11:"Guang Zhou ";s:10:"a_postcode";s:6:"510000";s:7:"a_email";s:18:"develop11@qbt8.com";s:8:"a_street";s:21:"棠下科韵路255号";s:9:"a_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"a_phone";s:15:"+86.13533481813";s:5:"a_fax";s:16:"+86.020-82071951";s:14:"b_organization";s:15:"千佰特科技";s:15:"b_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"b_name";s:6:"杨光";s:7:"b_name1";s:11:"Yang Guang ";s:9:"b_country";s:2:"CN";s:10:"b_province";s:9:"广东省";s:11:"b_province1";s:17:"Guang Dong Sheng ";s:6:"b_city";s:6:"广州";s:7:"b_city1";s:11:"Guang Zhou ";s:10:"b_postcode";s:6:"510000";s:7:"b_email";s:18:"develop11@qbt8.com";s:8:"b_street";s:21:"棠下科韵路255号";s:9:"b_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"b_phone";s:15:"+86.13533481813";s:5:"b_fax";s:16:"+86.020-82071951";s:14:"t_organization";s:15:"千佰特科技";s:15:"t_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"t_name";s:6:"杨光";s:7:"t_name1";s:11:"Yang Guang ";s:9:"t_country";s:2:"CN";s:10:"t_province";s:9:"广东省";s:11:"t_province1";s:17:"Guang Dong Sheng ";s:6:"t_city";s:6:"广州";s:7:"t_city1";s:11:"Guang Zhou ";s:10:"t_postcode";s:6:"510000";s:7:"t_email";s:18:"develop11@qbt8.com";s:8:"t_street";s:21:"棠下科韵路255号";s:9:"t_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"t_phone";s:15:"+86.13533481813";s:5:"t_fax";s:16:"+86.020-82071951";s:8:"goods_id";s:1:"3";}', '2017-03-07', 1488869165, 0, 0, 0, '', 0, 0),
+(8, 'buyHost', '虚拟主机注册', 'a:5:{s:6:"domain";s:11:"baga123.com";s:10:"product_id";i:488;s:10:"timeperiod";i:12;s:7:"os_type";i:1;s:8:"goods_id";s:1:"4";}', '2017-03-07', 1488869165, 0, 0, 0, '', 0, 0),
+(9, 'domainRegister', '域名注册-baga168.com', 'a:66:{s:6:"domain";s:11:"baga168.com";s:4:"year";i:1;s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";s:14:"r_organization";s:15:"千佰特科技";s:15:"r_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"r_name";s:6:"杨光";s:7:"r_name1";s:11:"Yang Guang ";s:9:"r_country";s:2:"CN";s:10:"r_province";s:9:"广东省";s:11:"r_province1";s:17:"Guang Dong Sheng ";s:6:"r_city";s:6:"广州";s:7:"r_city1";s:11:"Guang Zhou ";s:10:"r_postcode";s:6:"510000";s:7:"r_email";s:18:"develop11@qbt8.com";s:8:"r_street";s:21:"棠下科韵路255号";s:9:"r_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"r_phone";s:15:"+86.13533481813";s:5:"r_fax";s:16:"+86.020-82071951";s:14:"a_organization";s:15:"千佰特科技";s:15:"a_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"a_name";s:6:"杨光";s:7:"a_name1";s:11:"Yang Guang ";s:9:"a_country";s:2:"CN";s:10:"a_province";s:9:"广东省";s:11:"a_province1";s:17:"Guang Dong Sheng ";s:6:"a_city";s:6:"广州";s:7:"a_city1";s:11:"Guang Zhou ";s:10:"a_postcode";s:6:"510000";s:7:"a_email";s:18:"develop11@qbt8.com";s:8:"a_street";s:21:"棠下科韵路255号";s:9:"a_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"a_phone";s:15:"+86.13533481813";s:5:"a_fax";s:16:"+86.020-82071951";s:14:"b_organization";s:15:"千佰特科技";s:15:"b_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"b_name";s:6:"杨光";s:7:"b_name1";s:11:"Yang Guang ";s:9:"b_country";s:2:"CN";s:10:"b_province";s:9:"广东省";s:11:"b_province1";s:17:"Guang Dong Sheng ";s:6:"b_city";s:6:"广州";s:7:"b_city1";s:11:"Guang Zhou ";s:10:"b_postcode";s:6:"510000";s:7:"b_email";s:18:"develop11@qbt8.com";s:8:"b_street";s:21:"棠下科韵路255号";s:9:"b_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"b_phone";s:15:"+86.13533481813";s:5:"b_fax";s:16:"+86.020-82071951";s:14:"t_organization";s:15:"千佰特科技";s:15:"t_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"t_name";s:6:"杨光";s:7:"t_name1";s:11:"Yang Guang ";s:9:"t_country";s:2:"CN";s:10:"t_province";s:9:"广东省";s:11:"t_province1";s:17:"Guang Dong Sheng ";s:6:"t_city";s:6:"广州";s:7:"t_city1";s:11:"Guang Zhou ";s:10:"t_postcode";s:6:"510000";s:7:"t_email";s:18:"develop11@qbt8.com";s:8:"t_street";s:21:"棠下科韵路255号";s:9:"t_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"t_phone";s:15:"+86.13533481813";s:5:"t_fax";s:16:"+86.020-82071951";s:8:"goods_id";s:1:"5";}', '2017-03-07', 1488869165, 0, 0, 0, '', 0, 0),
+(10, 'buyMail', '全球邮购买', 'a:5:{s:6:"domain";s:11:"baga168.com";s:5:"quota";i:0;s:10:"timeperiod";i:12;s:6:"number";s:1:"1";s:8:"goods_id";s:2:"11";}', '2017-03-07', 1488869165, 0, 0, 0, '', 0, 0),
+(11, 'buyHost', '虚拟主机注册', 'a:5:{s:6:"domain";s:13:"supperdog.com";s:10:"product_id";i:488;s:10:"timeperiod";i:12;s:7:"os_type";i:1;s:8:"goods_id";s:2:"12";}', '2017-03-07', 1488869165, 0, 0, 0, '', 0, 0),
+(12, 'domainRegister', '域名注册-baga168.com', 'a:66:{s:6:"domain";s:11:"baga168.com";s:4:"year";i:1;s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";s:14:"r_organization";s:15:"千佰特科技";s:15:"r_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"r_name";s:6:"杨光";s:7:"r_name1";s:11:"Yang Guang ";s:9:"r_country";s:2:"CN";s:10:"r_province";s:9:"广东省";s:11:"r_province1";s:17:"Guang Dong Sheng ";s:6:"r_city";s:6:"广州";s:7:"r_city1";s:11:"Guang Zhou ";s:10:"r_postcode";s:6:"510000";s:7:"r_email";s:18:"develop11@qbt8.com";s:8:"r_street";s:21:"棠下科韵路255号";s:9:"r_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"r_phone";s:15:"+86.13533481813";s:5:"r_fax";s:16:"+86.020-82071951";s:14:"a_organization";s:15:"千佰特科技";s:15:"a_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"a_name";s:6:"杨光";s:7:"a_name1";s:11:"Yang Guang ";s:9:"a_country";s:2:"CN";s:10:"a_province";s:9:"广东省";s:11:"a_province1";s:17:"Guang Dong Sheng ";s:6:"a_city";s:6:"广州";s:7:"a_city1";s:11:"Guang Zhou ";s:10:"a_postcode";s:6:"510000";s:7:"a_email";s:18:"develop11@qbt8.com";s:8:"a_street";s:21:"棠下科韵路255号";s:9:"a_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"a_phone";s:15:"+86.13533481813";s:5:"a_fax";s:16:"+86.020-82071951";s:14:"b_organization";s:15:"千佰特科技";s:15:"b_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"b_name";s:6:"杨光";s:7:"b_name1";s:11:"Yang Guang ";s:9:"b_country";s:2:"CN";s:10:"b_province";s:9:"广东省";s:11:"b_province1";s:17:"Guang Dong Sheng ";s:6:"b_city";s:6:"广州";s:7:"b_city1";s:11:"Guang Zhou ";s:10:"b_postcode";s:6:"510000";s:7:"b_email";s:18:"develop11@qbt8.com";s:8:"b_street";s:21:"棠下科韵路255号";s:9:"b_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"b_phone";s:15:"+86.13533481813";s:5:"b_fax";s:16:"+86.020-82071951";s:14:"t_organization";s:15:"千佰特科技";s:15:"t_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"t_name";s:6:"杨光";s:7:"t_name1";s:11:"Yang Guang ";s:9:"t_country";s:2:"CN";s:10:"t_province";s:9:"广东省";s:11:"t_province1";s:17:"Guang Dong Sheng ";s:6:"t_city";s:6:"广州";s:7:"t_city1";s:11:"Guang Zhou ";s:10:"t_postcode";s:6:"510000";s:7:"t_email";s:18:"develop11@qbt8.com";s:8:"t_street";s:21:"棠下科韵路255号";s:9:"t_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"t_phone";s:15:"+86.13533481813";s:5:"t_fax";s:16:"+86.020-82071951";s:8:"goods_id";s:1:"1";}', '2017-03-14', 1489455277, 0, 0, 0, '', 0, 0),
+(13, 'buyHost', '虚拟主机注册', 'a:5:{s:6:"domain";s:11:"baga123.com";s:10:"product_id";i:488;s:10:"timeperiod";i:12;s:7:"os_type";i:1;s:8:"goods_id";s:1:"2";}', '2017-03-14', 1489455277, 0, 0, 0, '', 0, 0),
+(14, 'domainRegister', '域名注册-baga168.com', 'a:66:{s:6:"domain";s:11:"baga168.com";s:4:"year";i:1;s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";s:14:"r_organization";s:15:"千佰特科技";s:15:"r_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"r_name";s:6:"杨光";s:7:"r_name1";s:11:"Yang Guang ";s:9:"r_country";s:2:"CN";s:10:"r_province";s:9:"广东省";s:11:"r_province1";s:17:"Guang Dong Sheng ";s:6:"r_city";s:6:"广州";s:7:"r_city1";s:11:"Guang Zhou ";s:10:"r_postcode";s:6:"510000";s:7:"r_email";s:18:"develop11@qbt8.com";s:8:"r_street";s:21:"棠下科韵路255号";s:9:"r_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"r_phone";s:15:"+86.13533481813";s:5:"r_fax";s:16:"+86.020-82071951";s:14:"a_organization";s:15:"千佰特科技";s:15:"a_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"a_name";s:6:"杨光";s:7:"a_name1";s:11:"Yang Guang ";s:9:"a_country";s:2:"CN";s:10:"a_province";s:9:"广东省";s:11:"a_province1";s:17:"Guang Dong Sheng ";s:6:"a_city";s:6:"广州";s:7:"a_city1";s:11:"Guang Zhou ";s:10:"a_postcode";s:6:"510000";s:7:"a_email";s:18:"develop11@qbt8.com";s:8:"a_street";s:21:"棠下科韵路255号";s:9:"a_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"a_phone";s:15:"+86.13533481813";s:5:"a_fax";s:16:"+86.020-82071951";s:14:"b_organization";s:15:"千佰特科技";s:15:"b_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"b_name";s:6:"杨光";s:7:"b_name1";s:11:"Yang Guang ";s:9:"b_country";s:2:"CN";s:10:"b_province";s:9:"广东省";s:11:"b_province1";s:17:"Guang Dong Sheng ";s:6:"b_city";s:6:"广州";s:7:"b_city1";s:11:"Guang Zhou ";s:10:"b_postcode";s:6:"510000";s:7:"b_email";s:18:"develop11@qbt8.com";s:8:"b_street";s:21:"棠下科韵路255号";s:9:"b_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"b_phone";s:15:"+86.13533481813";s:5:"b_fax";s:16:"+86.020-82071951";s:14:"t_organization";s:15:"千佰特科技";s:15:"t_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"t_name";s:6:"杨光";s:7:"t_name1";s:11:"Yang Guang ";s:9:"t_country";s:2:"CN";s:10:"t_province";s:9:"广东省";s:11:"t_province1";s:17:"Guang Dong Sheng ";s:6:"t_city";s:6:"广州";s:7:"t_city1";s:11:"Guang Zhou ";s:10:"t_postcode";s:6:"510000";s:7:"t_email";s:18:"develop11@qbt8.com";s:8:"t_street";s:21:"棠下科韵路255号";s:9:"t_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"t_phone";s:15:"+86.13533481813";s:5:"t_fax";s:16:"+86.020-82071951";s:8:"goods_id";s:1:"3";}', '2017-03-14', 1489455277, 0, 0, 0, '', 0, 0),
+(15, 'buyHost', '虚拟主机注册', 'a:5:{s:6:"domain";s:11:"baga123.com";s:10:"product_id";i:488;s:10:"timeperiod";i:12;s:7:"os_type";i:1;s:8:"goods_id";s:1:"4";}', '2017-03-14', 1489455277, 0, 0, 0, '', 0, 0),
+(16, 'domainRegister', '域名注册-baga168.com', 'a:66:{s:6:"domain";s:11:"baga168.com";s:4:"year";i:1;s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";s:14:"r_organization";s:15:"千佰特科技";s:15:"r_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"r_name";s:6:"杨光";s:7:"r_name1";s:11:"Yang Guang ";s:9:"r_country";s:2:"CN";s:10:"r_province";s:9:"广东省";s:11:"r_province1";s:17:"Guang Dong Sheng ";s:6:"r_city";s:6:"广州";s:7:"r_city1";s:11:"Guang Zhou ";s:10:"r_postcode";s:6:"510000";s:7:"r_email";s:18:"develop11@qbt8.com";s:8:"r_street";s:21:"棠下科韵路255号";s:9:"r_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"r_phone";s:15:"+86.13533481813";s:5:"r_fax";s:16:"+86.020-82071951";s:14:"a_organization";s:15:"千佰特科技";s:15:"a_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"a_name";s:6:"杨光";s:7:"a_name1";s:11:"Yang Guang ";s:9:"a_country";s:2:"CN";s:10:"a_province";s:9:"广东省";s:11:"a_province1";s:17:"Guang Dong Sheng ";s:6:"a_city";s:6:"广州";s:7:"a_city1";s:11:"Guang Zhou ";s:10:"a_postcode";s:6:"510000";s:7:"a_email";s:18:"develop11@qbt8.com";s:8:"a_street";s:21:"棠下科韵路255号";s:9:"a_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"a_phone";s:15:"+86.13533481813";s:5:"a_fax";s:16:"+86.020-82071951";s:14:"b_organization";s:15:"千佰特科技";s:15:"b_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"b_name";s:6:"杨光";s:7:"b_name1";s:11:"Yang Guang ";s:9:"b_country";s:2:"CN";s:10:"b_province";s:9:"广东省";s:11:"b_province1";s:17:"Guang Dong Sheng ";s:6:"b_city";s:6:"广州";s:7:"b_city1";s:11:"Guang Zhou ";s:10:"b_postcode";s:6:"510000";s:7:"b_email";s:18:"develop11@qbt8.com";s:8:"b_street";s:21:"棠下科韵路255号";s:9:"b_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"b_phone";s:15:"+86.13533481813";s:5:"b_fax";s:16:"+86.020-82071951";s:14:"t_organization";s:15:"千佰特科技";s:15:"t_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"t_name";s:6:"杨光";s:7:"t_name1";s:11:"Yang Guang ";s:9:"t_country";s:2:"CN";s:10:"t_province";s:9:"广东省";s:11:"t_province1";s:17:"Guang Dong Sheng ";s:6:"t_city";s:6:"广州";s:7:"t_city1";s:11:"Guang Zhou ";s:10:"t_postcode";s:6:"510000";s:7:"t_email";s:18:"develop11@qbt8.com";s:8:"t_street";s:21:"棠下科韵路255号";s:9:"t_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"t_phone";s:15:"+86.13533481813";s:5:"t_fax";s:16:"+86.020-82071951";s:8:"goods_id";s:1:"5";}', '2017-03-14', 1489455277, 0, 0, 0, '', 0, 0),
+(17, 'buyMail', '全球邮购买', 'a:5:{s:6:"domain";s:11:"baga168.com";s:5:"quota";i:0;s:10:"timeperiod";i:12;s:6:"number";s:1:"1";s:8:"goods_id";s:2:"11";}', '2017-03-14', 1489455277, 0, 0, 0, '', 0, 0),
+(18, 'buyHost', '虚拟主机注册', 'a:5:{s:6:"domain";s:13:"supperdog.com";s:10:"product_id";i:488;s:10:"timeperiod";i:12;s:7:"os_type";i:1;s:8:"goods_id";s:2:"12";}', '2017-03-14', 1489455277, 0, 0, 0, '', 0, 12),
+(19, 'buyMail', '全球邮购买', 'a:5:{s:6:"domain";s:11:"baga123.com";s:5:"quota";i:0;s:10:"timeperiod";i:12;s:6:"number";s:1:"0";s:8:"goods_id";s:2:"13";}', '2017-03-14', 1489455277, 1489460508, 1489460514, 2, '{"master_id":2732211,"order_id":2732211,"account_bill_id":1685220,"cash_balance":1889.1901,"bonus_balance":8913,"cash_trans_total":76060.8099,"bonus_trans_total":69220,"transaction_id":3077539,"u_affected_rows":1,"cash_recharge_total":77950,"bonus_recharge_total":78133,"bonus_recharge_id":516519,"instance_id":169324,"mail_id":169324,"keyname":"baga123.com","expiry_time":"2018-03-14 11:01:46","module":"Order","method":"placeOrder","echo_info":""}', 0, 13),
+(20, 'domainRegister', '域名注册-baga168.com', 'a:66:{s:6:"domain";s:11:"baga168.com";s:4:"year";i:1;s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";s:14:"r_organization";s:15:"千佰特科技";s:15:"r_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"r_name";s:6:"杨光";s:7:"r_name1";s:11:"Yang Guang ";s:9:"r_country";s:2:"CN";s:10:"r_province";s:9:"广东省";s:11:"r_province1";s:17:"Guang Dong Sheng ";s:6:"r_city";s:6:"广州";s:7:"r_city1";s:11:"Guang Zhou ";s:10:"r_postcode";s:6:"510000";s:7:"r_email";s:18:"develop11@qbt8.com";s:8:"r_street";s:21:"棠下科韵路255号";s:9:"r_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"r_phone";s:15:"+86.13533481813";s:5:"r_fax";s:16:"+86.020-82071951";s:14:"a_organization";s:15:"千佰特科技";s:15:"a_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"a_name";s:6:"杨光";s:7:"a_name1";s:11:"Yang Guang ";s:9:"a_country";s:2:"CN";s:10:"a_province";s:9:"广东省";s:11:"a_province1";s:17:"Guang Dong Sheng ";s:6:"a_city";s:6:"广州";s:7:"a_city1";s:11:"Guang Zhou ";s:10:"a_postcode";s:6:"510000";s:7:"a_email";s:18:"develop11@qbt8.com";s:8:"a_street";s:21:"棠下科韵路255号";s:9:"a_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"a_phone";s:15:"+86.13533481813";s:5:"a_fax";s:16:"+86.020-82071951";s:14:"b_organization";s:15:"千佰特科技";s:15:"b_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"b_name";s:6:"杨光";s:7:"b_name1";s:11:"Yang Guang ";s:9:"b_country";s:2:"CN";s:10:"b_province";s:9:"广东省";s:11:"b_province1";s:17:"Guang Dong Sheng ";s:6:"b_city";s:6:"广州";s:7:"b_city1";s:11:"Guang Zhou ";s:10:"b_postcode";s:6:"510000";s:7:"b_email";s:18:"develop11@qbt8.com";s:8:"b_street";s:21:"棠下科韵路255号";s:9:"b_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"b_phone";s:15:"+86.13533481813";s:5:"b_fax";s:16:"+86.020-82071951";s:14:"t_organization";s:15:"千佰特科技";s:15:"t_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"t_name";s:6:"杨光";s:7:"t_name1";s:11:"Yang Guang ";s:9:"t_country";s:2:"CN";s:10:"t_province";s:9:"广东省";s:11:"t_province1";s:17:"Guang Dong Sheng ";s:6:"t_city";s:6:"广州";s:7:"t_city1";s:11:"Guang Zhou ";s:10:"t_postcode";s:6:"510000";s:7:"t_email";s:18:"develop11@qbt8.com";s:8:"t_street";s:21:"棠下科韵路255号";s:9:"t_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"t_phone";s:15:"+86.13533481813";s:5:"t_fax";s:16:"+86.020-82071951";s:8:"goods_id";s:1:"1";}', '2017-03-14', 1489476023, 0, 0, 0, '', 0, 0),
+(21, 'buyHost', '虚拟主机注册', 'a:5:{s:6:"domain";s:11:"baga123.com";s:10:"product_id";i:488;s:10:"timeperiod";i:12;s:7:"os_type";i:1;s:8:"goods_id";s:1:"2";}', '2017-03-14', 1489476023, 0, 0, 0, '', 0, 0),
+(22, 'domainRegister', '域名注册-baga168.com', 'a:66:{s:6:"domain";s:11:"baga168.com";s:4:"year";i:1;s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";s:14:"r_organization";s:15:"千佰特科技";s:15:"r_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"r_name";s:6:"杨光";s:7:"r_name1";s:11:"Yang Guang ";s:9:"r_country";s:2:"CN";s:10:"r_province";s:9:"广东省";s:11:"r_province1";s:17:"Guang Dong Sheng ";s:6:"r_city";s:6:"广州";s:7:"r_city1";s:11:"Guang Zhou ";s:10:"r_postcode";s:6:"510000";s:7:"r_email";s:18:"develop11@qbt8.com";s:8:"r_street";s:21:"棠下科韵路255号";s:9:"r_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"r_phone";s:15:"+86.13533481813";s:5:"r_fax";s:16:"+86.020-82071951";s:14:"a_organization";s:15:"千佰特科技";s:15:"a_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"a_name";s:6:"杨光";s:7:"a_name1";s:11:"Yang Guang ";s:9:"a_country";s:2:"CN";s:10:"a_province";s:9:"广东省";s:11:"a_province1";s:17:"Guang Dong Sheng ";s:6:"a_city";s:6:"广州";s:7:"a_city1";s:11:"Guang Zhou ";s:10:"a_postcode";s:6:"510000";s:7:"a_email";s:18:"develop11@qbt8.com";s:8:"a_street";s:21:"棠下科韵路255号";s:9:"a_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"a_phone";s:15:"+86.13533481813";s:5:"a_fax";s:16:"+86.020-82071951";s:14:"b_organization";s:15:"千佰特科技";s:15:"b_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"b_name";s:6:"杨光";s:7:"b_name1";s:11:"Yang Guang ";s:9:"b_country";s:2:"CN";s:10:"b_province";s:9:"广东省";s:11:"b_province1";s:17:"Guang Dong Sheng ";s:6:"b_city";s:6:"广州";s:7:"b_city1";s:11:"Guang Zhou ";s:10:"b_postcode";s:6:"510000";s:7:"b_email";s:18:"develop11@qbt8.com";s:8:"b_street";s:21:"棠下科韵路255号";s:9:"b_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"b_phone";s:15:"+86.13533481813";s:5:"b_fax";s:16:"+86.020-82071951";s:14:"t_organization";s:15:"千佰特科技";s:15:"t_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"t_name";s:6:"杨光";s:7:"t_name1";s:11:"Yang Guang ";s:9:"t_country";s:2:"CN";s:10:"t_province";s:9:"广东省";s:11:"t_province1";s:17:"Guang Dong Sheng ";s:6:"t_city";s:6:"广州";s:7:"t_city1";s:11:"Guang Zhou ";s:10:"t_postcode";s:6:"510000";s:7:"t_email";s:18:"develop11@qbt8.com";s:8:"t_street";s:21:"棠下科韵路255号";s:9:"t_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"t_phone";s:15:"+86.13533481813";s:5:"t_fax";s:16:"+86.020-82071951";s:8:"goods_id";s:1:"3";}', '2017-03-14', 1489476023, 0, 0, 0, '', 0, 0),
+(23, 'buyHost', '虚拟主机注册', 'a:5:{s:6:"domain";s:11:"baga123.com";s:10:"product_id";i:488;s:10:"timeperiod";i:12;s:7:"os_type";i:1;s:8:"goods_id";s:1:"4";}', '2017-03-14', 1489476023, 0, 0, 0, '', 0, 0),
+(24, 'domainRegister', '域名注册-baga168.com', 'a:66:{s:6:"domain";s:11:"baga168.com";s:4:"year";i:1;s:3:"tld";s:4:".com";s:4:"lang";s:3:"ENG";s:8:"encoding";s:5:"ASCII";s:14:"r_organization";s:15:"千佰特科技";s:15:"r_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"r_name";s:6:"杨光";s:7:"r_name1";s:11:"Yang Guang ";s:9:"r_country";s:2:"CN";s:10:"r_province";s:9:"广东省";s:11:"r_province1";s:17:"Guang Dong Sheng ";s:6:"r_city";s:6:"广州";s:7:"r_city1";s:11:"Guang Zhou ";s:10:"r_postcode";s:6:"510000";s:7:"r_email";s:18:"develop11@qbt8.com";s:8:"r_street";s:21:"棠下科韵路255号";s:9:"r_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"r_phone";s:15:"+86.13533481813";s:5:"r_fax";s:16:"+86.020-82071951";s:14:"a_organization";s:15:"千佰特科技";s:15:"a_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"a_name";s:6:"杨光";s:7:"a_name1";s:11:"Yang Guang ";s:9:"a_country";s:2:"CN";s:10:"a_province";s:9:"广东省";s:11:"a_province1";s:17:"Guang Dong Sheng ";s:6:"a_city";s:6:"广州";s:7:"a_city1";s:11:"Guang Zhou ";s:10:"a_postcode";s:6:"510000";s:7:"a_email";s:18:"develop11@qbt8.com";s:8:"a_street";s:21:"棠下科韵路255号";s:9:"a_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"a_phone";s:15:"+86.13533481813";s:5:"a_fax";s:16:"+86.020-82071951";s:14:"b_organization";s:15:"千佰特科技";s:15:"b_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"b_name";s:6:"杨光";s:7:"b_name1";s:11:"Yang Guang ";s:9:"b_country";s:2:"CN";s:10:"b_province";s:9:"广东省";s:11:"b_province1";s:17:"Guang Dong Sheng ";s:6:"b_city";s:6:"广州";s:7:"b_city1";s:11:"Guang Zhou ";s:10:"b_postcode";s:6:"510000";s:7:"b_email";s:18:"develop11@qbt8.com";s:8:"b_street";s:21:"棠下科韵路255号";s:9:"b_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"b_phone";s:15:"+86.13533481813";s:5:"b_fax";s:16:"+86.020-82071951";s:14:"t_organization";s:15:"千佰特科技";s:15:"t_organization1";s:18:"Qian Bai Te Ke Ji ";s:6:"t_name";s:6:"杨光";s:7:"t_name1";s:11:"Yang Guang ";s:9:"t_country";s:2:"CN";s:10:"t_province";s:9:"广东省";s:11:"t_province1";s:17:"Guang Dong Sheng ";s:6:"t_city";s:6:"广州";s:7:"t_city1";s:11:"Guang Zhou ";s:10:"t_postcode";s:6:"510000";s:7:"t_email";s:18:"develop11@qbt8.com";s:8:"t_street";s:21:"棠下科韵路255号";s:9:"t_street1";s:26:"Tang Xia Ke Yun Lu 255Hao ";s:7:"t_phone";s:15:"+86.13533481813";s:5:"t_fax";s:16:"+86.020-82071951";s:8:"goods_id";s:1:"5";}', '2017-03-14', 1489476023, 0, 0, 0, '', 0, 0),
+(25, 'buyMail', '全球邮购买', 'a:5:{s:6:"domain";s:11:"baga168.com";s:5:"quota";i:0;s:10:"timeperiod";i:12;s:6:"number";s:1:"1";s:8:"goods_id";s:2:"11";}', '2017-03-14', 1489476023, 0, 0, 0, '', 0, 0),
+(26, 'buyHost', '虚拟主机注册', 'a:5:{s:6:"domain";s:13:"supperdog.com";s:10:"product_id";i:488;s:10:"timeperiod";i:12;s:7:"os_type";i:1;s:8:"goods_id";s:2:"12";}', '2017-03-14', 1489476023, 0, 0, 0, '', 0, 0),
+(27, 'buyMail', '全球邮购买', 'a:5:{s:6:"domain";s:11:"baga123.com";s:5:"quota";i:0;s:10:"timeperiod";i:12;s:6:"number";s:1:"0";s:8:"goods_id";s:2:"13";}', '2017-03-14', 1489476023, 0, 0, 0, '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -3023,7 +3303,7 @@ CREATE TABLE IF NOT EXISTS `onethink_ucenter_member` (
 --
 
 INSERT INTO `onethink_ucenter_member` (`id`, `username`, `password`, `email`, `mobile`, `reg_time`, `reg_ip`, `last_login_time`, `last_login_ip`, `update_time`, `status`) VALUES
-(1, 'admin', '30c3344bcff4de86bf764a4d718f9222', 'develop11@qbt8.com', '', 1487144121, 0, 1489023858, 0, 1487144121, 1);
+(1, 'admin', '30c3344bcff4de86bf764a4d718f9222', 'develop11@qbt8.com', '', 1487144121, 0, 1489628707, 0, 1487144121, 1);
 
 -- --------------------------------------------------------
 
@@ -3082,7 +3362,7 @@ CREATE TABLE IF NOT EXISTS `onethink_user_account_log` (
   `admin_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '管理员id',
   `type` char(1) NOT NULL DEFAULT '1' COMMENT '变动类型',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=17 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=25 ;
 
 --
 -- 转存表中的数据 `onethink_user_account_log`
@@ -3104,7 +3384,15 @@ INSERT INTO `onethink_user_account_log` (`id`, `money`, `create_time`, `desc`, `
 (13, '-576.00', 1488359582, '支付订单1488359582扣减', 1, 0, '2'),
 (14, '-612.00', 1488619596, '支付订单1488619596扣减', 1, 0, '2'),
 (15, '-576.00', 1488855526, '支付订单1488855526扣减', 1, 0, '2'),
-(16, '-240.00', 1488869165, '支付订单1488869165扣减', 1, 0, '2');
+(16, '-240.00', 1488869165, '支付订单1488869165扣减', 1, 0, '2'),
+(17, '-480.00', 1489455276, '支付订单1489455276扣减', 1, 0, '2'),
+(18, '-253.00', 1489476023, '支付订单1489476023扣减', 1, 0, '2'),
+(19, '-128.00', 1489567911, '支付续费订单1489567911扣减', 1, 0, '2'),
+(20, '-128.00', 1489568778, '支付续费订单1489568778扣减', 1, 0, '2'),
+(21, '-128.00', 1489568847, '支付续费订单1489568847扣减', 1, 0, '2'),
+(22, '-128.00', 1489568921, '支付续费订单1489568921扣减', 1, 0, '2'),
+(23, '-102.00', 1489629928, '支付续费订单1489629928扣减', 1, 0, '2'),
+(24, '-920.00', 1489633927, '支付续费订单1489633928扣减', 1, 0, '2');
 
 -- --------------------------------------------------------
 
@@ -3146,9 +3434,19 @@ CREATE TABLE IF NOT EXISTS `onethink_user_host` (
   `service` varchar(25) NOT NULL COMMENT '服务标准',
   `create_time` int(10) NOT NULL COMMENT '创建时间',
   `expiry_time` int(10) NOT NULL COMMENT '过期时间',
-  `product_id` int(10) unsigned NOT NULL COMMENT '站内产品id',
+  `desc` text NOT NULL COMMENT '开通描述信息',
+  `os_id` int(10) unsigned NOT NULL COMMENT '操作系统id',
+  `line_id` int(10) unsigned NOT NULL COMMENT '线路id',
+  `service_id` int(10) unsigned NOT NULL COMMENT '服务id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `onethink_user_host`
+--
+
+INSERT INTO `onethink_user_host` (`id`, `uid`, `name`, `cpu`, `memory`, `disk`, `bandwidth`, `os`, `line`, `service`, `create_time`, `expiry_time`, `desc`, `os_id`, `line_id`, `service_id`) VALUES
+(1, 1, '弹性云主机', '2', '2', '50', '2', 'Win2008 64位（纯净版）', '智能多线', '基础服务', 1489474961, 1515610961, '产品已在后台开通', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -3172,14 +3470,15 @@ CREATE TABLE IF NOT EXISTS `onethink_user_mail` (
   `mail_id` varchar(25) NOT NULL COMMENT '邮局ID',
   `master_id` varchar(25) NOT NULL COMMENT '接口返回参数master_id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `onethink_user_mail`
 --
 
 INSERT INTO `onethink_user_mail` (`id`, `uid`, `domain`, `name`, `usernum`, `space`, `create_time`, `expiry_time`, `number`, `timeperiod`, `quota`, `order_id`, `mail_id`, `master_id`) VALUES
-(1, 1, 'baga168.com', '全球邮', 5, '10G', '2017-03-07 11:8:48', '2018-03-07 11:08:48', 1, 12, '0', '2728134', '168766', '2728134');
+(1, 1, 'baga168.com', '全球邮', 5, '10G', '2017-03-07 11:8:48', '2018-03-07 11:08:48', 1, 12, '0', '2728134', '168766', '2728134'),
+(2, 1, 'baga123.com', '全球邮', 5, '10G', '2017-03-14 11:01:54', '2018-03-14 11:01:46', 0, 12, '0', '2732211', '169324', '2732211');
 
 -- --------------------------------------------------------
 
@@ -3199,8 +3498,16 @@ CREATE TABLE IF NOT EXISTS `onethink_user_packagehost` (
   `ip` varchar(25) NOT NULL COMMENT 'IP',
   `create_time` int(10) NOT NULL COMMENT '创建时间',
   `expiry_time` int(10) NOT NULL COMMENT '过期时间',
+  `desc` text NOT NULL COMMENT '开通备注',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `onethink_user_packagehost`
+--
+
+INSERT INTO `onethink_user_packagehost` (`id`, `uid`, `name`, `product_id`, `cpu`, `memory`, `disk`, `bandwidth`, `ip`, `create_time`, `expiry_time`, `desc`) VALUES
+(1, 1, '套餐云主机-创业型云服务器', 1, ' IntelXeon E5-2620/5645*4', '2GB', '200G SAS硬盘+200G SATA(智能备份', '3M独享', ' 独享IP一个', 1489477216, 1496605216, '产品已后台开通');
 
 -- --------------------------------------------------------
 
@@ -3225,7 +3532,7 @@ CREATE TABLE IF NOT EXISTS `onethink_user_template` (
 --
 
 INSERT INTO `onethink_user_template` (`id`, `tid`, `template_id`, `name`, `create_time`, `expiry_time`, `status`, `uid`) VALUES
-(1, 1, '1000', '红色经典', 1488350103, 1519886103, '1', 1);
+(1, 1, '1000', '红色经典', 1488350103, 1644302103, '1', 1);
 
 -- --------------------------------------------------------
 
@@ -3255,6 +3562,7 @@ CREATE TABLE IF NOT EXISTS `onethink_user_vitrual` (
   `site_ip` varchar(25) NOT NULL COMMENT '虚拟机IP地址',
   `web_ip` varchar(25) NOT NULL COMMENT 'WEB主机IP',
   `web_servername` varchar(25) NOT NULL COMMENT 'WEB主机servername',
+  `web_ordergoods_id` int(10) unsigned NOT NULL COMMENT '站内订单产品id',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=2 ;
 
@@ -3262,8 +3570,8 @@ CREATE TABLE IF NOT EXISTS `onethink_user_vitrual` (
 -- 转存表中的数据 `onethink_user_vitrual`
 --
 
-INSERT INTO `onethink_user_vitrual` (`id`, `domain`, `name`, `product_id`, `timeperiod`, `os_type`, `create_time`, `expire_time`, `web_orderid`, `uid`, `host_id`, `order_id`, `site_id`, `product_name`, `login`, `password`, `ftp_user`, `ftp_pass`, `site_ip`, `web_ip`, `web_servername`) VALUES
-(1, 'baga123.com', '飓风2s型（国内）', 488, 12, 'CENTOS6', '2017-03-07 09:49:11', '2018-04-07 09:49:10', '2', 1, '957039', 2728056, 638414, 'H10067350', 'H10067350', 'V4h83r9N', 'webmaster@H10067350', 'R5a63BU8', '124.172.156.236', '124.172.156.220', 'H10067350');
+INSERT INTO `onethink_user_vitrual` (`id`, `domain`, `name`, `product_id`, `timeperiod`, `os_type`, `create_time`, `expire_time`, `web_orderid`, `uid`, `host_id`, `order_id`, `site_id`, `product_name`, `login`, `password`, `ftp_user`, `ftp_pass`, `site_ip`, `web_ip`, `web_servername`, `web_ordergoods_id`) VALUES
+(1, 'baga123.com', '飓风2s型（国内）', 488, 12, 'CENTOS6', '2017-03-07 09:49:11', '2018-04-07 09:49:10', '2', 1, '957039', 2728056, 638414, 'H10067350', 'H10067350', 'V4h83r9N', 'webmaster@H10067350', 'R5a63BU8', '124.172.156.236', '124.172.156.220', 'H10067350', 4);
 
 -- --------------------------------------------------------
 

@@ -205,4 +205,74 @@ class HomeController extends Controller {
         }
     }
 
+    /*
+     * 对续费订单产品加入队列并立即执行
+     */
+    protected function addToQueueRenew($order_id){
+        $queue = new Queue();
+        if(empty($order_id)){
+            return false;
+        }
+        //判断订单支付状态 0=未支付 1=已支付
+        $order = M('renew_order')->find($order_id);
+        if(!$order['status']){
+            return false;
+        }
+        //取出订单产品
+        $map = array();
+        $map['order_id'] = $order_id;
+        $goods = M('renew_order_goods')->where($map)->find();
+        if(empty($goods)){
+            return;
+        }else{
+            $buy_config = json_decode($goods['buy_config'],true);//接口配置项
+            switch($goods['type']){
+                //domain:域名 vitrual:虚拟机 mail:企业邮局 template:网站模板 host:弹性云主机 packagehost:套餐云主机
+                case 'domain':
+
+                    break;
+                case 'vitrual':
+                    $schedule_data = array(
+                        'domain' => $buy_config['domain'],//续费站点的域名
+                        'order_id' => $buy_config['order_id'],//注册时候的订单ID
+                        'Timeperiod' => $buy_config['Timeperiod'],//续费的时限(月)
+                        'cur_expiry_time' => $buy_config['cur_expiry_time'],//当前主机的过期时间
+                        'goods_id' => $goods['id']//订单产品id
+                    );
+                    $queue::add($type='renewVitrual',$name='虚拟主机续费',$schedule_data,$schedule_time=0);//加入计划任务并且立即执行
+                    break;
+                case 'mail':
+                    $schedule_data = array(
+                        'mail_id' => $buy_config['mail_id'],//DIY邮局ID
+                        'domain' => $buy_config['domain'],//DIY邮局域名
+                        'timeperiod' => $buy_config['timeperiod'],//续费年限
+                        'cur_expiry_time' => $buy_config['cur_expiry_time'],//当前域名的过期时间
+                        'goods_id' => $goods['id']//订单产品id
+                    );
+                    $queue::add($type='renewMail',$name='邮局续费',$schedule_data,$schedule_time=0);//加入计划任务并且立即执行
+                    break;
+                case 'template':
+                    M('renew_order_goods')->where($map)->setField('product_status',1);
+                    //网页模板直接更新到期时间
+                    $original_time = M('user_template')->where('id='.$goods['user_goods_id'])->getField('expiry_time');
+                    $new_expiry_time = intval($original_time) + 3600*24*30*12;
+                    M('user_template')->where('id='.$goods['user_goods_id'])->setField('expiry_time',$new_expiry_time);
+
+                    break;
+                case 'host':
+                    //弹性云主机后台手动操作续费操作
+                    break;
+                case 'packagehost':
+                    //套餐云主机后台手动操作续费操作
+                    break;
+            }
+
+
+        }
+
+
+    }
+
+
+
 }

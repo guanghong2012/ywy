@@ -1,0 +1,121 @@
+<extend name="Public/base" />
+
+<block name="body">
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>待开通订单产品列表</h2>
+    </div>
+    <div class="cf">
+        <div class="fl">
+            <!-- <a class="btn" href="{:U('addCate')}">新 增</a>
+             <button class="btn ajax-post confirm" url="{:U('removeCate')}" target-form="ids">删 除</button>-->
+        </div>
+
+        <!-- 高级搜索 -->
+        <div class="search-form fr cf">
+            <div class="sleft">
+                <input type="text" name="keywords" class="search-input" value="{:I('keywords')}" placeholder="请输入订单号或用户名">
+                <a class="sch-btn" href="javascript:;" id="search" url="{:U('index')}"><i class="btn-search"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+        <table class="">
+            <thead>
+            <tr>
+                <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+                <th class="">ID</th>
+                <th class="">订单号</th>
+                <th class="">用户</th>
+                <th class="">手机号码</th>
+                <th class="">产品名称</th>
+                <th class="">产品类型</th>
+                <th class="">产品总价</th>
+                <th class="">购买月份</th>
+                <th class="">产品状态</th>
+                <th class="">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <notempty name="_list">
+                <volist name="_list" id="vo">
+                    <tr>
+                        <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+                        <td>{$vo.id} </td>
+                        <td>{$vo.order_sn}</td>
+                        <td>{$vo.username}</td>
+                        <td>{$vo.mobile}</td>
+                        <td>{$vo.product_name}</td>
+                        <td><!--产品类型 1=域名 2=虚拟机3=企业邮箱4=弹性云主机5=云建站模板 6=套餐云主机-->
+                            <switch name="vo['type']">
+                                <case value="5">网站模板</case>
+                                <case value="4">弹性云主机</case>
+                                <case value="1">域名</case>
+                                <case value="2">虚拟机</case>
+                                <case value="3">企业邮局</case>
+                                <case value="6">套餐云主机</case>
+                            </switch>
+                        </td>
+                        <td>{$vo.subtotal}</td>
+                        <td>{$vo.month}个月</td>
+                        <td>
+                            <switch name="vo['product_status']">
+                                <case value="0">未开通</case>
+                                <case value="1">已开通</case>
+                            </switch>
+                        </td>
+                        <td>
+                            <a href="{:U('Order/viewGoods',array('id'=>$vo['id']))}" >查看产品</a>
+                            <if condition="$vo['product_status'] eq '0' ">
+                                <a href="javascript:" onclick="enableproduct('{:U('Order/enableGoods',array('id'=>$vo['id']))}')" >开通产品</a>
+                                <elseif condition="$vo['product_status'] eq '1' " />
+                                <a href="{:U('Order/viewResult',array('id'=>$vo['id']))}" >查看开通结果</a>
+                            </if>
+                        </td>
+                    </tr>
+                </volist>
+                <else/>
+                <td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+            </notempty>
+            </tbody>
+        </table>
+    </div>
+    <div class="page">
+        {$_page}
+    </div>
+</block>
+
+<block name="script">
+    <script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+    <script type="text/javascript">
+        function enableproduct(url){
+            if(confirm('开通产品会调用接口，将产生扣费行为，确定吗？')){
+                location.href = url;
+            }
+        }
+        //搜索功能
+        $("#search").click(function(){
+            var url = $(this).attr('url');
+            var query  = $('.search-form').find('input').serialize();
+            query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+            query = query.replace(/^&/g,'');
+            if( url.indexOf('?')>0 ){
+                url += '&' + query;
+            }else{
+                url += '?' + query;
+            }
+            window.location.href = url;
+        });
+        //回车搜索
+        $(".search-input").keyup(function(e){
+            if(e.keyCode === 13){
+                $("#search").click();
+                return false;
+            }
+        });
+        //导航高亮
+        highlight_subnav("{:U('Order/waitOpenGoods')}");
+    </script>
+</block>

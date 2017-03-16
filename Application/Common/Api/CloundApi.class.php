@@ -148,4 +148,31 @@ class CloundApi
         return $this->result;
     }
 
+    /*
+     * 虚拟机续费
+     */
+    public function renewVitrual($data=null)
+    {
+        if(empty($data)){
+            $this->result = array("code"=>100,"参数不能为空");
+            return $this->result;
+        }
+        $this->result = $this->getResult($action='Site.Renew',$data);
+        return $this->result;
+    }
+
+    /*
+     * 邮局续费
+     */
+    public function renewMail($data=null)
+    {
+        if(empty($data)){
+            $this->result = array("code"=>100,"参数不能为空");
+            return $this->result;
+        }
+        $this->result = $this->getResult($action='Mail.Renew',$data);
+        return $this->result;
+    }
+
+
 }

@@ -63,6 +63,7 @@ class buyHost_schedule implements schedule {
             'site_ip' => $returndata['site_ip'],//虚拟机IP地址
             'web_ip' => $returndata['web_ip'],//WEB主机IP
             'web_servername' => $returndata['web_servername'],//WEB主机servername
+            'web_ordergoods_id' => $goods['id'],//站内订单产品id
         );
         $res = M('user_vitrual')->add($data);
         if($res){

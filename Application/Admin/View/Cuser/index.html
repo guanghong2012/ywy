@@ -53,6 +53,7 @@
 				<a href="{:U('Cuser/edit',array('id'=>$vo['id']))}" >查看</a>
 				<a href="{:U('Cuser/changeAccount',array('uid'=>$vo['id']))}" >调节资金</a>
 				<a href="{:U('Cuser/accountLog',array('uid'=>$vo['id']))}" >资金记录</a>
+				<a href="{:U('Cuser/userDomains',array('uid'=>$vo['id']))}" >查看用户产品</a>
 
 				<eq name="vo.status" value="1">
 				<a href="{:U('Cuser/changeStatus?method=forbidUser&id='.$vo['id'])}" class="ajax-get">禁用</a>

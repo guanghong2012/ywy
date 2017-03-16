@@ -1,0 +1,105 @@
+<extend name="Public/base" />
+
+<block name="body">
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>产品列表</h2>
+    </div>
+    <div class="cf">
+        <div class="fl">
+            订单号：<a class="" href="javascript:history.go(-1)">{$renew_order.order_sn}</a>
+            <!--<button class="btn ajax-post confirm" url="{:U('removeCate')}" target-form="ids">删 除</button>-->
+        </div>
+
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+        <table class="">
+            <thead>
+            <tr>
+
+                <th class="">ID</th>
+                <th class="">产品名称</th>
+                <th class="">产品类型</th>
+                <th class="">续费价格</th>
+                <th class="">续费时限</th>
+                <th class="">续费状态</th>
+                <th class="">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <notempty name="goods">
+
+                    <tr>
+                        <td>{$goods.id} </td>
+                        <td>{$goods.product_name}</td>
+                        <td>
+                            <switch name="goods['type']">
+                                <case value="template">网站模板</case>
+                                <case value="host">弹性云主机</case>
+                                <case value="domain">域名</case>
+                                <case value="vitrual">虚拟机</case>
+                                <case value="mail">企业邮局</case>
+                                <case value="packagehost">套餐云主机</case>
+                            </switch>
+                        </td>
+                        <td>{$goods.total}</td>
+                        <td>{$goods.month}个月</td>
+                        <td>
+                            <if condition="$goods['product_status'] eq '0' ">
+                                未续费
+                                <else />
+                                已续费
+                            </if>
+                        </td>
+                        <td>
+                            <a href="{:U('Order/viewRenewGoods?id='.$goods['id'])}" >查看</a>
+
+                        </td>
+                    </tr>
+                <else/>
+                <td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+            </notempty>
+            </tbody>
+        </table>
+    </div>
+    <div class="page">
+
+    </div>
+</block>
+
+<block name="script">
+    <script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+    <script type="text/javascript">
+        function enableproduct(url){
+            if(confirm('开通产品会调用接口，将产生扣费行为，确定吗？')){
+                location.href = url;
+            }
+        }
+
+
+        //搜索功能
+        $("#search").click(function(){
+            var url = $(this).attr('url');
+            var query  = $('.search-form').find('input').serialize();
+            query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+            query = query.replace(/^&/g,'');
+            if( url.indexOf('?')>0 ){
+                url += '&' + query;
+            }else{
+                url += '?' + query;
+            }
+            window.location.href = url;
+        });
+        //回车搜索
+        $(".search-input").keyup(function(e){
+            if(e.keyCode === 13){
+                $("#search").click();
+                return false;
+            }
+        });
+        //导航高亮
+        highlight_subnav("{:U('Order/renewOrder')}");
+    </script>
+</block>
