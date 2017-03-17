@@ -56,7 +56,7 @@ class UserAccountLogModel extends Model{
     /*
      * 减少用户金额
      */
-    public function reduceMoney($uid,$money,$desc='管理员调节',$admin_id=0)
+    public function reduceMoney($uid,$money,$desc='管理员调节',$admin_id=0,$type=2)
     {
         /* 获取用户数据 */
         $User = new CuserModel();
@@ -77,7 +77,7 @@ class UserAccountLogModel extends Model{
                     'desc' => $desc,
                     'uid' => $uid,
                     'admin_id' => $admin_id,
-                    'type' => 2//1=充值2=消费或后台调节3=提现
+                    'type' => $type//1=充值2=消费或后台调节3=提现
                 );
                 if($this->create($array)){
                     $insertid = $this->add();

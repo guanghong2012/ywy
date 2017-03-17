@@ -155,6 +155,7 @@ function enableOrderTemplate($order_id){
                 'create_time' => time(),//创建时间
                 'expiry_time' => time()+86400*365,//一年有效期
                 'status' => 1,//0:未开通 1:已开通 2:已过期
+                'uid' => $order['uid'],
             );
             $res = M('user_template')->add($data);
             if($res){
@@ -203,6 +204,27 @@ function formatYear($month){
 
     }
 
+}
+
+//跳转
+function go_to($f_show_id,$f_value){
+    switch ($f_show_id)
+    {
+        case 1:
+            echo '<script language="javascript">window.history.go(-1);</script>';
+            break;
+        case 2:
+            echo '<script language="javascript">window.history.go(-2);</script>';
+            break;
+        case 3:
+            echo '<script language="javascript">window.close();</script>';
+            break;
+        case 4:
+            echo '<script language="javascript">window.self.location="'.$f_value.'";</script>';
+            break;
+        default:
+    }
+    exit();
 }
 
 

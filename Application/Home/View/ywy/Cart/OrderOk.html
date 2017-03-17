@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
-    <meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
-    <title>{:C('WEB_SITE_TITLE')}</title>
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>订单支付完成-{:C('WEB_SITE_TITLE')}</title>
     <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
     <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
@@ -34,35 +34,15 @@
             <div class="clear"></div>
         </div>
         <div class="shop_div7">
-            <h2>
-                <switch name="payment">
-                    <case value="1">
-                        <img src="__YWY__/images/zf_wx.png" alt="微信支付">微信支付
-                    </case>
-                    <case value="2">
-                        <img src="__YWY__/images/zf_zfb.png" alt="支付宝支付">支付宝支付
-                    </case>
-                    <case value="3">
-                        <img src="__YWY__/images/g4.png" alt="余额支付">余额支付
-                    </case>
 
-                </switch>
-            </h2>
             <div class="div1">
-                <h1>订单金额：<span>{$total|number_format=###,2} 元</span></h1>
-                <p>【账户余额：{$account}元】-{$total|number_format=###,2}元</p>
+                <h1><span>支付完成</span></h1>
             </div>
         </div>
-        <form id="orderform" action="{:U('Cart/createOrder')}" method="post">
-            <volist name="list" id="vo">
-            <input   name="cartid[]" value="{$vo.id}" checked="" type="checkbox" style="display: none" />
-            </volist>
-            <input name="payment" value="{$payment}" type="hidden" />
         <div class="shop_div6">
-            <a class="a2" href="javascript:void(0)" onclick="$('#orderform').submit()">确定支付</a>
-            <a class="a1" href="javascript:history.go(-1)">上一步</a>
+            <a class="a2" href="{:U('Cuser/index')}">去用户中心</a>
+
         </div>
-        </form>
     </div>
 </div>
 <div class="blank50"></div>

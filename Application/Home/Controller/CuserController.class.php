@@ -339,7 +339,7 @@ class CuserController extends HomeController{
         }
 
         $count      = D('user_account_log')->where($map)->count();// 查询满足要求的总记录数
-        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $Page       = new \Think\Page2($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
 // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $list = D('user_account_log')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
@@ -400,10 +400,13 @@ class CuserController extends HomeController{
         $keywords = I('get.keywords');//关键字
         $start = I('get.start');//搜索开始时间
         $end = I('get.end');
+        $status = isset($_GET['status']) ? I('get.status') :-1;//审核状态
 
         $map = array();
         $map['uid'] = $uid;
-        $map['type'] = 3;//1=充值2=消费或后台调节3=提现
+        if($status != -1){
+            $map['status'] = $status;
+        }
         if(!empty($keywords)){
             $map['desc'] = array("like",'%'.$keywords.'%');
         }
@@ -412,11 +415,11 @@ class CuserController extends HomeController{
             $map['create_time'] = array("between",array(strtotime($start),strtotime($end)));
         }
 
-        $count      = D('user_account_log')->where($map)->count();// 查询满足要求的总记录数
-        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $count      = D('tixian_log')->where($map)->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page2($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
 // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-        $list = D('user_account_log')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $list = D('tixian_log')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
 
@@ -439,7 +442,7 @@ class CuserController extends HomeController{
         }
 
         $count      = M('user_template')->where($map)->count();// 查询满足要求的总记录数
-        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $Page       = new \Think\Page2($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
 // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $list = M('user_template')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
@@ -464,7 +467,7 @@ class CuserController extends HomeController{
         }
 
         $count      = M('user_domain')->where($map)->count();// 查询满足要求的总记录数
-        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $Page       = new \Think\Page2($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
 // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $list = M('user_domain')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
@@ -489,7 +492,7 @@ class CuserController extends HomeController{
         }
 
         $count      = M('user_vitrual')->where($map)->count();// 查询满足要求的总记录数
-        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $Page       = new \Think\Page2($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
 // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $list = M('user_vitrual')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
@@ -514,7 +517,7 @@ class CuserController extends HomeController{
         }
 
         $count      = M('user_mail')->where($map)->count();// 查询满足要求的总记录数
-        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $Page       = new \Think\Page2($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
 // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $list = M('user_mail')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
@@ -539,7 +542,7 @@ class CuserController extends HomeController{
         }
 
         $count      = M('user_host')->where($map)->count();// 查询满足要求的总记录数
-        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $Page       = new \Think\Page2($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
 // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $list = M('user_host')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
@@ -563,7 +566,7 @@ class CuserController extends HomeController{
         }
 
         $count      = M('user_packagehost')->where($map)->count();// 查询满足要求的总记录数
-        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $Page       = new \Think\Page2($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
 // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $list = M('user_packagehost')->where($map)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
@@ -857,5 +860,212 @@ class CuserController extends HomeController{
         $this->display();
     }
 
+    /*
+     * 充值
+     */
+    public function charge()
+    {
+        $user = $this->user_auth;
+        $uid = $user['id'];
+        if(IS_POST){
+            $money = sprintf("%.2f", I('post.money'));
+            $desc = I('post.desc');
+            if(!$money || $money<=0){
+                $this->error("请输入充值金额");
+            }
+            //生成充值订单
+            $charge_order = array(
+                'order_sn' => time(),
+                'money' => $money,
+                'payment' => 1,//支付方式 1=微信 2=支付宝 3=银联 默认微信 下一步进行更改
+                'status' => 0,//支付状态 0=未支付 1=已支付
+                'create_time' => time(),
+                'uid' => $uid,
+                'desc' => $desc,//充值备注
+            );
+            $order_id = M('charge_order')->add($charge_order);
+            if($order_id){
+                go_to(4,U('Cuser/chargePayment',array('order_id'=>$order_id)));
+            }
+        }else{
+
+            $Api = new CuserApi();
+            $uinfo = $Api->info($uid);
+
+            $this->assign('uinfo',$uinfo);
+            $this->display();
+        }
+    }
+    
+    /*
+     * 选择支付方式
+     */
+    public function chargePayment($order_id)
+    {
+        $order_id = (int)$order_id;
+        if(!$order_id){
+            $this->error("非法访问！",U('charge'));
+        }
+        $charge_order = M('charge_order')->find($order_id);
+
+        $this->assign('charge_order',$charge_order);
+        $this->display();
+    }
+    
+    /*
+     *切换支付方式 
+     */
+    public function chargeAlterPayment()
+    {
+        if(IS_AJAX){
+            $type = I('post.type');//支付类型
+            $order_id = (int)I('post.order_id');
+            if(empty($type) || empty($order_id)){
+                return false;
+            }
+            switch($type){
+                case 'wepay':
+                    $payment = 1;
+                    $pay_url = '';
+                    break;
+                case 'alipay':
+                    $payment = 2;
+                    $pay_url = U('Cuser/alipay_charge',array('paytype'=>'alipay','order_id'=>$order_id));
+                    break;
+                case 'unionpay':
+                    $payment = 3;
+                    break;
+            }
+            $res = M('charge_order')->where('id='.$order_id)->setField('payment',$payment);
+            if($res){
+                echo json_encode(array("status"=>1,'pay_url'=>$pay_url));exit;
+            }else{
+                echo json_encode(array("status"=>0,'msg'=>'切换失败'));exit;
+            }
+
+        }
+    }
+    
+    /*
+     * 支付宝充值处理
+     */
+    public function alipay_charge()
+    {
+        //页面上通过表单选择在线支付类型，支付宝为alipay 财付通为tenpay
+        $paytype = I('paytype');
+        $order_id = (int)I('order_id');
+        $charge_order = M('charge_order')->find($order_id);//充值订单详情
+        $pay = new \Think\Pay($paytype, C('payment.' . $paytype));
+        $order_no = $pay->createOrderNo();
+        $vo = new \Think\Pay\PayVo();
+        $vo->setBody("亿维云用户充值")
+            ->setFee($charge_order['money']) //支付金额
+            ->setOrderNo($order_no)
+            ->setTitle("亿维云用户充值")
+            ->setCallback("Home/Cuser/alipayDone") //支付完成后的后续操作接口
+            ->setUrl(U("Home/Cuser/alipayOk")) //支付完成后的跳转地址
+            ->setParam(array('order_id' => $order_id));
+        echo $pay->buildRequestForm($vo);
+    }
+
+    /*
+     * 支付宝充值完成后处理订单
+     * 更改支付订单状态
+     */
+    public function alipayDone($money, $param)
+    {
+        if (session("pay_verify") == true) {
+            session("pay_verify", null);
+            //处理goods1业务订单、改名good1业务订单状态
+            //M("Goods1Order")->where(array('order_id' => $param['order_id']))->setInc('haspay', $money);
+            //将充值订单更新
+            $charge_order = M('charge_order')->find($param['order_id']);//充值订单详情
+            if($charge_order){
+                $up['status'] = 1;
+                $up['pay_time'] = time();
+                M('charge_order')->where('id='.$charge_order['id'])->save($up);
+                //增加用户金额
+                $res = D('UserAccountLog')->addMoney($charge_order['uid'],$money,'支付宝充值['.$charge_order['order_sn'].']增加');
+                if($res){
+                    return true;
+                }
+            }
+        } else {
+            E("Access Denied");
+        }
+    }
+    /*
+     * 支付宝支付完成显示地址
+     */
+    public function alipayOk()
+    {
+        $user = $this->user_auth;
+        $uid = $user['id'];
+        $Api = new CuserApi();
+        $uinfo = $Api->info($uid);
+
+        $this->assign('uinfo',$uinfo);
+        $this->display();
+    }
+    
+    /*
+     * 申请提现
+     */
+    public function applyCash()
+    {
+        $user = $this->user_auth;
+        $uid = $user['id'];
+        $Api = new CuserApi();
+        $uinfo = $Api->info($uid);
+
+        if(IS_POST){
+            $data = I('post.');
+            $money = sprintf("%.2f", $data['money']);
+            $bank = $data['bank'];
+            $name = $data['name'];
+            $card_num = $data['card_num'];
+            $branch_bank = $data['branch_bank'];
+            if($money > $uinfo['account']){
+                $this->error("提现金额超出账户余额！");
+            }
+            if($money<=0){
+                $this->error("请输入要提现的金额");
+            }
+            if(empty($bank)){
+                $this->error("请输入开户行名称");
+            }
+            if(empty($name)){
+                $this->error("请输入开户人姓名");
+            }
+            if(empty($card_num)){
+                $this->error("请输入银行卡号");
+            }
+            if(empty($branch_bank)){
+                $this->error("请输入开户支行名称");
+            }
+            //构建提现申请记录
+            $cash_log = array(
+                'uid' => $uid,
+                'branch_bank' => $branch_bank,
+                'bank' => $bank,
+                'card_num' => $card_num,
+                'money' => $money,
+                'name' => $name,
+                'username' => $uinfo['username'],
+                'mobile' => $uinfo['mobile'],
+                'status' => 0,
+                'create_time' => time()
+            );
+            $log_id = M('tixian_log')->add($cash_log);
+            if($log_id){
+                $this->success("提现申请提交成功！");
+            }
+        }else{
+            $this->assign('uinfo',$uinfo);
+            $this->display();
+        }
+    }
+    
+    
 
 }

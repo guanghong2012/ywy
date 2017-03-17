@@ -28,9 +28,9 @@ class UserlogApi extends Api{
     /*
      * 减少用户金额
      */
-    public function reduceMoney($uid,$money,$desc='管理员调节',$admin_id=0)
+    public function reduceMoney($uid,$money,$desc='管理员调节',$admin_id=0,$type=2)
     {
-        return $this->model->reduceMoney($uid,$money,$desc,$admin_id);
+        return $this->model->reduceMoney($uid,$money,$desc,$admin_id,$type);
     }
 
 

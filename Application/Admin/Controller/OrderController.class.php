@@ -382,5 +382,31 @@ class OrderController extends AdminController{
 
     }
 
+    /*
+     * 用户充值订单
+     */
+    public function chargeOrder()
+    {
+        $map = array();
+        $keywords = I('keywords');
+        if(!empty($keywords)){
+            //$map['order_sn|username']=   array($keywords,array('like','%'.$keywords.'%'),'_multi'=>true);
+            $map['order_sn'] = array('like','%'.$keywords.'%');
+        }
+
+        $list   = $this->lists('charge_order', $map,$order='create_time desc');
+        if(!empty($list)){
+            foreach($list as $key=>$value){
+                $user = D('Cuser')->find($value['uid']);
+                $list[$key]['username'] = $user['username'];
+                $list[$key]['mobile'] = $user['mobile'];
+            }
+        }
+        int_to_string($list);
+
+        $this->assign('_list', $list);
+        $this->meta_title = '用户充值订单列表';
+        $this->display();
+    }
 
 }

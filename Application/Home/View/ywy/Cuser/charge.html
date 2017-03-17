@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="wsg,hth">
+    <meta name="description" content="ASW">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>用户中心-{:C('WEB_SITE_TITLE')}</title>
+    <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
+    <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
+    <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
+    <script src="__YWY__/css/sfq/js/index.js"></script><!-- 手风琴 -->
+    <link href="__YWY__/css/sfq/css/font-awesome.min.css" rel="stylesheet"><!-- 手风琴 -->
+    <link href="__YWY__/css/sfq/css/style.css" rel="stylesheet" media="screen" type="text/css" /><!-- 手风琴 -->
+    <link href="__YWY__/css/style2.css" rel="stylesheet" type="text/css" /><!-- 表单美化 -->
+    <link href="__YWY__/css/reveal/reveal.css" rel="stylesheet"><!-- 8.0 三种弹出效果 -->
+    <script src="__YWY__/js/reveal/jquery.reveal.js"></script><!-- 8.0 三种弹出效果 -->
+    <script type="text/javascript" src="__YWY__/js/jquery-rl.js"></script><!-- 日历 -->
+    <script type="text/javascript" src="__YWY__/js/jquery.date_input.pack.js"></script> <!-- 日历 end -->
+
+    <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
+</head>
+<body>
+<!-- 头部 -->
+<include file="Public/top"/>
+<!-- /头部 -->
+<div class="user_index">
+    <div class="w1200">
+        <!-- 用户导航 -->
+        <include file="Public/user_nav"/>
+        <!-- /用户导航 -->
+        <div class="user_fr_bank user_fr_bank_1">
+            <h2>充 值</h2>
+            <div class="div_bank">
+                <form id="payform" action="{:U('Cuser/charge')}" method="post" onsubmit="return checkform()">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="recharge_ta">
+                        <tr>
+                            <td class="td1">当前账户余额：</td>
+                            <td class="td2"><span>{$uinfo.account} 元</span></td>
+                        </tr>
+                        <tr>
+                            <td class="td1">充值金额：</td>
+                            <td class="td2"><input name="money" class="bank_inp" placeholder="请输入金额" style="width:150px;" type="text" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')" /> <em>元</em></td>
+                        </tr>
+                        <tr>
+                            <td class="td1">充值备注：</td>
+                            <td class="td2"><input name="desc" class="bank_inp" placeholder="请输入备注" style="width:700px;" type="text"></td>
+                        </tr>
+                        <!--<tr>
+                            <td class="td1">充值方式：</td>
+                            <td class="td2 zf_td">
+                                <a href="javascript:void(0)" data-reveal-id="myModal" data-animation="none">
+                                    <img src="__YWY__/images/zf_wx.png" alt="微信支付" title="微信支付">
+                                    微信支付
+                                </a>
+                                <a href="javascript:void(0)" data-reveal-id="myModal_zf" data-animation="none">
+                                    <img src="__YWY__/images/zf_zfb.png" alt="支付宝支付" title="支付宝支付">
+                                    支付宝支付
+                                </a>
+                                <a href="javascript:void(0)" data-reveal-id="myModal_zf" data-animation="none">
+                                    <img src="__YWY__/images/zf_yl.png" alt="银联支付" title="银联支付">
+                                    银联支付
+                                </a>
+                            </td>
+                        </tr>-->
+                         <tr>
+                              <td></td>
+                              <td><input name="" value="提交" class="bank_sub" type="submit"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- 微信支付弹窗 -->
+<div id="myModal" class="reveal-modal wxzf_div">
+    <img src="__YWY__/images/ewm.png" alt="">
+    <p>扫描二维码进行微信支付</p>
+    <a class="close-reveal-modal">&#215;</a>
+</div>
+<!-- 支付宝、银联弹窗 -->
+<div id="myModal_zf" class="reveal-modal zf_div">
+    <h2>请您在新打开的网上银行页面进行支付，支付完成前请不要关闭该窗口。</h2>
+    <div class="div1">
+        <a class="a1 fl" href="">已完成支付</a>
+        <a class="a2 fr" href="">更换支付方式</a>
+        <div class="clear"></div>
+    </div>
+    <p><a href="">支付遇到问题？</a></p>
+    <a class="close-reveal-modal">&#215;</a>
+</div>
+<!-- 底部 -->
+<include file="Public/bottom"/>
+<!-- /底部 -->
+<script>
+    function checkform(){
+        var money = $("input[name=money]").val();
+        if(money<=0 || !money){
+            layer.alert('请输入充值金额',{title:"提示"});
+            return false;
+        }else{
+            return true;
+        }
+    }
+</script>
+
+<script type="text/javascript" src="__YWY__/js2016/lib/wjf/js/wjf-1.0.0.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/jqurey.tools/jquery.tools.rangeinput.min.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/layer/layer.js"></script>
+</body>
+</html>

@@ -298,7 +298,8 @@ class CartController extends HomeController{
                 }
                 //支付宝支付
                 if(2==$payment){
-
+                    $project_name = $list[0]['name'];//支付标题
+                    $this->doOrderAlipay($order_id,$logid,$project_name);//调用支付宝支付
                 }
 
             }
@@ -306,6 +307,77 @@ class CartController extends HomeController{
 
 
 
+    }
+
+    /*
+     * 订单支付宝支付同步回调处理
+     * 更新订单状态 将订单产品加入任务队列等
+     */
+    public function alipayOrderDone($money, $param)
+    {
+        if (session("pay_verify") == true) {
+            session("pay_verify", null);
+            //处理goods1业务订单、改名good1业务订单状态
+            //M("Goods1Order")->where(array('order_id' => $param['order_id']))->setInc('haspay', $money);
+            //将充值订单更新
+            $order = D('Order')->find($param['order_id']);//订单详情
+            if($order){
+                $up['status'] = 1;
+                $up['paytime'] = time();
+                $res = D('Order')->where('id='.$order['id'])->save($up);//更新订单状态
+                //更新支付记录支付状态
+                M('Paylog')->where('id='.$param['paylog_id'])->setField('status',1);//设置已支付
+                //这里进行通过接口购买产品的操作 将订单产品加入队列处理
+                $this->addToQueue($order['id']);
+
+                enableOrderTemplate($order['id']);//对订单中模板类型产品进行开通
+
+                if($res){
+                    return true;
+                }
+            }
+        } else {
+            E("Access Denied");
+        }
+    }
+    
+    /*
+     * 续费订单 支付宝回调处理
+     * 更新订单状态
+     */
+    public function alipayRenewDone($money, $param)
+    {
+        if (session("pay_verify") == true) {
+            session("pay_verify", null);
+            //处理goods1业务订单、改名good1业务订单状态
+            //M("Goods1Order")->where(array('order_id' => $param['order_id']))->setInc('haspay', $money);
+            //将充值订单更新
+            $order = M('renew_order')->find($param['order_id']);//订单详情
+            if($order){
+                $up['status'] = 1;
+                $up['pay_time'] = time();
+                $res = M('renew_order')->where('id='.$order['id'])->save($up);//更新订单状态
+                //更新支付记录支付状态
+                M('Paylog')->where('id='.$param['paylog_id'])->setField('status',1);//设置已支付
+                //这里进行通过接口购买产品的操作 将订单产品加入队列处理
+                $this->addToQueueRenew($order['id']);
+
+                if($res){
+                    return true;
+                }
+            }
+        } else {
+            E("Access Denied");
+        }
+    }
+    
+    /*
+     * 订单支付成功
+     */
+    public function OrderOk()
+    {
+
+        $this->display();
     }
 
     /*
@@ -446,7 +518,8 @@ class CartController extends HomeController{
                 }
                 //支付宝支付
                 if(2==$payment){
-
+                    $project_name = $renew_order_goods['product_name'];//支付标题
+                    $this->doRenewAlipay($order_id,$logid,$project_name);//调用支付宝支付
                 }
 
 
@@ -584,7 +657,8 @@ class CartController extends HomeController{
                 }
                 //支付宝支付
                 if(2==$payment){
-
+                    $project_name = $renew_order_goods['product_name'];//支付标题
+                    $this->doRenewAlipay($order_id,$logid,$project_name);//调用支付宝支付
                 }
 
 
@@ -701,7 +775,8 @@ class CartController extends HomeController{
                 }
                 //支付宝支付
                 if(2==$payment){
-
+                    $project_name = $renew_order_goods['product_name'];//支付标题
+                    $this->doRenewAlipay($order_id,$logid,$project_name);//调用支付宝支付
                 }
 
 
@@ -890,7 +965,8 @@ class CartController extends HomeController{
                 }
                 //支付宝支付
                 if(2==$payment){
-
+                    $project_name = $renew_order_goods['product_name'];//支付标题
+                    $this->doRenewAlipay($order_id,$logid,$project_name);//调用支付宝支付
                 }
 
 
@@ -1048,7 +1124,8 @@ class CartController extends HomeController{
                 }
                 //支付宝支付
                 if(2==$payment){
-
+                    $project_name = $renew_order_goods['product_name'];//支付标题
+                    $this->doRenewAlipay($order_id,$logid,$project_name);//调用支付宝支付
                 }
 
 

@@ -537,7 +537,7 @@ class CuserController extends AdminController {
                 break;
         }
 
-
+        $this->meta_title = '用户产品';
         $this->assign('info',$info);
         $this->assign('type',$type);
         $this->display();

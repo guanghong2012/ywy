@@ -273,6 +273,66 @@ class HomeController extends Controller {
 
     }
 
+    /*
+     * 订单支付宝支付处理
+     */
+    protected function doOrderAlipay($order_id,$paylog_id,$goods_name='亿维云产品购买'){
+        if(!$order_id){
+            return false;
+        }
+        $paytype = 'alipay';
+        $order_id = (int)$order_id;//订单id
+        $paylog_id = (int)$paylog_id;//支付记录id
+        $order = D('Order')->find($order_id);//订单详情
+
+        //$total = $order['total'];//支付金额
+        $total = 0.01;//测试过程设置为0.01 支付金额
+
+        $pay = new \Think\Pay($paytype, C('payment.' . $paytype));
+        $order_no = $pay->createOrderNo();
+        $vo = new \Think\Pay\PayVo();
+        $vo->setBody($goods_name)
+            ->setFee($total) //支付金额
+            ->setOrderNo($order_no)
+            ->setTitle($goods_name)
+            ->setCallback("Home/Cart/alipayOrderDone") //支付完成后的后续操作接口
+            ->setUrl(U("Home/Cart/OrderOk")) //支付完成后的跳转地址
+            ->setParam(array('order_id' => $order_id,'paylog_id'=>$paylog_id));
+        echo $pay->buildRequestForm($vo);
+
+
+    }
+
+    /*
+     * 续费支付宝支付处理
+     *
+     */
+    protected function doRenewAlipay($order_id,$paylog_id,$goods_name='亿维云产品续费'){
+        if(!$order_id){
+            return false;
+        }
+        $paytype = 'alipay';
+        $order_id = (int)$order_id;//订单id
+        $paylog_id = (int)$paylog_id;//支付记录id
+        $order = M('renew_order')->find($order_id);//续费订单详情
+
+        //$total = $order['total'];//支付金额
+        $total = 0.01;//测试过程设置为0.01 支付金额
+
+        $pay = new \Think\Pay($paytype, C('payment.' . $paytype));
+        $order_no = $pay->createOrderNo();
+        $vo = new \Think\Pay\PayVo();
+        $vo->setBody($goods_name)
+            ->setFee($total) //支付金额
+            ->setOrderNo($order_no)
+            ->setTitle($goods_name)
+            ->setCallback("Home/Cart/alipayRenewDone") //支付完成后的后续操作接口
+            ->setUrl(U("Home/Cart/OrderOk")) //支付完成后的跳转地址
+            ->setParam(array('order_id' => $order_id,'paylog_id'=>$paylog_id));
+        echo $pay->buildRequestForm($vo);
+    }
+
+
 
 
 }

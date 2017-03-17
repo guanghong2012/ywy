@@ -17,12 +17,7 @@
     <script type="text/javascript" src="__YWY__/js/common.js"></script>
     <script type="text/javascript" src="__YWY__/js/domain2016.js"></script>
 
-    <link rel="stylesheet" href="__YWY__/ios/css/custom.css"><!--ios特效必须-->
-    <link rel="stylesheet" href="__YWY__/ios/css/iosOverlay.css"><!--ios特效必须-->
-    <script src="__YWY__/ios/js/iosOverlay.js"></script><!--ios特效必须-->
-    <script src="__YWY__/ios/js/spin.min.js"></script>
-    <script src="__YWY__/ios/js/prettify.js"></script>
-    <script src="__YWY__/ios/js/custom.js"></script><!--ios特效必须-->
+    <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
 
     <script>
         $(function(){
@@ -261,11 +256,7 @@
 
                 window.location.href = data.url;
             } else {
-                iosOverlay({
-                    text: "请输入域名",
-                    duration: 2e3,
-                    icon: "__YWY__/ios/img/cross.png"
-                });
+                layer.alert("请输入域名",{title:"提示"});
                 return false;
             }
         }
@@ -275,6 +266,8 @@
 <!-- 底部 -->
 <include file="Public/bottom"/>
 <!-- /底部 -->
-
+<script type="text/javascript" src="__YWY__/js2016/lib/wjf/js/wjf-1.0.0.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/jqurey.tools/jquery.tools.rangeinput.min.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/layer/layer.js"></script>
 </body>
 </html>
