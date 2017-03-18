@@ -2,45 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a69e2627-d7f7-4207-82d3-d9105819e7aa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Admin/Controller/CashController.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Admin/View/Cash/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Admin/View/Cash/view.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Admin/View/Cuser/applyCash.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Admin/View/Order/chargeOrder.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cart/OrderOk.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/alipayOk.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/applyCash.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/charge.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/chargePayment.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Runtime/Cache/Admin/1a29341587f46f16df4f5ba698e28d07.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Runtime/Cache/Admin/4e1f0ee1a12a8dbb63343fe9e6a3f60d.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Runtime/Cache/Admin/5220388a0e8e2776bb786e64590b66df.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Runtime/Cache/Admin/65e605872ed5d34210f5b33beb13f5a3.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Runtime/Cache/Admin/79bde46336f7088c2c4092b8642fe931.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Runtime/Cache/Admin/a2687d4c008de26902ac38bda01195da.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Runtime/Cache/Admin/b595b808c2ebeeeb0478ffc30bb4e87a.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Runtime/Cache/Admin/d634cc03500972968c95a804116276bd.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Runtime/Cache/Admin/fea6ecfa909155b3a58e2631a09f55e1.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cart/qrcode.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewDomain.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewDomainSelectPayment.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/viewDomain.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/renewDomain_schedule.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Admin/Controller/CuserController.class.php" afterPath="$PROJECT_DIR$/Application/Admin/Controller/CuserController.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Admin/Controller/OrderController.class.php" afterPath="$PROJECT_DIR$/Application/Admin/Controller/OrderController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Admin/Model/UserAccountLogModel.class.php" afterPath="$PROJECT_DIR$/Application/Admin/Model/UserAccountLogModel.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Admin/View/Public/login.html" afterPath="$PROJECT_DIR$/Application/Admin/View/Public/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Common/function.php" afterPath="$PROJECT_DIR$/Application/Home/Common/function.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Admin/View/Order/waitOpenGoods.html" afterPath="$PROJECT_DIR$/Application/Admin/View/Order/waitOpenGoods.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Common/Api/CloundApi.class.php" afterPath="$PROJECT_DIR$/Application/Common/Api/CloundApi.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Conf/config.php" afterPath="$PROJECT_DIR$/Application/Home/Conf/config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/CartController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/CartController.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/CuserController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/CuserController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/DomainController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/DomainController.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/HomeController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/HomeController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/ywy/Cart/orderDone.html" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cart/orderDone.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/account_log.html" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/account_log.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/charge_log.html" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/charge_log.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/index.html" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/withdraw_log.html" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/withdraw_log.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/ywy/Domain/index.html" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Domain/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/ywy/Index/index.html" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Index/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/User/Api/UserlogApi.class.php" afterPath="$PROJECT_DIR$/Application/User/Api/UserlogApi.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Runtime/Cache/Admin/b956215329b6f9aca22277599a4efdfc.php" afterPath="$PROJECT_DIR$/Runtime/Cache/Admin/b956215329b6f9aca22277599a4efdfc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ywy.sql" afterPath="$PROJECT_DIR$/ywy.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/IndexController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/IndexController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/PublicController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/PublicController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/chargePayment.html" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/chargePayment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/userDomain.html" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/userDomain.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/userMail.html" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/userMail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/ywy/Public/top.html" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Public/top.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/ywy/Server/index.html" afterPath="$PROJECT_DIR$/Application/Home/View/ywy/Server/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/Queue.class.php" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/Queue.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/domainRegister_schedule.php" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/domainRegister_schedule.php" />
     </list>
     <ignored path="QbtThink 1.1 Dev.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,20 +49,30 @@
       <file leaf-file-name="CuserController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/CuserController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.111111">
-              <caret line="974" column="37" selection-start-line="974" selection-start-column="31" selection-end-line="974" selection-end-column="37" />
+            <state vertical-scroll-proportion="-24.11111">
+              <caret line="1263" column="37" selection-start-line="1263" selection-start-column="37" selection-end-line="1263" selection-end-column="37" />
               <folding>
-                <element signature="e#6#85#0#PHP" expanded="true" />
+                <element signature="e#114#139#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CartController.class.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Application/Home/Controller/CartController.class.php">
+      <file leaf-file-name="userDomain.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/userDomain.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7301038">
-              <caret line="296" column="0" selection-start-line="296" selection-start-column="0" selection-end-line="296" selection-end-column="0" />
+            <state vertical-scroll-proportion="-23.25926">
+              <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="password.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/password.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.0">
+              <caret line="68" column="40" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -87,8 +81,8 @@
       <file leaf-file-name="HomeController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/HomeController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.703703">
-              <caret line="328" column="52" selection-start-line="328" selection-start-column="37" selection-end-line="328" selection-end-column="52" />
+            <state vertical-scroll-proportion="-21.037037">
+              <caret line="253" column="43" selection-start-line="253" selection-start-column="43" selection-end-line="253" selection-end-column="43" />
               <folding>
                 <element signature="e#509#532#0#PHP" expanded="true" />
               </folding>
@@ -96,42 +90,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="orderDone.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/orderDone.html">
+      <file leaf-file-name="CartController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Home/Controller/CartController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-25.11111">
+              <caret line="1589" column="0" selection-start-line="1589" selection-start-column="0" selection-end-line="1589" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CloundApi.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Common/Api/CloundApi.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.111111">
+              <caret line="193" column="5" selection-start-line="193" selection-start-column="5" selection-end-line="193" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userMail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/userMail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-6.0">
-              <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+              <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderModel.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Home/Model/OrderModel.class.php">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Server/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.0">
-              <caret line="34" column="26" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="selectPayment.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/selectPayment.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.0">
-              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PublicController.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Home/Controller/PublicController.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.111111">
-              <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
-              <folding />
+            <state vertical-scroll-proportion="0.37370244">
+              <caret line="279" column="82" selection-start-line="279" selection-start-column="82" selection-end-line="279" selection-end-column="82" />
+              <folding>
+                <element signature="n#style#0;n#a#1;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -151,24 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/renewVitrual_schedule.php" />
-        <option value="$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/renewMail_schedule.php" />
-        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewTemplate.html" />
-        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/userTemplate.html" />
-        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/userHost.html" />
-        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewHost.html" />
-        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewHostSelectPayment.html" />
-        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/userPackagehost.html" />
-        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewPackagehost.html" />
-        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewPhSelectPayment.html" />
-        <option value="$PROJECT_DIR$/Application/Admin/View/Order/renewOrder.html" />
-        <option value="$PROJECT_DIR$/Application/Admin/View/Order/renewOrderGoods.html" />
-        <option value="$PROJECT_DIR$/Application/Admin/View/Order/viewRenewGoods.html" />
-        <option value="$PROJECT_DIR$/Application/Admin/View/Order/waitRenew.html" />
-        <option value="$PROJECT_DIR$/Application/Admin/View/Order/waitOpenGoods.html" />
-        <option value="$PROJECT_DIR$/Application/Admin/View/Cuser/index.html" />
-        <option value="$PROJECT_DIR$/Application/Admin/View/Cuser/userPackagehost.html" />
-        <option value="$PROJECT_DIR$/Application/Admin/View/Cuser/userHost.html" />
         <option value="$PROJECT_DIR$/Application/Admin/View/Cuser/userTemplate.html" />
         <option value="$PROJECT_DIR$/Application/Admin/View/Cuser/userDomains.html" />
         <option value="$PROJECT_DIR$/Application/Admin/View/Cuser/userMail.html" />
@@ -180,11 +158,7 @@
         <option value="$PROJECT_DIR$/Application/Home/View/ywy/Domain/index.html" />
         <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/index.html" />
         <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/charge.html" />
-        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/chargePayment.html" />
-        <option value="$PROJECT_DIR$/Application/Home/Conf/config.php" />
         <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/alipayOk.html" />
-        <option value="$PROJECT_DIR$/Application/Home/Controller/PublicController.class.php" />
-        <option value="$PROJECT_DIR$/Application/Admin/Controller/OrderController.class.php" />
         <option value="$PROJECT_DIR$/Application/Admin/View/Cuser/applyCash.html" />
         <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/charge_log.html" />
         <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/account_log.html" />
@@ -196,12 +170,34 @@
         <option value="$PROJECT_DIR$/Application/User/Api/UserlogApi.class.php" />
         <option value="$PROJECT_DIR$/Application/Admin/Controller/CashController.class.php" />
         <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/withdraw_log.html" />
-        <option value="$PROJECT_DIR$/Application/Home/Controller/CuserController.class.php" />
         <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cart/OrderOk.html" />
         <option value="$PROJECT_DIR$/Application/Home/Common/function.php" />
         <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cart/orderDone.html" />
+        <option value="$PROJECT_DIR$/Application/Home/Controller/PublicController.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Weixinpay/WxPay.pub.config.php" />
+        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cart/qrcode.html" />
+        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Public/top.html" />
+        <option value="$PROJECT_DIR$/Application/Home/Conf/config.php" />
+        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/chargePayment.html" />
+        <option value="$PROJECT_DIR$/Application/Home/Controller/YpayController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/View/Order/waitOpenGoods.html" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/OrderController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Domain/buyDomainInfo.html" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/Queue.class.php" />
+        <option value="$PROJECT_DIR$/Application/Home/Controller/IndexController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Home/Controller/DomainController.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/domainRegister_schedule.php" />
+        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/viewDomain.html" />
+        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewDomain.html" />
+        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewDomainSelectPayment.html" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/renewDomain_schedule.php" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/HomeController.class.php" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/CartController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/userDomain.html" />
+        <option value="$PROJECT_DIR$/Application/Common/Api/CloundApi.class.php" />
+        <option value="$PROJECT_DIR$/Application/Home/Controller/CuserController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Cuser/userMail.html" />
+        <option value="$PROJECT_DIR$/Application/Home/View/ywy/Server/index.html" />
       </list>
     </option>
   </component>
@@ -273,7 +269,73 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
+              <option name="myItemId" value="ThinkPHP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QbtThink 1.1 Dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ywy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ThinkPHP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QbtThink 1.1 Dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ywy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ThinkPHP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Schedule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QbtThink 1.1 Dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ywy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ThinkPHP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Org" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -361,7 +423,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Cart" />
+              <option name="myItemId" value="Server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -409,6 +471,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QbtThink 1.1 Dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ywy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QbtThink 1.1 Dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ywy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -422,7 +524,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel_blog" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../yiweiyun" />
     <property name="SearchEverywhereHistoryKey" value="step1&#9;null&#9;null" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -477,7 +579,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23507462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23773988" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -514,141 +616,61 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Cuser/userMail.html">
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/withdraw_log.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4444444">
+          <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/shopping_2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.0">
+          <caret line="19" column="53" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/selectPayment.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="86" selection-start-line="65" selection-start-column="82" selection-end-line="65" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Public/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12560387">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/PublicController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7222222">
-          <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Cuser/viewGoods.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84299517">
-          <caret line="429" column="30" selection-start-line="429" selection-start-column="30" selection-end-line="429" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Cuser/userDomains.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.031400967">
-          <caret line="59" column="96" selection-start-line="59" selection-start-column="96" selection-end-line="59" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Cuser/userVitrual.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.031400967">
-          <caret line="57" column="97" selection-start-line="57" selection-start-column="97" selection-end-line="57" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Domain/checkDomainResult.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.6285715">
-          <caret line="17" column="102" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Domain/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8.635265">
-          <caret line="258" column="50" selection-start-line="258" selection-start-column="50" selection-end-line="258" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/user_recharge.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.171429">
-          <caret line="11" column="32" selection-start-line="0" selection-start-column="0" selection-end-line="92" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/IndexController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6857142">
-          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cloud/configToBuy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.885813">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Mail/buyMail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.111111">
-          <caret line="146" column="27" selection-start-line="146" selection-start-column="27" selection-end-line="146" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.0">
-          <caret line="17" column="7" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/Model/UserAccountLogModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.0">
-          <caret line="39" column="32" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Home/ywy/js/reveal/jquery.reveal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="14" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.4013841">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Think/Pay/Pay.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-43.0">
-          <caret line="43" column="45" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="45" />
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Think/Pay/PayVo.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.0">
+        <state vertical-scroll-proportion="-2.0207613">
           <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alipay_log.txt">
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Think/Pay/Pay.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.397924">
+          <caret line="43" column="45" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Think/Pay.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53287196">
+          <caret line="47" column="126" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="126" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/Model/OrderModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47058824">
+          <caret line="34" column="26" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Weixinpay/cacert/证书使用说明.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -656,154 +678,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/Conf/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5605536">
-          <caret line="114" column="9" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/alipayOk.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0242214">
-          <caret line="65" column="77" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Cuser/applyCash.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12456747">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/user_withdrawals.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.0">
-          <caret line="20" column="65" selection-start-line="0" selection-start-column="0" selection-end-line="72" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/charge_log.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4083045">
-          <caret line="37" column="133" selection-start-line="37" selection-start-column="110" selection-end-line="37" selection-end-column="133" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Index/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1111112">
-          <caret line="596" column="4" selection-start-line="596" selection-start-column="4" selection-end-line="620" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/applyCash.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0">
-          <caret line="111" column="9" selection-start-line="111" selection-start-column="9" selection-end-line="111" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/chargePayment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6262976">
-          <caret line="81" column="74" selection-start-line="81" selection-start-column="58" selection-end-line="81" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/charge.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.05882353">
-          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Order/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7785467">
-          <caret line="70" column="29" selection-start-line="0" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Order/viewGoods.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37370244">
-          <caret line="96" column="10" selection-start-line="0" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/CuserController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4982699">
-          <caret line="304" column="40" selection-start-line="304" selection-start-column="34" selection-end-line="304" selection-end-column="44" />
-          <folding>
-            <element signature="e#510#532#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/Model/UserAccountLogModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21799308">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/User/Api/UserlogApi.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5605536">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding>
-            <element signature="e#115#132#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Cash/view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6885813">
-          <caret line="93" column="62" selection-start-line="93" selection-start-column="62" selection-end-line="93" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Cash/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.2387543">
-          <caret line="104" column="35" selection-start-line="104" selection-start-column="35" selection-end-line="104" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/CashController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53287196">
-          <caret line="63" column="39" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
-          <folding>
-            <element signature="e#6#85#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43598616">
+        <state vertical-scroll-proportion="1.2906574">
           <caret line="280" column="16" selection-start-line="280" selection-start-column="16" selection-end-line="280" selection-end-column="49" />
           <folding>
             <marker date="1489399404000" expanded="true" signature="10120:10134" placeholder="..." />
@@ -812,119 +689,354 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/OrderController.class.php">
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/orderDone.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46712804">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="31" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Order/chargeOrder.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15570934">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/account_log.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.333333">
-          <caret line="47" column="53" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/withdraw_log.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.4444444">
-          <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/Model/OrderModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.0">
-          <caret line="34" column="26" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/PublicController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.111111">
-          <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/CuserController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.111111">
-          <caret line="974" column="37" selection-start-line="974" selection-start-column="31" selection-end-line="974" selection-end-column="37" />
-          <folding>
-            <element signature="e#6#85#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/shopping_2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.0">
-          <caret line="19" column="53" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/selectPayment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.0">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="24" />
+        <state vertical-scroll-proportion="1.1522491">
+          <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/OrderOk.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.0">
-          <caret line="38" column="42" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.5916955">
+          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Weixinpay/WxPayPubHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30219147">
+          <caret line="626" column="5" selection-start-line="626" selection-start-column="5" selection-end-line="626" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Common/function.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15686275">
-          <caret line="136" column="9" selection-start-line="136" selection-start-column="9" selection-end-line="136" selection-end-column="9" />
+        <state vertical-scroll-proportion="1.0184544">
+          <caret line="167" column="1" selection-start-line="167" selection-start-column="1" selection-end-line="167" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/orderDone.html">
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Public/top.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0">
-          <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.40484428">
+          <caret line="58" column="89" selection-start-line="58" selection-start-column="89" selection-end-line="58" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/PublicController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09342561">
+          <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Weixinpay/WxPay.pub.config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.80968857">
+          <caret line="28" column="90" selection-start-line="28" selection-start-column="90" selection-end-line="28" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/qrcode.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40484428">
+          <caret line="73" column="5" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/YpayController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40484428">
+          <caret line="78" column="28" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
+          <folding>
+            <marker date="1489823409571" expanded="true" signature="580:1262" placeholder="..." />
+            <marker date="1489823409571" expanded="true" signature="595:684" placeholder="..." />
+            <marker date="1489823409571" expanded="true" signature="699:1246" placeholder="..." />
+            <marker date="1489823409571" expanded="false" signature="729:746" placeholder="..." />
+            <marker date="1489823409571" expanded="true" signature="838:889" placeholder="..." />
+            <marker date="1489823409571" expanded="true" signature="937:1230" placeholder="..." />
+            <marker date="1489823409571" expanded="true" signature="1003:1204" placeholder="{...}" />
+            <marker date="1489823409571" expanded="true" signature="1075:1178" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/Conf/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43944636">
+          <caret line="162" column="28" selection-start-line="162" selection-start-column="28" selection-end-line="162" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/chargePayment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43944636">
+          <caret line="72" column="109" selection-start-line="72" selection-start-column="109" selection-end-line="72" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/OrderController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29411766">
+          <caret line="361" column="5" selection-start-line="361" selection-start-column="5" selection-end-line="361" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Order/waitOpenGoods.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7785467">
+          <caret line="46" column="41" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-106.03704">
+          <caret line="195" column="10" selection-start-line="195" selection-start-column="10" selection-end-line="195" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Domain/checkDomainResult.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46712804">
+          <caret line="65" column="148" selection-start-line="65" selection-start-column="145" selection-end-line="65" selection-end-column="148" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/HostController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/CloudController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3356402">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Domain/buyDomainInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.40484428">
+          <caret line="146" column="33" selection-start-line="146" selection-start-column="33" selection-end-line="146" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/viewNotice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.37370244">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/viewVitrual.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.0">
+          <caret line="22" column="11" selection-start-line="0" selection-start-column="0" selection-end-line="91" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/viewDomain.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4982699">
+          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/userVitrual.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.0">
+          <caret line="61" column="84" selection-start-line="61" selection-start-column="84" selection-end-line="61" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/DomainController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9031142">
+          <caret line="100" column="24" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/domainRegister_schedule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56401384">
+          <caret line="68" column="53" selection-start-line="68" selection-start-column="53" selection-end-line="68" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewVitrual.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.111111">
+          <caret line="35" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="130" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewPhSelectPayment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1211072">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewPackagehost.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21799308">
+          <caret line="38" column="64" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/Queue.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34256056">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/renewVitrual_schedule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8719723">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="45" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewMailSelectPayment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65397924">
+          <caret line="123" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="136" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewDomain.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34256056">
+          <caret line="41" column="47" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cart/renewDomainSelectPayment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37716264">
+          <caret line="104" column="69" selection-start-line="104" selection-start-column="62" selection-end-line="104" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/renewDomain_schedule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47058824">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/CartController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.11111">
+          <caret line="1589" column="0" selection-start-line="1589" selection-start-column="0" selection-end-line="1589" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/HomeController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.703703">
-          <caret line="328" column="52" selection-start-line="328" selection-start-column="37" selection-end-line="328" selection-end-column="52" />
+        <state vertical-scroll-proportion="-21.037037">
+          <caret line="253" column="43" selection-start-line="253" selection-start-column="43" selection-end-line="253" selection-end-column="43" />
           <folding>
             <element signature="e#509#532#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/CartController.class.php">
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/password.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7301038">
-          <caret line="296" column="0" selection-start-line="296" selection-start-column="0" selection-end-line="296" selection-end-column="0" />
+        <state vertical-scroll-proportion="-20.0">
+          <caret line="68" column="40" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="40" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Org/Schedule/buyHost_schedule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.0">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/userDomain.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.25926">
+          <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/CuserController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.11111">
+          <caret line="1263" column="37" selection-start-line="1263" selection-start-column="37" selection-end-line="1263" selection-end-column="37" />
+          <folding>
+            <element signature="e#114#139#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Api/CloundApi.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.111111">
+          <caret line="193" column="5" selection-start-line="193" selection-start-column="5" selection-end-line="193" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Cuser/userMail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.0">
+          <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/ywy/Server/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37370244">
+          <caret line="279" column="82" selection-start-line="279" selection-start-column="82" selection-end-line="279" selection-end-column="82" />
+          <folding>
+            <element signature="n#style#0;n#a#1;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

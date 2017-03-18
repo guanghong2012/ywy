@@ -12,7 +12,9 @@ class CartController extends HomeController{
     public function _initialize()
     {
         parent::_initialize();
-        $this->is_login();
+        if(!in_array(ACTION_NAME,array('qrcodePayNotify','alipayOrderDone','alipayRenewDone','OrderOk','renewQrcodePayNotify'))){
+            $this->is_login();
+        }
         $this->model = D("Cart");
     }
 
@@ -294,7 +296,9 @@ class CartController extends HomeController{
                 }
                 //微信支付
                 if(1==$payment){
-
+                    $project_name = $list[0]['name'];//支付标题
+                    //$this->doWxpay($order_id,$project_name);//调用微信支付
+                    go_to(4,U('Cart/doWxpay',array('order_id'=>$order_id,'goods_name'=>$project_name)));
                 }
                 //支付宝支付
                 if(2==$payment){
@@ -305,12 +309,307 @@ class CartController extends HomeController{
             }
         }
 
+    }
 
+    /*
+     * 普通订单微信支付处理
+     */
+    public function doWxpay($order_id,$goods_name='亿维云产品购买')
+    {
+        //引入WxPayPubHelper
+        vendor('Weixinpay.WxPayPubHelper');
+        //$notify_url = U("Home/Public/qrcodePayNotify", array('apitype' => 'wxpay', 'method' => 'notify'), false, true);//微信支付异步回调处理地址
+        $notify_url = 'http://win2.qbt8.com/ywyw/index.php/Home/Cart/qrcodePayNotify.html';//微信支付异步回调地址 地址不能带任何参数，就是不能有 ?x=a&b=c 这些
+        $order_id = (int)$order_id;//订单id
+        if(!$order_id){
+            return false;
+        }
+
+        $order = D('Order')->find($order_id);//订单详情
+        if(!$order){
+            $this->error("订单不存在！");
+        }
+        if($order['status']==1){
+            $this->error("该订单已支付！");
+        }
+        $trade_no = $order['ordersn'];//订单号
+
+        //$total = $order['total'];//支付金额
+        $total = 1;//测试过程设置为0.01 支付金额
+
+        //使用统一支付接口
+        $unifiedOrder = new \UnifiedOrder_pub();
+
+        //设置统一支付接口参数
+        //设置必填参数
+        //$unifiedOrder->setParameter("body","贡献一分钱");//商品描述
+        $unifiedOrder->setParameter("body","$goods_name");//商品描述
+        //自定义订单号，此处仅作举例
+        //$timeStamp = time();
+        //$out_trade_no = C('WxPayConf_pub.APPID')."$timeStamp";
+        $unifiedOrder->setParameter("out_trade_no","$trade_no");//商户订单号
+        $unifiedOrder->setParameter("total_fee",$total);//总金额
+        $unifiedOrder->setParameter("notify_url", "$notify_url");//通知地址
+        //$unifiedOrder->setParameter("notify_url", C('WxPayConf_pub.NOTIFY_URL'));//通知地址
+        $unifiedOrder->setParameter("trade_type","NATIVE");//交易类型
+
+        //获取统一支付接口结果
+        $unifiedOrderResult = $unifiedOrder->getResult();
+        //商户根据实际情况设置相应的处理流程
+        if ($unifiedOrderResult["return_code"] == "FAIL")
+        {
+            //商户自行增加处理流程
+            echo "通信出错：".$unifiedOrderResult['return_msg']."<br>";
+        }
+        elseif($unifiedOrderResult["result_code"] == "FAIL")
+        {
+            //商户自行增加处理流程
+            echo "错误代码：".$unifiedOrderResult['err_code']."<br>";
+            echo "错误代码描述：".$unifiedOrderResult['err_code_des']."<br>";
+        }
+        elseif($unifiedOrderResult["code_url"] != NULL)
+        {
+            //从统一支付接口获取到code_url
+            $code_url = $unifiedOrderResult["code_url"];
+            //商户自行增加处理流程
+            //......
+        }
+        $this->assign('out_trade_no',$trade_no);
+        $this->assign('code_url',$code_url);
+        $this->assign('unifiedOrderResult',$unifiedOrderResult);
+
+        $this->display('Cart/qrcode');
 
     }
 
     /*
-     * 订单支付宝支付同步回调处理
+     * 微信扫码支付 异步回调处理
+     */
+    public function qrcodePayNotify()
+    {
+        //file_put_contents('testwxpay.txt',"微信支付成功了",FILE_APPEND);//写文件记录是否异步访问了本控制器
+        //引入WxPayPubHelper
+        vendor('Weixinpay.WxPayPubHelper');
+        //使用通用通知接口
+        $notify = new \Notify_pub();
+
+        //存储微信的回调
+        $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+        $notify->saveData($xml);
+
+        //验证签名，并回应微信。
+        //对后台通知交互时，如果微信收到商户的应答不是成功或超时，微信认为通知失败，
+        //微信会通过一定的策略（如30分钟共8次）定期重新发起通知，
+        //尽可能提高通知的成功率，但微信不保证通知最终能成功。
+        if($notify->checkSign() == FALSE){
+            $notify->setReturnParameter("return_code","FAIL");//返回状态码
+            $notify->setReturnParameter("return_msg","签名失败");//返回信息
+        }else{
+            $notify->setReturnParameter("return_code","SUCCESS");//设置返回码
+        }
+        $returnXml = $notify->returnXml();
+        echo $returnXml;
+
+        //==商户根据实际情况设置相应的处理流程，此处仅作举例=======
+
+        //以log文件形式记录回调信息
+        //         $log_ = new Log_();
+        //$up_path = dirname(dirname(dirname(dirname(__FILE__))));
+        //$file_path = str_replace("\\", "/", $up_path);
+
+        //$log_name= $file_path."/Public/notify_url.log";
+        $log_name= "wxpay_notify.log";//log文件路径
+
+        $this->log_result($log_name,"【接收到的notify通知】:\n".$xml."\n");
+
+        if($notify->checkSign() == TRUE)
+        {
+            if ($notify->data["return_code"] == "FAIL") {
+                //此处应该更新一下订单状态，商户自行增删操作
+                $this->log_result($log_name,"【通信出错】:\n".$xml."\n");
+            }
+            elseif($notify->data["result_code"] == "FAIL"){
+                //此处应该更新一下订单状态，商户自行增删操作
+                $this->log_result($log_name,"【业务出错】:\n".$xml."\n");
+            }
+            else{
+                //此处应该更新一下订单状态，商户自行增删操作
+                $this->log_result($log_name,"【支付成功】:\n".$xml."\n");
+
+                $out_trade_no = $notify->data["out_trade_no"];//返回来的 原网站订单号
+                $map['ordersn'] = $out_trade_no;
+                $order = D("Order")->where($map)->find();
+                M('Paylog')->where($map)->setField('status',1);//更新支付记录 设置已支付
+                //更新订单支付状态
+                $up = array('status'=>1,'paytime'=>time());
+                $is_pay = D('Order')->where($map)->setField($up);
+                if($is_pay){
+                    //这里进行通过接口购买产品的操作 将订单产品加入队列处理
+                    $this->addToQueue($order['id']);
+
+                    enableOrderTemplate($order['id']);//对订单中模板类型产品进行开通
+                }
+
+            }
+
+            //商户自行增加处理流程,
+            //例如：更新订单状态
+            //例如：数据库操作
+            //例如：推送支付完成信息
+
+        }
+    }
+    
+    /*
+     * 续费订单 微信支付
+     */
+    public function renewWxpay($order_id,$goods_name='亿维云产品续费')
+    {
+        //引入WxPayPubHelper
+        vendor('Weixinpay.WxPayPubHelper');
+        //$notify_url = U("Home/Public/qrcodePayNotify", array('apitype' => 'wxpay', 'method' => 'notify'), false, true);//微信支付异步回调处理地址
+        $notify_url = 'http://win2.qbt8.com/ywyw/index.php/Home/Cart/renewQrcodePayNotify.html';//微信支付异步回调地址 地址不能带任何参数，就是不能有 ?x=a&b=c 这些
+        $order_id = (int)$order_id;//订单id
+        if(!$order_id){
+            return false;
+        }
+
+        $order = M('renew_order')->find($order_id);//续费订单详情
+        if(!$order){
+            $this->error("订单不存在！");
+        }
+        if($order['status']==1){
+            $this->error("该订单已支付！");
+        }
+        $trade_no = $order['order_sn'];//订单号
+
+        //$total = $order['total'];//支付金额
+        $total = 1;//测试过程设置为0.01 支付金额
+
+        //使用统一支付接口
+        $unifiedOrder = new \UnifiedOrder_pub();
+
+        //设置统一支付接口参数
+        //设置必填参数
+        //$unifiedOrder->setParameter("body","贡献一分钱");//商品描述
+        $unifiedOrder->setParameter("body","$goods_name");//商品描述
+        //自定义订单号，此处仅作举例
+        //$timeStamp = time();
+        //$out_trade_no = C('WxPayConf_pub.APPID')."$timeStamp";
+        $unifiedOrder->setParameter("out_trade_no","$trade_no");//商户订单号
+        $unifiedOrder->setParameter("total_fee",$total);//总金额
+        $unifiedOrder->setParameter("notify_url", "$notify_url");//通知地址
+        //$unifiedOrder->setParameter("notify_url", C('WxPayConf_pub.NOTIFY_URL'));//通知地址
+        $unifiedOrder->setParameter("trade_type","NATIVE");//交易类型
+
+        //获取统一支付接口结果
+        $unifiedOrderResult = $unifiedOrder->getResult();
+        //商户根据实际情况设置相应的处理流程
+        if ($unifiedOrderResult["return_code"] == "FAIL")
+        {
+            //商户自行增加处理流程
+            echo "通信出错：".$unifiedOrderResult['return_msg']."<br>";
+        }
+        elseif($unifiedOrderResult["result_code"] == "FAIL")
+        {
+            //商户自行增加处理流程
+            echo "错误代码：".$unifiedOrderResult['err_code']."<br>";
+            echo "错误代码描述：".$unifiedOrderResult['err_code_des']."<br>";
+        }
+        elseif($unifiedOrderResult["code_url"] != NULL)
+        {
+            //从统一支付接口获取到code_url
+            $code_url = $unifiedOrderResult["code_url"];
+            //商户自行增加处理流程
+            //......
+        }
+        $this->assign('out_trade_no',$trade_no);
+        $this->assign('code_url',$code_url);
+        $this->assign('unifiedOrderResult',$unifiedOrderResult);
+
+        $this->display('Cart/qrcode');
+    }
+
+    /*
+     * 续费订单 微信扫码支付 异步回调处理
+     */
+    public function renewQrcodePayNotify()
+    {
+        //file_put_contents('testwxpay.txt',"微信支付成功了",FILE_APPEND);//写文件记录是否异步访问了本控制器
+        //引入WxPayPubHelper
+        vendor('Weixinpay.WxPayPubHelper');
+        //使用通用通知接口
+        $notify = new \Notify_pub();
+
+        //存储微信的回调
+        $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+        $notify->saveData($xml);
+
+        //验证签名，并回应微信。
+        //对后台通知交互时，如果微信收到商户的应答不是成功或超时，微信认为通知失败，
+        //微信会通过一定的策略（如30分钟共8次）定期重新发起通知，
+        //尽可能提高通知的成功率，但微信不保证通知最终能成功。
+        if($notify->checkSign() == FALSE){
+            $notify->setReturnParameter("return_code","FAIL");//返回状态码
+            $notify->setReturnParameter("return_msg","签名失败");//返回信息
+        }else{
+            $notify->setReturnParameter("return_code","SUCCESS");//设置返回码
+        }
+        $returnXml = $notify->returnXml();
+        echo $returnXml;
+
+        //==商户根据实际情况设置相应的处理流程，此处仅作举例=======
+
+        //以log文件形式记录回调信息
+        //         $log_ = new Log_();
+        //$up_path = dirname(dirname(dirname(dirname(__FILE__))));
+        //$file_path = str_replace("\\", "/", $up_path);
+
+        //$log_name= $file_path."/Public/notify_url.log";
+        $log_name= "wxpay_notify.log";//log文件路径
+
+        $this->log_result($log_name,"【接收到的notify通知】:\n".$xml."\n");
+
+        if($notify->checkSign() == TRUE)
+        {
+            if ($notify->data["return_code"] == "FAIL") {
+                //此处应该更新一下订单状态，商户自行增删操作
+                $this->log_result($log_name,"【通信出错】:\n".$xml."\n");
+            }
+            elseif($notify->data["result_code"] == "FAIL"){
+                //此处应该更新一下订单状态，商户自行增删操作
+                $this->log_result($log_name,"【业务出错】:\n".$xml."\n");
+            }
+            else{
+                //此处应该更新一下订单状态，商户自行增删操作
+                $this->log_result($log_name,"【支付成功】:\n".$xml."\n");
+
+                $out_trade_no = $notify->data["out_trade_no"];//返回来的 原网站订单号
+
+                $map['order_sn'] = $out_trade_no;
+                $order = M('renew_order')->where($map)->find();//订单详情
+
+                $up['status'] = 1;
+                $up['pay_time'] = time();
+                M('renew_order')->where('id='.$order['id'])->save($up);//更新订单状态
+                //更新支付记录支付状态
+                $where['ordersn'] = $out_trade_no;
+                M('Paylog')->where($where)->setField('status',1);//设置已支付
+                //这里进行通过接口购买产品的操作 将订单产品加入队列处理
+                $this->addToQueueRenew($order['id']);
+
+            }
+
+            //商户自行增加处理流程,
+            //例如：更新订单状态
+            //例如：数据库操作
+            //例如：推送支付完成信息
+
+        }
+    }
+
+    /*
+     * 订单支付宝支付异步回调处理
      * 更新订单状态 将订单产品加入任务队列等
      */
     public function alipayOrderDone($money, $param)
@@ -351,7 +650,7 @@ class CartController extends HomeController{
             session("pay_verify", null);
             //处理goods1业务订单、改名good1业务订单状态
             //M("Goods1Order")->where(array('order_id' => $param['order_id']))->setInc('haspay', $money);
-            //将充值订单更新
+
             $order = M('renew_order')->find($param['order_id']);//订单详情
             if($order){
                 $up['status'] = 1;
@@ -514,7 +813,8 @@ class CartController extends HomeController{
                 }
                 //微信支付
                 if(1==$payment){
-
+                    $project_name = $renew_order_goods['product_name'];//支付标题
+                    $this->renewWxpay($order_id,$project_name);//调用微信支付
                 }
                 //支付宝支付
                 if(2==$payment){
@@ -653,7 +953,8 @@ class CartController extends HomeController{
                 }
                 //微信支付
                 if(1==$payment){
-
+                    $project_name = $renew_order_goods['product_name'];//支付标题
+                    $this->renewWxpay($order_id,$project_name);//调用微信支付
                 }
                 //支付宝支付
                 if(2==$payment){
@@ -771,7 +1072,8 @@ class CartController extends HomeController{
                 }
                 //微信支付
                 if(1==$payment){
-
+                    $project_name = $renew_order_goods['product_name'];//支付标题
+                    $this->renewWxpay($order_id,$project_name);//调用微信支付
                 }
                 //支付宝支付
                 if(2==$payment){
@@ -961,7 +1263,8 @@ class CartController extends HomeController{
                 }
                 //微信支付
                 if(1==$payment){
-
+                    $project_name = $renew_order_goods['product_name'];//支付标题
+                    $this->renewWxpay($order_id,$project_name);//调用微信支付
                 }
                 //支付宝支付
                 if(2==$payment){
@@ -1120,7 +1423,8 @@ class CartController extends HomeController{
                 }
                 //微信支付
                 if(1==$payment){
-
+                    $project_name = $renew_order_goods['product_name'];//支付标题
+                    $this->renewWxpay($order_id,$project_name);//调用微信支付
                 }
                 //支付宝支付
                 if(2==$payment){
@@ -1133,11 +1437,163 @@ class CartController extends HomeController{
                 $this->error('发生未知错误！',U('Index/index'),3);
             }
 
+        }
+
+    }
+
+    /*
+     * 续费域名
+     */
+    public function renewDomain($id)
+    {
+        $id = (int)$id;
+        !$id && $this->error("非法访问");
+        $user_domain = M('user_domain')->find($id);
+
+        $this->assign('user_domain',$user_domain);
+        $this->display();
+    }
+
+    /*
+     * 续费域名 选择支付方式
+     */
+    public function renewDomainSelectPayment()
+    {
+        $domain_id = (int)I('domain_id');//用户域名产品id
+        $year = (int)I('year');//续费年限
+        if(empty($domain_id)){
+            $this->error("请选择要续费的产品");
+        }
+        if(empty($year)){
+            $this->error("请选择续费年限");
+        }
+        $user_domain = M('user_domain')->find($domain_id);
+        //续费价格 暂定
+        $total = 5*$year;//5元每年
+
+        //保存配置到session
+        $renewDomain = array(
+            'user_domain_id' => $domain_id,
+            'year' => $year,
+            'total' => $total,
+
+        );
+        session('renewDomain',$renewDomain);
+
+        $this->assign('year',$year);
+        $this->assign('total',$total);
+        $this->assign('user_domain',$user_domain);
+        $this->display();
+
+    }
+    
+    /*
+     * 域名续费 支付
+     */
+    public function renewDomainDone()
+    {
+        $renewDomain = session('renewDomain');
+        if(empty($renewDomain)){
+            $this->error("请选择续费的产品！",U('Cuser/userDomain'));
+        }
+        //生成订单
+        $user = session('user_auth');
+        $uid = $user['id'];
+        $payment = (int)I('payment');
+        $user_domain = M('user_domain')->find($renewDomain['user_domain_id']);//用户域名产品
+
+        //创建订单
+        $renew_order = array(
+            'order_sn' => time(),
+            'payment' =>$payment,//支付方式 1=微信支付 2=支付宝支付 3=余额支付
+            'status' => 0,//支付状态 0=未支付 1=已支付
+            'total' => $renewDomain['total'],//订单总额
+            'uid' => $uid,
+            'username' => $user['username'],
+            'mobile' => $user['mobile'],
+            'create_time' => time()
+
+        );
+        $order_id = M('renew_order')->add($renew_order);
+        if($order_id){
+            //清空 session
+            session('renewDomain',null);
+            //生成订单产品
+            $buy_config = array(
+                'domain' => $user_domain['domain'],//域名
+                'user_domain_id' => $renewDomain['user_domain_id'],//用户域名产品id
+                'year' => $renewDomain['year'],//续费时限 年
+                'tld' => $user_domain['tld'],//域名后缀
+                'lang' => $user_domain['lang'],//域名语言
+                'encoding' => $user_domain['encoding'],//域名编码
+                'total' => $renewDomain['total'],//总金额
+                'cur_expiry_time' => $user_domain['expiry_time'],//当前过期时间
+
+            );
+            $renew_order_goods = array(
+                'uid' => $uid,
+                'type' => 'domain',//domain:域名 vitrual:虚拟机 mail:企业邮局 template:网站模板 host:弹性云主机 packagehost:套餐云主机
+                'order_id' => $order_id,
+                'product_name' => $user_domain['domain'],
+                'total' => $renewDomain['total'],
+                'month' => $renewDomain['year']*12,//续费月份
+                'product_status' => 0,//0=未续费 1=已续费
+                'price_id' => 0,//虚拟机价格id
+                'buy_config' => json_encode($buy_config),
+                'user_goods_id' => $renewDomain['user_domain_id'],
+            );
+            $goods_id = M('renew_order_goods')->add($renew_order_goods);
+
+            if($goods_id){
+                //生成支付记录
+                $order_sn = M('renew_order')->where('id='.$order_id)->getField('order_sn');
+                $paylog = array(
+                    'ordersn' => $order_sn,
+                    'serialsn'=> createFlowNum(),//流水号
+                    'money' => $renewDomain['total'],
+                    'status' => 0,
+                    'payment' => $payment,//支付方式 1=微信支付 2=支付宝支付 3=余额支付
+                    'create_time' => time()
+                );
+                $logid = M('Paylog')->add($paylog);//支付记录id
+
+                //余额支付
+                if(3==$payment){
+                    //扣减用户金额
+                    $res = D('UserAccountLog')->reduceMoney($uid,$renewDomain['total'],'支付续费订单'.$order_sn.'扣减');
+                    if($res){
+                        M('Paylog')->where('id='.$logid)->setField('status',1);//设置已支付
+                        //更新订单支付状态
+                        $up = array('status'=>1,'pay_time'=>time());
+                        $is_pay = M('renew_order')->where('id='.$order_id)->setField($up);
+                        if($is_pay){
+                            //这里进行通过接口购买产品的操作 将订单产品加入队列处理
+                            $this->addToQueueRenew($order_id);
+
+                            $this->success('续费申请提交成功！',U('Cuser/userDomain'));
+                        }
+                    }
+                }
+                //微信支付
+                if(1==$payment){
+                    $project_name = $renew_order_goods['product_name'];//支付标题
+                    $this->renewWxpay($order_id,$project_name);//调用微信支付
+                }
+                //支付宝支付
+                if(2==$payment){
+                    $project_name = $renew_order_goods['product_name'];//支付标题
+                    $this->doRenewAlipay($order_id,$logid,$project_name);//调用支付宝支付
+                }
+
+            }
 
 
         }
 
 
+
+
     }
+    
 
 }

@@ -138,4 +138,46 @@ return array(
         )
     ),
 
+    'UNIONPAY' => array(// 银联配置
+        //测试环境参数
+        'frontUrl' => 'https://101.231.204.80:5000/gateway/api/frontTransReq.do', //测试环境前台交易请求地址
+        //'frontUrl' => 'https://gateway.95516.com/gateway/api/frontTransReq.do', //生产环境前台交易请求地址
+
+        'singleQueryUrl' => 'https://101.231.204.80:5000/gateway/api/backTransReq.do', //测试环境单笔查询请求地址
+        //'singleQueryUrl' => 'https://gateway.95516.com/gateway/api/queryTrans.do', //生产环境单笔查询请求地址
+
+        'signCertPath' =>getcwd().'/Public/cer/acp_test_sign.pfx', //签名证书路径 这个证书就是你在https://open.unionpay.com/ajweb/account/testPara 上面下载的那个商户私钥证书 供你测试使用
+        //'signCertPath' =>getcwd().'/Public/cer/acp_prod_sign.pfx', //签名证书路径 这个证书就是你在 商户开通邮件里面叫你去 http://cs.cfca.com.cn/ 下载并把私钥上传至商户服务网站并启用的那个私钥文件
+
+        'signCertPwd' => '000000', //测试环境签名证书密码
+        //'signCertPwd' => '135246', //生产环境证书签名证书密码 这个密码是你在IE导出上述私钥文件时候你自己定义的6位数字密码
+
+        //'verifyCertPath' => getcwd().'/Public/cer/verify_sign_acp.cer', //测试环境验签证书路径
+        'verifyCertPath' => getcwd().'/Public/cer/acp_prod_verify_sign.cer', //验签证书路径
+
+        'merId' => '777290058138754', //测试商户代码
+        //'merId' => '802440048160893', //生产环境商户代码 从你的商户开通邮件里面有
+
+
+    ),
+    'UNIONPAY_CONFIG'=>array(// 银联配置
+        'version' => '5.0.0', //版本号
+        'encoding' => 'GBK', //编码方式
+        'signMethod' => '01', //签名方式
+        'txnType' => '01', //交易类型
+        'txnSubType' => '01', //交易子类
+        'bizType' => '000201', //产品类型
+        'channelType' => '07',//渠道类型
+        'frontUrl' => "http://win2.qbt8.com/ywyw/index.php/Home/Cart/OrderOk", //前台通知地址
+        'backUrl' => "http://win2.qbt8.com/ywyw/index.php/Home/ypay/notify", //后台通知地址
+        'frontFailUrl' => "http://win2.qbt8.com/ywyw/index.php/Home/ypay/pay_fail", //失败交易前台跳转地址
+        'accessType' => '0', //接入类型
+        'merId' => '777290058138754', //测试商户代码
+        //'merId' => '802440048160893', //生产环境商户代码
+        'txnTime' => date('YmdHis'), //订单发送时间
+        'currencyCode' => '156', //交易币种
+    ),
+
+
+
 );

@@ -176,7 +176,7 @@ class HomeController extends Controller {
 
                             'goods_id' => $value['id']//订单产品id
                         );
-                        $queue::add($type='domainRegister',$name='域名注册-'.$buy_config['domain'],$schedule_data,$schedule_time=time());//加入队列
+                        $queue::add($type='domainRegister',$name='域名注册-'.$buy_config['domain'],$schedule_data,$schedule_time=time(),$value['id']);//加入队列
                         break;
                     case 2:
                         $schedule_data = array(
@@ -186,7 +186,7 @@ class HomeController extends Controller {
                             'os_type' => $buy_config['os_type'],
                             'goods_id' => $value['id']//订单产品id
                         );
-                        $queue::add($type='buyHost',$name='虚拟主机注册',$schedule_data,$schedule_time=time());
+                        $queue::add($type='buyHost',$name='虚拟主机注册',$schedule_data,$schedule_time=time(),$value['id']);
                         break;
                     case 3:
                         $schedule_data = array(
@@ -196,7 +196,7 @@ class HomeController extends Controller {
                             'number' => $buy_config['number'],
                             'goods_id' => $value['id']//订单产品id
                         );
-                        $queue::add($type='buyMail',$name='全球邮购买',$schedule_data,$schedule_time=time());
+                        $queue::add($type='buyMail',$name='全球邮购买',$schedule_data,$schedule_time=time(),$value['id']);
                         break;
 
                 }
@@ -229,7 +229,16 @@ class HomeController extends Controller {
             switch($goods['type']){
                 //domain:域名 vitrual:虚拟机 mail:企业邮局 template:网站模板 host:弹性云主机 packagehost:套餐云主机
                 case 'domain':
-
+                    $schedule_data = array(
+                        'domain' => $buy_config['domain'],//续费站点的域名
+                        'year' => $buy_config['year'],//续费的时限(年)
+                        'tld' => $buy_config['tld'],//域名后缀
+                        'lang' => $buy_config['lang'],//域名语言
+                        'encoding' => $buy_config['encoding'],//域名编码
+                        'cur_expiry_time' => $buy_config['cur_expiry_time'],//当前主机的过期时间
+                        'goods_id' => $goods['id']//订单产品id
+                    );
+                    $queue::add($type='renewDomain',$name='域名续费',$schedule_data,$schedule_time=0,$goods['id']);//加入计划任务并且立即执行
                     break;
                 case 'vitrual':
                     $schedule_data = array(
@@ -239,7 +248,7 @@ class HomeController extends Controller {
                         'cur_expiry_time' => $buy_config['cur_expiry_time'],//当前主机的过期时间
                         'goods_id' => $goods['id']//订单产品id
                     );
-                    $queue::add($type='renewVitrual',$name='虚拟主机续费',$schedule_data,$schedule_time=0);//加入计划任务并且立即执行
+                    $queue::add($type='renewVitrual',$name='虚拟主机续费',$schedule_data,$schedule_time=0,$goods['id']);//加入计划任务并且立即执行
                     break;
                 case 'mail':
                     $schedule_data = array(
@@ -249,7 +258,7 @@ class HomeController extends Controller {
                         'cur_expiry_time' => $buy_config['cur_expiry_time'],//当前域名的过期时间
                         'goods_id' => $goods['id']//订单产品id
                     );
-                    $queue::add($type='renewMail',$name='邮局续费',$schedule_data,$schedule_time=0);//加入计划任务并且立即执行
+                    $queue::add($type='renewMail',$name='邮局续费',$schedule_data,$schedule_time=0,$goods['id']);//加入计划任务并且立即执行
                     break;
                 case 'template':
                     M('renew_order_goods')->where($map)->setField('product_status',1);
@@ -332,7 +341,17 @@ class HomeController extends Controller {
         echo $pay->buildRequestForm($vo);
     }
 
-
+    /*
+     * 文件写入
+     */
+    public function log_result($file,$txt)
+    {
+        $fp =  fopen($file,'ab+');
+        fwrite($fp,'-----------'.date('Y-m-d H:i:s').'-----------------');
+        fwrite($fp,$txt);
+        fwrite($fp,"\r\n\r\n\r\n");
+        fclose($fp);
+    }
 
 
 }

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="wsg,hth">
+    <meta name="description" content="ASW">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <Meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>微信支付-{:C('WEB_SITE_TITLE')}</title>
+    <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
+    <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
+    <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
+    <link href="__YWY__/css/style2.css" rel="stylesheet" type="text/css" /><!-- 表单美化 -->
+    <link href="__YWY__/css/selectpick/cui.css" rel="stylesheet" type="text/css"><!-- 2.2 selectpick美化下拉框插件 -->
+
+    <script src="__YWY__/js/qrcode.js"></script><!-- 微信扫码支付js -->
+
+</head>
+<body>
+<!-- 头部 -->
+<include file="Public/top"/>
+<!-- /头部 -->
+<div class="shopping_div">
+    <div class="w1200">
+        <div class="shop_div1" style="background:url(images/b4_2.png) no-repeat right center">
+            <h2>结算</h2>
+            <div class="clear"></div>
+        </div>
+        <div class="shop_div7">
+
+            <div class="div1">
+                <h1><span>请用微信扫码支付</span></h1>
+            </div>
+
+            <div align="center" id="qrcode" >
+
+            </div>
+        </div>
+        <!--<div class="shop_div6">
+            <a class="a2" href="{:U('Cuser/index')}">去用户中心</a>
+
+        </div>
+        -->
+    </div>
+</div>
+<div class="blank50"></div>
+<!-- 底部 -->
+<include file="Public/bottom"/>
+<!-- /底部 -->
+
+<script>
+    if(<?php echo $unifiedOrderResult["code_url"] != NULL; ?>)
+    {
+        var url = "<?php echo $code_url;?>";
+        //参数1表示图像大小，取值范围1-10；参数2表示质量，取值范围'L','M','Q','H'
+        var qr = qrcode(10, 'M');
+        qr.addData(url);
+        qr.make();
+        var wording=document.createElement('p');
+        wording.innerHTML = "扫我，扫我";
+        var code=document.createElement('DIV');
+        code.innerHTML = qr.createImgTag();
+        var element=document.getElementById("qrcode");
+        element.appendChild(wording);
+        element.appendChild(code);
+    }
+</script>
+<script language=javascript>
+    //每3秒钟检测一次订单状态 成功则跳转
+    var int=self.setInterval("orderStatus()",3000)
+    function orderStatus()
+    {
+        var _out_trade_no = '{$out_trade_no}';
+        $.ajax({
+            type: "POST",
+            url: "{:U('Public/checkWxOrderStatus')}",
+            data: {out_trade_no:_out_trade_no},
+            dataType:"json",
+            success: function(datas){
+                //alert(datas);
+                if(datas){
+                   // alert("微信支付成功！");
+                    location.href = '{:U("Cart/OrderOk")}';
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

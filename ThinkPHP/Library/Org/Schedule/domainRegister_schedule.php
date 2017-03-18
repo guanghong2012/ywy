@@ -38,6 +38,20 @@ class domainRegister_schedule implements schedule {
         }
         $goods = M('order_goods')->where('id='.$order_goods_id)->find();
         $buy_config = json_decode($goods['buy_config'],true);
+
+        //通过接口查看新一代域名详情
+        $Api = new \Common\Api\CloundApi();
+        $request_data = array(
+            'domain' => $buy_config['domain']
+        );
+        $return = $Api->domainDetail($request_data);
+        $return = json_decode($return,true);//接口返回数据
+
+        if($return){
+            $admin_user = $return['data']['punycode'];//控制面板管理员登录名
+            $admin_pass = $return['data']['passwd'];//控制面板管理员登录密码
+        }
+
         //生成用户虚拟机产品
         $data = array(
             'uid' => $goods['uid'],
@@ -51,7 +65,8 @@ class domainRegister_schedule implements schedule {
             'orderSn' => time(),//编号
 
             'order_id' => $returndata['order_id'],//接口返回订单id
-
+            'admin_user' => $admin_user,//控制面板管理员登录名
+            'admin_pass' => $admin_pass,//控制面板管理员登录密码
         );
         $res = M('user_domain')->add($data);
         if($res){

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="wsg,hth">
+    <meta name="description" content="ASW">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="{:C('WEB_SITE_KEYWORD')}">
+    <meta name="description" Content="{:C('WEB_SITE_DESCRIPTION')}">
+    <title>{:C('WEB_SITE_TITLE')}</title>
+    <link href="__YWY__/css/css.css" rel="stylesheet" type="text/css" />
+    <script src="__YWY__/js/jquery.js"></script><!-- 统一调用js -->
+    <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
+    <link href="__YWY__/css/style2.css" rel="stylesheet" type="text/css" /><!-- 表单美化 -->
+    <link href="__YWY__/css/default/style.css" rel="stylesheet" /><!-- 右边滚动 -->
+    <link rel="stylesheet" type="text/css" href="__YWY__/css/default/default.css"><!-- 右边滚动 -->
+    <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
+    <script src="__YWY__/js/stickySidebar.js"></script>
+</head>
+<body>
+<!-- 头部 -->
+<include file="Public/top"/>
+<!-- /头部 -->
+<div class="virtual_lx_div">
+    <div class="w1200 mbs_div">
+        <ul>
+            <li><a href="{:U('Index/index')}">首页</a></li>
+            <li>></li>
+            <li><a href="{:U('Domain/index')}">域名注册</a></li>
+            <li>></li>
+            <li>续费</li>
+            <li>></li>
+            <li class="li1">{$user_domain.domain}</li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <main class="clearfix">
+        <form id="forms1" action="{:U('Cart/renewDomainSelectPayment')}" method="post">
+            <div class="w1200 virgm_div">
+                <input type="hidden" name="domain_id" value="{$user_domain.id}" />
+                <input type="hidden" name="year" value="1" />
+                <div class="vir_w870 fl main_content" id="content">
+                    <h1><i></i>{$user_domain.domain}</h1>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="vir_ta">
+                        <tr>
+                            <td class="td1" valign="top">选择续费时限：</td>
+                            <td colspan="3" class="td2">
+                                <ul>
+                                    <li><a class="a1" href="javascript:void(0)" data-year="1" data-price="5.00" >5.00元 / 1年</a></li>
+                                    <li><a href="javascript:void(0)" data-year="2" data-price="10.00" >10.00元 / 2年</a></li>
+                                    <li><a href="javascript:void(0)" data-year="3" data-price="15.00" >15.00元 / 3年</a></li>
+                                    <li><a href="javascript:void(0)" data-year="4" data-price="20.00" >20.00元 / 4年</a></li>
+                                    <li><a href="javascript:void(0)" data-year="5" data-price="25.00" >25.00元 / 5年</a></li>
+                                    <li><a href="javascript:void(0)" data-year="6" data-price="30.00" >30.00元 / 6年</a></li>
+                                    <li><a href="javascript:void(0)" data-year="7" data-price="35.00" >35.00元 / 7年</a></li>
+                                    <li><a href="javascript:void(0)" data-year="8" data-price="40.00" >40.00元 / 8年</a></li>
+                                    <li><a href="javascript:void(0)" data-year="9" data-price="45.00" >45.00元 / 9年</a></li>
+                                    <li><a href="javascript:void(0)" data-year="10" data-price="50.00" >50.00元 / 10年</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td1" valign="top"><em>*</em> 域名：</td>
+                            <td colspan="3" class="td3">
+                                <input type="text" name="domain" value="{$user_domain.domain}" readonly class="inp_1"  />
+
+                            </td>
+                        </tr>
+
+
+                    </table>
+                </div>
+                <div class="virgm_poa">
+                    <aside id="sidebar">
+                        <div class="vir_w300">
+                            <h1>已选配置</h1>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="vir_ta1">
+                                <tr>
+                                    <td class="td1">产品名称：</td>
+                                    <td><p>{$user_domain.domain}</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="td1">续费年限：</td>
+                                    <td><p><span id="buyYear">1</span>（年）</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="td1 td_pa">费用总计：</td>
+                                    <td class="td_pa "><h4 id="total">￥5.00</h4></td>
+                                </tr>
+                            </table>
+                            <p class="p1">
+                                <input type="checkbox" id="checkbox-2-1" class="regular-checkbox" checked/><label class="label_1" for="checkbox-2-1"></label>
+                                我已阅读并接受  <a href="{:U('Index/detail?id=53')}" target="_blank">购买协议</a>
+                            </p>
+                            <div class="div_a">
+                                <a href="javascript:void(0)" id="confirmbuy" onclick="$('#forms1').submit()">确定续费</a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </form>
+    </main>
+</div>
+<script>
+
+    $('.td2').find("ul li a").click(function(){
+        var data_year = $(this).attr("data-year");
+        var total = $(this).attr("data-price");
+        $('input[name=year]').val(data_year);
+        $(this).parent().parent().find('a').removeClass("a1");
+        $(this).addClass("a1");
+        $('#buyYear').html(data_year);
+        $('#total').html("￥"+total);
+        //alert(data_year);
+    });
+
+
+</script>
+
+<!-- 底部 -->
+<include file="Public/bottom"/>
+<!-- /底部 -->
+<script type="text/javascript" src="__YWY__/js2016/lib/wjf/js/wjf-1.0.0.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/jqurey.tools/jquery.tools.rangeinput.min.js"></script>
+<script type="text/javascript" src="__YWY__/js2016/lib/layer/layer.js"></script>
+</body>
+</html>

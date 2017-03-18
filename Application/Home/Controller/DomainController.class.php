@@ -14,6 +14,7 @@ class DomainController extends HomeController{
 
     public function index()
     {
+        session('userurl',$_SERVER['REQUEST_URI']);//记录登录前的页面地址
         //亿维云网优势
         $advantages = D('Document')->where('category_id=58 and status=1')->field('id,title,description,cover_id')->order('level desc')->select();
 
@@ -98,7 +99,7 @@ class DomainController extends HomeController{
                 foreach($tld as $k=>$v){
                     $result[$k]['id'] = $k;
                     $result[$k]['domain'] = $domain.$v;
-                    $result[$k]['ltd'] = $v;
+                    $result[$k]['tld'] = $v;
                     $result[$k]['lang'] = $lang;
                     $rs = $Api->checkDomain($domain.$v,$v,$lang);
                     $result[$k]['result'] = json_decode($rs,true);
@@ -108,7 +109,7 @@ class DomainController extends HomeController{
                 $rs = $Api->checkDomain($domain.$tld,$tld,$lang);
                 $result[0]['id'] = 0;
                 $result[0]['domain'] = $domain.$tld;
-                $result[0]['ltd'] = $tld;
+                $result[0]['tld'] = $tld;
                 $result[0]['lang'] = $lang;
                 $result[0]['result'] = json_decode($rs,true);
 
@@ -283,7 +284,7 @@ class DomainController extends HomeController{
                 );
                 $data = array();
                 $data['uid'] = $user['id'];
-                $data['name'] = $value['ltd']."域名";
+                $data['name'] = $value['tld']."域名";
                 $data['keywords'] = $value['domain'];
                 $data['number'] = 1;
                 $data['price'] = 1.00;//域名单价未知
@@ -291,7 +292,7 @@ class DomainController extends HomeController{
                 $data['base_total'] = $data['number'] * $data['price'];
                 $data['added_price'] = 0.00;
 
-                $project['name'] = $value['ltd'].'_ENG';
+                $project['name'] = $value['tld'].'_ENG';
 
                 $data['project'] = json_encode($project);//方案信息
                 $data['parameters'] = '';//参数信息

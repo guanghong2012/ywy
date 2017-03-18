@@ -7,13 +7,14 @@
  */
 namespace Home\Controller;
 
+use Common\Api\CloundApi;
 use User\Api\CuserApi;
 
 class CuserController extends HomeController{
     public function _initialize()
     {
         parent::_initialize();
-        if(!in_array(ACTION_NAME,array('login','logout','verify','register','forgetPass','setPass'))){
+        if(!in_array(ACTION_NAME,array('login','logout','verify','register','forgetPass','setPass','chargeAlterPayment','chargePayment','alipay_charge','alipayDone','alipayOk','wepayCharge','qrcodePayNotify'))){
             $this->is_login();
         }
         $this->user_auth = session('user_auth');
@@ -463,7 +464,7 @@ class CuserController extends HomeController{
         $map = array();
         $map['uid'] = $uid;
         if(!empty($keywords)){
-            $map['name'] = array("like",'%'.$keywords.'%');
+            $map['domain'] = array("like",'%'.$keywords.'%');
         }
 
         $count      = M('user_domain')->where($map)->count();// 查询满足要求的总记录数
@@ -474,6 +475,19 @@ class CuserController extends HomeController{
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
 
+        $this->display();
+    }
+    
+    /*
+     * 查看域名产品
+     */
+    public function viewDomain($id)
+    {
+        $id = (int)$id;
+        !$id && $this->error("非法访问");
+        $info = M('user_domain')->where('id='.$id)->find();
+
+        $this->assign('info',$info);
         $this->display();
     }
     
@@ -926,7 +940,7 @@ class CuserController extends HomeController{
             switch($type){
                 case 'wepay':
                     $payment = 1;
-                    $pay_url = '';
+                    $pay_url = U('Cuser/wepayCharge',array('order_id'=>$order_id));
                     break;
                 case 'alipay':
                     $payment = 2;
@@ -934,12 +948,17 @@ class CuserController extends HomeController{
                     break;
                 case 'unionpay':
                     $payment = 3;
+                    $pay_url = U('Ypay/usespay',array('order_id'=>$order_id));
                     break;
             }
+            $original_payment = M('charge_order')->where('id='.$order_id)->getField('payment');//原来默认的支付方式
             $res = M('charge_order')->where('id='.$order_id)->setField('payment',$payment);
             if($res){
                 echo json_encode(array("status"=>1,'pay_url'=>$pay_url));exit;
             }else{
+                if($original_payment == $payment){
+                    echo json_encode(array("status"=>1,'pay_url'=>$pay_url));exit;
+                }
                 echo json_encode(array("status"=>0,'msg'=>'切换失败'));exit;
             }
 
@@ -1066,6 +1085,187 @@ class CuserController extends HomeController{
         }
     }
     
+    /*
+     * 充值 微信扫码支付
+    */
+    public function wepayCharge()
+    {
+        //引入WxPayPubHelper
+        vendor('Weixinpay.WxPayPubHelper');
+        //$notify_url = U("Home/Public/qrcodePayNotify", array('apitype' => 'wxpay', 'method' => 'notify'), false, true);//微信支付异步回调处理地址
+        $notify_url = 'http://win2.qbt8.com/ywyw/index.php/Home/Cuser/qrcodePayNotify.html';//微信支付异步回调地址 地址不能带任何参数，就是不能有 ?x=a&b=c 这些
+        $order_id = (int)I('order_id');//订单id
+        if(!$order_id){
+            return false;
+        }
+
+        $charge_order = M('charge_order')->find($order_id);//充值订单详情
+
+        if(!$charge_order){
+            $this->error("订单不存在！");
+        }
+        if($charge_order['status']==1){
+            $this->error("该订单已支付！");
+        }
+        $trade_no = $charge_order['order_sn'];//订单号
+
+        //$total = $charge_order['money'];//支付金额
+        $total = 1;//测试过程设置为0.01 支付金额
+
+        //使用统一支付接口
+        $unifiedOrder = new \UnifiedOrder_pub();
+
+        //设置统一支付接口参数
+        //设置必填参数
+        //$unifiedOrder->setParameter("body","贡献一分钱");//商品描述
+        $unifiedOrder->setParameter("body","亿维云用户充值");//商品描述
+        //自定义订单号，此处仅作举例
+        //$timeStamp = time();
+        //$out_trade_no = C('WxPayConf_pub.APPID')."$timeStamp";
+        $unifiedOrder->setParameter("out_trade_no","$trade_no");//商户订单号
+        $unifiedOrder->setParameter("total_fee",$total);//总金额
+        $unifiedOrder->setParameter("notify_url", "$notify_url");//通知地址
+        //$unifiedOrder->setParameter("notify_url", C('WxPayConf_pub.NOTIFY_URL'));//通知地址
+        $unifiedOrder->setParameter("trade_type","NATIVE");//交易类型
+
+        //获取统一支付接口结果
+        $unifiedOrderResult = $unifiedOrder->getResult();
+        //商户根据实际情况设置相应的处理流程
+        if ($unifiedOrderResult["return_code"] == "FAIL")
+        {
+            //商户自行增加处理流程
+            echo "通信出错：".$unifiedOrderResult['return_msg']."<br>";
+        }
+        elseif($unifiedOrderResult["result_code"] == "FAIL")
+        {
+            //商户自行增加处理流程
+            echo "错误代码：".$unifiedOrderResult['err_code']."<br>";
+            echo "错误代码描述：".$unifiedOrderResult['err_code_des']."<br>";
+        }
+        elseif($unifiedOrderResult["code_url"] != NULL)
+        {
+            //从统一支付接口获取到code_url
+            $code_url = $unifiedOrderResult["code_url"];
+            //商户自行增加处理流程
+            //......
+        }
+        $this->assign('out_trade_no',$trade_no);
+        $this->assign('code_url',$code_url);
+        $this->assign('unifiedOrderResult',$unifiedOrderResult);
+
+        $this->display('Cart/qrcode');
+
+    }
+
+    /*
+     * 微信扫码支付 异步回调处理
+     */
+    public function qrcodePayNotify()
+    {
+        //file_put_contents('testwxpay.txt',"微信支付成功了",FILE_APPEND);//写文件记录是否异步访问了本控制器
+        //引入WxPayPubHelper
+        vendor('Weixinpay.WxPayPubHelper');
+        //使用通用通知接口
+        $notify = new \Notify_pub();
+
+        //存储微信的回调
+        $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+        $notify->saveData($xml);
+
+        //验证签名，并回应微信。
+        //对后台通知交互时，如果微信收到商户的应答不是成功或超时，微信认为通知失败，
+        //微信会通过一定的策略（如30分钟共8次）定期重新发起通知，
+        //尽可能提高通知的成功率，但微信不保证通知最终能成功。
+        if($notify->checkSign() == FALSE){
+            $notify->setReturnParameter("return_code","FAIL");//返回状态码
+            $notify->setReturnParameter("return_msg","签名失败");//返回信息
+        }else{
+            $notify->setReturnParameter("return_code","SUCCESS");//设置返回码
+        }
+        $returnXml = $notify->returnXml();
+        echo $returnXml;
+
+        //==商户根据实际情况设置相应的处理流程，此处仅作举例=======
+
+        //以log文件形式记录回调信息
+        //         $log_ = new Log_();
+        //$up_path = dirname(dirname(dirname(dirname(__FILE__))));
+        //$file_path = str_replace("\\", "/", $up_path);
+
+        //$log_name= $file_path."/Public/notify_url.log";
+        $log_name= "wxpay_notify.log";//log文件路径
+
+        $this->log_result($log_name,"【接收到的notify通知】:\n".$xml."\n");
+
+        if($notify->checkSign() == TRUE)
+        {
+            if ($notify->data["return_code"] == "FAIL") {
+                //此处应该更新一下订单状态，商户自行增删操作
+                $this->log_result($log_name,"【通信出错】:\n".$xml."\n");
+            }
+            elseif($notify->data["result_code"] == "FAIL"){
+                //此处应该更新一下订单状态，商户自行增删操作
+                $this->log_result($log_name,"【业务出错】:\n".$xml."\n");
+            }
+            else{
+                //此处应该更新一下订单状态，商户自行增删操作
+                $this->log_result($log_name,"【支付成功】:\n".$xml."\n");
+
+                $out_trade_no = $notify->data["out_trade_no"];//返回来的 原网站订单号
+
+                //将充值订单更新
+                $map['order_sn'] = $out_trade_no;
+                $charge_order = M('charge_order')->where($map)->find();//充值订单详情
+
+                $up['status'] = 1;
+                $up['pay_time'] = time();
+                M('charge_order')->where('id='.$charge_order['id'])->save($up);
+                //增加用户金额
+                $res = D('UserAccountLog')->addMoney($charge_order['uid'],$charge_order['money'],'微信充值['.$charge_order['order_sn'].']增加');
+
+            }
+
+            //商户自行增加处理流程,
+            //例如：更新订单状态
+            //例如：数据库操作
+            //例如：推送支付完成信息
+
+        }
+    }
     
+    /*
+     * 修改域名管理面板密码
+     */
+    public function alterDomainPass()
+    {
+        if(IS_POST){
+            $domain_id = (int)I('post.domain_id');
+            $password = (int)I('post.password');
+            if(!$domain_id){
+                $this->error("非法操作！");
+            }
+            if(strlen($password)<6){
+                $this->error("密码长度不能小于6");
+            }
+
+            $user_domain = M('user_domain')->where('id='.$domain_id)->find();
+            if(empty($user_domain)){
+                $this->error("域名产品不存在！");
+            }
+            //调用修改域名接口修改密码
+            $api = new CloundApi();
+            $data['domain'] = $user_domain['domain'];
+            $return = $api->alterDomainPassword($data);
+            $return = json_decode($return,true);
+            if($return['code']==200){
+                //修改成功
+                $this->success("密码修改成功！");
+            }else{
+                $this->error("密码修改失败！");
+            }
+        }
+
+    }
+
 
 }

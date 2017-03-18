@@ -15,7 +15,7 @@ class Queue
     /*
      * 加入队列
      */
-    public static function add($type,$name,$schedule_data,$schedule_time){
+    public static function add($type,$name,$schedule_data,$schedule_time,$order_goods_id=0){
         $data = array();
         $data['type'] =$type;
         $data['name'] =$name;
@@ -25,6 +25,8 @@ class Queue
         else $schedule_exec_time =time();
         $data['schedule_date'] =date("Y-m-d",$schedule_exec_time);
         $data['schedule_time'] =$schedule_exec_time;
+
+        $data['order_goods_id'] = $order_goods_id;
 
         $data['id'] = M("schedule_list")->add($data);
         if($schedule_time==0 && $data['id'])

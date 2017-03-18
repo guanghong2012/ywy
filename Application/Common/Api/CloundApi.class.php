@@ -174,5 +174,43 @@ class CloundApi
         return $this->result;
     }
 
+    /*
+     * 查询域名详情
+     */
+    public function domainDetail($data=null)
+    {
+        if(empty($data)){
+            $this->result = array("code"=>100,"参数不能为空");
+            return $this->result;
+        }
+        $this->result = $this->getResult($action='Domain.Detail',$data);
+        return $this->result;
+    }
+    
+    /*
+     * 域名续费
+     */
+    public function renewDomain($data=null)
+    {
+        if(empty($data)){
+            $this->result = array("code"=>100,"参数不能为空");
+            return $this->result;
+        }
+        $this->result = $this->getResult($action='Domain.Renew',$data);
+        return $this->result;
+    }
+    
+    /*
+     * 修改域名管理面板密码
+     */
+    public function alterDomainPassword($data=null)
+    {
+        if(empty($data)){
+            $this->result = array("code"=>100,"参数不能为空");
+            return $this->result;
+        }
+        $this->result = $this->getResult($action='Domain.ChgPanelPassword',$data);
+        return $this->result;
+    }
 
 }

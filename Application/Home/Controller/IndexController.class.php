@@ -106,9 +106,10 @@ class IndexController extends HomeController {
 
         //测试域名注册
         /*
-        $ordergoods = M('order_goods')->where('id=5')->find();
+        $ordergoods = M('order_goods')->where('id=15')->find();
         $buy_config = json_decode($ordergoods['buy_config'],true);
         $domain_info = json_decode($ordergoods['domain_info'],true);//注册人填写信息
+
         $schedule_data = array(
             'domain' => $buy_config['domain'],
             'year' => $buy_config['year'],
@@ -184,11 +185,12 @@ class IndexController extends HomeController {
             't_phone' => $domain_info['r_phone'],
             't_fax' => $domain_info['r_fax'],
 
-            'goods_id' => 5//订单产品id
+            'goods_id' => 15//订单产品id
         );
         //$queue::add($type='domainRegister',$name='域名注册',$schedule_data,$schedule_time=time());
-        $list = $queue::getQueueTask();
-        $data = $list[0];
+        //$list = $queue::getQueueTask();
+        $data = M('schedule_list')->find(36);
+        //$data = $list[0];
         $res = $queue::executeQueue($data);
         print_r($res);
         */

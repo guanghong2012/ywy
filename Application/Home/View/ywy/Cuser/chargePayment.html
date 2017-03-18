@@ -62,15 +62,15 @@
                                 </a>
                                 -->
 
-                                <a href="javascript:void(0)" onclick="wepay({$charge_order.id})" >
+                                <a href="javascript:void(0)" onclick="gopay({$charge_order.id},'wepay')" >
                                     <img src="__YWY__/images/zf_wx.png" alt="微信支付" title="微信支付">
                                     微信支付
                                 </a>
-                                <a href="javascript:void(0)" onclick="alipay({$charge_order.id})" >
+                                <a href="javascript:void(0)" onclick="gopay({$charge_order.id},'alipay')" >
                                     <img src="__YWY__/images/zf_zfb.png" alt="支付宝支付" title="支付宝支付">
                                     支付宝支付
                                 </a>
-                                <a href="javascript:void(0)" onclick="unionpay({$charge_order.id})" >
+                                <a href="javascript:void(0)" onclick="gopay({$charge_order.id},'unionpay')" >
                                     <img src="__YWY__/images/zf_yl.png" alt="银联支付" title="银联支付">
                                     银联支付
                                 </a>
@@ -119,19 +119,21 @@
         }
     }
 
-    //支付宝支付
-    function alipay(order_id){
+    //切换支付
+    function gopay(order_id,type){
         if(!order_id){
             layer.alert('没有订单号',{title:"提示"});
             return false;
         }else{
-            $.post("{:U('Cuser/chargeAlterPayment')}", {order_id:order_id,type:'alipay'}, function(data){
+            $.post("{:U('Cuser/chargeAlterPayment')}", {order_id:order_id,type:type}, function(data){
                 if(data.status==1){
                     location.href = data.pay_url;
                 }
             }, "json");
         }
     }
+
+
 
 </script>
 

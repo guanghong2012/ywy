@@ -29,50 +29,37 @@
         <include file="Public/user_nav"/>
         <!-- /用户导航 -->
         <div class="user_fr_bank user_fr_bank_1">
-            <h2>邮局管理</h2>
+            <h2>域名管理</h2>
             <div class="div_bank">
-                <div class="gjc_ss">
-                    <form action="{:U('Cuser/userMail')}" method="get">
-                        <input name="keywords" type="text" class="gjc_inp" placeholder="输入编号搜索">
-                        <input  type="hidden" name="m" value="Home"  />
-                        <input  type="hidden" name="c" value="Cuser"  />
-                        <input  type="hidden" name="a" value="userMail"  />
-                        <input  type="submit" value="" class="gjc_anv">
-                    </form>
-                    <div class="clear"></div>
-                </div>
                 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ymgl_ta">
                     <tr>
-                        <th width="">编号</th>
-                        <th width="">标识</th>
-                        <th width="">产品</th>
-                        <th width="">用户数</th>
-                        <th width="">空间大小</th>
-                        <th width="">创建时间</th>
-                        <th width="">到期时间</th>
-                        <th width="">操作</th>
+                        <td>编号：</td>
+                        <td>{$info.ordersn}</td>
+                        <td>域名：</td>
+                        <td>{$info.domain}</td>
                     </tr>
-                    <volist name="list" id="vo">
                     <tr>
-                        <td>{$vo.order_id}</td>
-                        <td class="td_wz"><a href="javascript:" target="_blank">{$vo.domain}</a></td>
-                        <td><a href="javascript:" target="_blank">{$vo.name}</a></td>
-                        <td>{$vo.usernum}</td>
-                        <td>{$vo.space}/人</td>
-                        <td>{$vo.create_time|substr=###,0,10}</td>
-                        <td>{$vo.expiry_time|substr=###,0,10}</td>
-                        <td class="cz_td">
-                            <a href="http://www.ns365.net/index.php?navname=postmaster" target="_blank">控制面板</a>
-                            <a href="{:U('Cart/renewMail?id='.$vo['id'])}">续费</a>
-                            <!--<a href="">增值</a>-->
-                        </td>
+                        <td>注册年限：</td>
+                        <td>{$info.year}年</td>
+                        <td>域名后缀：</td>
+                        <td>{$info.tld}</td>
                     </tr>
-                    </volist>
+                    <tr>
+                        <td>创建时间：</td>
+                        <td>{$info.create_time}</td>
+                        <td>到期时间：</td>
+                        <td>{$info.expiry_time}</td>
+                    </tr>
+                    <tr>
+                        <td>控制面板登录名：</td>
+                        <td>{$info.admin_user}</td>
+                        <td>控制面板登录密码：</td>
+                        <td>{$info.admin_pass}</td>
+                    </tr>
+
 
                 </table>
-                <!--分页开始-->
-                {$page}
-                <!--分页结束-->
+
             </div>
         </div>
         <div class="clear"></div>

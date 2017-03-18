@@ -362,6 +362,7 @@ class OrderController extends AdminController{
     {
         $map = array();
         $keywords = I('keywords');
+        $map['product_status'] = 0;
         if(!empty($keywords)){
             $map['order_sn|username']=   array($keywords,array('like','%'.$keywords.'%'),'_multi'=>true);
         }
@@ -369,8 +370,9 @@ class OrderController extends AdminController{
         $list   = $this->lists('order_goods', $map,$order='id desc');
         if(!empty($list)){
             foreach($list as $key=>$value){
-                $order_sn = M('order')->where('id='.$value['order_id'])->getField('ordersn');
-                $list[$key]['order_sn'] = $order_sn;
+                $order = M('order')->where('id='.$value['order_id'])->find();
+                $list[$key]['order_sn'] = $order['ordersn'];
+                $list[$key]['is_pay'] = $order['status'];
             }
         }
 

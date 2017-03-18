@@ -33,7 +33,7 @@
             <div class="div_bank">
                 <div class="gjc_ss">
                     <form action="{:U('Cuser/userDomain')}" method="get">
-                        <input name="keywords" type="text" class="gjc_inp" placeholder="输入关键词搜索">
+                        <input name="keywords" type="text" class="gjc_inp" placeholder="输入域名或编号搜索">
                         <input  type="hidden" name="m" value="Home"  />
                         <input  type="hidden" name="c" value="Cuser"  />
                         <input  type="hidden" name="a" value="userDomain"  />
@@ -49,105 +49,22 @@
                         <th width="180">到期时间</th>
                         <th>操作</th>
                     </tr>
+                    <volist name="list" id="vo">
                     <tr>
-                        <td>28001</td>
-                        <td class="td_wz"><a href="" target="_blank">www.qbt8.com</a></td>
-                        <td>2012-01-01</td>
-                        <td>2020-01-01</td>
+                        <td>{$vo.ordersn}</td>
+                        <td class="td_wz"><a href="javascript:" target="_blank">www.{$vo.domain}</a></td>
+                        <td>{$vo.create_time}</td>
+                        <td>{$vo.expiry_time}</td>
                         <td class="cz_td">
-                            <a href="">控制面板</a>
-                            <a href="">续费</a>
-                            <a href="#" data-reveal-id="myModal" data-animation="none">修改密码</a>
+                            <a href="http://www.ns365.net/index.php?navname=domainmaster" target="_blank">控制面板</a>
+                            <a href="{:U('Cart/renewDomain?id='.$vo['id'])}">续费</a>
+                            <a href="#" data-reveal-id="myModal_{$vo.id}" data-animation="none">修改密码</a>
+                            <a href="{:U('Cuser/viewDomain?id='.$vo['id'])}" >查看</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>28001</td>
-                        <td class="td_wz"><a href="" target="_blank">www.qbt8.com</a></td>
-                        <td>2012-01-01</td>
-                        <td>2020-01-01</td>
-                        <td class="cz_td">
-                            <a href="">控制面板</a>
-                            <a href="">续费</a>
-                            <a href="#" data-reveal-id="myModal" data-animation="none">修改密码</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>28001</td>
-                        <td class="td_wz"><a href="" target="_blank">www.qbt8.com</a></td>
-                        <td>2012-01-01</td>
-                        <td>2020-01-01</td>
-                        <td class="cz_td">
-                            <a href="">控制面板</a>
-                            <a href="">续费</a>
-                            <a href="#" data-reveal-id="myModal" data-animation="none">修改密码</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>28001</td>
-                        <td class="td_wz"><a href="" target="_blank">www.qbt8.com</a></td>
-                        <td>2012-01-01</td>
-                        <td>2020-01-01</td>
-                        <td class="cz_td">
-                            <a href="">控制面板</a>
-                            <a href="">续费</a>
-                            <a href="#" data-reveal-id="myModal" data-animation="none">修改密码</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>28001</td>
-                        <td class="td_wz"><a href="" target="_blank">www.qbt8.com</a></td>
-                        <td>2012-01-01</td>
-                        <td>2020-01-01</td>
-                        <td class="cz_td">
-                            <a href="">控制面板</a>
-                            <a href="">续费</a>
-                            <a href="#" data-reveal-id="myModal" data-animation="none">修改密码</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>28001</td>
-                        <td class="td_wz"><a href="" target="_blank">www.qbt8.com</a></td>
-                        <td>2012-01-01</td>
-                        <td>2020-01-01</td>
-                        <td class="cz_td">
-                            <a href="">控制面板</a>
-                            <a href="">续费</a>
-                            <a href="#" data-reveal-id="myModal" data-animation="none">修改密码</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>28001</td>
-                        <td class="td_wz"><a href="" target="_blank">www.qbt8.com</a></td>
-                        <td>2012-01-01</td>
-                        <td>2020-01-01</td>
-                        <td class="cz_td">
-                            <a href="">控制面板</a>
-                            <a href="">续费</a>
-                            <a href="#" data-reveal-id="myModal" data-animation="none">修改密码</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>28002</td>
-                        <td class="td_wz"><a href="" target="_blank">www.qbt9.com</a></td>
-                        <td>2012-01-02</td>
-                        <td><span>2016-01-01</span></td>
-                        <td class="cz_td">
-                            <a href="">控制面板</a>
-                            <a href="">续费</a>
-                            <a href="#" data-reveal-id="myModal" data-animation="none">修改密码</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>28002</td>
-                        <td class="td_wz"><a href="" target="_blank">www.qbt9.com</a></td>
-                        <td>2012-01-02</td>
-                        <td><span>2016-01-01</span></td>
-                        <td class="cz_td">
-                            <a href="">控制面板</a>
-                            <a href="">续费</a>
-                            <a href="#" data-reveal-id="myModal" data-animation="none">修改密码</a>
-                        </td>
-                    </tr>
+                    </volist>
+
+
                 </table>
                 <!--分页开始-->
                 {$page}
@@ -157,17 +74,34 @@
         <div class="clear"></div>
     </div>
 </div>
-<div id="myModal" class="reveal-modal">
-    <h1>www.qbt8.com</h1>
-    <form action="" method="post">
-        <input name="" type="text" class="rev_inp" placeholder="请输入要修改的密码">
+
+<volist name="list" id="vo">
+<div id="myModal_{$vo.id}" class="reveal-modal">
+    <h1>www.{$vo.domain}</h1>
+    <form action="{:U('Cuser/alterDomainPass')}" method="post" onsubmit="return repass(this)">
+        <input name="domain_id" type="hidden"  value="{$vo.id}" />
+        <input name="password" type="password" class="rev_inp" placeholder="请输入要修改的密码" />
         <input name="" type="submit" value="提交" class="rev_sub">
     </form>
     <a class="close-reveal-modal">&#215;</a>
 </div>
+</volist>
 
 <!-- 底部 -->
 <include file="Public/bottom"/>
 <!-- /底部 -->
+
+<script>
+    function repass(obj){
+        var domain_id = $(obj).find("input[name=domain_id]").val();
+        var password = $(obj).find("input[name=password]").val();
+        if(password.length<6){
+            alert("密码长度不能小于6！");
+            return false;
+        }
+        return true;
+    }
+</script>
+
 </body>
 </html>

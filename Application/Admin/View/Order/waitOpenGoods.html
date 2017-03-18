@@ -27,6 +27,7 @@
                 <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
                 <th class="">ID</th>
                 <th class="">订单号</th>
+                <th class="">支付状态</th>
                 <th class="">用户</th>
                 <th class="">手机号码</th>
                 <th class="">产品名称</th>
@@ -44,6 +45,12 @@
                         <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
                         <td>{$vo.id} </td>
                         <td>{$vo.order_sn}</td>
+                        <td>
+                            <switch name="vo['is_pay']">
+                                <case value="0">未支付</case>
+                                <case value="1">已支付</case>
+                            </switch>
+                        </td>
                         <td>{$vo.username}</td>
                         <td>{$vo.mobile}</td>
                         <td>{$vo.product_name}</td>
