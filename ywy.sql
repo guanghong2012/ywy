@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2017 �?03 �?22 �?09:23
+-- 生成日期: 2017 �?03 �?22 �?10:47
 -- 服务器版本: 5.5.40
 -- PHP 版本: 5.6.1
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `onethink_action_log` (
   KEY `action_ip_ix` (`action_ip`),
   KEY `action_id_ix` (`action_id`),
   KEY `user_id_ix` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表' AUTO_INCREMENT=769 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表' AUTO_INCREMENT=774 ;
 
 --
 -- 转存表中的数据 `onethink_action_log`
@@ -851,7 +851,12 @@ INSERT INTO `onethink_action_log` (`id`, `action_id`, `user_id`, `action_ip`, `m
 (765, 7, 1, 0, 'model', 24, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1490064707),
 (766, 7, 1, 0, 'model', 24, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1490066280),
 (767, 7, 1, 0, 'model', 24, '操作url：/ywy/newwebadmin.php?s=/Model/update.html', 1, 1490066297),
-(768, 1, 1, 0, 'cuser', 1, 'admin在2017-03-21 11:34登录了后台', 1, 1490067272);
+(768, 1, 1, 0, 'cuser', 1, 'admin在2017-03-21 11:34登录了后台', 1, 1490067272),
+(769, 1, 15, 0, 'cuser', 15, '在2017-03-22 10:36登录了后台', 1, 1490150190),
+(770, 1, 15, 0, 'cuser', 15, '在2017-03-22 10:37登录了后台', 1, 1490150270),
+(771, 1, 15, 0, 'cuser', 15, '在2017-03-22 10:38登录了后台', 1, 1490150325),
+(772, 1, 1, 0, 'member', 1, 'admin在2017-03-22 10:39登录了后台', 1, 1490150352),
+(773, 1, 15, 0, 'cuser', 15, '在2017-03-22 10:41登录了后台', 1, 1490150512);
 
 -- --------------------------------------------------------
 
@@ -2029,7 +2034,7 @@ CREATE TABLE IF NOT EXISTS `onethink_cuser` (
   `login` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '登录次数',
   `getpasstime` int(10) NOT NULL COMMENT '找回密码验证时间戳',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=15 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=16 ;
 
 --
 -- 转存表中的数据 `onethink_cuser`
@@ -2041,7 +2046,8 @@ INSERT INTO `onethink_cuser` (`id`, `email`, `username`, `password`, `mobile`, `
 (5, 'develop21@qbt8.com', '曙光', '1625a05770c3ee32d06130866fc25d7f', '13570456594', '白云区', '0', '', '1487558993', '0', '1487558993', '1', '1488201813', '0', '0.00', 1, 0),
 (6, 'laohuang@126.com', '隔壁老黄', '1625a05770c3ee32d06130866fc25d7f', '13580127425', '广东省汕尾市陆丰市', '0', '', '1489024154', '0', '1489024154', '1', '1489025200', '0', '0.00', 5, 0),
 (8, 'juntang@126.com', '林俊堂', '1625a05770c3ee32d06130866fc25d7f', '18576815110', '广东省东莞市樟木头', '0', '', '1488265595', '0', '1488265595', '1', '', '', '0.00', 0, 0),
-(14, 'lisi@126.com', '李四', '1625a05770c3ee32d06130866fc25d7f', '13580128025', '科韵路255号', '0', '', '1489374997', '0', '1489374997', '1', '', '', '0.00', 0, 0);
+(14, 'lisi@126.com', '李四', '1625a05770c3ee32d06130866fc25d7f', '13580128025', '科韵路255号', '0', '', '1489374997', '0', '1489374997', '1', '', '', '0.00', 0, 0),
+(15, 'develop15@qbt8.com', '李长春', 'e10adc3949ba59abbe56e057f20f883e', '13727702359', '科韵路255号', '0', '', '1490150246', '0', '1490150246', '1', '1490150512', '0', '0.00', 4, 0);
 
 -- --------------------------------------------------------
 
@@ -2673,7 +2679,7 @@ CREATE TABLE IF NOT EXISTS `onethink_member` (
 --
 
 INSERT INTO `onethink_member` (`uid`, `nickname`, `sex`, `birthday`, `qq`, `score`, `login`, `reg_ip`, `reg_time`, `last_login_ip`, `last_login_time`, `status`) VALUES
-(1, 'admin', 0, '0000-00-00', '', 110, 33, 0, 1487144121, 0, 1490058992, 1);
+(1, 'admin', 0, '0000-00-00', '', 110, 34, 0, 1487144121, 0, 1490150352, 1);
 
 -- --------------------------------------------------------
 
@@ -3471,7 +3477,7 @@ CREATE TABLE IF NOT EXISTS `onethink_ucenter_member` (
 --
 
 INSERT INTO `onethink_ucenter_member` (`id`, `username`, `password`, `email`, `mobile`, `reg_time`, `reg_ip`, `last_login_time`, `last_login_ip`, `update_time`, `status`) VALUES
-(1, 'admin', '30c3344bcff4de86bf764a4d718f9222', 'develop11@qbt8.com', '', 1487144121, 0, 1490058992, 0, 1487144121, 1);
+(1, 'admin', '30c3344bcff4de86bf764a4d718f9222', 'develop11@qbt8.com', '', 1487144121, 0, 1490150352, 0, 1487144121, 1);
 
 -- --------------------------------------------------------
 

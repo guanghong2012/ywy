@@ -48,7 +48,8 @@ class CuserModel extends Model{
 
     /* 用户模型自动完成 */
     protected $_auto = array(
-        array('password', 'think_ucenter_md5', self::MODEL_BOTH, 'function', UC_AUTH_KEY),
+        //array('password', 'think_ucenter_md5', self::MODEL_BOTH, 'function', UC_AUTH_KEY),
+        array('password','md5',3,'function') , // 对password字段在新增和编辑的时候使md5函数处理
         array('reg_time', NOW_TIME, self::MODEL_INSERT),
         array('reg_ip', 'get_client_ip', self::MODEL_INSERT, 'function', 1),
         array('update_time', NOW_TIME),
@@ -149,7 +150,8 @@ class CuserModel extends Model{
         $user = $this->where($map)->find();
         if(is_array($user) && $user['status']){
             /* 验证用户密码 */
-            if(think_ucenter_md5($password, UC_AUTH_KEY) === $user['password']){
+            //if(think_ucenter_md5($password, UC_AUTH_KEY) === $user['password']){
+            if(md5($password) === $user['password']){
                 $this->updateLogin($user['id']); //更新用户登录信息
                 return $user['id']; //登录成功，返回用户ID
             } else {
@@ -311,7 +313,8 @@ class CuserModel extends Model{
      */
     protected function verifyUser($uid, $password_in){
         $password = $this->getFieldById($uid, 'password');
-        if(think_ucenter_md5($password_in, UC_AUTH_KEY) === $password){
+        //if(think_ucenter_md5($password_in, UC_AUTH_KEY) === $password){
+        if(md5($password_in) === $password){
             return true;
         }
         return false;
