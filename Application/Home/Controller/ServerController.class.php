@@ -126,7 +126,7 @@ class ServerController extends HomeController{
 
         //统计价格总和 = (cpu+内存+硬盘+带宽+操作系统+线路+服务标准)*购买月份*数量
         $cpuprice = $elastic_config['cpu_price']*$cpu;//cpu价格 = cpu单价*cpu核数
-        $memoryprice = $elastic_config['memory_price'] * $memory;//内存价格 = 内存单价*数量
+        $memoryprice = $elastic_config['memory_price'] * $memory;//cpu价格 = cpu单价*cpu核数
         $diskprice = $elastic_config['disk_price'] * $disk;//硬盘价格
         $bandwidthprice = $elastic_config['bandwidth_price'] * $bandwidth;//带宽价格
         $osprice = $osinfo['price'];//操作系统价格

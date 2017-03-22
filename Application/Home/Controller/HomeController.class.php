@@ -36,14 +36,14 @@ class HomeController extends Controller {
                 $carNum = S($userinfo['id'].'_carNum');//读取缓存数据
             }else{
                 $carNum = D("Cart")->getCartNumByUid($userinfo['id']);
-                S($userinfo['id'].'_carNum',$carNum,5);//缓存5秒
+                S($userinfo['id'].'_carNum',$carNum,3);//缓存5秒
             }
 
             if(S($userinfo['id'].'_userAccount')){
                 $user_account = S($userinfo['id'].'_userAccount');//读取缓存数据
             }else{
                 $user_account = D('Cuser')->where('id='.$userinfo['id'])->getField('account');
-                S($userinfo['id'].'_userAccount',$user_account,5);
+                S($userinfo['id'].'_userAccount',$user_account,3);
             }
 
             $this->assign('user_name',$user_name);
@@ -53,6 +53,15 @@ class HomeController extends Controller {
             $user_login = 0;
 
         }
+        //公司联系我们公共配置
+
+        $public_contact = S("PUBLIC_CONFIGS");
+        if(!$public_contact){
+            $public_contact = D('document')->detail(10);
+            S('PUBLIC_CONFIGS',$public_contact,5);//缓存5秒
+        }
+
+        $this->assign('public_contact',$public_contact);//购物车数量
         $this->assign('carNum',$carNum);//购物车数量
         $this->assign('user_login',$user_login);
         if(!C('WEB_SITE_CLOSE')){
@@ -87,6 +96,7 @@ class HomeController extends Controller {
         }
         //取出订单产品
         $map = array();
+        $map['order_id'] = $order_id;
         $map['type'] = array("in",array(1,2,3));//产品类型 1=域名 2=虚拟机3=企业邮箱4=弹性云主机5=云建站模板 6=套餐云主机
         $goods = M('OrderGoods')->where($map)->select();
         if(empty($goods)){
@@ -351,6 +361,40 @@ class HomeController extends Controller {
         fwrite($fp,$txt);
         fwrite($fp,"\r\n\r\n\r\n");
         fclose($fp);
+    }
+
+    //根据域名后缀查询单价 并返回10年的价格数组
+    protected function getDomainPrice($tld)
+    {
+        if(empty($tld)){
+            return false;
+        }
+        $map['tld'] = $tld;
+        $price = M('document_domain')->where($map)->getField("price");//1年价格
+        $arr[0] = array('year'=>1,'price'=>$price);
+        $arr[1] = array('year'=>2,'price'=>$price*2);
+        $arr[2] = array('year'=>3,'price'=>$price*3);
+        $arr[3] = array('year'=>4,'price'=>$price*4);
+        $arr[4] = array('year'=>5,'price'=>$price*5);
+        $arr[5] = array('year'=>6,'price'=>$price*6);
+        $arr[6] = array('year'=>7,'price'=>$price*7);
+        $arr[7] = array('year'=>8,'price'=>$price*8);
+        $arr[8] = array('year'=>9,'price'=>$price*9);
+        $arr[9] = array('year'=>10,'price'=>$price*10);
+
+        return $arr;
+    }
+
+    /*
+     * 获取一个域名单价
+     */
+    protected function getSingleDomainPrice($tld){
+        if(empty($tld)){
+            return false;
+        }
+        $map['tld'] = $tld;
+        $price = M('document_domain')->where($map)->getField("price");//1年价格
+        return $price;
     }
 
 

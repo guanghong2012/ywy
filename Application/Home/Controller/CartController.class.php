@@ -39,6 +39,7 @@ class CartController extends HomeController{
             $value['project'] = json_decode($value['project'],true);//方案信息
             //$value['year'] = $value['month']/12;
             $value['year'] = formatYear($value['month']);
+            //产品类型 1=域名 2=虚拟机3=企业邮箱4=弹性云主机5=云建站模板 6=套餐云主机
             if(2==$value['type']){
                 //虚拟主机
                 $price_info = M('CpPrice')->where('id='.$value['price_id'])->find();
@@ -79,12 +80,16 @@ class CartController extends HomeController{
     public function DeleteCart($id)
     {
         if(IS_AJAX){
+            $user = session('user_auth');
+            $uid = $user['id'];
             if(!$id){
                 $return = array("status"=>0,"msg"=>"缺少id");
                 echo json_encode($return);exit();
             }
             $res = $this->model->removeCart($id);
             if($res){
+                $carNum = D("Cart")->getCartNumByUid($uid);
+                S($uid.'_carNum',$carNum,3);//缓存5秒
                 $return = array("status"=>1,"url"=>U('Cart/index'),"msg"=>"删除成功！");
 
             }else{
@@ -1450,6 +1455,9 @@ class CartController extends HomeController{
         !$id && $this->error("非法访问");
         $user_domain = M('user_domain')->find($id);
 
+        $prices = $this->getDomainPrice($user_domain['tld']);//根据域名后缀查询价格
+
+        $this->assign('prices',$prices);
         $this->assign('user_domain',$user_domain);
         $this->display();
     }
@@ -1468,8 +1476,9 @@ class CartController extends HomeController{
             $this->error("请选择续费年限");
         }
         $user_domain = M('user_domain')->find($domain_id);
-        //续费价格 暂定
-        $total = 5*$year;//5元每年
+        //续费价格 根据域名后缀确定的单价
+        $single_price = $this->getSingleDomainPrice($user_domain['tld']);
+        $total = $single_price*$year;//总价格
 
         //保存配置到session
         $renewDomain = array(
@@ -1589,10 +1598,23 @@ class CartController extends HomeController{
 
 
         }
-
-
-
-
+        
+    }
+    
+    /*
+     * 根据购物车id统计总价
+     */
+    public function getCartTotalByIds()
+    {
+        if(IS_AJAX){
+            $user = session('user_auth');
+            $uid = $user['id'];
+            $ids = I("post.ids");
+            $ids = substr($ids,0,strlen($ids)-1);
+            $total = $this->model->getToal($ids,$uid);
+            $total = number_format($total,2);
+            echo json_encode($total);
+        }
     }
     
 

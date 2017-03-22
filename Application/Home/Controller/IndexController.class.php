@@ -41,10 +41,23 @@ class IndexController extends HomeController {
         }
 
         //套餐云产品
-        $package_list = D('PackageHost')->order('level asc')->select();
+        $package_list = D('PackageHost')->order('level asc')->limit(4)->select();
         //企业邮箱
         $mail = M('mail')->find(1);
+        //虚拟主机 筛选首页推荐的4条
+        $vitrul = D('cloud_product')->where('is_hot=1')->order('level asc')->limit(4)->select();
+        if(!empty($vitrul)){
+            foreach($vitrul as &$value){
+                $price = M('cp_price')->where('pid='.$value['id'])->order('type_id asc')->find();
+                $value['prices'] = $price;
+            }
+        }
 
+        //网站模板 筛选首页推荐的4条
+        $templates = M('station_template')->alias("a")->join("LEFT JOIN onethink_station_category AS b ON a.cate_id = b.id")->where('a.is_hot=1')->field("a.*,b.is_pc")->order('a.level asc')->limit(4)->select();
+
+        $this->assign('templates',$templates);
+        $this->assign('vitrul',$vitrul);
         $this->assign('mail',$mail);
         $this->assign('package_list',$package_list);
         $this->assign('all_solution',$all_solution);
@@ -106,7 +119,7 @@ class IndexController extends HomeController {
 
         //测试域名注册
         /*
-        $ordergoods = M('order_goods')->where('id=15')->find();
+        $ordergoods = M('order_goods')->where('id=17')->find();
         $buy_config = json_decode($ordergoods['buy_config'],true);
         $domain_info = json_decode($ordergoods['domain_info'],true);//注册人填写信息
 
@@ -185,14 +198,15 @@ class IndexController extends HomeController {
             't_phone' => $domain_info['r_phone'],
             't_fax' => $domain_info['r_fax'],
 
-            'goods_id' => 15//订单产品id
+            'goods_id' => 17//订单产品id
         );
+        //print_r($schedule_data);die;
         //$queue::add($type='domainRegister',$name='域名注册',$schedule_data,$schedule_time=time());
         //$list = $queue::getQueueTask();
-        $data = M('schedule_list')->find(36);
+        $data = M('schedule_list')->find(48);
         //$data = $list[0];
         $res = $queue::executeQueue($data);
-        print_r($res);
+       print_r($res);
         */
     }
 
@@ -213,9 +227,23 @@ class IndexController extends HomeController {
         $this->display();
     }
 
-    public function send()
+    /*
+     * 域名价格总览
+     */
+    public function domainPrice()
     {
-        send_mail("develop11@qbt8.com","测试一下","<h1>我是测试</h1>这是php点点通（<font color=red>www.phpddt.com</font>）对phpmailer的测试内容");
+        //获取所有域名产品分类
+        $all_cate = D('category')->where('pid=60 and status=1')->order('sort asc')->field("id")->select();
+        foreach($all_cate as $value){
+            $pids[] = $value['id'];
+        }
+
+        $map['a.category_id'] = array("in",$pids);
+        $domains = D("document")->alias("a")->join("onethink_category AS b ON a.category_id=b.id ")->join('onethink_document_domain as c ON a.id=c.id')->field('b.title,c.*')->where($map)->order("b.sort asc")->select();
+
+        $this->assign("domains",$domains);
+        $this->display();
     }
+    
 
 }

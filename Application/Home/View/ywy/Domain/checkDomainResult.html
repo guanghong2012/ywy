@@ -53,13 +53,13 @@
                 <td bgcolor="#ffffff" class="td3">
 
                     <div class="nice-select" name="nice-select" style="display: none;">
-                        <input type="text" class="show" name="" value="￥5元/1年" readonly>
+                        <input type="text" class="show" name="" value="￥{$vo['price'][0]['price']}元/1年" readonly>
                         <input type="hidden" class="year" name="year[{$vo.id}][]" value="1" readonly>
                         <ul>
-                            <li data-value="1">￥5元/1年</li>
-                            <li data-value="3">￥10元/3年</li>
-                            <li data-value="5">￥20元/5年</li>
-                            <li data-value="12">￥50元/12年</li>
+                            <volist name="vo['price']" id="items">
+                            <li data-year="{$items.year}" data-price="{$items.price}" >￥{$items.price}元/{$items.year}年</li>
+                            </volist>
+
                         </ul>
                     </div>
                     <label  class="label_xz" style="display: none;">
@@ -131,7 +131,7 @@
     });
     $('[name="nice-select"] li').click(function(e){
         var val = $(this).text();
-        var datavalue = $(this).attr("data-value");
+        var datavalue = $(this).attr("data-year");
         $(this).parents('[name="nice-select"]').find('.show').val(val);
         $(this).parents('[name="nice-select"]').find('.year').val(datavalue);
         $('[name="nice-select"] ul').hide();

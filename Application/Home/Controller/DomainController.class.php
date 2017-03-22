@@ -32,7 +32,7 @@ class DomainController extends HomeController{
             $all_domain_cate = D('category')->where('pid=60 and status=1')->field('id,title')->order('sort asc')->select();
 
             foreach($all_domain_cate as $key=>$value){
-                $all_tld = D('Document')->alias('a')->join('LEFT JOIN onethink_document_domain as b ON a.id=b.id')->where('a.category_id='.$value['id'])->field('b.*')->select();
+                $all_tld = D('Document')->alias('a')->join('LEFT JOIN onethink_document_domain as b ON a.id=b.id')->where('a.category_id='.$value['id'].' AND a.status=1')->field('b.*')->select();
                 $all_domain_cate[$key]['all_tld'] = $all_tld;
             }
             S('all_domain_cate',$all_domain_cate,1);//缓存60秒
@@ -74,6 +74,7 @@ class DomainController extends HomeController{
                         'tld' => $tld[$key],
                         'lang' => $lang[$key],
                         'encoding' => $encoding[$key],
+                        'price' => $this->getDomainPrice($tld[$key]),
                     );
                 }
             }else{
@@ -83,46 +84,16 @@ class DomainController extends HomeController{
                     'tld' => $tld,
                     'lang' => $lang,
                     'encoding' => $encoding,
+                    'price' => $this->getDomainPrice($tld),
                 );
             }
-
+            //print_r($searchList);die;
             session('check_domain',$searchList);
             $return = array("status"=>1,"url"=>U('Domain/checkDomainResult'),"msg"=>"跳转！");
             echo json_encode($return);
             exit();
     //print_r($searchList);
-            die;
-            //调用接口查询域名是否被注册
-            $Api = new CloundApi();
-            if(is_array($tld)){
-                $result = array();
-                foreach($tld as $k=>$v){
-                    $result[$k]['id'] = $k;
-                    $result[$k]['domain'] = $domain.$v;
-                    $result[$k]['tld'] = $v;
-                    $result[$k]['lang'] = $lang;
-                    $rs = $Api->checkDomain($domain.$v,$v,$lang);
-                    $result[$k]['result'] = json_decode($rs,true);
-                }
-                //print_r($tld);
-            }else{
-                $rs = $Api->checkDomain($domain.$tld,$tld,$lang);
-                $result[0]['id'] = 0;
-                $result[0]['domain'] = $domain.$tld;
-                $result[0]['tld'] = $tld;
-                $result[0]['lang'] = $lang;
-                $result[0]['result'] = json_decode($rs,true);
 
-            }
-
-            if(!empty($result)){
-                //将查询结果存进session
-                session('check_domain',$result);
-            }
-
-            $return = array("status"=>1,"url"=>U('Domain/checkDomainResult'),"msg"=>"查询成功！");
-            echo json_encode($return);
-            exit();
         }else{
             $list = session('check_domain');
             $count_list = count($list);
@@ -282,12 +253,14 @@ class DomainController extends HomeController{
                     'lang' => $value['lang'],
                     'encoding' => $value['lang']=='CHI' ? 'GBK':'ASCII',
                 );
+                $price = $this->getSingleDomainPrice($value['tld']);//域名单价
+
                 $data = array();
                 $data['uid'] = $user['id'];
                 $data['name'] = $value['tld']."域名";
                 $data['keywords'] = $value['domain'];
                 $data['number'] = 1;
-                $data['price'] = 1.00;//域名单价未知
+                $data['price'] = $price*$buy_config['year'];//基本价格=域名单价*购买年份
                 $data['month'] = $value['month'];
                 $data['base_total'] = $data['number'] * $data['price'];
                 $data['added_price'] = 0.00;
@@ -309,10 +282,9 @@ class DomainController extends HomeController{
             }
 
         }
-        print_r($domainToBuy);
+        //print_r($domainToBuy);
     }
 
-    
 
     
 }

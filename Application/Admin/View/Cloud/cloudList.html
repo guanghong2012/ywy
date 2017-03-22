@@ -29,6 +29,8 @@
                 <th class="">名称</th>
                 <th class="">是否赠送备案时间</th>
                 <th class="">是否独立IP</th>
+                <th class="">是否首页推荐</th>
+                <th class="">是否用户推荐</th>
                 <th class="">排序</th>
                 <th class="">所属分类</th>
                 <th class="">产品图片</th>
@@ -52,6 +54,22 @@
                         </td>
                         <td>
                             <empty name="vo['single_ip']">
+                                否
+                                <else />
+                                是
+                            </empty>
+
+                        </td>
+                        <td>
+                            <empty name="vo['is_hot']">
+                                否
+                                <else />
+                                是
+                            </empty>
+
+                        </td>
+                        <td>
+                            <empty name="vo['user_recom']">
                                 否
                                 <else />
                                 是

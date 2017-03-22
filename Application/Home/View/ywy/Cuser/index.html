@@ -66,51 +66,23 @@
             <div class="user_zxcp">
                 <h2>最新产品</h2>
                 <ul>
+                    <volist name="user_recom_product" id="vo">
                     <li>
-                        <a href="">
+                        <a href="{:U('Cloud/productDetail',array('id'=>$vo['id']))}">
+                            <empty name="vo['images']">
                             <img src="__YWY__/images/u1.jpg" alt="">
+                                <else />
+                                <img src="{$vo.images|get_cover=###,'path'}" alt="">
+                            </empty>
                             <div>
                                 <h3>服务器</h3>
-                                <p><span>150</span> / 年</p>
+                                <p><span>{$vo['prices']['one_price']}</span> / 年</p>
                             </div>
                         </a>
                     </li>
-                    <li>
-                        <a href="">
-                            <img src="__YWY__/images/u2.jpg" alt="">
-                            <div>
-                                <h3>服务器</h3>
-                                <p><span>150</span> / 年</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="__YWY__/images/u1.jpg" alt="">
-                            <div>
-                                <h3>服务器</h3>
-                                <p><span>150</span> / 年</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="__YWY__/images/u2.jpg" alt="">
-                            <div>
-                                <h3>服务器</h3>
-                                <p><span>150</span> / 年</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="li_no">
-                        <a href="">
-                            <img src="__YWY__/images/u1.jpg" alt="">
-                            <div>
-                                <h3>服务器</h3>
-                                <p><span>150</span> / 年</p>
-                            </div>
-                        </a>
-                    </li>
+                    </volist>
+
+
                 </ul>
                 <div class="clear"></div>
             </div>

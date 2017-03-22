@@ -77,7 +77,7 @@
         <volist name="list" id="vo">
         <div class="shop_div3">
             <div class="tdw70 div_ty">
-                <input id="checkbox-{$i}-2" class="regular-checkbox" name="cartid[]" value="{$vo.id}" checked="" type="checkbox"><label class="label_1" for="checkbox-{$i}-2"></label>
+                <input id="checkbox-{$i}-2" class="regular-checkbox cart-item" name="cartid[]" value="{$vo.id}" checked="" type="checkbox"><label class="label_1" for="checkbox-{$i}-2"></label>
             </div>
             <div class="tdw235 div_ty">
                 <h2>{$vo.name}</h2>
@@ -205,8 +205,8 @@
                     <else />
                 <a class="a2" href="javascript:" onclick="gotoPay()">下一步</a>
                 </empty>
-                <span>总价：<em>{$total|number_format=###,2} 元</em></span>
-                <span>您已选择：<em>{$carNum}</em>件商品</span>
+                <span>总价：<em id="totals">{$total|number_format=###,2} 元</em></span>
+                <span>您已选择：<em id="cartnum">{$carNum}</em>件商品</span>
             </h2>
         </div>
 
@@ -221,17 +221,51 @@
     $('#checkbox-1-1').click(function(){
         if(this.checked){
             $(".regular-checkbox").prop('checked', true)
+            calculateCart()
         }else{
             $(".regular-checkbox").prop('checked', false)
+            $("#totals").html("0.00元");
+            $("#cartnum").html(0);
         }
     });
     $('#checkbox-3-1').click(function(){
         if(this.checked){
             $(".regular-checkbox").prop('checked', true)
+            calculateCart()
         }else{
             $(".regular-checkbox").prop('checked', false)
+            $("#totals").html("0.00元");
+            $("#cartnum").html(0);
         }
     });
+
+    $(".cart-item").click(function(){
+            calculateCart()
+    })
+
+    //统计选中的购物车数量与价格
+    function calculateCart(){
+        var aa = document.getElementsByName("cartid[]");
+        var ids = "";
+        var checked_num = 0;
+
+        for (var i = 0; i < aa.length; i++) {
+            if (aa[i].checked) {
+                ids += aa[i].value+',';
+                checked_num ++;
+            }
+        }
+        if(checked_num>0){
+            $.post("{:U('Cart/getCartTotalByIds')}",{ids:ids},function(data){
+                $("#totals").html(data+"元");
+                $("#cartnum").html(checked_num);
+            },"json");
+        }else{
+            $("#totals").html("0.00元");
+            $("#cartnum").html(0);
+        }
+
+    }
 
     function deleteAll(){
 
@@ -306,8 +340,6 @@
             }else{
                 layer.alert("请选择要支付的产品",{title:"提示"});
             }
-
-
 
         }
 

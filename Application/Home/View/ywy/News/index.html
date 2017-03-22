@@ -28,7 +28,11 @@
                     <a href="{:U('News/detail',array('id'=>$vo['id']))}">
                         <div class="div1">
                             <div class="div_fl">
+                                <empty name="vo['cover_id']">
+                                    <img src="__YWY__/images/q5.jpg" alt="">
+                                    <else />
                                 <img src="{$vo.cover_id|get_cover=###,'path'}" alt="">
+                                </empty>
                             </div>
                             <div class="div_fr">
                                 <h2>{$vo.title}</h2>

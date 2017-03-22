@@ -1,0 +1,508 @@
+<extend name="Public/base" />
+
+
+<block name="body">
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <div class="main-title cf">
+        <h2>
+            查看 [{$info.name}]
+        </h2>
+        <h3><a href="javascript:history.go(-1)">返回产品列表</a></h3>
+    </div>
+    <!-- 标签页导航 -->
+    <div class="tab-wrap">
+        <ul class="tab-nav nav">
+
+            <li data-tab="tab1" class="current"><a href="javascript:void(0);">基础</a></li>
+
+        </ul>
+        <div class="tab-content">
+            <!-- 表单 -->
+            <form id="form" action="{:U('updateSheet')}" method="post" class="form-horizontal">
+                <!-- 基础文档模型 -->
+
+                <div id="tab1" class="tab-pane in tab1">
+                    <switch name="type">
+
+                        <case value="domain">
+                            <!--域名-->
+                            <div class="form-item cf">
+                                <label class="item-label">订单编号<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.orderSn}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">新一代订单id<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.order_id}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">域名<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.domain}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">域名后缀<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.tld}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">域名语言<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.lang}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">域名编码<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.encoding}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">注册年限<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.year}年
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">创建时间<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.create_time}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">到期时间<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.expiry_time}
+                                </div>
+                            </div>
+                            <!--域名 end-->
+                        </case>
+
+                        <case value="vitrual">
+                            <!--虚拟主机-->
+                            <div class="form-item cf">
+                                <label class="item-label">绑定域名<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.domain}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">产品名称<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.name}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">新一代产品id<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.product_id}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">购买周期<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.timeperiod}个月
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">操作系统<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.os_type}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">创建时间<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.create_time}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">到期时间<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.expire_time}
+                                </div>
+                            </div>
+
+                            <div class="form-item cf">
+                                <label class="item-label">新一代主机host_id<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.host_id}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">新一代主机订单id<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.order_id}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">新一代主机站点id<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.site_id}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">新一代产品名称<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.product_name}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">控制面板初始登录名<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.login}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">控制面板初始登录密码<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.password}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">FTP用户名<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.ftp_user}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">FTP密码<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.ftp_pass}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">虚拟机ip地址<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.site_ip}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">WEB主机ip<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.web_ip}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">WEB主机名称<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.web_servername}
+                                </div>
+                            </div>
+
+                            <!--虚拟主机 end-->
+                        </case>
+                        <case value="mail">
+                            <!--企业邮局-->
+                            <div class="form-item cf">
+                                <label class="item-label">绑定域名<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.domain}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">产品名称<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.name}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">创建时间<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.create_time}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">到期时间<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.expiry_time}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">基本用户数量<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.usernum}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">空间大小（G/人）<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.space}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">额外邮箱数（个）<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.number}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">额外邮局空间（G）<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.quota}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">购买时间<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.timeperiod}个月
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">新一代订单id<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.order_id}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">新一代邮局id<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.mail_id}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">新一代master_id<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.master_id}
+                                </div>
+                            </div>
+
+                            <!--企业邮局 end-->
+                        </case>
+                        <case value="template">
+                            <!--用户网站模板-->
+                            <div class="form-item cf">
+                                <label class="item-label">模板id<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.template_id}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">模板名称<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.name}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">创建时间<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.create_time}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">到期时间<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.expiry_time}
+                                </div>
+                            </div>
+                            <!--用户网站模板 end-->
+                        </case>
+                        <case value="host">
+                            <!--用户弹性云主机-->
+                            <div class="form-item cf">
+                                <label class="item-label">产品名称<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.name}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">创建时间<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.create_time}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">到期时间<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.expiry_time}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">CPU<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.cpu}核
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">内存<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.memory}G
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">硬盘<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.disk}G
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">带宽<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.bandwidth}M
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">操作系统<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.os}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">线路<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.line}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">服务标准<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.service}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">手动开通产品备注<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.desc}
+                                </div>
+                            </div>
+                            <!--用户弹性云主机 end-->
+                        </case>
+                        <case value="packagehost">
+                            <!--用户套餐云主机-->
+                            <div class="form-item cf">
+                                <label class="item-label">产品名称<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.name}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">创建时间<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.create_time}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">到期时间<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.expiry_time}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">CPU<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.cpu}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">内存<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.memory}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">硬盘<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.disk}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">带宽<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.bandwidth}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">IP<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.ip}
+                                </div>
+                            </div>
+                            <div class="form-item cf">
+                                <label class="item-label">手动开通产品备注<span class="check-tips"></span></label>
+                                <div class="controls">
+                                    {$info.desc}
+                                </div>
+                            </div>
+                            <!--用户套餐云主机 end-->
+                        </case>
+
+                    </switch>
+                </div>
+
+                <!-- <div class="form-item cf">
+                     <button class="btn submit-btn ajax-post hidden" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+                     <a class="btn btn-return" href="{$Think.cookie.__forward__}">返 回</a>
+
+                     <input type="hidden" name="id" value="{$info.id|default=''}"/>
+
+                 </div>-->
+            </form>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+    <php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+    <link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+
+        Think.setValue("type", {$data.type|default='""'});
+        Think.setValue("display", {$data.display|default=0});
+
+        $('#submit').click(function(){
+            $('#form').submit();
+        });
+
+    </script>
+
+    <switch name="type">
+        <case value="domain">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav("{:U('UserProduct/userDomains')}");
+    </script>
+        </case>
+        <case value="vitrual">
+            <script type="text/javascript">
+                //导航高亮
+                highlight_subnav("{:U('UserProduct/userVitrual')}");
+            </script>
+        </case>
+        <case value="mail">
+            <script type="text/javascript">
+                //导航高亮
+                highlight_subnav("{:U('UserProduct/userMail')}");
+            </script>
+        </case>
+
+        <case value="template">
+            <script type="text/javascript">
+                //导航高亮
+                highlight_subnav("{:U('UserProduct/userTemplate')}");
+            </script>
+        </case>
+
+        <case value="host">
+            <script type="text/javascript">
+                //导航高亮
+                highlight_subnav("{:U('UserProduct/userHost')}");
+            </script>
+        </case>
+
+        <case value="packagehost">
+            <script type="text/javascript">
+                //导航高亮
+                highlight_subnav("{:U('UserProduct/userPackagehost')}");
+            </script>
+        </case>
+
+    </switch>
+</block>

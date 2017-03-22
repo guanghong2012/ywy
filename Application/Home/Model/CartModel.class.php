@@ -127,7 +127,7 @@ class CartModel extends Model{
         }
 
     }
-    
+
     //统计某会员购物车数量
     public function getCartNumByUid($uid)
     {

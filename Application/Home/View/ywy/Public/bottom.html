@@ -23,7 +23,7 @@
         </ul>
         <div class="div_rig">
             <div class="div1">
-                <h2>400-066-9987</h2>
+                <h2>{$public_contact.hot_line}</h2>
                 <p>客服热线<br><span>CUSTOMER HOTLINE</span></p>
                 <div class="clear"></div>
             </div>
@@ -31,14 +31,20 @@
                 <ul>
                     <li><img src="__YWY__/images/xl.png" alt=""></li>
                     <li><img src="__YWY__/images/wx.png" alt=""></li>
-                    <li class="li1"><img src="__YWY__/images/ewm.jpg" alt=""></li>
+                    <li class="li1">
+                        <empty name="public_contact['wechact']">
+                            <img src="__YWY__/images/ewm.jpg" alt="">
+                            <else />
+                        <img src="{$public_contact.wechact|get_cover=###,'path'}" alt="">
+                        </empty>
+                    </li>
                 </ul>
             </div>
         </div>
         <div class="clear"></div>
         <div class="div_bot">
-            <p class="fl">{:C('WEB_SITE_ICP')}</p>
-            <p class="fr">电　话：0755-83586660  0755-83583158</p>
+            <p class="fl"><a href="http://www.miitbeian.gov.cn/" target="_blank" style="color: #9fa0a1;">{:C('WEB_SITE_ICP')}</a></p>
+            <p class="fr">电　话：{$public_contact.tel}</p>
         </div>
     </div>
 </div>

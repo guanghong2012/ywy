@@ -63,10 +63,20 @@ class CuserController extends HomeController{
             }
         }
 
+        //用户最新产品 显示虚拟机的推荐产品
+        $where['user_recom'] = 1;
+        $user_recom_product = M('cloud_product')->where($where)->order('level desc')->select();
+        if(!empty($user_recom_product)){
+            foreach($user_recom_product as $key=>$value){
+                $price = M('cp_price')->where('pid='.$value['id'])->order('type_id asc')->find();
+                $user_recom_product[$key]['prices'] = $price;
+            }
+        }
 
         $user_worksheet = M('user_worksheet')->where('uid='.$uid)->count();//工单个数
         $inhandle_worksheet = M('user_worksheet')->where('uid='.$uid.' and status =1')->count();//处理中工单个数
 
+        $this->assign('user_recom_product',$user_recom_product);
         $this->assign('notice',$notice);
         $this->assign('user_domain',$user_domain);
         $this->assign('expiring_domain',$expiring_domain);

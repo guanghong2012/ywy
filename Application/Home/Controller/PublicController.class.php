@@ -2,6 +2,7 @@
 
 namespace Home\Controller;
 
+use Org\Schedule\Queue;
 use Think\Controller;
 
 class PublicController extends Controller {
@@ -106,7 +107,57 @@ class PublicController extends Controller {
 
     }
 
+    
+    /*
+     * 计划任务执行
+     * 通过地址栏访问 index.php?s=/Home/Public/executeSchedule/act/executeplan.html 执行
+     * 定期执行 5秒一次差不多了
+     */
+    public function executeSchedule()
+    {
+        $act = I('get.act');
+        if(empty($act)){
+            return;
+        }
+        if('executeplan'==$act){
+            set_time_limit(0);
+            //执行计划任务
+            $queque = new Queue();
+            $schedule = M('schedule_list');
+            $schedule->startTrans();//开启事务
+            $map['exec_status'] = array("in",array(0,1));
+            $map['exec_lock'] = 0;
+            $map['schedule_time'] = array("elt",time());
+            $schedule_data = $schedule->where($map)->order("schedule_time asc")->find();
+            //print_r($schedule_data);die;
+            if(!empty($schedule_data)){
 
+                    if($schedule_data['id']){
+                        $lock['exec_lock'] = 1;
+                        $lock['exec_status'] = 1;
+                        $is_lock = $schedule->where('id='.$schedule_data['id'])->save($lock);//锁定当前任务
+                        if($is_lock){
+                            $res = $queque->executeQueue($schedule_data);//执行任务
+                        }
+                        if($res){
+                            $lock['exec_lock'] = 0;
+                            $lock['exec_status'] = 2;
+                            $schedule->where('id='.$schedule_data['id'])->save($lock);//解锁当前任务
+                            $schedule->commit();
+                        }else{
+                            $schedule->rollback();//回滚事务
+                        }
+
+                    }
+
+            }else{
+                $schedule->rollback();//回滚事务
+            }
+
+
+        }
+
+    }
 
 
 
