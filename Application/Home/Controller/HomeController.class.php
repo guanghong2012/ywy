@@ -117,6 +117,9 @@ class HomeController extends Controller {
                             'encoding' => $buy_config['encoding'],
 
                             //注册人信息
+                            'r_manager' => $domain_info['r_manager'],//法人代表姓名
+                            'r_industry' => $domain_info['r_industry'],//行业类型 现在统一为  S18
+
                             'r_organization' => $domain_info['r_organization'],
                             'r_organization1' => $domain_info['r_organization1'],
                             'r_name' => $domain_info['r_name'],
@@ -134,6 +137,9 @@ class HomeController extends Controller {
                             'r_fax' => $domain_info['r_fax'],
 
                             //管理联系人
+                            'a_manager' => $domain_info['r_manager'],//法人代表姓名
+                            'a_industry' => $domain_info['r_industry'],//行业类型 现在统一为  S18
+
                             'a_organization' => $domain_info['r_organization'],
                             'a_organization1' => $domain_info['r_organization1'],
                             'a_name' => $domain_info['r_name'],
@@ -151,6 +157,9 @@ class HomeController extends Controller {
                             'a_fax' => $domain_info['r_fax'],
 
                             //续费联系人
+                            'b_manager' => $domain_info['r_manager'],//法人代表姓名
+                            'b_industry' => $domain_info['r_industry'],//行业类型 现在统一为  S18
+
                             'b_organization' => $domain_info['r_organization'],
                             'b_organization1' => $domain_info['r_organization1'],
                             'b_name' => $domain_info['r_name'],
@@ -168,6 +177,9 @@ class HomeController extends Controller {
                             'b_fax' => $domain_info['r_fax'],
 
                             //技术联系人
+                            't_manager' => $domain_info['r_manager'],//法人代表姓名
+                            't_industry' => $domain_info['r_industry'],//行业类型 现在统一为  S18
+
                             't_organization' => $domain_info['r_organization'],
                             't_organization1' => $domain_info['r_organization1'],
                             't_name' => $domain_info['r_name'],
