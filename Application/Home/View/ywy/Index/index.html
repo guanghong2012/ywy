@@ -14,6 +14,14 @@
     <script src="__YWY__/js/SuperSlide/jquery.superslide.2.1.1.js"></script><!-- 切换 -->
 
     <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
+    <style>
+        .cuts{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 160px;
+        }
+    </style>
 </head>
 <body>
 <!-- 头部 -->
@@ -84,20 +92,20 @@
                             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="ta_1">
                                 <tr>
                                     <td width="65" align="center">CPU：</td>
-                                    <td align="center">{$vo.cpu}</td>
+                                    <td align="center"><div class="cuts">{$vo.cpu}</div></td>
                                 </tr>
                                 <tr>
                                     <td align="center">内存：</td>
-                                    <td align="center">{$vo.memory}</td>
+                                    <td align="center"><div class="cuts">{$vo.memory}</div></td>
                                 </tr>
                                 <tr>
                                     <td align="center">硬盘：</td>
-                                    <td align="center">{$vo.disk}</td>
+                                    <td align="center"><div class="cuts">{$vo.disk}</div></td>
                                 </tr>
 
                                 <tr>
                                     <td align="center" class="td_no">宽带：</td>
-                                    <td align="center" class="td_no">{$vo.bandwidth}</td>
+                                    <td align="center" class="td_no"><div class="cuts">{$vo.bandwidth}</div></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2" class="td_no td_1">
@@ -158,24 +166,24 @@
                             </div>
                             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="ta_1">
                                 <tr>
-                                    <td width="65" align="center">网页空间：</td>
-                                    <td align="center">{$vo.space}</td>
+                                    <td width="75" align="center">网页空间：</td>
+                                    <td align="center"><div class="cuts">{$vo.space}</div></td>
                                 </tr>
                                 <tr>
                                     <td align="center">网站流量：</td>
-                                    <td align="center">{$vo.flow}</td>
+                                    <td align="center"><div class="cuts">{$vo.flow}</div></td>
                                 </tr>
                                 <tr>
                                     <td align="center">同时在线：</td>
-                                    <td align="center">{$vo.online}</td>
+                                    <td align="center"><div class="cuts">{$vo.online}</div></td>
                                 </tr>
                                 <tr>
                                     <td align="center">邮局数：</td>
-                                    <td align="center">{$vo.mail_num}个</td>
+                                    <td align="center"><div class="cuts">{$vo.mail_num}个</div></td>
                                 </tr>
                                 <tr>
                                     <td align="center" class="td_no">操作系统：</td>
-                                    <td align="center" class="td_no">{$vo.system}</td>
+                                    <td align="center" class="td_no"><div class="cuts">{$vo.system}</div></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2" class="td_no td_1">

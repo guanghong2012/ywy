@@ -54,6 +54,11 @@
                         <th width="">到期时间</th>
                         <th width="">操作</th>
                     </tr>
+                    <empty name="list">
+                        <tr>
+                            <td colspan="10">暂无数据</td>
+                        </tr>
+                        <else />
                     <volist name="list" id="vo">
                         <tr>
                             <td>{$vo.id}</td>
@@ -70,7 +75,7 @@
                             </td>
                         </tr>
                     </volist>
-
+                    </empty>
                 </table>
                 <!--分页开始-->
                 {$page}

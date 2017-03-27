@@ -36,7 +36,11 @@
     <div class="w1200 sign_div_1">
         <div class="sign_div_fl">
             <div class="sign_div_ewm">
-                <img src="__YWY__/images/ewm_1.jpg" alt="">
+                <empty name="public_contact['wechact']">
+                    <img src="__YWY__/images/ewm_1.jpg" alt="">
+                    <else />
+                    <img src="{$public_contact.wechact|get_cover=###,'path'}" alt="">
+                </empty>
                 <p>扫一扫，关注亿维云网，随时随地获取产品最新资讯</p>
             </div>
         </div>

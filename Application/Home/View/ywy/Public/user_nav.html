@@ -4,35 +4,35 @@
         <li>
             <a href="{:U('Cuser/index')}"><div class="link"><i class="fa1 fa-1"></i>首页</div></a>
         </li>
-        <li>
+        <li <eq name="memu_account" value="1">class="open"</eq> >
             <div class="link"><i class="fa1 fa-2"></i>我的账户<i class="fa fa-chevron-down"></i></div>
-            <ul class="submenu">
-                <li><a href="{:U('Cuser/password')}">修改密码</a></li>
-                <li><a href="{:U('Cuser/profile')}">修改资料</a></li>
+            <ul class="submenu" <eq name="memu_account" value="1">style="overflow: hidden; display: block;" </eq> >
+                <li><a href="{:U('Cuser/password')}" <eq name="memu_pass_selected" value="1">style="background: #00aaef;color: #FFF;"</eq> >修改密码</a></li>
+                <li><a href="{:U('Cuser/profile')}" <eq name="memu_profile_selected" value="1">style="background: #00aaef;color: #FFF;"</eq> >修改资料</a></li>
             </ul>
         </li>
-        <li>
+        <li <eq name="memu_product" value="1">class="open"</eq> >
             <div class="link"><i class="fa1 fa-3"></i>我的产品<i class="fa fa-chevron-down"></i></div>
-            <ul class="submenu">
-                <li><a href="{:U('Cuser/userDomain')}">域名</a></li>
-                <li><a href="{:U('Cuser/userVitrual')}">虚拟主机</a></li>
-                <li><a href="{:U('Cuser/userMail')}">企业邮局</a></li>
-                <li><a href="{:U('Cuser/userTemplate')}">网站模板</a></li>
-                <li><a href="{:U('Cuser/userHost')}">弹性云主机</a></li>
-                <li><a href="{:U('Cuser/userPackagehost')}">套餐云主机</a></li>
+            <ul class="submenu" <eq name="memu_product" value="1">style="overflow: hidden; display: block;" </eq> >
+                <li><a href="{:U('Cuser/userDomain')}" <eq name="memu_domain_selected" value="1">style="background: #00aaef;color: #FFF;"</eq> >域名</a></li>
+                <li><a href="{:U('Cuser/userVitrual')}" <eq name="memu_vitrual_selected" value="1">style="background: #00aaef;color: #FFF;"</eq> >虚拟主机</a></li>
+                <li><a href="{:U('Cuser/userMail')}" <eq name="memu_mail_selected" value="1">style="background: #00aaef;color: #FFF;"</eq> >企业邮局</a></li>
+                <li><a href="{:U('Cuser/userTemplate')}" <eq name="memu_temp_selected" value="1">style="background: #00aaef;color: #FFF;"</eq> >网站模板</a></li>
+                <li><a href="{:U('Cuser/userHost')}" <eq name="memu_host_selected" value="1">style="background: #00aaef;color: #FFF;"</eq> >弹性云主机</a></li>
+                <li><a href="{:U('Cuser/userPackagehost')}" <eq name="memu_pack_selected" value="1">style="background: #00aaef;color: #FFF;"</eq> >套餐云主机</a></li>
             </ul>
         </li>
-        <li><div class="link"><i class="fa1 fa-4"></i>资金管理<i class="fa fa-chevron-down"></i></div>
-            <ul class="submenu">
-                <li><a href="{:U('Cuser/account_log')}">明细</a></li>
-                <li><a href="{:U('Cuser/withdraw_log')}">提现</a></li>
-                <li><a href="{:U('Cuser/charge_log')}">充值</a></li>
+        <li <eq name="menu_zijin" value="1">class="open"</eq> ><div class="link"><i class="fa1 fa-4"></i>资金管理<i class="fa fa-chevron-down"></i></div>
+            <ul class="submenu" <eq name="menu_zijin" value="1">style="overflow: hidden; display: block;" </eq> >
+                <li><a href="{:U('Cuser/account_log')}" <eq name="menu_mingxi" value="1">style="background: #00aaef;color: #FFF;"</eq> >明细</a></li>
+                <li><a href="{:U('Cuser/withdraw_log')}" <eq name="menu_tixian" value="1">style="background: #00aaef;color: #FFF;"</eq> >提现</a></li>
+                <li><a href="{:U('Cuser/charge_log')}" <eq name="menu_charge" value="1">style="background: #00aaef;color: #FFF;"</eq> >充值</a></li>
             </ul>
         </li>
-        <li><div class="link"><i class="fa1 fa-5"></i>工单<i class="fa fa-chevron-down"></i></div>
-            <ul class="submenu">
-                <li><a href="{:U('Cuser/userWorksheet')}">我的工单</a></li>
-                <li><a href="{:U('Cuser/createWorksheet')}">提交工单</a></li>
+        <li <eq name="menu_worksheet" value="1">class="open"</eq> ><div class="link"><i class="fa1 fa-5"></i>工单<i class="fa fa-chevron-down"></i></div>
+            <ul class="submenu" <eq name="menu_worksheet" value="1">style="overflow: hidden; display: block;" </eq> >
+                <li><a href="{:U('Cuser/userWorksheet')}" <eq name="menu_sheetlist" value="1">style="background: #00aaef;color: #FFF;"</eq> >我的工单</a></li>
+                <li><a href="{:U('Cuser/createWorksheet')}" <eq name="menu_creatework" value="1">style="background: #00aaef;color: #FFF;"</eq>>提交工单</a></li>
             </ul>
         </li>
     </ul>

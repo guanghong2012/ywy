@@ -19,7 +19,8 @@ class StationController extends HomeController{
         session('userurl',$_SERVER['REQUEST_URI']);//记录登录前的页面地址
         $pc = intval(I('get.pc')) ? intval(I('get.pc')) : 1;
         $cate_id = intval(I('get.cate_id'));
-        $color = I('get.color') ? I('get.color') : '#fe0000';
+        //$color = I('get.color') ? I('get.color') : '#fe0000';
+        $color = I('get.color') ? I('get.color') : '';
         //所有模板分类
         $all_temp_cate = D('StationCategory')->where('is_pc='.$pc)->order('level asc')->select();
         if(empty($cate_id)){
@@ -29,11 +30,13 @@ class StationController extends HomeController{
 
         $map = array();
         $map['cate_id'] = $cate_id;
-        $map['color'] = $color;
+        if(!empty($color)){
+            $map['color'] = $color;
+        }
 
         $count      = D('StationTemplate')->where($map)->count();// 查询满足要求的总记录数
 
-        $Page       = new \Think\Page2($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $Page       = new \Think\Page2($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
 // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $list = D('StationTemplate')->where($map)->order('level desc')->limit($Page->firstRow.','.$Page->listRows)->select();

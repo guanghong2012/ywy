@@ -197,6 +197,8 @@ class CuserController extends HomeController{
                 $this->error($res['info']);
             }
         }else{
+            $this->assign('memu_account',1);//左侧菜单打开状态
+            $this->assign('memu_pass_selected',1);//左侧菜单打开状态
 
             $this->display();
         }
@@ -318,6 +320,8 @@ class CuserController extends HomeController{
             }
             //print_r($_POST);
         }else{
+            $this->assign('memu_account',1);//左侧菜单打开状态
+            $this->assign('memu_profile_selected',1);//左侧菜单打开状态
 
             $this->assign('user',$info);
             $this->display();
@@ -357,6 +361,8 @@ class CuserController extends HomeController{
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
 
+        $this->assign("menu_zijin",1);//左侧菜单打开状态
+        $this->assign("menu_mingxi",1);//左侧菜单选中状态
         $this->assign('info',$info);
         $this->display();
     }
@@ -394,6 +400,8 @@ class CuserController extends HomeController{
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
 
+        $this->assign("menu_zijin",1);//左侧菜单打开状态
+        $this->assign("menu_charge",1);//左侧菜单选中状态
         $this->assign('info',$info);
         $this->display();
     }
@@ -434,6 +442,8 @@ class CuserController extends HomeController{
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
 
+        $this->assign("menu_zijin",1);//左侧菜单打开状态
+        $this->assign("menu_tixian",1);//左侧菜单选中状态
         $this->assign('info',$info);
         $this->display();
     }
@@ -460,6 +470,8 @@ class CuserController extends HomeController{
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
 
+        $this->assign('memu_product',1);//左侧菜单打开状态
+        $this->assign('memu_temp_selected',1);//左侧菜单打开状态
         $this->display();
     }
 
@@ -485,6 +497,9 @@ class CuserController extends HomeController{
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
 
+        $this->assign('memu_product',1);//左侧菜单打开状态
+        $this->assign('memu_domain_selected',1);//左侧菜单打开状态
+
         $this->display();
     }
     
@@ -497,6 +512,8 @@ class CuserController extends HomeController{
         !$id && $this->error("非法访问");
         $info = M('user_domain')->where('id='.$id)->find();
 
+        $this->assign('memu_product',1);//左侧菜单打开状态
+        $this->assign('memu_domain_selected',1);//左侧菜单打开状态
         $this->assign('info',$info);
         $this->display();
     }
@@ -523,6 +540,8 @@ class CuserController extends HomeController{
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
 
+        $this->assign('memu_product',1);//左侧菜单打开状态
+        $this->assign('memu_vitrual_selected',1);//左侧菜单打开状态
         $this->display();
     }
 
@@ -548,6 +567,8 @@ class CuserController extends HomeController{
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
 
+        $this->assign('memu_product',1);//左侧菜单打开状态
+        $this->assign('memu_mail_selected',1);//左侧菜单打开状态
         $this->display();
     }
     
@@ -573,6 +594,8 @@ class CuserController extends HomeController{
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
 
+        $this->assign('memu_product',1);//左侧菜单打开状态
+        $this->assign('memu_host_selected',1);//左侧菜单打开状态
         $this->display();
     }
     /*
@@ -597,6 +620,8 @@ class CuserController extends HomeController{
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
 
+        $this->assign('memu_product',1);//左侧菜单打开状态
+        $this->assign('memu_pack_selected',1);//左侧菜单打开状态
         $this->display();
     }
     
@@ -629,6 +654,8 @@ class CuserController extends HomeController{
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
 
+        $this->assign("menu_worksheet",1);//左侧菜单打开状态
+        $this->assign("menu_sheetlist",1);//左侧菜单选中状态
         $this->display();
     }
     /*
@@ -689,6 +716,8 @@ class CuserController extends HomeController{
 
 
         }else{
+            $this->assign("menu_worksheet",1);//左侧菜单打开状态
+            $this->assign("menu_creatework",1);//左侧菜单选中状态
             $this->display();
         }
     }
@@ -713,6 +742,9 @@ class CuserController extends HomeController{
         $this->assign("user",$user);
         $this->assign("info",$info);
         $this->assign("chact_list",$chact_list);
+
+        $this->assign("menu_worksheet",1);//左侧菜单打开状态
+        $this->assign("menu_sheetlist",1);//左侧菜单选中状态
         $this->display();
     }
 
@@ -773,7 +805,7 @@ class CuserController extends HomeController{
     public function forgetPass()
     {
         if(IS_POST){
-            $email = stripslashes(I('post.email'));
+            $email = stripslashes(trim(I('post.email')));
             $verify = I('post.verify');
             /* 检测验证码 */
             if(!check_verify($verify,1)){
@@ -793,9 +825,11 @@ class CuserController extends HomeController{
             $token = md5($check['id'].$check['email'].$check['password']);
             $url = 'http://'.$_SERVER['HTTP_HOST'].U('Cuser/setPass',array('email'=>$email,'token'=>$token));
 
-            $body = "亲爱的".$email."：<br/>您在".date('Y-m-d H:i:s')."提交了找回密码请求。请点击下面的链接重置密码（按钮24小时内有效）。<br/><a href='".$url."'target='_blank'>".$url."</a>";
+            $body = "亲爱的".$check['username']."：<br/>您在".date('Y-m-d H:i:s')."提交了找回密码请求。请点击下面的链接重置密码（按钮24小时内有效）。<br/><a href='".$url."'target='_blank'>".$url."</a>";
             //发送邮件
-            $send = send_mail($email,"亿维云-找回密码",$body);
+
+            $send = send_mail($email,$subject="亿维云找回密码",$body);
+
             if($send){
                 D('Cuser')->where('id='.$check['id'])->setField('getpasstime',$getpasstime);//更新数据发送时间
                 echo json_encode(array('status'=>1,"msg"=>'邮件发送成功',"url"=>U('Cuser/forgetPass')));
@@ -846,6 +880,9 @@ class CuserController extends HomeController{
         $id = (int)I('get.id');
         !$id && $this->error("非法访问！");
         $info = M('user_vitrual')->find($id);
+
+        $this->assign('memu_product',1);//左侧菜单打开状态
+        $this->assign('memu_vitrual_selected',1);//左侧菜单打开状态
         $this->assign('info',$info);
         $this->display();
     }
@@ -1250,7 +1287,7 @@ class CuserController extends HomeController{
     {
         if(IS_POST){
             $domain_id = (int)I('post.domain_id');
-            $password = (int)I('post.password');
+            $password = I('post.password');
             if(!$domain_id){
                 $this->error("非法操作！");
             }

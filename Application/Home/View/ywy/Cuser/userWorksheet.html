@@ -66,6 +66,11 @@
                         <th width="">状态</th>
                         <th width="">操作</th>
                     </tr>
+                    <empty name="list">
+                        <tr>
+                            <td colspan="5">暂无数据</td>
+                        </tr>
+                        <else />
                     <volist name="list" id="vo">
                     <tr>
                         <td>{$vo.order_sn}</td>
@@ -80,7 +85,7 @@
                         <td><a href="{:U('Cuser/workSheetInfo',array('id'=>$vo['id']))}">查看</a></td>
                     </tr>
                     </volist>
-
+                    </empty>
                 </table>
                 <!--分页开始-->
                 {$page}

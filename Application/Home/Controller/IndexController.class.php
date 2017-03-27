@@ -244,6 +244,18 @@ class IndexController extends HomeController {
         $this->assign("domains",$domains);
         $this->display();
     }
-    
+
+    //测试邮箱发送功能
+    public function testSendMail()
+    {
+        $email='develop11@qbt8.com';
+        $getpasstime = time();//密码找回验证时间戳
+        $token = '';
+        $url = 'http://'.$_SERVER['HTTP_HOST'].U('Cuser/setPass',array('email'=>$email,'token'=>$token));
+
+        $body = "亲爱的".$email."：<br/>您在".date('Y-m-d H:i:s')."提交了找回密码请求。请点击下面的链接重置密码（按钮24小时内有效）。<br/><a href='".$url."'target='_blank'>".$url."</a>";
+        $res = send_mail($email,$subject='亿维云测试邮件发送',$body);
+        var_dump($res);
+    }
 
 }

@@ -26,7 +26,9 @@
     <!-- 全局依赖插件 -->
     <link rel="stylesheet" href="__YWY__/server/css/layer.css" id="layui_layer_skinlayercss" style="">
     <link rel="stylesheet" href="__YWY__/server/css/west.css" type="text/css">
-
+    <style>
+        #J_configPriceDom .realprice{font-size: 24px;}
+    </style>
     <script>
         //预定义全局js变量
         var calculate_url = "{:U('Server/ajaxCalculatePrice')}";//ajax计算价格地址
@@ -283,23 +285,32 @@
                         <literal>
                         <script id="J_productonfigListContainerTpl" type="text/x-jsrender">
                         <li>
-                            <label class="">产品类型：</label><span class="">{{:productTypeDesc}}</span></li>
+                            <label class="">产品类型：</label><span class="">{{:productTypeDesc}}</span>
+                        </li>
                         <li>
-                            <label class="">CPU：</label><span class="">{{:cpuCount}}核</span></li>
+                            <label class="">CPU：</label><span class="">{{:cpuCount}}核</span>
+                        </li>
                         <li>
-                            <label class="">内存：</label><span class="">{{:ramCount}}G</span></li>
+                            <label class="">内存：</label><span class="">{{:ramCount}}G</span>
+                        </li>
                         <li>
-                            <label class="">硬盘：</label><span class="">{{:dataCount}}G</span></li>
+                            <label class="">硬盘：</label><span class="">{{:dataCount}}G</span>
+                        </li>
                         <li>
-                            <label class="">带宽：</label><span class="">{{:fluxCount}}Mbps</span></li>
+                            <label class="">带宽：</label><span class="">{{:fluxCount}}Mbps</span>
+                        </li>
                         <li>
-                            <label class="f-l">操作系统：</label><span class="" style="display:block;overflow:hidden">{{:CHOICE_OSDesc}}</span></li>
+                            <label class="f-l">操作系统：</label><span class="" style="display:block;overflow:hidden">{{:CHOICE_OSDesc}}</span>
+                        </li>
                         <li>
-                            <label class="">线路：</label><span class="">{{:roomDesc}}</span></li>
-
-                            <label class="">服务标准：</label><span class="">{{:servicetypeDesc}}</span></li>
+                            <label class="">线路：</label><span class="">{{:roomDesc}}</span>
+                        </li>
                         <li>
-                            <label class="">购买量：</label><span class="">{{:renewTimeDesc}}x {{:buycount}} 台</span></li>
+                            <label class="">服务标准：</label><span class="">{{:servicetypeDesc}}</span>
+                        </li>
+                        <li>
+                            <label class="">购买量：</label><span class="">{{:renewTimeDesc}}x {{:buycount}} 台</span>
+                        </li>
                         <li>
                             <label class=""style="color: #fe7402;">赠送时长：</label><span class="" style="color: #fe7402;font-weight: bold;">
 

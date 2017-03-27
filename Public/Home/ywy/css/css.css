@@ -106,6 +106,7 @@ body{
 a,li{ 
 	list-style:none; 
 	text-decoration:none;
+	color:#444;
 }
 b,em,i{ 
 	font-style:normal; 

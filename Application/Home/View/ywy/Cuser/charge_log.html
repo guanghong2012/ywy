@@ -69,6 +69,11 @@
                         <th width="33%">金额</th>
                         <th width="">说明</th>
                     </tr>
+                    <empty name="list">
+                        <tr>
+                            <td colspan="3">暂无数据</td>
+                        </tr>
+                        <else />
                     <volist name="list" id="vo">
                         <tr>
                             <td>{$vo.create_time|date='Y-m-d H:i:s',###}</td>
@@ -76,7 +81,7 @@
                             <td>{$vo.desc}</td>
                         </tr>
                     </volist>
-
+                    </empty>
 
                 </table>
                 <!--分页开始-->
